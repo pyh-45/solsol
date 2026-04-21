@@ -740,6 +740,41 @@ img { display: block; max-width: 100%; }
     background-image: url('../src/images/top-img-course.png');
 }
 
+.page-banner--live {
+    background-image: url('../src/images/top-img-live.png');
+}
+.page-banner--meeting {
+    background-image: url('../src/images/top-img-meeting.png');
+}
+.page-banner--package {
+    background-image: url('../src/images/top-img-package.png');
+}
+.page-banner--digital {
+    background-image: url('../src/images/top-img-digital.png');
+}
+
+/* 패키지 카드 - 할인 정보 (좌하단 절대위치) */
+.course-card__promo {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 4px;
+}
+.promo-label {
+    font-size: 13px;
+    color: #888888;
+    font-weight: 500;
+}
+.promo-percent {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
 .page-banner__inner {
     max-width: var(--container-width);
     width: 100%;
@@ -969,6 +1004,33 @@ h2 {
 
 .course-card__heart:hover { opacity: 0.75; }
 .course-card__heart img { width: 15px; height: 13px; }
+
+/* LIVE 배지 (썸네일 좌상단) */
+.course-card__live {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 30px;
+    padding: 0 15px;
+    background: var(--color-red);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    gap: 5px;
+}
+.course-card__live::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #FF0002;
+    border:1px solid #FFFFFF;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
 
 /* 마감 배지 */
 .course-card__closed {
