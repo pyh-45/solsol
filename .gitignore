@@ -1,0 +1,7 @@
+.claude/settings.local.json
+.vscode
+.DS_Store
+.idea
+.env
+*.log
+docs/
