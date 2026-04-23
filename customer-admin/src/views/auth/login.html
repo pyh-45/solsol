@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+<div class="auth-wrap">
+    <div class="auth-container">
+
+        <!-- 로고 -->
+        <div class="auth-logo">DJ테크트리</div>
+
+        <!-- 입력 영역 -->
+        <div class="auth-body">
+            <div class="auth-tabs">
+                <input type="radio" name="auth-role" id="role-teacher" value="teacher" class="auth-tab-radio" checked>
+                <label for="role-teacher" class="auth-tab">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                        <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    강사
+                </label>
+                <input type="radio" name="auth-role" id="role-manager" value="manager" class="auth-tab-radio">
+                <label for="role-manager" class="auth-tab">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                        <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    관리자
+                </label>
+            </div>
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-email">이메일</label>
+                <div class="auth-field">
+                    <img src="../../images/form-ico-mail.svg" width="16" height="16" alt="">
+                    <input type="email" id="auth-email" class="auth-field__input" placeholder="example@email.com">
+                </div>
+            </div>
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-password">비밀번호</label>
+                <div class="auth-field">
+                    <img src="../../images/form-ico-lock.svg" width="16" height="16" alt="">
+                    <input type="password" id="auth-password" class="auth-field__input" placeholder="비밀번호를 입력하세요">
+                    <button class="auth-field__eye">
+                        <img src="../../images/form-ico-eye.svg" width="16" height="16" alt="">
+                    </button>
+                </div>
+            </div>
+            <label class="auth-remember">
+                <input type="checkbox" class="c-check">
+                이메일 기억하기
+            </label>
+        </div>
+
+        <!-- 버튼 및 기타 -->
+        <div class="auth-footer">
+            <button class="auth-submit">로그인</button>
+            <hr class="auth-divider">
+            <p class="auth-help">비밀번호가 생각나지 않으신다면<a href="#">비밀번호 재설정</a></p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

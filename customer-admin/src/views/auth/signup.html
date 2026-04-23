@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+<div class="auth-wrap auth-wrap--sm">
+    <div class="auth-container">
+
+        <!-- 로고 -->
+        <div class="auth-logo">DJ테크트리</div>
+
+        <!-- 입력 영역 -->
+        <div class="auth-body">
+            <h2 class="auth-title">회원가입</h2>
+
+            <div class="auth-tabs">
+                <input type="radio" name="auth-role" id="role-teacher" value="teacher" class="auth-tab-radio" checked>
+                <label for="role-teacher" class="auth-tab">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                        <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    강사
+                </label>
+                <input type="radio" name="auth-role" id="role-manager" value="manager" class="auth-tab-radio">
+                <label for="role-manager" class="auth-tab">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                        <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    관리자
+                </label>
+            </div>
+
+            <!-- 성 / 이름 -->
+            <div class="auth-row">
+                <div class="auth-field-group">
+                    <label class="auth-field-label" for="auth-last-name">성 <span class="auth-required">*</span></label>
+                    <div class="auth-field auth-field--error">
+                        <input type="text" id="auth-last-name" class="auth-field__input" placeholder="성">
+                    </div>
+                    <p class="auth-field-error">필수 항목입니다</p>
+                </div>
+                <div class="auth-field-group">
+                    <label class="auth-field-label" for="auth-first-name">이름 <span class="auth-required">*</span></label>
+                    <div class="auth-field auth-field--error">
+                        <input type="text" id="auth-first-name" class="auth-field__input" placeholder="이름">
+                    </div>
+                    <p class="auth-field-error">필수 항목입니다</p>
+                </div>
+            </div>
+
+            <!-- 닉네임 -->
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-nickname">닉네임 <span class="auth-required">*</span></label>
+                <div class="auth-field">
+                    <input type="text" id="auth-nickname" class="auth-field__input" placeholder="닉네임을 입력하세요">
+                </div>
+                <p class="auth-field-hint">2~20자, 다른 사용자에게 표시되는 이름입니다</p>
+                <!--p class="auth-field-error">필수 항목입니다</p-->
+            </div>
+
+            <!-- 이메일 주소 -->
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-email">이메일 주소 <span class="auth-required">*</span></label>
+                <div class="auth-field-with-btn">
+                    <div class="auth-field">
+                        <input type="email" id="auth-email" class="auth-field__input" value="jihoon.kim@">
+                    </div>
+                    <button class="auth-inline-btn">인증코드 발송</button>
+                </div>
+            </div>
+
+            <!-- 인증코드 -->
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-code">인증코드 <span class="auth-required">*</span></label>
+                <div class="auth-field-with-btn">
+                    <div class="auth-field">
+                        <input type="text" id="auth-code" class="auth-field__input" value="000000">
+                    </div>
+                    <button class="auth-inline-btn auth-inline-btn--confirm">확인</button>
+                </div>
+                <!--p class="auth-field-error">인증코드를 다시 한 번 작성해주세요</p-->
+                <!--p class="auth-field-error">이메일 인증을 완료해 주세요</p-->
+            </div>
+
+            <!-- 비밀번호 -->
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-password">비밀번호 <span class="auth-required">*</span></label>
+                <div class="auth-field">
+                    <input type="password" id="auth-password" class="auth-field__input" value="1234">
+                    <button class="auth-field__eye">
+                        <img src="../../images/form-ico-eye.svg" width="16" height="16" alt="">
+                    </button>
+                </div>
+                <div class="auth-strength">
+                    <div class="auth-strength__bars">
+                        <div class="auth-strength__bar auth-strength__bar--on"></div>
+                        <!--div class="auth-strength__bar auth-strength__bar--weak"></div-->
+                        <div class="auth-strength__bar"></div>
+                        <div class="auth-strength__bar"></div>
+                        <div class="auth-strength__bar"></div>
+                    </div>
+                    <!--span class="auth-strength__label auth-strength__label--weak">약함</span-->
+                </div>
+                <!--p class="auth-field-hint">8~16자, 영문 대소문자·숫자·특수문자 조합 필수</p-->
+                <!--p class="auth-field-error">8~16자, 영문 대소문자·숫자·특수문자를 모두 포함해야 합니다</p-->
+            </div>
+
+            <!-- 비밀번호 확인 -->
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-password-confirm">비밀번호 확인 <span class="auth-required">*</span></label>
+                <div class="auth-field">
+                    <input type="password" id="auth-password-confirm" class="auth-field__input" value="5678">
+                    <button class="auth-field__eye">
+                        <img src="../../images/form-ico-eye.svg" width="16" height="16" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 약관 동의 -->
+        <hr class="auth-divider-bold">
+        <label class="auth-terms">
+            <input type="checkbox" class="c-check">
+            <span>{사이트명} 에서 정한 전체 약관에 동의합니다</span>
+        </label>
+        <hr class="auth-divider">
+
+        <!-- 버튼 및 기타 -->
+        <div class="auth-footer">
+            <button class="auth-submit">회원가입</button>
+            <p class="auth-help">이미 계정이 있으신가요? <a href="#">로그인 하기</a></p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
