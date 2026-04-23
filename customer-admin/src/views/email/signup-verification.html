@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인증코드 발송 메일</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+<div class="email-wrap">
+    <div class="email-container">
+
+        <!-- 1. 로고 영역 -->
+        <div class="email-section">
+            <div class="auth-logo">DJ테크트리</div>
+        </div>
+
+        <!-- 2. 제목 + 안내텍스트 영역 -->
+        <div class="email-section">
+            <h1 class="email-title">이메일</h1>
+            <div>
+                <p class="email-greeting"><strong>안녕하세요. {사이트명}입니다.</strong></p>
+                <p class="email-desc">
+                    회원가입을 위한 이메일 인증코드가 발급되었습니다.<br>
+                    아래 인증코드를 입력하여 이메일 인증을 완료해 주세요.
+                </p>
+            </div>
+        </div>
+        <hr class="auth-divider">
+        <!-- 3. 인증코드 + 안내 영역 -->
+        <div class="email-section">
+            <div class="email-code-row">
+                <div class="email-code-box">3</div>
+                <div class="email-code-box">5</div>
+                <div class="email-code-box">7</div>
+                <div class="email-code-box">6</div>
+                <div class="email-code-box">9</div>
+                <div class="email-code-box">0</div>
+            </div>
+            <p class="email-code-notice">위 인증코드가 <strong>이메일</strong>로 발송되었습니다.</p>
+            <div class="email-info-box">
+                <img src="../../images/ico-info-circle.svg" width="16" height="16" alt="" style="flex-shrink:0; margin-top:2px;">
+                <p class="email-info-text">
+                    <strong>인증코드는 발송 후 10분간 유효합니다.</strong><br>
+                    시간이 초과된 경우 인증코드 재발송을 요청해 주세요.
+                </p>
+            </div>
+        </div>
+        <hr class="auth-divider">
+        <!-- 4. 보안 안내 영역 -->
+        <div class="email-section">
+            <div class="email-security">
+                <p class="email-security__title">보안 안내</p>
+                <ul class="email-security__list">
+                    <li>인증코드를 타인에게 알려주지 마세요.</li>
+                    <li>본 메일을 요청하지 않으셨다면 즉시 관리자에게 알려 주세요.</li>
+                    <li>본 메일에 개인 정보 입력을 요구하는 내용은 포함되어 있지 않습니다.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

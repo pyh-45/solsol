@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 초대 메일</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+<div class="email-wrap">
+    <div class="email-container">
+
+        <!-- 1. 로고 영역 -->
+        <div class="email-section">
+            <div class="auth-logo">DJ테크트리</div>
+        </div>
+
+        <!-- 2. 안내텍스트 영역 -->
+        <div class="email-section">
+            <h1 class="email-title">{사이트명}<br>관리자 시스템으로 초대합니다.</h1>
+            <div>
+                <p class="email-greeting">{이메일주소}님, 환영합니다.</p>
+                <p class="email-desc">
+                    귀하를 <strong>{사이트명}</strong>의 새로운 <strong>{강사}</strong> 권한으로 초대하였습니다.<br>
+                    아래 <a href="#">[계정 설정]</a> 버튼을 클릭하여 본인 인증 후 비밀번호를 설정해 주세요.
+                </p>
+            </div>
+        </div>
+ 
+        <!-- 3. 초대정보 + 버튼 영역 -->
+        <div class="email-section">
+            <div class="email-invite-card">
+                <p class="email-invite-card__title">초대 정보</p>
+                <div class="email-invite-row">
+                    <div class="email-invite-col">
+                        <span class="email-invite-label">초대 권한</span>
+                        <span class="email-invite-badge">일반강사</span>
+                    </div>
+                    <div class="email-invite-col">
+                        <span class="email-invite-label">초대 일시</span>
+                        <span class="email-invite-value">2000.00.00 오전/오후 00:00</span>
+                    </div>
+                </div>
+                <div class="email-invite-row">
+                    <div class="email-invite-col">
+                        <span class="email-invite-label">수신 계정</span>
+                        <span class="email-invite-value">{이메일 주소}</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="email-btn">강사 회원가입</a>
+        </div>
+        <hr class="auth-divider">
+        <!-- 4. 시작 안내 영역 -->
+        <div class="email-section">
+            <div class="email-security">
+                <p class="email-security__title">시작 안내</p>
+                <ul class="email-security__list">
+                    <li>본 메일에 개인 정보 입력을 요구하는 내용은 포함되어 있지 않습니다.</li>
+                    <li>초대 수락 과정에서 문제가 발생하면 시스템 관리자(<a href="mailto:admin@djtechtree.com">admin@djtechtree.com</a>)에게 문의해 주세요.</li>
+                    <li>본 메일을 요청하지 않으셨다면 즉시 관리자에게 알려 주세요.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -36,6 +36,7 @@
 
     /* --- Text Colors --- */
     --text-link:        #027CFA;
+    --text-dark:        #222222;
     --text-primary:     #333333;
     --text-secondary:   #666666;
     --text-tertiary:    #AAAAAA;
@@ -1671,6 +1672,41 @@ tr:has(.c-check:checked) {
 .auth-strength__label { font-size: 11px; color: var(--text-tertiary); text-align: right; }
 .auth-strength__label--weak { color: var(--color-error); }
 .auth-terms { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #222;font-weight: 600;; cursor: pointer; }
+
+/* ==================== Email Template ==================== */
+.email-wrap { min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 60px 20px; background: var(--bg-white); }
+.email-container { width: 560px; background: #FFFFFF; border-radius: 12px; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+.email-section { display: flex; flex-direction: column; gap: 20px; }
+.email-title { font-size: 24px; font-weight: 700; color: var(--text-primary); line-height: 1.4; letter-spacing: -0.02em; }
+.email-greeting { font-size: 16px; font-weight: 600; color: var(--text-primary);margin:10px 0; }
+.email-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+.email-desc a { color: var(--color-primary); font-weight: 600; }
+.email-btn { display: flex; align-items: center; justify-content: center; height: 52px; background: var(--color-primary-light); color: #FFFFFF; border-radius: 6px; font-size: 16px; font-weight:600; letter-spacing: -0.02em; text-decoration: none; }
+.email-info-box { display: flex; align-items: flex-start; gap: 10px; background: #EBF5FF; border-radius: 8px; padding: 14px 16px; }
+.email-info-text { font-size: 13px; color: var(--color-primary); line-height: 1.5; }
+.email-fallback { display: flex; flex-direction: column; gap: 8px; }
+.email-fallback-label { font-size: 12px; color: var(--text-tertiary); }
+.email-url-box { background: #F4F5F7; border: 1px solid var(--border-color); border-radius: 6px; padding:16px; font-size: 12px; color: var(--text-primary); word-break: break-all; line-height: 1.5; }
+.email-security { background: #FFF; border:1px solid #D2D6E1; border-radius: 8px; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; }
+.email-security__title { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.email-security__list { list-style: disc; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
+.email-security__list li { font-size: 12px; color: var(--text-secondary); line-height: 1.2; }
+.email-security__list a { color: var(--color-primary); }
+
+/* --- Invite Card --- */
+.email-invite-card { background: #EEF3FA; border-radius: 10px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+.email-invite-card__title { font-size: 14px; font-weight: 700; color: var(--text-primary); text-align: center; padding-bottom: 14px; border-bottom: 1px solid #D0DCF0; }
+.email-invite-row { display: flex; align-items: center; gap: 12px; }
+.email-invite-col { display: flex; align-items: center; gap: 8px; }
+.email-invite-label { font-size: 12px; color: var(--text-tertiary); flex-shrink: 0; }
+.email-invite-value { font-size: 13px; color: var(--text-primary); }
+.email-invite-badge { display: flex; align-items: center; height: 24px;line-height:24px; padding: 6px 10px; border: 1px solid var(--color-primary-light); border-radius: 100px; font-size: 11px; color: var(--color-primary); background: #fff; }
+
+/* --- Verification Code --- */
+.email-code-row { display: flex; justify-content: center; gap:6px; }
+.email-code-box { padding: 13px 25px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 700; color: var(--text-dark); background: #F5F8FF; border: 1.5px solid var(--color-primary-light); border-radius: 10px; }
+.email-code-notice { font-size: 12px; color: var(--color-error); text-align: center;margin-top:-10px; }
+.email-code-notice strong { color: var(--color-error); font-weight: 600; }
 
 /* ==================== Responsive: Tablet (≤1024px) ==================== */
 @media (max-width: 1024px) {
