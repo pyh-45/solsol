@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 대시보드</title>
+    <link rel="stylesheet" href="../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <!-- 로고 영역 -->
+        <div class="admin-header__logo">
+            <img src="../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <!-- 페이지 타이틀 + 검색 -->
+        <div class="admin-header__center">
+            <span class="admin-header__page-title">학습자</span>
+            <div class="admin-header__search">
+                <img src="../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <!-- 오른쪽 영역 -->
+        <div class="admin-header__right">
+
+            <!-- 버튼 그룹 -->
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--dark">가이드</button>
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+
+            <!-- 아이콘 그룹 -->
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+
+            <!-- 사용자 -->
+            <div class="admin-header__user">
+                <div class="admin-header__avatar">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+            </div>
+
+        </div>
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB (좌측 메뉴) ===== -->
+        <aside class="admin-lnb">
+
+            <!-- 1:1 문의 관리 (단일 아이템) -->
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+            <!-- 두꺼운 구분선 -->
+            <div class="lnb-divider"></div>
+
+            <!-- 섹션 1: 대시보드 + 사용자 -->
+            <div class="lnb-section">
+
+                <!-- 대시보드 -->
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <!-- 사용자 (아코디언) -->
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item active">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 얇은 구분선 -->
+            <div class="lnb-divider lnb-divider--thin"></div>
+
+            <!-- 섹션 2: 상품·콘텐츠·판매·운영 -->
+            <div class="lnb-section">
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a> 
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 얇은 구분선 -->
+            <div class="lnb-divider lnb-divider--thin"></div>
+
+            <!-- 섹션 3: 마케팅·사이트·통계·정산·설정 -->
+            <div class="lnb-section">
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+            <!-- 얇은 구분선 -->
+            <div class="lnb-divider lnb-divider--thin"></div>
+            </div>
+
+            <!-- 하단 크레딧 -->
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+
+            <!-- 상단 타이틀 바 -->
+            <div class="admin-topbar">
+                <div class="admin-topbar__title">
+                    대시보드
+                </div>
+                <div class="admin-topbar__breadcrumb">
+                    <span>홈</span>
+                    <span class="sep">/</span>
+                    <span>대시보드</span>
+                </div>
+            </div>
+
+            <!-- 기능 버튼 바 -->
+            <div class="admin-toolbar">
+                <div class="admin-toolbar__left">
+                    <button class="btn btn--outline-gray btn--sm">검색</button>
+                </div>
+                <div class="admin-toolbar__right">
+                    <button class="btn btn--purple btn--sm">+ 등록</button>
+                </div>
+            </div>
+
+            <!-- 메인 작업 영역 -->
+            <div class="admin-body">
+
+                <!-- 요약 카드 4열 -->
+                <div class="admin-grid admin-grid--4">
+                    <div class="list-panel">
+                        <div class="list-panel__header">
+                            <span class="list-panel__title">총 회원</span>
+                        </div>
+                        <div class="h2-bold text-primary">1,240</div>
+                        <div class="b3 text-gray" style="margin-top:6px">전월 대비 +12%</div>
+                    </div>
+                    <div class="list-panel">
+                        <div class="list-panel__header">
+                            <span class="list-panel__title">오늘 주문</span>
+                        </div>
+                        <div class="h2-bold" style="color:var(--color-purple)">38</div>
+                        <div class="b3 text-gray" style="margin-top:6px">전일 대비 +5</div>
+                    </div>
+                    <div class="list-panel">
+                        <div class="list-panel__header">
+                            <span class="list-panel__title">이번달 매출</span>
+                        </div>
+                        <div class="h2-bold" style="color:var(--color-green)">₩4,820,000</div>
+                        <div class="b3 text-gray" style="margin-top:6px">전월 대비 +8%</div>
+                    </div>
+                    <div class="list-panel">
+                        <div class="list-panel__header">
+                            <span class="list-panel__title">미처리 문의</span>
+                        </div>
+                        <div class="h2-bold" style="color:var(--color-red)">7</div>
+                        <div class="b3 text-gray" style="margin-top:6px">답변 대기 중</div>
+                    </div>
+                </div>
+
+                <!-- 최근 주문 테이블 -->
+                <div class="list-panel">
+                    <div class="list-panel__header">
+                        <span class="list-panel__title">최근 주문</span>
+                        <button class="btn btn--outline-gray btn--sm">전체보기</button>
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>주문번호</th>
+                                    <th>상품명</th>
+                                    <th>구매자</th>
+                                    <th>금액</th>
+                                    <th>상태</th>
+                                    <th>주문일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#20240001</td>
+                                    <td>구글 제미나이 완전 정복</td>
+                                    <td>홍길동</td>
+                                    <td>100,000원</td>
+                                    <td><span class="badge badge--green">결제완료</span></td>
+                                    <td>2024.04.22</td>
+                                </tr>
+                                <tr>
+                                    <td>#20240002</td>
+                                    <td>AI 개발도구 완벽 가이드</td>
+                                    <td>김민준</td>
+                                    <td>80,000원</td>
+                                    <td><span class="badge badge--purple">진행중</span></td>
+                                    <td>2024.04.21</td>
+                                </tr>
+                                <tr>
+                                    <td>#20240003</td>
+                                    <td>파이썬 데이터 분석</td>
+                                    <td>이서연</td>
+                                    <td>60,000원</td>
+                                    <td><span class="badge badge--red">환불요청</span></td>
+                                    <td>2024.04.20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 플로팅 하단 바 -->
+            <div class="admin-float-bar">
+                <button class="btn btn--outline-gray">취소</button>
+                <button class="btn btn--purple">저장</button>
+            </div>
+
+        </main>
+
+    </div>
+
+
+<script>
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+</script>
+</body>
+</html>
