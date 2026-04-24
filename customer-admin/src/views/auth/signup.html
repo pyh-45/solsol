@@ -70,7 +70,7 @@
                     <div class="auth-field">
                         <input type="email" id="auth-email" class="auth-field__input" value="jihoon.kim@">
                     </div>
-                    <button class="auth-inline-btn">인증코드 발송</button>
+                    <button class="auth-inline-btn" onclick="document.getElementById('modal-email-verify').classList.remove('is-hidden')">인증코드 발송</button>
                 </div>
             </div>
 
@@ -132,8 +132,39 @@
 
         <!-- 버튼 및 기타 -->
         <div class="auth-footer">
-            <button class="auth-submit">회원가입</button>
+            <button class="btn big gray">회원가입</button>
             <p class="auth-help">이미 계정이 있으신가요? <a href="#">로그인 하기</a></p>
+        </div>
+
+    </div>
+</div>
+
+<!-- 인증 메일 발송 모달 -->
+<div class="c-modal-overlay is-hidden" id="modal-email-verify">
+    <div class="c-modal c-modal--gap20">
+
+        <!-- 로고 -->
+        <div class="c-modal__logo">DJ테크트리</div>
+
+        <!-- 내용 -->
+        <div class="c-modal__content">
+            <p class="c-modal__title">인증 메일을 발송했습니다.</p>
+            <p class="c-modal__desc"><strong>{강사/운영자 이메일 주소}</strong>로<br>인증코드를 포함한 이메일을 발송했습니다.<br>메일함을 확인하고 인증코드를 입력해 주세요.</p>
+            <hr class="auth-divider">
+            <ul class="c-modal__info-list">
+                <li>인증코드는 <strong>10분간</strong> 유효합니다. 시간 내에 입력해 주세요.</li>
+                <li>메일이 보이지 않는다면 <strong>스팸 메일함</strong>을 확인해 보세요.</li>
+                <li>발신 주소: <strong>{최종관리자 이메일}</strong></li>
+            </ul>
+            <div class="c-modal__timer">
+                <span class="c-modal__timer-label">남은 유효시간</span>
+                <span class="c-modal__timer-value">02:47</span>
+            </div>
+        </div>
+
+        <!-- 버튼 -->
+        <div class="c-modal__footer">
+            <button class="btn lg" onclick="document.getElementById('modal-email-verify').classList.add('is-hidden')">확인</button>
         </div>
 
     </div>
