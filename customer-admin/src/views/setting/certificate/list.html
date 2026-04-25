@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 수료증 템플릿 관리</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <span class="admin-header__page-title">수료증 템플릿 관리</span>
+                <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn nm border">내 정보</button>
+                        <button class="btn nm border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item active">수료증 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 인포 박스 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">
+                        수료증 발급 시 사용할 템플릿을 선택할 수 있습니다.
+                        <a href="#" style="color:var(--color-primary); margin-left:6px;">가이드보기</a>
+                    </span>
+                </div>
+
+                <!-- 템플릿 목록 패널 -->
+                <div class="list-panel">
+                    <div class="list-panel__header">
+                        <span class="list-panel__title">템플릿 목록</span>
+                        <div style="display:flex; gap:8px;">
+                            <div class="c-dropdown" style="width:140px;">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">등록일 최신순</span>
+                                    <img src="../../../images/ico-dropdown-arrow.svg" class="c-dropdown__arrow" width="10" height="10" alt="">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">등록일 최신순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">등록일 오래된순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">이름 가나다순</button>
+                                </div>
+                            </div>
+                            <div class="c-dropdown" style="width:100px;">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">30개씩</span>
+                                    <img src="../../../images/ico-dropdown-arrow.svg" class="c-dropdown__arrow" width="10" height="10" alt="">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">10개씩</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">20개씩</button>
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th style="min-width:100px;">유형</th>
+                                    <th style="min-width:300px;">템플릿명</th>
+                                    <th style="min-width:120px; text-align:center;">사용중인 상품 수</th>
+                                    <th style="min-width:100px; text-align:center;">활동상태</th>
+                                    <th style="min-width:100px; text-align:center;">미리보기</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>템플릿명 최대 글자 수는 최대100자내외이면 넘치지 않을거같습니다템플릿명 최대 글자 수는 최대 100자내외이면 넘치지 않을거같습니다</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--active">활성</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--inactive">비활성</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--left">탈퇴</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--active">활성</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--active">활성</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--active">활성</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--inactive">비활성</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--left">탈퇴</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--left">탈퇴</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#" style="color:var(--color-primary);">기본형(1)</a></td>
+                                    <td>일반강의 수료 템플릿</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;"><span class="status-chip status-chip--inactive">비활성</span></td>
+                                    <td style="text-align:center;">
+                                        <button class="btn sm border" style="display:inline-flex; align-items:center; gap:4px;">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5C4 2.5 1.5 7 1.5 7C1.5 7 4 11.5 7 11.5C10 11.5 12.5 7 12.5 7C12.5 7 10 2.5 7 2.5Z" stroke="#BFBFBF" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#BFBFBF" stroke-width="1.2"/></svg>
+                                            미리보기
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 페이지네이션 -->
+                    <div class="pagination" style="padding: 20px 0 4px;">
+                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
+                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                        <button class="pagination__btn active">1</button>
+                        <button class="pagination__btn">2</button>
+                        <button class="pagination__btn">3</button>
+                        <button class="pagination__btn">4</button>
+                        <button class="pagination__btn">5</button>
+                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+                        <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+<script>
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(t => t.classList.remove('open'));
+        }
+    });
+
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+</script>
+
+</body>
+</html>
