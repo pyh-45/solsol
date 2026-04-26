@@ -1579,11 +1579,20 @@ textarea.form-control {
 .detail-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 30px; }
 .detail-form__field { display: flex; flex-direction: column; gap: 6px; }
 .detail-form__field--full { grid-column: 1 / -1; }
-.detail-form__label { font-size: 12px; color: var(--text-secondary); }
+.detail-form__label { font-size: 12px;line-height:1.5; color: var(--text-secondary); }
 .detail-form__input-box { padding: 10px 14px; border: 1px solid #EFEFEF; border-radius: 6px; font-size: 14px; color: #222; background: #FAFAFA; }
-.detail-form__text { font-size: 14px; color: #222; padding: 2px 0; }
-.detail-form__email-row { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #EFEFEF; border-radius: 6px; background: #FAFAFA; }
+.detail-form__input { width: 100%; height: 40px; padding: 0 14px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 14px; color: var(--text-primary); font-family: inherit; outline: none; box-sizing: border-box; }
+.detail-form__input:focus { border-color: var(--color-primary); }
+.detail-form__text { font-size: 14px;line-height:1.5; color: #222; padding: 2px 0; }
+.detail-form__email-row { display: flex; align-items: center; gap:16px; padding: 4px 0; }
+.detail-form__email-row .detail-form__email-addr { font-size: 14px; color: var(--text-primary); }
 .detail-form__sns-icons { display: flex; gap: 4px; align-items: center; }
+
+/* FAB 고정버튼 */
+.c-fab { position: fixed; bottom: 30px; right: 30px; display: inline-flex; align-items: center; justify-content: center; gap: 0; background: #4B4B4B; color: #fff; border: none; border-radius: 100px; width: 44px; height: 44px; padding: 0; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 100; white-space: nowrap; overflow: hidden; transition: background-color 0.25s ease, width 0.3s ease, gap 0.3s ease, padding 0.3s ease; }
+.c-fab:hover { background-color: var(--color-primary); width: auto; padding: 0 20px; gap: 6px; }
+.c-fab__text { font-size: 14px; font-weight: 600; max-width: 0; overflow: hidden; opacity: 0; transition: max-width 0.3s ease, opacity 0.2s ease; }
+.c-fab:hover .c-fab__text { max-width: 60px; opacity: 1; }
 
 /* ==================== Table Checkbox ==================== */
 .table-check {

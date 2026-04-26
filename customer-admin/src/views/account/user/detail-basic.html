@@ -249,6 +249,12 @@
         <main class="admin-content">
             <div class="admin-body">
 
+                <!-- 상단 안내 -->
+                <div class="admin-infotip" style="margin-bottom:16px;">
+                    <span class="admin-infotip__icon">i</span>
+                    이 페이지는 '일반강의', '라이브강의', '화상강의' 상품 정보만 노출됩니다.
+                </div>
+
                 <!-- 프로필 박스 -->
                 <div class="detail-profile">
                     <div class="detail-profile__top">
@@ -287,12 +293,17 @@
                     </div>
                 </div>
 
+                <!-- 변경사항 저장 버튼 -->
+                <div class="setting-action-bar">
+                    <button class="btn lg dark">변경사항 저장</button>
+                </div>
+
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
                     <button class="detail-tab__item active">기본 정보</button>
                     <button class="detail-tab__item">학습 이력</button>
                     <button class="detail-tab__item">구매 이력</button>
-                    <button class="detail-tab__item">활동 로그</button>
+                    <button class="detail-tab__item">활동 이력</button>
                     <button class="detail-tab__item">발송 이력</button>
                 </nav>
 
@@ -306,35 +317,36 @@
 
                             <div class="detail-form__field">
                                 <span class="detail-form__label">닉네임</span>
-                                <div class="detail-form__input-box">민준쌤</div>
+                                <input type="text" class="detail-form__input" value="민준쌤">
                             </div>
 
                             <div class="detail-form__field">
                                 <span class="detail-form__label">이름</span>
-                                <div class="detail-form__input-box">김민준</div>
+                                <input type="text" class="detail-form__input" value="김민준">
                             </div>
 
                             <div class="detail-form__field">
                                 <span class="detail-form__label">연락처</span>
-                                <div class="detail-form__input-box">010-0000-0000</div>
+                                <input type="text" class="detail-form__input" value="010-0000-0000">
                             </div>
 
                             <div class="detail-form__field">
                                 <span class="detail-form__label">이메일</span>
                                 <div class="detail-form__email-row">
                                     <div class="detail-form__sns-icons">
-                                        <img src="../../../images/ico-google.svg" width="20" height="20" alt="Google">
-                                        <img src="../../../images/ico-naver.svg" width="20" height="20" alt="Naver">
-                                        <img src="../../../images/ico-kakao.svg" width="20" height="20" alt="Kakao">
-                                        <img src="../../../images/ico-apple.svg" width="20" height="20" alt="Apple">
+                                        <img src="../../../images/ico-google.png" width="20" height="20" alt="Google">
+                                        <img src="../../../images/ico-apple.png" width="20" height="20" alt="Apple">
+                                        <img src="../../../images/ico-kakao.png" width="20" height="20" alt="Kakao">
+                                        <img src="../../../images/ico-naver.png" width="20" height="20" alt="Naver">
                                     </div>
-                                    <span style="font-size:14px; color:#222;">minjun.kim@example.com</span>
+                                    <span class="detail-form__email-addr">minjun.kim@example.com</span>
+                                    <button class="btn sm border">비밀번호 재설정</button>
                                 </div>
                             </div>
 
                             <div class="detail-form__field detail-form__field--full">
                                 <span class="detail-form__label">가입일</span>
-                                <span class="detail-form__text">2024.01.15 오전 09:32</span>
+                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
                             </div>
 
                         </div>
@@ -346,22 +358,22 @@
                         <div class="detail-form__grid">
 
                             <div class="detail-form__field">
-                                <span class="detail-form__label">멤버십</span>
+                                <span class="detail-form__label">등급</span>
                                 <span class="detail-form__text">
-                                    <a href="#" style="color:var(--color-primary); text-decoration:none;">아이한잔</a>
+                                    <span class="grade-tag">최대값글자수제한은열두다섯정도</span>
                                 </span>
                             </div>
 
                             <div class="detail-form__field">
                                 <span class="detail-form__label">상태</span>
                                 <span class="detail-form__text">
-                                    <span class="profile-badge profile-badge--active">활성</span>
+                                    <span class="status-chip status-chip--active">활성</span>
                                 </span>
                             </div>
 
                             <div class="detail-form__field">
                                 <span class="detail-form__label">마지막 로그인</span>
-                                <span class="detail-form__text">2024.12.20 오후 03:15</span>
+                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
                             </div>
 
                             <div class="detail-form__field">
@@ -372,19 +384,41 @@
                         </div>
                     </div>
 
-                    <!-- 광고성 수신 동의 -->
+                    <!-- 알림 설정 -->
                     <div class="detail-form__section">
-                        <h3 class="detail-form__section-title">광고성 수신 동의</h3>
+                        <h3 class="detail-form__section-title">알림 설정</h3>
                         <div class="detail-form__grid">
 
                             <div class="detail-form__field">
-                                <span class="detail-form__label">이메일</span>
-                                <span class="detail-form__text">동의</span>
+                                <span class="detail-form__label">이메일 알림</span>
+                                <label class="c-toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="c-toggle__slider"></span>
+                                </label>
                             </div>
 
                             <div class="detail-form__field">
-                                <span class="detail-form__label">SMS</span>
-                                <span class="detail-form__text">거부</span>
+                                <span class="detail-form__label">SMS 알림</span>
+                                <label class="c-toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="c-toggle__slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">알림톡</span>
+                                <label class="c-toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="c-toggle__slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">마케팅 정보 수신</span>
+                                <label class="c-toggle">
+                                    <input type="checkbox">
+                                    <span class="c-toggle__slider"></span>
+                                </label>
                             </div>
 
                         </div>
@@ -394,6 +428,12 @@
 
             </div>
         </main>
+
+        <!-- 고정 메모 버튼 -->
+        <button class="c-fab">
+            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
+            <span class="c-fab__text">메모</span>
+        </button>
 
     </div>
 
