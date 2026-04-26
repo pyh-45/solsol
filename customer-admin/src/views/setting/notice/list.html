@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 공지 목록</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <span class="admin-header__page-title">학습자</span>
+                <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn nm border">내 정보</button>
+                        <button class="btn nm border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료증 템플릿</a>
+                        <a href="#" class="lnb-sub-item active">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 인포 박스 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">관리자 및 강사에게 공지 메시지를 전달할 수 있습니다. 등록한 알림은 로그인 시 전체 화면 모달로 노출되며, 중요한 안내사항 전달에 활용할 수 있습니다.</span>
+                    <a href="#" class="admin-infotip__link">가이드보기</a>
+                </div>
+
+                <!-- 공지 목록 패널 -->
+                <div class="list-panel">
+                    <div class="list-panel__header">
+                        <span class="list-panel__title">공지 목록</span>
+                        <button class="btn lg primary" style="display:inline-flex; align-items:center; gap:6px;">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.84202 3.6254L3.36868 9.41874C3.16202 9.63874 2.96202 10.0721 2.92202 10.3721L2.67535 12.5321C2.58868 13.3121 3.14868 13.8454 3.92202 13.7121L6.06868 13.3454C6.36868 13.2921 6.78868 13.0721 6.99535 12.8454L12.4687 7.05207C13.4154 6.05207 13.842 4.91207 12.3687 3.51874C10.902 2.13874 9.78868 2.6254 8.84202 3.6254Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.92871 4.5918C8.21538 6.4318 9.70871 7.83846 11.562 8.02513" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            공지글쓰기
+                        </button>
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <colgroup>
+                                <col style="width:52px;">
+                                <col style="width:90px;">
+                                <col>
+                                <col style="width:130px;">
+                                <col style="width:130px;">
+                                <col style="width:210px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)"></th>
+                                    <th style="text-align:center;">중요도</th>
+                                    <th style="text-align:left;">제목</th>
+                                    <th>노출대상</th>
+                                    <th>확인/대상 수</th>
+                                    <th>등록일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td style="text-align:center;"><span class="importance-badge importance-badge--lg">중요</span></td>
+                                    <td style="text-align:left;"><svg style="vertical-align:middle; margin-right:4px; flex-shrink:0;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.63737 12.6378L6.00004 10.0004L3.36271 7.36311C3.28572 7.28604 3.2288 7.19127 3.19692 7.0871C3.16503 6.98294 3.15916 6.87254 3.17982 6.76558C3.20047 6.65862 3.24703 6.55835 3.3154 6.47355C3.38378 6.38874 3.47189 6.32198 3.57204 6.27911L7.07937 4.77578C7.15991 4.74131 7.23287 4.6913 7.29407 4.62861C7.35527 4.56592 7.40351 4.49179 7.43604 4.41045L8.29137 2.27245C8.33235 2.17007 8.39808 2.07946 8.48268 2.00873C8.56727 1.938 8.66809 1.88936 8.7761 1.86716C8.88411 1.84497 8.99594 1.84991 9.10158 1.88155C9.20721 1.91318 9.30335 1.97053 9.38137 2.04845L13.952 6.61911C14.03 6.69714 14.0873 6.79328 14.1189 6.89891C14.1506 7.00454 14.1555 7.11637 14.1333 7.22438C14.1111 7.3324 14.0625 7.43321 13.9918 7.51781C13.921 7.60241 13.8304 7.66814 13.728 7.70911L11.59 8.56445C11.5087 8.59698 11.4346 8.64522 11.3719 8.70642C11.3092 8.76762 11.2592 8.84057 11.2247 8.92111L9.72137 12.4284C9.6785 12.5286 9.61175 12.6167 9.52694 12.6851C9.44213 12.7535 9.34186 12.8 9.2349 12.8207C9.12794 12.8413 9.01755 12.8355 8.91338 12.8036C8.80922 12.7717 8.71445 12.7148 8.63737 12.6378Z" fill="#027CFA"/><path d="M2.66675 13.3338L6.00008 10.0004M6.00008 10.0004L8.63742 12.6378C8.71449 12.7148 8.80926 12.7717 8.91342 12.8036C9.01759 12.8355 9.12798 12.8413 9.23495 12.8207C9.34191 12.8 9.44218 12.7535 9.52698 12.6851C9.61179 12.6167 9.67855 12.5286 9.72141 12.4284L11.2247 8.92111C11.2592 8.84057 11.3092 8.76762 11.3719 8.70642C11.4346 8.64522 11.5087 8.59698 11.5901 8.56445L13.7281 7.70911C13.8305 7.66814 13.9211 7.60241 13.9918 7.51781C14.0625 7.43322 14.1112 7.3324 14.1334 7.22438C14.1556 7.11637 14.1506 7.00454 14.119 6.89891C14.0873 6.79328 14.03 6.69714 13.9521 6.61911L9.38141 2.04845C9.30339 1.97053 9.20725 1.91318 9.10162 1.88155C8.99599 1.84991 8.88416 1.84497 8.77614 1.86716C8.66813 1.88936 8.56731 1.938 8.48272 2.00873C8.39812 2.07946 8.33239 2.17007 8.29142 2.27245L7.43608 4.41045C7.40355 4.49179 7.35531 4.56592 7.29411 4.62861C7.23291 4.6913 7.15995 4.74131 7.07942 4.77578L3.57208 6.27911C3.47193 6.32198 3.38382 6.38874 3.31544 6.47355C3.24707 6.55835 3.20051 6.65862 3.17986 6.76558C3.1592 6.87254 3.16507 6.98294 3.19696 7.0871C3.22884 7.19127 3.28576 7.28604 3.36275 7.36311L6.00008 10.0004Z" stroke="#027CFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>운영 정책 변상품 구성 변경 안내경 안내</td>
+                                    <td>관리자</td>
+                                    <td>2 <span style="color:#A0A0A0;">/ 8</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">관리자 기능 업데이트 안내</td>
+                                    <td>강사</td>
+                                    <td>20 <span style="color:#A0A0A0;">/ 20</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td style="text-align:center;"><span class="importance-badge importance-badge--lg">중요</span></td>
+                                    <td style="text-align:left;">운영 정책 변경 안내</td>
+                                    <td>전체</td>
+                                    <td>27 <span style="color:#A0A0A0;">/ 28</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">운영 정책 변경 안내</td>
+                                    <td>전체</td>
+                                    <td>4 <span style="color:#A0A0A0;">/ 4</span></td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">운영 정책 변경 안내</td>
+                                    <td>소멸</td>
+                                    <td>4 <span style="color:#A0A0A0;">/ 4</span></td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">운영 정책 변상품 구성 변경 안내경 안내</td>
+                                    <td>관리자</td>
+                                    <td>2 <span style="color:#A0A0A0;">/ 8</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">관리자 기능 업데이트 안내</td>
+                                    <td>닉네임 외 3명</td>
+                                    <td>20 <span style="color:#A0A0A0;">/ 20</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">운영 정책 변상품 구성 변경 안내경 안내</td>
+                                    <td>관리자</td>
+                                    <td>2 <span style="color:#A0A0A0;">/ 8</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">운영 정책 변경 안내</td>
+                                    <td>전체</td>
+                                    <td>4 <span style="color:#A0A0A0;">/ 4</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td></td>
+                                    <td style="text-align:left;">관리자 기능 업데이트 안내</td>
+                                    <td>강사</td>
+                                    <td>20 <span style="color:#A0A0A0;">/ 20</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 페이지네이션 -->
+                    <div class="pagination" style="margin-top:24px;">
+                        <button class="pagination__btn disabled">
+                            <img src="../../../images/paging-arrow10.svg" alt="처음" width="16" height="16" style="transform:rotate(180deg);">
+                        </button>
+                        <button class="pagination__btn disabled">
+                            <img src="../../../images/paging-arrow.svg" alt="이전" width="16" height="16" style="transform:rotate(180deg);">
+                        </button>
+                        <button class="pagination__btn active">1</button>
+                        <button class="pagination__btn">2</button>
+                        <button class="pagination__btn">3</button>
+                        <button class="pagination__btn">4</button>
+                        <button class="pagination__btn">5</button>
+                        <button class="pagination__btn">
+                            <img src="../../../images/paging-arrow.svg" alt="다음" width="16" height="16">
+                        </button>
+                        <button class="pagination__btn">
+                            <img src="../../../images/paging-arrow10.svg" alt="마지막" width="16" height="16">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ===== 하단 벌크 액션 바 ===== -->
+    <div class="c-bulk-bar hidden" id="bulkBar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+            <span class="c-bulk-bar__text" id="bulkText">0개 공지 선택됨</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn">복사</button>
+            <button class="c-bulk-bar__btn">삭제</button>
+        </div>
+    </div>
+
+<script>
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+
+    function onRowCheck() {
+        const checks = document.querySelectorAll('.row-check');
+        const checked = [...checks].filter(c => c.checked);
+        const bulkBar = document.getElementById('bulkBar');
+        const bulkText = document.getElementById('bulkText');
+
+        if (checked.length > 0) {
+            bulkText.textContent = checked.length + '개 공지 선택됨';
+            bulkBar.classList.remove('hidden');
+        } else {
+            bulkBar.classList.add('hidden');
+        }
+
+        document.getElementById('checkAll').indeterminate = checked.length > 0 && checked.length < checks.length;
+        document.getElementById('checkAll').checked = checked.length === checks.length;
+    }
+
+    function toggleAll(checkbox) {
+        document.querySelectorAll('.row-check').forEach(c => c.checked = checkbox.checked);
+        onRowCheck();
+    }
+
+    function closeBulkBar() {
+        document.querySelectorAll('.row-check, #checkAll').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
+    }
+</script>
+
+</body>
+</html>
