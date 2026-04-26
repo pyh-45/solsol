@@ -752,6 +752,13 @@ ul, ol { list-style: none; }
 
 /* 공지 상세 */
 .notice-detail__top { display:flex; align-items:center; gap:10px; padding-bottom:16px; border-bottom:1px solid var(--border-color); margin-bottom:20px; }
+.notice-detail__meta { display:flex; align-items:center; gap:16px; padding-bottom:16px; border-bottom:1px solid var(--border-color); margin-bottom:20px; }
+.notice-detail__meta-author { display:flex; align-items:center; gap:8px; }
+.notice-detail__meta-author span { font-size:13px; color:var(--text-primary); }
+.notice-detail__meta-item { display:inline-flex; align-items:center; gap:4px; font-size:13px; color:var(--text-secondary); }
+.notice-detail__category { font-size:13px; font-weight:600; color:var(--color-blue); margin-bottom:8px; }
+.notice-detail__title { font-size:22px; font-weight:700; color:var(--text-primary); line-height:1.5; margin-bottom:16px; }
+.notice-detail__content { background:#fff; border:1px solid var(--border-color); border-radius:8px; padding:24px; min-height:400px; font-size:14px; line-height:1.8; color:var(--text-primary); }
 
 /* 플로팅 하단 바 */
 .admin-float-bar {
