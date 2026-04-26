@@ -432,7 +432,7 @@ ul, ol { list-style: none; }
 .admin-lnb::-webkit-scrollbar-thumb { background: #E0E0E0; border-radius: 4px; }
 
 /* 사이트 바로가기 */
-.lnb-shortcut { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0 20px 12px; height: 40px; border: 1.5px solid var(--color-primary-light); border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--color-primary); background: transparent; text-decoration: none; cursor: pointer; transition: background 0.15s; }
+.lnb-shortcut { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0 20px 12px; height: 40px; border: 1.5px solid var(--color-primary); border-radius: 8px; font-size: 13px; font-weight: 600; color: var(--color-blue); background: transparent; text-decoration: none; cursor: pointer; transition: background 0.15s; }
 .lnb-shortcut:hover { background: rgba(2, 124, 250, 0.05); }
 .lnb-shortcut img { filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(1200%) hue-rotate(200deg) brightness(102%) contrast(102%); }
 
