@@ -88,6 +88,7 @@
     --tag-normal-color:     #337EFE;
     --tag-live-color:       #F52A02;
     --tag-video-color:      #4700D6;
+    --tag-digital-color:    #F59500;
 
     /* --- Activity State --- */
     --activity-active-bg:    #FFEAEA;
@@ -926,6 +927,7 @@ textarea.form-control {
 }
 
 .admin-table td:nth-child(2) { text-align: left; }
+.td-sub { font-size: 13px; color: var(--color-dark); }
 
 .admin-table tr:hover td { background: var(--bg-hover); }
 
@@ -1893,9 +1895,10 @@ tr:has(.c-check:checked) {
     white-space: nowrap;
     flex-shrink: 0;
 }
-.product-tag--normal { border-color: var(--tag-normal-color); color: var(--tag-normal-color); }
-.product-tag--live   { border-color: var(--tag-live-color);   color: var(--tag-live-color); }
-.product-tag--video  { border-color: var(--tag-video-color);  color: var(--tag-video-color); }
+.product-tag--normal   { border-color: var(--tag-normal-color);   color: var(--tag-normal-color); }
+.product-tag--live     { border-color: var(--tag-live-color);     color: var(--tag-live-color); }
+.product-tag--video    { border-color: var(--tag-video-color);    color: var(--tag-video-color); }
+.product-tag--digital  { border-color: var(--tag-digital-color);  color: var(--tag-digital-color); }
 
 /* 학습 상태 / 수강 상태 칩 추가 변형 */
 .status-chip--outline-green  { background: transparent; border: 1px solid var(--color-green); color: var(--color-green); }
@@ -1910,6 +1913,8 @@ tr:has(.c-check:checked) {
 
 /* 상품명 셀 */
 .product-name-cell { display: flex; align-items: center; gap: 5px; }
+.star-rating { display:inline-flex; align-items:center; gap:1px; }
+.star-rating__score { font-size:12px; color:var(--text-secondary); margin-left:3px; }
 .product-name-cell__text { font-size: 13px; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
 
 /* ==================== Utility ==================== */
@@ -2358,4 +2363,57 @@ tr:has(.c-check:checked) {
 .credit-value { display:inline-flex; align-items:center; gap:5px; font-weight:600; font-size:14px; }
 .credit-value--plus { color:#F55F02; }
 .credit-value--minus { color:var(--color-blue); }
+
+/* ==================== 크레딧 충전 ==================== */
+.two-col-layout { display:flex; gap:16px; align-items:flex-start; }
+.two-col-layout__col { flex:1; min-width:0; }
+.panel-title { font-size:20px; font-weight:700; color:var(--text-primary); margin: 0 -24px 20px; padding: 0 24px 16px; border-bottom:1px solid #E0E0E0; }
+
+.credit-charge__balance { display:flex; align-items:center; justify-content:space-between; padding:24px 30px; background:#F5F6FA; border-radius:8px; margin-bottom:16px; }
+.credit-charge__balance-label { font-size:14px; color:var(--text-dark); }
+.credit-charge__balance-value { font-size:24px; font-weight:700; color:var(--text-dark);line-height:-1px; display:flex; align-items:center; gap:4px; }
+.credit-coin { display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; background:var(--color-primary); color:#fff; font-size:11px; font-weight:700; }
+
+.credit-option-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:20px; }
+.credit-option { display:flex; justify-content: space-between; align-items:center; gap:4px; padding:22px 20px; border:none; border-radius:8px; background:#fff; cursor:pointer; transition:box-shadow 0.15s, background 0.15s; box-shadow:inset 0 0 0 1px var(--border-color); }
+.credit-option:hover { box-shadow:inset 0 0 0 2px var(--color-primary), 0 2px 8px 0 rgba(0,0,0,0.06); }
+.credit-option--active { box-shadow:inset 0 0 0 2px var(--color-primary), 0 2px 8px 0 rgba(0,0,0,0.06); background:#F0F4FF; }
+.credit-option__amount { font-size:20px; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:4px;line-height: -2px; }
+.credit-option__bonus { font-size:12px; font-weight:600; color:var(--color-blue); }
+
+.credit-charge__summary { display:flex; align-items:center; justify-content:space-between; padding-top:16px; border-top:1px solid var(--border-color); }
+.credit-charge__summary-label { font-size:14px; color:var(--text-secondary); }
+.credit-charge__summary-vat { font-size:12px; color:var(--text-muted); }
+.credit-charge__summary-right { display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
+.credit-charge__summary-service { font-size:12px; color:var(--text-secondary); }
+.credit-charge__summary-amount { font-size:28px; font-weight:700; color:var(--color-red); line-height:1; }
+.credit-charge__summary-unit { font-size:16px; font-weight:400; }
+
+.payment-row { display:flex; align-items:flex-start; gap:16px; margin-bottom:14px; }
+.payment-row__label { font-size:14px; font-weight:600; color:var(--text-primary); white-space:nowrap; padding-top:2px; min-width:60px; }
+.payment-card-list { display:flex; flex-direction:column; gap:8px; flex:1; }
+.payment-card { display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border-color); border-radius:8px; cursor:pointer; background:#fff; transition:border-color 0.15s; }
+.payment-card--selected { border-color:var(--color-primary); background:#F0F4FF; }
+.payment-card__radio-input { display:none; }
+.payment-card__check { width:20px; height:20px; border-radius:50%; border:2px solid #BFBFBF; flex-shrink:0; }
+.payment-card__check--on { border-color:var(--color-primary); background:var(--color-primary); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:center; }
+.payment-card__thumb { width:56px; height:36px; border-radius:4px; flex-shrink:0; object-fit:cover; }
+.payment-card__info { display:flex; flex-direction:column; gap:2px; }
+.payment-card__name { font-size:14px; font-weight:600; color:var(--text-primary); }
+.payment-card__number { font-size:12px; color:var(--text-secondary); }
+
+.payment-no-card { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text-secondary); padding-top:2px; }
+.payment-add-card { display:block; width:100%; padding:11px; border:1px dashed var(--border-color); border-radius:8px; background:#fff; font-size:14px; color:var(--text-secondary); text-align:center; cursor:pointer; margin-bottom:14px; transition:border-color 0.15s, color 0.15s; }
+.payment-add-card:hover { border-color:var(--color-primary); color:var(--color-primary); }
+.payment-agree { display:flex; align-items:center; gap:8px; margin-bottom:12px; cursor:pointer; }
+.payment-agree__input { width:16px; height:16px; accent-color:var(--color-primary); cursor:pointer; }
+.payment-agree__text { font-size:13px; color:var(--text-secondary); }
+.payment-submit { display:block; width:100%; height:48px; border:none; border-radius:8px; background:var(--color-primary); color:#fff; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.15s; }
+.payment-submit:disabled { background:#C8C8C8; cursor:not-allowed; }
+.payment-submit:not(:disabled):hover { background:var(--color-blue); }
+
+.credit-charge-notice { margin-top:20px; padding:20px 24px; background:#F9F9F9; border-radius:8px; }
+.credit-charge-notice__title { font-size:14px; font-weight:700; color:var(--text-primary); margin-bottom:10px; }
+.credit-charge-notice__list { padding-left:4px; margin:0; list-style:none; display:flex; flex-direction:column; gap:6px; }
+.credit-charge-notice__list li { font-size:13px; color:var(--text-secondary); line-height:1.6; }
 

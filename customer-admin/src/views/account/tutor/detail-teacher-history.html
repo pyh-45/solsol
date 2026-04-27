@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 기본 정보</title>
+    <title>Admin - 강의 이력</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -250,12 +250,6 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 상단 안내 -->
-                <div class="admin-infotip" style="margin-bottom:16px;">
-                    <span class="admin-infotip__icon">i</span>
-                    이 페이지는 '일반강의', '라이브강의', '화상강의' 상품 정보만 노출됩니다.
-                </div>
-
                 <!-- 프로필 박스 -->
                 <div class="detail-profile">
                     <div class="detail-profile__top">
@@ -293,105 +287,119 @@
                     </div>
                 </div>
 
-                <!-- 변경사항 저장 버튼 -->
-                <div class="setting-action-bar">
-                    <button class="btn lg border">권한설정</button>
-                    <button class="btn lg dark">변경사항 저장</button>
-                </div>
-
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
-                    <button class="detail-tab__item active">기본 정보</button>
+                    <button class="detail-tab__item">기본 정보</button>
                     <button class="detail-tab__item">강사 정보</button>
                     <button class="detail-tab__item">정산 정보</button>
-                    <button class="detail-tab__item">강의 이력</button>
+                    <button class="detail-tab__item active">강의 이력</button>
                     <button class="detail-tab__item">활동 로그</button>
                 </nav>
 
-                <!-- 기본 정보 폼 -->
+                <!-- 강의 이력 테이블 -->
                 <div class="list-panel">
-
-                    <!-- 개인 정보 -->
-                    <div class="detail-form__section">
-                        <h3 class="detail-form__section-title">개인 정보</h3>
-                        <div class="detail-form__grid">
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">닉네임</span>
-                                <input type="text" class="detail-form__input" value="민준쌤">
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">이름</span>
-                                <input type="text" class="detail-form__input" value="김민준">
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">연락처</span>
-                                <input type="text" class="detail-form__input" value="010-0000-0000">
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">이메일</span>
-                                <div class="detail-form__email-row">
-                                    <span class="detail-form__email-addr">minjun.kim@example.com</span>
-                                    <button class="btn sm border">비밀번호 재설정</button>
-                                </div>
-                            </div>
-
-                            <div class="detail-form__field detail-form__field--full">
-                                <span class="detail-form__label">가입일</span>
-                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
-                            </div>
-
-                        </div>
+                    <div class="list-panel__header">
+                        <span class="list-panel__title">강의 이력</span>
                     </div>
 
-                    <!-- 계정 정보 -->
-                    <div class="detail-form__section">
-                        <h3 class="detail-form__section-title">계정 정보</h3>
-                        <div class="detail-form__grid">
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th style="min-width:220px">강좌명</th>
+                                    <th style="min-width:160px">등록일</th>
+                                    <th style="min-width:180px">강의 기간</th>
+                                    <th style="min-width:110px">활성 수강자수</th>
+                                    <th style="min-width:110px">총 수강자수</th>
+                                    <th style="min-width:140px">평균 별점</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                            <div class="detail-form__field detail-form__field--full">
-                                <span class="detail-form__label">상태</span>
-                                <span class="detail-form__text">
-                                    <span class="status-chip status-chip--active">활성</span>
-                                </span>
-                            </div>
+                                <!-- Row 1 -->
+                                <tr>
+                                    <td>
+                                        <div class="product-name-cell">
+                                            <span class="product-tag product-tag--normal">일반</span>
+                                            <span class="product-name-cell__text">React 마스터 클래스</span>
+                                        </div>
+                                    </td>
+                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
+                                    <td class="td-sub">2000.00.00 ~ 2000.00.00</td>
+                                    <td style="text-align:center;">45명</td>
+                                    <td style="text-align:center;">90명</td>
+                                    <td>
+                                        <div class="star-rating">
+                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
+                                            <span class="star-rating__score">(8.5점)</span>
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">마지막 로그인</span>
-                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
-                            </div>
+                                <!-- Row 2 -->
+                                <tr>
+                                    <td>
+                                        <div class="product-name-cell">
+                                            <span class="product-tag product-tag--digital">디지털</span>
+                                            <span class="product-name-cell__text">Python 데이터 분석 입문</span>
+                                        </div>
+                                    </td>
+                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
+                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">32명</td>
+                                    <td style="text-align:center;">60명</td>
+                                    <td>
+                                        <div class="star-rating">
+                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
+                                            <span class="star-rating__score">(9.2점)</span>
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">로그인 횟수</span>
-                                <span class="detail-form__text">42회</span>
-                            </div>
+                                <!-- Row 3 -->
+                                <tr>
+                                    <td>
+                                        <div class="product-name-cell">
+                                            <span class="product-tag product-tag--live">라이브</span>
+                                            <span class="product-name-cell__text">JavaScript ES6 완벽 가이드</span>
+                                        </div>
+                                    </td>
+                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
+                                    <td style="font-size:12px; color:var(--text-secondary); text-align:center;">무제한</td>
+                                    <td style="text-align:center;">24명</td>
+                                    <td style="text-align:center;">50명</td>
+                                    <td>
+                                        <div class="star-rating">
+                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
+                                            <span class="star-rating__score">(8.2점)</span>
+                                        </div>
+                                    </td>
+                                </tr>
 
-                        </div>
+                                <!-- Row 4 -->
+                                <tr>
+                                    <td>
+                                        <div class="product-name-cell">
+                                            <span class="product-tag product-tag--video">화상</span>
+                                            <span class="product-name-cell__text">JavaScript ES6 완벽 가이드</span>
+                                        </div>
+                                    </td>
+                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
+                                    <td style="font-size:12px; color:var(--text-secondary); text-align:center;">만료</td>
+                                    <td style="text-align:center;">28명</td>
+                                    <td style="text-align:center;">50명</td>
+                                    <td>
+                                        <div class="star-rating">
+                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
+                                            <span class="star-rating__score">(8.2점)</span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
                     </div>
 
-                    <!-- 권한 -->
-                    <div class="detail-form__section">
-                        <h3 class="detail-form__section-title">권한</h3>
-                        <div class="detail-form__grid">
-                            <div class="detail-form__field detail-form__field--full">
-                                <ul class="detail-form__permission-list">
-                                    <li>· 사용자관리 &gt; 학습자</li>
-                                    <li>· 사용자관리 &gt; 강사</li>
-                                    <li>· 강좌관리 &gt; 강좌 목록</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- 하단 버튼 -->
-                <div class="panel-action-bar">
-                    <button class="btn lg border-primary">권한설정</button>
-                    <button class="btn lg">변경사항 저장</button>
                 </div>
 
             </div>
