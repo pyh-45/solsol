@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 학습자 목록</title>
+    <title>Admin - 강사 목록</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="admin-header__center">
-            <span class="admin-header__page-title">학습자</span>
+            <span class="admin-header__page-title">강사</span>
             <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
             <div class="admin-header__search">
                 <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
@@ -279,77 +279,41 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">멤버십 조회</span>
-                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">아아한잔</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">커피챗한번</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">손편지한장</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">밥한끼먹자</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">유형별 조회</span>
-                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">일반</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">숏링크</button>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="btn nm primary">초대하기</button>
                     </div>
                 </div>
 
                 <!-- 통계 카드 -->
-                <div class="admin-grid admin-grid--4" style="margin-top:-5px;     ">
+                <div class="admin-grid admin-grid--3">
 
                     <div class="stat-card stat-card--simple">
-                        <span class="stat-card__trend stat-card__trend--up">↑ 12.5%</span>
                         <div class="stat-card__body">
-                            <span class="stat-card__label">총 학습자</span>
+                            <span class="stat-card__label">총 강사</span>
                             <span class="stat-card__value">1,247</span>
                         </div>
                     </div>
 
                     <div class="stat-card stat-card--simple">
-                        <span class="stat-card__trend stat-card__trend--up">↑ 8.3%</span>
                         <div class="stat-card__body">
-                            <span class="stat-card__label">활성 학습자</span>
+                            <span class="stat-card__label">활성 강사수</span>
                             <span class="stat-card__value">892</span>
                         </div>
                     </div>
 
                     <div class="stat-card stat-card--simple">
-                        <span class="stat-card__trend stat-card__trend--up">↑ 5.2%</span>
                         <div class="stat-card__body">
-                            <span class="stat-card__label">평균 진행률</span>
-                            <span class="stat-card__value">69%</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card stat-card--simple">
-                        <span class="stat-card__trend stat-card__trend--down">↓ 3.1%</span>
-                        <div class="stat-card__body">
-                            <span class="stat-card__label">이번 달 신규</span>
-                            <span class="stat-card__value">24</span>
+                            <span class="stat-card__label">비활성 강사수</span>
+                            <span class="stat-card__value">355</span>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- 학습자 목록 테이블 -->
+                <!-- 강사 목록 테이블 -->
                 <div class="list-panel">
 
                     <div class="list-panel__header">
-                        <span class="list-panel__title">학습자 목록</span>
+                        <span class="list-panel__title">강사 목록</span>
                         <div class="c-dropdown c-dropdown--ghost">
                             <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
                                 <span class="c-dropdown__label">정렬</span>
@@ -370,310 +334,102 @@
                                     <th class="th-check">
                                         <input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)">
                                     </th>
-                                    <th style="min-width:160px">학습자</th>
-                                    <th style="min-width:180px">이메일</th>
+                                    <th style="min-width:160px">강사명</th>
+                                    <th style="min-width:180px; text-align:center">이메일</th>
                                     <th style="min-width:120px">연락처</th>
-                                    <th style="min-width:120px">등급</th>
-                                    <th style="min-width:90px">가입유형</th>
-                                    <th style="min-width:70px">소셜유형</th>
                                     <th style="min-width:140px">가입일시</th>
-                                    <th style="min-width:80px">구매수(개)</th>
-                                    <th style="min-width:130px">평균 진도율</th>
+                                    <th style="min-width:80px">강좌수</th>
+                                    <th style="min-width:130px">활성/총 수강생수</th>
                                     <th style="min-width:80px">상태</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 manager"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--manager">관리자</span>
-                                                    alpha_user_kr
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="email-cell">
-                                            <span class="role-badge role-badge--first">최초</span>
-                                            minjun.kim@example.com25...
-                                        </div>
-                                    </td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
+                                    <td style="text-align:center"><div class="email-cell" style="justify-content:center"><span class="role-badge role-badge--first">최초</span>minjun.kim@example.com25...</div></td>
                                     <td>010-1234-567</td>
-                                    <td><span class="grade-tag">최대값글자수제한은열두다섯정도</span></td>
-                                    <td>
-                                        <span class="join-tag join-tag--normal">
-                                            <img src="../../../images/ico-badge-join.svg" width="12" height="12" alt="">
-                                            일반
-                                        </span>
-                                    </td>
-                                    <td>G</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>3</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:85%"></div></div>
-                                            <span class="progress-bar__text">85%</span>
-                                        </div>
-                                    </td>
+                                    <td>12</td>
+                                    <td style="font-size:13px;">145 / 300</td>
                                     <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 sub-teacher"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--sub">서브강사</span>
-                                                    vintage_auto
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>seoyeon.lee@example.com2...</td>
-                                    <td>-</td>
-                                    <td><span class="grade-tag">아이한잔</span></td>
-                                    <td>
-                                        <span class="join-tag join-tag--shortlink">
-                                            <img src="../../../images/ico-badge-shortlink.svg" width="12" height="12" alt="">
-                                            숏링크
-                                        </span>
-                                    </td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 sub-teacher"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--sub">서브강사</span>vintage_auto</div></div></div></td>
+                                    <td style="text-align:center">seoyeon.lee@example.com2...</td>
                                     <td>-</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>5</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:50%"></div></div>
-                                            <span class="progress-bar__text">50%</span>
-                                        </div>
-                                    </td>
+                                    <td style="font-size:13px;">88 / 120</td>
                                     <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 basic"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--instructor">강사</span>
-                                                    닉네임
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>jihoon.park@example.com</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 basic"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--instructor">강사</span>닉네임</div></div></div></td>
+                                    <td style="text-align:center">jihoon.park@example.com</td>
                                     <td>010-1234-567</td>
-                                    <td><span class="grade-tag">커피챗한번</span></td>
-                                    <td>
-                                        <span class="join-tag join-tag--shortlink">
-                                            <img src="../../../images/ico-badge-shortlink.svg" width="12" height="12" alt="">
-                                            숏링크
-                                        </span>
-                                    </td>
-                                    <td>N</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>2</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:90%"></div></div>
-                                            <span class="progress-bar__text">90%</span>
-                                        </div>
-                                    </td>
+                                    <td>8</td>
+                                    <td style="font-size:13px;">32 / 95</td>
                                     <td><span class="status-chip status-chip--left">탈퇴</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 sub-teacher"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--sub">서브강사</span>
-                                                    vintage_auto
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>seoyeon.lee@example.com</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 sub-teacher"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--sub">서브강사</span>vintage_auto</div></div></div></td>
+                                    <td style="text-align:center">seoyeon.lee@example.com</td>
                                     <td>010-1234-567</td>
-                                    <td><span class="grade-tag">커피챗한번</span></td>
-                                    <td>
-                                        <span class="join-tag join-tag--normal">
-                                            <img src="../../../images/ico-badge-join.svg" width="12" height="12" alt="">
-                                            일반
-                                        </span>
-                                    </td>
-                                    <td>-</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>4</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:45%"></div></div>
-                                            <span class="progress-bar__text">45%</span>
-                                        </div>
-                                    </td>
+                                    <td style="font-size:13px;">210 / 450</td>
                                     <td><span class="status-chip status-chip--inactive">비활성</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 manager"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--manager">관리자</span>
-                                                    alpha_user_kr
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="email-cell">
-                                            <span class="role-badge role-badge--first">최초</span>
-                                            jihoon.park@example.com
-                                        </div>
-                                    </td>
-                                    <td>-</td>
-                                    <td><span class="grade-tag">손편지한장도괜찮아?</span></td>
-                                    <td>
-                                        <span class="join-tag join-tag--shortlink">
-                                            <img src="../../../images/ico-badge-shortlink.svg" width="12" height="12" alt="">
-                                            숏링크
-                                        </span>
-                                    </td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
+                                    <td style="text-align:center"><div class="email-cell" style="justify-content:center"><span class="role-badge role-badge--first">최초</span>jihoon.park@example.com</div></td>
                                     <td>-</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>1</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:20%"></div></div>
-                                            <span class="progress-bar__text">20%</span>
-                                        </div>
-                                    </td>
+                                    <td style="font-size:13px;">67 / 80</td>
                                     <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--learner">학습자</span>
-                                                    닉네임
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>seoyeon.lee@example.com2...</td>
-                                    <td>-</td>
-                                    <td><span class="grade-tag">아이한잔</span></td>
-                                    <td>-</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 learner"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--learner">학습자</span>닉네임</div></div></div></td>
+                                    <td style="text-align:center">seoyeon.lee@example.com2...</td>
                                     <td>-</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>5</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:60%"></div></div>
-                                            <span class="progress-bar__text">60%</span>
-                                        </div>
-                                    </td>
+                                    <td style="font-size:13px;">19 / 55</td>
                                     <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 manager"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--manager">관리자</span>
-                                                    alpha_user_kr
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>seoyeon.lee@example.com</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
+                                    <td style="text-align:center">seoyeon.lee@example.com</td>
                                     <td>010-1234-567</td>
-                                    <td><span class="grade-tag">커피챗한번</span></td>
-                                    <td>
-                                        <span class="join-tag join-tag--normal">
-                                            <img src="../../../images/ico-badge-join.svg" width="12" height="12" alt="">
-                                            일반
-                                        </span>
-                                    </td>
-                                    <td>-</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>4</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:75%"></div></div>
-                                            <span class="progress-bar__text">75%</span>
-                                        </div>
-                                    </td>
+                                    <td style="font-size:13px;">301 / 520</td>
                                     <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 sub-teacher"></div>
-                                            <div class="user-cell__info">
-                                                <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--sub">서브강사</span>
-                                                    닉네임
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>jihoon.park@example.com</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 sub-teacher"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--sub">서브강사</span>닉네임</div></div></div></td>
+                                    <td style="text-align:center">jihoon.park@example.com</td>
                                     <td>010-1234-567</td>
-                                    <td><span class="grade-tag">커피챗한번</span></td>
-                                    <td>
-                                        <span class="join-tag join-tag--shortlink">
-                                            <img src="../../../images/ico-badge-shortlink.svg" width="12" height="12" alt="">
-                                            숏링크
-                                        </span>
-                                    </td>
-                                    <td>N</td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>2</td>
-                                    <td>
-                                        <div class="progress-cell">
-                                            <div class="progress-bar"><div class="progress-bar__fill" style="width:35%"></div></div>
-                                            <span class="progress-bar__text">35%</span>
-                                        </div>
-                                    </td>
+                                    <td style="font-size:13px;">44 / 110</td>
                                     <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
@@ -696,6 +452,57 @@
 
                 </div>
 
+                <!-- 강사 목록 테이블 2 -->
+                <div class="list-panel">
+
+                    <div class="list-panel__header">
+                        <span class="list-panel__title">강사 목록</span>
+                        <div class="c-dropdown c-dropdown--ghost">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label">정렬</span>
+                                <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                <button class="c-dropdown__item active" onclick="selectItem(this)">구매순</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">등급순</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">가입순</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th class="th-check">
+                                        <input type="checkbox" class="table-check" id="checkAll2" onchange="toggleAll(this)">
+                                    </th>
+                                    <th style="min-width:160px">강사명</th>
+                                    <th style="min-width:180px; text-align:center">이메일</th>
+                                    <th style="min-width:120px">연락처</th>
+                                    <th style="min-width:140px">가입일시</th>
+                                    <th style="min-width:80px">강좌수</th>
+                                    <th style="min-width:130px">활성/총 수강생수</th>
+                                    <th style="min-width:80px">상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
+                                    <td style="text-align:center"><div class="email-cell" style="justify-content:center"><span class="role-badge role-badge--first">최초</span>minjun.kim@example.com25...</div></td>
+                                    <td>010-1234-567</td>
+                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
+                                    <td>12</td>
+                                    <td style="font-size:13px;">145 / 300</td>
+                                    <td><span class="status-chip status-chip--active">활성</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
             </div>
 
         </main>
@@ -711,6 +518,7 @@
         <div class="c-bulk-bar__actions">
             <button class="c-bulk-bar__btn">활성</button>
             <button class="c-bulk-bar__btn">중지</button>
+            <button class="c-bulk-bar__btn">권한설정</button>
             <button class="c-bulk-bar__btn">탈퇴</button>
         </div>
     </div>
@@ -784,12 +592,6 @@
         document.getElementById('bulkBar').classList.add('hidden');
     }
 </script>
-
-        <!-- 고정 메모 버튼 -->
-        <button class="c-fab">
-            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
-            <span class="c-fab__text">메모</span>
-        </button>
 
 </body>
 </html>
