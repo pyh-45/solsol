@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 기본정보</title>
+    <title>Admin - 콘텐츠 라이브러리</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -19,7 +19,10 @@
 
         <div class="admin-header__center">
             <div class="admin-header__nav">
-                <span class="admin-header__page-title">기본정보</span>
+                <button class="admin-header__back">
+                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">상세페이지</span>
                 <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -120,14 +123,14 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion">
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
                         <span class="lnb-accordion__label">콘텐츠 관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                        <a href="#" class="lnb-sub-item active">콘텐츠 라이브러리</a>
                     </div>
                 </div>
 
@@ -214,14 +217,14 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
                         <span class="lnb-accordion__label">설정</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item active">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
                         <a href="#" class="lnb-sub-item">플레이어</a>
                         <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
                         <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
@@ -246,117 +249,136 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 인포 박스 -->
-                <div class="admin-infotip">
+                <!-- 상단 안내 -->
+                <div class="admin-infotip" style="margin-bottom:16px;">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">사이트 운영과 정산, 문의 응대에 사용되는 기본 정보를 설정합니다.</span>
+                    일반 강의에 사용될 동영상은 AI 튜터 및 자막 설정을 지원합니다. <a href="#" style="color:var(--color-primary); text-decoration:none; font-weight:500;">가이드보기</a>
                 </div>
 
-                <!-- 변경사항 저장 버튼 -->
+                <!-- 액션 바 -->
                 <div class="setting-action-bar">
-                    <button class="btn lg dark">변경사항 저장</button>
+                    <button class="btn nm border">삭제</button>
+                    <button class="btn nm dark">변경사항 저장</button>
                 </div>
 
-                <!-- 사이트 정보 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">사이트 정보</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>사이트명</th>
-                                <td>
-                                    <span class="setting-table__text">DJ 테크트리</span>
-                                    <span class="setting-table__desc">사이트 전반에 노출되는 이름입니다.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>사이트 URL</th>
-                                <td>
-                                    <div class="setting-table__url-row">
-                                        <span class="setting-table__text">https://admin-creatorlms</span>
-                                        <button class="btn md border">도메인 설정</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>사이트 설명</th>
-                                <td>
-                                    <div class="setting-table__textarea-wrap">
-                                        <textarea class="setting-table__textarea" placeholder="운영에 필요한 사이트 정보를 자유롭게 작성해 주세요."></textarea>
-                                        <span class="setting-table__counter"><strong>0</strong>/500</span>
-                                    </div>
-                                    <span class="setting-table__desc">사이트의 용도, 주요 대상, 운영 시 참고사항 등을 자유롭게 작성해 주세요.</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item active">기본 정보</button>
+                    <button class="detail-tab__item">AI 튜터</button>
+                    <button class="detail-tab__item">AI 번역</button>
+                    <button class="detail-tab__item">사용현황</button>
+                </nav>
 
-                <!-- 사업자 정보 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">사업자 정보</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>회사명</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="회사명을 입력해 주세요.">
-                                    <span class="setting-table__desc">사업자 등록 기준의 회사명을 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>대표자명</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="대표자명을 입력해 주세요.">
-                                    <span class="setting-table__desc">사업자 등록증에 기재된 대표자명을 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>사업자등록번호</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="사업자등록번호를 입력해 주세요. (예: 123-45-67890)">
-                                    <span class="setting-table__desc">사업자 등록번호를 정확히 입력해 주세요. 정산 및 운영에 사용됩니다.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>통신판매업 신고번호</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="통신판매업 신고번호를 입력해 주세요. (해당 시)">
-                                    <span class="setting-table__desc">전자상거래 관련 법적 고지에 사용됩니다.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>사업장 주소</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="상세 주소를 입력해 주세요.">
-                                    <span class="setting-table__desc">사업자 등록 기준의 사업장 주소를 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <!-- 콘텐츠 정보 폼 -->
+                <div class="list-panel list-panel--p30">
+                    <div class="detail-form__section">
+                        <h3 class="detail-form__section-title">콘텐츠 정보</h3>
+                        <div class="detail-form__grid">
 
-                <!-- 담당자 정보 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">담당자 정보</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>담당자 이메일</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="담당자 이메일을 입력해 주세요.">
-                                    <span class="setting-table__desc">실제 업무를 담당하는 담당자 이메일을 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>담당자 번호</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="연락처를 입력해 주세요. (예: 010-1234-5678)">
-                                    <span class="setting-table__desc">문의 및 운영 연락에 사용되는 번호를 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <!-- 콘텐츠소명 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">콘텐츠소명</span>
+                                <div class="input-with-counter">
+                                    <input type="text" class="detail-form__input" value="React Hooks 완벽 가이드.mp4">
+                                    <span class="input-with-counter__count">3/15</span>
+                                </div>
+                                <p style="font-size:12px; color:var(--text-secondary); margin:0;">변경할 콘텐츠명을 입력해 주세요. 파일 확장자는 그대로 유지됩니다.</p>
+                            </div>
+
+                            <!-- 등록일시 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">등록일시</span>
+                                <p class="detail-form__text">2000.00.00 오전/오후 00:00</p>
+                            </div>
+
+                            <!-- 유형 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">유형</span>
+                                <p class="detail-form__text">동영상</p>
+                            </div>
+
+                            <!-- 파일 크기 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">파일 크기</span>
+                                <p class="detail-form__text">12.0 MB</p>
+                            </div>
+
+                            <!-- 활성상태 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">활성상태</span>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <span class="status-chip status-chip--active">활성</span>
+                                    <button class="btn xs border">비활성 처리</button>
+                                </div>
+                            </div>
+
+                            <!-- 폴더 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">폴더</span>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <button class="btn sm border">폴더 선택</button>
+                                    <a href="#" class="content-folder-link">파이썬</a>
+                                </div>
+                            </div>
+
+                            <!-- 자막 -->
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">자막</span>
+                                <div>
+                                    <button class="btn sm border">파일 업로드</button>
+                                    <table class="subtitle-table">
+                                        <colgroup>
+                                            <col style="width:48px;">
+                                            <col>
+                                            <col style="width:110px;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th><input type="checkbox" class="subtitle-table__check"></th>
+                                                <th>파일명</th>
+                                                <th>자막편집</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox" class="subtitle-table__check" checked></td>
+                                                <td>
+                                                    <span class="subtitle-table__filename">
+                                                        <img src="../../../images/form-ico-lock.svg" width="16" height="16" alt="">
+                                                        강의_자막_ko.vtt
+                                                    </span>
+                                                </td>
+                                                <td><button class="btn xs border">자막 편집</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                                <td>
+                                                    <span class="subtitle-table__filename">
+                                                        <img src="../../../images/form-ico-lock.svg" width="16" height="16" alt="">
+                                                        강의_자막_EN.vtt
+                                                    </span>
+                                                </td>
+                                                <td><button class="btn xs border">자막 편집</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                                <td>
+                                                    <span class="subtitle-table__filename">
+                                                        <span class="subtitle-table__ai-tag">✦ AI</span>
+                                                        강의_자막_EN.vtt
+                                                    </span>
+                                                </td>
+                                                <td><button class="btn xs border">자막 편집</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p style="font-size:12px; color:var(--text-secondary); margin:8px 0 0;">영상에 사용하실 자막을 선택해 주세요.</p>
+                                    <p style="font-size:12px; color:var(--text-secondary); margin:4px 0 0;">업로드 가능 확장자 : SRT, VTT</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
             </div>

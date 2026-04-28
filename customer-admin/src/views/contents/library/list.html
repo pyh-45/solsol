@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 기본정보</title>
+    <title>Admin - 콘텐츠 라이브러리</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 
         <div class="admin-header__center">
             <div class="admin-header__nav">
-                <span class="admin-header__page-title">기본정보</span>
+                <span class="admin-header__page-title">콘텐츠 라이브러리</span>
                 <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -120,14 +120,14 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion">
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
                         <span class="lnb-accordion__label">콘텐츠 관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                        <a href="#" class="lnb-sub-item active">콘텐츠 라이브러리</a>
                     </div>
                 </div>
 
@@ -214,14 +214,14 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
                         <span class="lnb-accordion__label">설정</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item active">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
                         <a href="#" class="lnb-sub-item">플레이어</a>
                         <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
                         <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
@@ -246,122 +246,231 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 인포 박스 -->
-                <div class="admin-infotip">
+                <!-- 상단 안내 -->
+                <div class="admin-infotip" style="margin-bottom:16px;">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">사이트 운영과 정산, 문의 응대에 사용되는 기본 정보를 설정합니다.</span>
+                    동영상 콘텐츠 업로드 시 AI를 활용한 학습 리포트, N개 국가 별 자막 생성 및 번역 사용이 가능합니다.
+                    <a href="#" style="color:var(--color-primary); text-decoration:none; font-weight:500; margin-left:4px;">가이드보기</a>
                 </div>
 
-                <!-- 변경사항 저장 버튼 -->
-                <div class="setting-action-bar">
-                    <button class="btn lg dark">변경사항 저장</button>
+                <!-- 저장공간 부족 경고 -->
+                <div class="content-warning-bar">
+                    <span>저장공간이 부족합니다. 더 많은 콘텐츠를 업로드하려면 플랜을 업그레이드 해주세요.</span>
+                    <button class="btn sm border">플랜 업그레이드</button>
                 </div>
 
-                <!-- 사이트 정보 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">사이트 정보</h3>
-                    <table class="setting-table">
+                <!-- 콘텐츠 용량 -->
+                <div class="content-storage">
+                    <div class="content-storage__head">
+                        <span class="content-storage__label">
+                            <span class="content-storage__label-dot"></span>
+                            콘텐츠 용량
+                        </span>
+                        <span class="content-storage__usage">80.0 GB 중 <em>79.4MB 사용중</em></span>
+                    </div>
+                    <div class="content-storage__bar-wrap">
+                        <div class="content-storage__bar-seg" style="width:50%; background:#4CAF50;"></div>
+                        <div class="content-storage__bar-seg" style="width:20%; background:#8BC34A;"></div>
+                        <div class="content-storage__bar-seg" style="width:15%; background:#29B6F6;"></div>
+                        <div class="content-storage__bar-seg" style="width:5%; background:#1565C0;"></div>
+                    </div>
+                    <div class="content-storage__legend">
+                        <span class="content-storage__legend-item">
+                            <span class="content-storage__legend-dot" style="background:#4CAF50;"></span>동영상 50MB
+                        </span>
+                        <span class="content-storage__legend-item">
+                            <span class="content-storage__legend-dot" style="background:#8BC34A;"></span>이미지 20MB
+                        </span>
+                        <span class="content-storage__legend-item">
+                            <span class="content-storage__legend-dot" style="background:#29B6F6;"></span>파일 10MB
+                        </span>
+                        <span class="content-storage__legend-item">
+                            <span class="content-storage__legend-dot" style="background:#1565C0;"></span>자료실 외 1.2MB
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 콘텐츠 수 통계 -->
+                <div class="content-count-grid">
+                    <div class="content-count-card">
+                        <p class="content-count-card__label">동영상</p>
+                        <p class="content-count-card__value">1,247</p>
+                    </div>
+                    <div class="content-count-card">
+                        <p class="content-count-card__label">이미지</p>
+                        <p class="content-count-card__value">57,000</p>
+                    </div>
+                    <div class="content-count-card">
+                        <p class="content-count-card__label">파일</p>
+                        <p class="content-count-card__value">16,000</p>
+                    </div>
+                    <div class="content-count-card">
+                        <p class="content-count-card__label">유튜브 링크</p>
+                        <p class="content-count-card__value">16,000</p>
+                    </div>
+                </div>
+
+                <!-- 검색 필터 -->
+                <div class="admin-filter-panel">
+                    <div class="admin-filter">
+                        <div class="admin-filter__search">
+                            <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
+                            <input type="text" class="admin-filter__search-input" placeholder="콘텐츠명 검색">
+                        </div>
+                        <div class="admin-filter__selects">
+                            <select class="admin-filter__select">
+                                <option>전체 답변상태</option>
+                                <option>활성</option>
+                                <option>비활성</option>
+                                <option>탈퇴</option>
+                            </select>
+                            <select class="admin-filter__select">
+                                <option>전체 문의유형</option>
+                                <option>동영상</option>
+                                <option>이미지</option>
+                                <option>파일</option>
+                                <option>유튜브 링크</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 목록 헤더 -->
+                <div class="content-list-bar">
+                    <span class="content-list-bar__title">학습자 목록</span>
+                    <button class="btn sm dark">폴더선택</button>
+                    <div class="content-list-bar__folders">
+                        <span class="folder-tag">개발 <button class="folder-tag__del">×</button></span>
+                        <span class="folder-tag">앱개발 <button class="folder-tag__del">×</button></span>
+                        <span class="folder-tag">웹개발 <button class="folder-tag__del">×</button></span>
+                    </div>
+                    <div class="content-list-bar__right">
+                        <select class="list-sort-select">
+                            <option>등록 최신순</option>
+                            <option>등록 오래된순</option>
+                            <option>이름순</option>
+                        </select>
+                        <select class="list-sort-select">
+                            <option>30개씩</option>
+                            <option>50개씩</option>
+                            <option>100개씩</option>
+                        </select>
+                        <button class="btn sm border">
+                            <img src="../../../images/ico-fix-edit.svg" width="14" height="14" alt="" style="vertical-align:middle; margin-right:4px;">
+                            폴더 관리
+                        </button>
+                        <button class="btn sm primary">+ 콘텐츠 등록</button>
+                    </div>
+                </div>
+
+                <!-- 콘텐츠 목록 테이블 -->
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <colgroup>
+                            <col style="width:48px;">
+                            <col style="width:80px;">
+                            <col>
+                            <col style="width:80px;">
+                            <col style="width:70px;">
+                            <col style="width:180px;">
+                            <col style="width:160px;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="subtitle-table__check"></th>
+                                <th>유형</th>
+                                <th>콘텐츠명</th>
+                                <th>폴더</th>
+                                <th>크기</th>
+                                <th>활성상태</th>
+                                <th>등록일</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr>
-                                <th>사이트명</th>
-                                <td>
-                                    <span class="setting-table__text">DJ 테크트리</span>
-                                    <span class="setting-table__desc">사이트 전반에 노출되는 이름입니다.</span>
-                                </td>
+                                <td><input type="checkbox" class="subtitle-table__check" checked></td>
+                                <td>문서</td>
+                                <td>JavaScript 완벽 가이드.pdf</td>
+                                <td><a href="#" class="content-folder-link">자료실</a></td>
+                                <td>12 MB</td>
+                                <td><span class="status-chip status-chip--active">활성</span></td>
+                                <td>2024-12-15 오전/오후 00:00</td>
                             </tr>
                             <tr>
-                                <th>사이트 URL</th>
-                                <td>
-                                    <div class="setting-table__url-row">
-                                        <span class="setting-table__text">https://admin-creatorlms</span>
-                                        <button class="btn md border">도메인 설정</button>
-                                    </div>
-                                </td>
+                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                <td>동영상</td>
+                                <td>React 컴포넌트 기초.mp4</td>
+                                <td><a href="#" class="content-folder-link">강의</a></td>
+                                <td>2.1 GM</td>
+                                <td><span class="status-chip status-chip--inactive">비활성</span></td>
+                                <td>2024-12-15 오전/오후 00:00</td>
                             </tr>
                             <tr>
-                                <th>사이트 설명</th>
-                                <td>
-                                    <div class="setting-table__textarea-wrap">
-                                        <textarea class="setting-table__textarea" placeholder="운영에 필요한 사이트 정보를 자유롭게 작성해 주세요."></textarea>
-                                        <span class="setting-table__counter"><strong>0</strong>/500</span>
-                                    </div>
-                                    <span class="setting-table__desc">사이트의 용도, 주요 대상, 운영 시 참고사항 등을 자유롭게 작성해 주세요.</span>
+                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                <td>이미지</td>
+                                <td style="text-align:left;">
+                                    AWS 아키텍처 다이어그램.png
+                                    <span class="ai-badge ai-badge--tutor" style="margin-left:6px;">AI 튜터</span>
+                                    <span class="ai-badge ai-badge--translate">AI 번역</span>
                                 </td>
+                                <td><a href="#" class="content-folder-link">자료실</a></td>
+                                <td>2.3 MB</td>
+                                <td><span class="status-chip status-chip--left">탈퇴</span></td>
+                                <td>2024-12-15 오전/오후 00:00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                <td>유튜브링크</td>
+                                <td>React 컴포넌트 기초.mp4</td>
+                                <td><a href="#" class="content-folder-link">자료실</a></td>
+                                <td>2.3 MB</td>
+                                <td>
+                                    <span class="status-chip status-chip--inactive">비활성</span>
+                                    <div class="encoding-info">인코딩 <span style="color:var(--color-primary); font-weight:600;">00%</span> 완료</div>
+                                </td>
+                                <td>2024-12-15 오전/오후 00:00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                <td>동영상</td>
+                                <td>환불 및 결제 취소는 어떻게 진행하나요?</td>
+                                <td><a href="#" class="content-folder-link">강의</a></td>
+                                <td>2.1 GM</td>
+                                <td>
+                                    <span class="status-chip status-chip--inactive">비활성</span>
+                                    <div class="encoding-info encoding-info--fail">인코딩 실패 <button class="encoding-info__retry">재실행</button></div>
+                                </td>
+                                <td>2024-12-15 오전/오후 00:00</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- 사업자 정보 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">사업자 정보</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>회사명</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="회사명을 입력해 주세요.">
-                                    <span class="setting-table__desc">사업자 등록 기준의 회사명을 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>대표자명</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="대표자명을 입력해 주세요.">
-                                    <span class="setting-table__desc">사업자 등록증에 기재된 대표자명을 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>사업자등록번호</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="사업자등록번호를 입력해 주세요. (예: 123-45-67890)">
-                                    <span class="setting-table__desc">사업자 등록번호를 정확히 입력해 주세요. 정산 및 운영에 사용됩니다.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>통신판매업 신고번호</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="통신판매업 신고번호를 입력해 주세요. (해당 시)">
-                                    <span class="setting-table__desc">전자상거래 관련 법적 고지에 사용됩니다.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>사업장 주소</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="상세 주소를 입력해 주세요.">
-                                    <span class="setting-table__desc">사업자 등록 기준의 사업장 주소를 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- 담당자 정보 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">담당자 정보</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>담당자 이메일</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="담당자 이메일을 입력해 주세요.">
-                                    <span class="setting-table__desc">실제 업무를 담당하는 담당자 이메일을 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>담당자 번호</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="연락처를 입력해 주세요. (예: 010-1234-5678)">
-                                    <span class="setting-table__desc">문의 및 운영 연락에 사용되는 번호를 입력해 주세요.</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- 페이지네이션 -->
+                <div class="pagination" style="margin-top:24px;">
+                    <button class="paging-btn"><img src="../../../images/paging-arrow10.svg" alt="처음" width="16" height="16" style="transform:rotate(180deg);"></button>
+                    <button class="paging-btn"><img src="../../../images/paging-arrow.svg" alt="이전" width="16" height="16" style="transform:rotate(180deg);"></button>
+                    <button class="paging-num active">1</button>
+                    <button class="paging-num">2</button>
+                    <button class="paging-num">3</button>
+                    <button class="paging-num">4</button>
+                    <button class="paging-num">5</button>
+                    <button class="paging-btn"><img src="../../../images/paging-arrow.svg" alt="다음" width="16" height="16"></button>
+                    <button class="paging-btn"><img src="../../../images/paging-arrow10.svg" alt="마지막" width="16" height="16"></button>
                 </div>
 
             </div>
         </main>
 
+    </div>
+
+    <!-- 콘텐츠 선택 바 -->
+    <div class="content-select-bar">
+        <button class="content-select-bar__close">×</button>
+        <span class="content-select-bar__text">{n}개 콘텐츠 선택됨</span>
+        <div class="content-select-bar__actions">
+            <button class="btn nm border" style="color:#fff; border-color:rgba(255,255,255,0.6);">폴더이동</button>
+        </div>
     </div>
 
 <script>
