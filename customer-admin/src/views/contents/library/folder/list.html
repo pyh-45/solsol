@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 폴더 관리</title>
+    <link rel="stylesheet" href="../../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <div class="admin-header__logo">
+            <img src="../../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <button class="admin-header__back">
+                    <img src="../../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">폴더 관리</span>
+                <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn nm border">내 정보</button>
+                        <button class="btn nm border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <!-- 콘텐츠 관리 - 열린 상태 -->
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item active">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 상단 안내 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">최대 2단계(하위 카테고리)까지 구성 가능합니다.</span>
+                </div>
+
+                <!-- 액션 바 -->
+                <div class="setting-action-bar">
+                    <button class="btn nm dark">+ 새폴더 생성</button>
+                </div>
+
+                <!-- 폴더 관리 패널 -->
+                <div class="list-panel list-panel--p30">
+
+                    <span class="folder-mgmt-title">폴더 관리</span>
+
+                    <!-- 테이블 헤더 -->
+                    <div class="folder-mgmt-header">
+                        <span style="width:36px; flex-shrink:0;"></span>
+                        <span class="folder-mgmt-header__name">폴더명</span>
+                        <span class="folder-mgmt-header__manage">관리</span>
+                    </div>
+
+                    <!-- Row 1: 새 폴더 입력 중 -->
+                    <div class="folder-mgmt-row">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <div class="input-with-counter">
+                                <input type="text" class="folder-mgmt-row__input" placeholder="폴더명을 입력해주세요.">
+                                <span class="input-with-counter__count">3/15</span>
+                            </div>
+                            <button class="btn md border-primary">저장</button>
+                            <button class="btn md border">+ 하위 추가</button>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: 프로그래밍 (일반) -->
+                    <div class="folder-mgmt-row">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <span class="folder-mgmt-row__text">프로그래밍</span>
+                            <button class="btn md border">+ 하위 추가</button>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2-1: 웹 개발 (하위) -->
+                    <div class="folder-mgmt-row folder-mgmt-row--sub">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <span class="folder-mgmt-row__text">웹 개발</span>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2-2: 모바일 개발 (하위) -->
+                    <div class="folder-mgmt-row folder-mgmt-row--sub">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <span class="folder-mgmt-row__text">모바일 개발</span>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: 프로그래밍 (또 다른, 하위 없음) -->
+                    <div class="folder-mgmt-row">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <span class="folder-mgmt-row__text">프로그래밍</span>
+                            <button class="btn md border">+ 하위 추가</button>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: 디자인 (수정 중) -->
+                    <div class="folder-mgmt-row">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <div class="input-with-counter">
+                                <input type="text" class="folder-mgmt-row__input" value="디자인">
+                                <span class="input-with-counter__count">3/15</span>
+                            </div>
+                            <button class="btn md border-primary">수정</button>
+                            <button class="btn md border">+ 하위 추가</button>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4-1: 하위 폴더 새로 추가 중 -->
+                    <div class="folder-mgmt-row folder-mgmt-row--sub">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <div class="input-with-counter">
+                                <input type="text" class="folder-mgmt-row__input" placeholder="하위 폴더명을 입력해주세요.">
+                                <span class="input-with-counter__count">3/15</span>
+                            </div>
+                            <button class="btn md border-primary">저장</button>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4-2: UI/UX Design (하위, 수정 중) -->
+                    <div class="folder-mgmt-row folder-mgmt-row--sub">
+                        <button class="folder-mgmt-row__drag">
+                            <img src="../../../../images/Ico-24px-drag-vertical.svg" width="24" height="24" alt="">
+                        </button>
+                        <div class="folder-mgmt-row__name">
+                            <div class="input-with-counter">
+                                <input type="text" class="folder-mgmt-row__input" value="UI/UX Design">
+                                <span class="input-with-counter__count">3/15</span>
+                            </div>
+                            <button class="btn md border-primary">수정</button>
+                        </div>
+                        <div class="folder-mgmt-row__actions">
+                            <div class="folder-dots">
+                                <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                    <img src="../../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                </button>
+                                <div class="folder-dots__menu">
+                                    <button class="folder-dots__item">수정</button>
+                                    <button class="folder-dots__item">삭제</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- 하단 순서 변경 바 -->
+    <div class="c-bulk-bar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close">×</button>
+            <span class="c-bulk-bar__text">폴더 순서 변경</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn">저장</button>
+        </div>
+    </div>
+
+<script>
+    function toggleDots(btn) {
+        const menu = btn.nextElementSibling;
+        const isOpen = menu.classList.contains('open');
+        document.querySelectorAll('.folder-dots__menu.open').forEach(m => m.classList.remove('open'));
+        if (!isOpen) menu.classList.add('open');
+    }
+
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.folder-dots')) {
+            document.querySelectorAll('.folder-dots__menu.open').forEach(m => m.classList.remove('open'));
+        }
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+</script>
+
+</body>
+</html>

@@ -1184,6 +1184,837 @@ h2 {
 
 
 /* =====================================================
+   COURSE DETAIL
+===================================================== */
+
+/* 2컬럼 레이아웃 */
+.detail-layout {
+    max-width: 1440px;
+    margin: 80px auto 150px;
+    padding: 0 40px;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* 좌측 */
+.detail-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.detail-main__thumb {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.detail-main__thumb img {
+    width: 100%;
+    display: block;
+}
+
+/* 섹션 네비게이션 */
+.detail-tabs {
+    display: flex;
+    border-bottom: 2px solid #EEEEEE;
+    position: sticky;
+    top: var(--header-height);
+    background: #FFFFFF;
+    z-index: 10;
+}
+
+.detail-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #888888;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: -1px;
+}
+
+.detail-section:hover {
+    color: var(--color-primary);
+}
+
+.detail-section.active {
+    color: var(--color-primary);
+    font-weight: 700;
+    border-bottom-color: var(--color-primary);
+}
+
+/* 섹션 콘텐츠 간격 */
+.detail-section-content {
+    padding: 50px 0 0 0;
+}
+
+/* 커리큘럼 상단 */
+.curriculum-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.curriculum-top__info {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.curriculum-top__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222222;
+    letter-spacing: -0.96px;
+}
+
+.curriculum-top__meta {
+    font-size: 13px;
+    color: #888888;
+}
+
+.curriculum-top__time {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-red);
+}
+
+.curriculum-toggle-all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    width: 128px;
+    height: 36px;
+    padding: 0 14px;
+    border: 1px solid #DFE0E3;
+    border-radius: 6px;
+    background: #FFFFFF;
+    font-size: 13px;
+    color: #222;
+    cursor: pointer;
+    font-family: var(--font-base);
+}
+
+.curriculum-toggle-all__ico {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.2s;
+    transform: rotate(180deg);
+}
+
+.curriculum-toggle-all__ico.open {
+    transform: rotate(180deg);
+}
+
+/* 커리큘럼 아코디언 래퍼 */
+.curriculum-accordion-wrap {
+    border: 1px solid #EEEEEE;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* 커리큘럼 아코디언 */
+.curriculum-accordion {
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.curriculum-accordion__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height:50px;
+    line-height:50px;
+    padding: 0 24px;
+    background: var(--color-primary-bg);
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-base);
+    text-align: left;
+    gap: 12px;
+}
+
+.curriculum-accordion__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #555555;
+    flex: 1;
+    letter-spacing: -0.32px;
+}
+
+.curriculum-accordion__arrow {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    transition: transform 0.25s;
+    transform: rotate(0deg);
+}
+
+.curriculum-accordion.open .curriculum-accordion__arrow {
+    transform: rotate(180deg);
+}
+
+.curriculum-accordion__body {
+    display: none;
+    padding: 0;
+    background: #FFFFFF;
+}
+
+.curriculum-accordion.open .curriculum-accordion__body {
+    display: block;
+}
+
+.curriculum-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #F5F5F5;
+    font-size: 13px;
+    color: #444444;
+}
+
+.curriculum-item:last-child { border-bottom: none; }
+
+.curriculum-item > img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.curriculum-item__preview {
+    font-size: 13px;
+    color: var(--color-primary);
+    text-decoration: underline;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: 12px;
+}
+
+.curriculum-item__time {
+    font-size: 13px;
+    color: #888888;
+    white-space: nowrap;
+}
+
+.curriculum-item__preview ~ .curriculum-item__time {
+    margin-left: 0;
+}
+
+.curriculum-item:not(:has(.curriculum-item__preview)) .curriculum-item__time {
+    margin-left: auto;
+}
+
+/* 리뷰 */
+/* 리뷰 작성 박스 */
+.review-write {
+    border: 1px solid #E8E8E8;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.review-write__top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.review-write__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222222;
+}
+.review-write__stars {
+    display: flex;
+    gap: 2px;
+}
+.review-write__stars img {
+    width: 16px;
+    height: 16px;
+}
+.review-write__textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 13px;
+    color: #AAAAAA;
+    min-height: 24px;
+    font-family: var(--font-base);
+    background: transparent;
+    line-height: 1.6;
+}
+.review-write__footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #EEEEEE;
+    padding-top: 12px;
+    margin-top: 8px;
+}
+.review-write__submit {
+    height: 35px;
+    padding: 0 20px;
+    background: #f1f1f1;
+    color: #BBB;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: var(--font-base);
+    cursor: pointer;
+}
+
+.review-item {
+    padding: 20px 0;
+    border-top: 1px solid #F0F0F0;
+    border-bottom: 1px solid #F0F0F0;
+    margin-bottom:20px;
+}
+
+.review-item__top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #E0E0E0;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.review-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-item__meta {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.review-item__info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.review-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 24px;
+    border-radius: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.review-badge--learner    { background: #2BACF4; color: #FFFFFF; }
+.review-badge--instructor { background: #7954C6; color: #FFFFFF; }
+.review-badge--admin      { background: #FC5758; color: #FFFFFF; }
+
+.review-item__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.review-item__stars {
+    display: flex;
+    gap: 2px;
+}
+
+.review-item__stars img {
+    width: 16px;
+    height: 16px;
+}
+
+.review-item__stars img.star-empty {
+    filter: brightness(0) invert(0.93);
+}
+
+.review-item__time {
+    font-size: 12px;
+    color: #AAAAAA;
+}
+
+.review-item__actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.review-item__btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.review-item__btn--reply img {
+    width: 14px;
+    height: 14px;
+}
+
+.review-item__btn--dot img {
+    width: 12px;
+    height: 12px;
+}
+
+.review-item__text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+    padding-left: 52px;
+}
+
+/* 리뷰 수정 영역 */
+.review-edit {
+    margin-top: 12px;
+    padding-left: 52px;
+}
+
+.review-edit__textarea {
+    width: 100%;
+    background: #F8F8F8;
+    border:1px solid #F8F8F8;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-family: var(--font-base);
+    color: #333333;
+    line-height: 1.4;
+    resize: none;
+    outline: none;
+    min-height: 60px;
+}
+
+.review-edit__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.review-edit__cancel {
+    height: 36px;
+    padding: 0 20px;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    background: #FFFFFF;
+    color: var(--color-primary);
+    font-size: 13px;
+    font-family: var(--font-base);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.review-edit__submit {
+    height: 36px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 4px;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-family: var(--font-base);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* 리뷰 답글 */
+.review-reply {
+    margin-top: 16px;
+    background: #F8F8F8;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.review-reply__top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.review-reply__logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.review-reply__logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.review-reply__name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333333;
+}
+
+.review-reply__date {
+    font-size: 12px;
+    color: #AAAAAA;
+    margin-left: auto;
+}
+
+.review-reply__text {
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.7;
+}
+
+/* 문의하기 */
+.qna-item {
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.qna-item__q {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333333;
+}
+
+.qna-item__badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.qna-item__a {
+    background: #F8F8F8;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.7;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 8px;
+}
+
+/* 우측 사이드바 */
+.detail-sidebar {
+    width: 500px;
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-sidebar__box {
+    border: 1px solid #EEEEEE;
+    border-radius: 12px;
+    padding: 28px 24px;
+    background: #FFFFFF;
+}
+
+/* 뱃지 행 */
+.sidebar-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.sidebar-badges .badge {
+    width: auto;
+    padding: 0 16px;
+    height: 32px;
+    font-size: 12px;
+}
+
+.sidebar-badge-public {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    padding: 0 14px;
+    background: var(--color-primary);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.sidebar-badge-public img { width: 14px; height: 14px; }
+
+/* 제목 */
+.detail-sidebar__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #222222;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    letter-spacing: -0.36px;
+}
+
+/* 별점 */
+.detail-sidebar__rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+/* 가격 */
+.detail-sidebar__price {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.detail-sidebar__original {
+    font-size: 13px;
+    color: #AAAAAA;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+}
+
+.detail-sidebar__price-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.detail-sidebar__discount {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.detail-sidebar__final {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222222;
+}
+
+/* 구매하기 버튼 */
+.sidebar-btn-buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 56px;
+    background: var(--color-primary);
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: opacity 0.15s;
+}
+
+.sidebar-btn-buy:hover { opacity: 0.88; }
+.sidebar-btn-buy img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+
+/* 찜하기 / 공유하기 */
+.sidebar-btn-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.sidebar-btn-sub {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 50px;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+    background: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.sidebar-btn-sub:hover { background: #F8F8F8; }
+.sidebar-btn-sub img { width: 16px; height: 16px; }
+
+/* 멤버십 FREE */
+.sidebar-membership {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #F8F5FF;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.sidebar-membership__badge {
+    flex-shrink: 0;
+    height: 28px;
+    padding: 0 12px;
+    background: var(--color-primary);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-membership__text {
+    font-size: 13px;
+    color: #555555;
+}
+
+/* 정보 목록 */
+.sidebar-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sidebar-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #F5F5F5;
+    font-size: 14px;
+}
+
+.sidebar-info-item:last-child { border-bottom: none; }
+
+.sidebar-info-item img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+.sidebar-info-item__label {
+    color: #888888;
+    width: 70px;
+    flex-shrink: 0;
+}
+
+.sidebar-info-item__value {
+    color: #333333;
+    font-weight: 400;
+}
+
+/* 쿠폰 박스 */
+.sidebar-coupon-box {
+    border: 1px solid #EEEEEE;
+    border-radius: 12px;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.sidebar-coupon-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.sidebar-coupon-item:last-child { border-bottom: none; }
+
+.sidebar-coupon-item__ico {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+.sidebar-coupon-item__info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.sidebar-coupon-item__min {
+    font-size: 11px;
+    color: #AAAAAA;
+}
+
+.sidebar-coupon-item__name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.sidebar-coupon-item__amount {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222222;
+    white-space: nowrap;
+}
+
+.sidebar-coupon-item__dl {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: opacity 0.15s;
+}
+
+.sidebar-coupon-item__dl:hover { opacity: 0.85; }
+.sidebar-coupon-item__dl img { width: 16px; height: 16px; filter: brightness(0) invert(1); }
+
+/* =====================================================
    RESPONSIVE — 태블릿 (max-width: 1024px)
 ===================================================== */
 @media (max-width: 1024px) {
