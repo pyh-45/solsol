@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 콘텐츠 라이브러리</title>
+    <title>Admin - 콘텐츠 상세</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -48,6 +48,8 @@
                 <div class="c-avatar30 learner">A</div>
                 <span class="admin-header__username">홍길순</span>
                 <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+
+                <!-- 프로필 툴팁 -->
                 <div class="c-profile-tooltip">
                     <div class="c-profile-tooltip__top">
                         <div class="c-avatar40 learner">A</div>
@@ -123,6 +125,7 @@
                     </div>
                 </div>
 
+                <!-- 콘텐츠 관리 - 열린 상태 -->
                 <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
@@ -250,9 +253,10 @@
             <div class="admin-body">
 
                 <!-- 상단 안내 -->
-                <div class="admin-infotip" style="margin-bottom:16px;">
+                <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    일반 강의에 사용될 동영상은 AI 튜터 및 자막 설정을 지원합니다. <a href="#" style="color:var(--color-primary); text-decoration:none; font-weight:500;">가이드보기</a>
+                    <span class="admin-infotip__text">일반 강의에 사용될 동영상은 AI 튜터 및 자막 설정을 지원합니다.</span>
+                    <a href="#" class="admin-infotip__link">가이드보기</a>
                 </div>
 
                 <!-- 액션 바 -->
@@ -282,7 +286,7 @@
                                     <input type="text" class="detail-form__input" value="React Hooks 완벽 가이드.mp4">
                                     <span class="input-with-counter__count">3/15</span>
                                 </div>
-                                <p style="font-size:12px; color:var(--text-secondary); margin:0;">변경할 콘텐츠명을 입력해 주세요. 파일 확장자는 그대로 유지됩니다.</p>
+                                <p class="detail-form__hint">변경할 콘텐츠명을 입력해 주세요. 파일 확장자는 그대로 유지됩니다.</p>
                             </div>
 
                             <!-- 등록일시 -->
@@ -372,8 +376,8 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p style="font-size:12px; color:var(--text-secondary); margin:8px 0 0;">영상에 사용하실 자막을 선택해 주세요.</p>
-                                    <p style="font-size:12px; color:var(--text-secondary); margin:4px 0 0;">업로드 가능 확장자 : SRT, VTT</p>
+                                    <p class="detail-form__hint" style="margin-top:8px;">영상에 사용하실 자막을 선택해 주세요.</p>
+                                    <p class="detail-form__hint">업로드 가능 확장자 : SRT, VTT</p>
                                 </div>
                             </div>
 
@@ -392,6 +396,12 @@
         document.getElementById('headerUserMenu').classList.toggle('open');
     }
 
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+
     function closeAllLnb() {
         document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
     }
@@ -402,12 +412,6 @@
         closeAllLnb();
         if (!isOpen) accordion.classList.add('open');
     }
-
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('#headerUserMenu')) {
-            document.getElementById('headerUserMenu').classList.remove('open');
-        }
-    });
 </script>
 
 </body>

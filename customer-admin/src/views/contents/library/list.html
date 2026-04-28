@@ -247,32 +247,30 @@
             <div class="admin-body">
 
                 <!-- 상단 안내 -->
-                <div class="admin-infotip" style="margin-bottom:16px;">
+                <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
                     동영상 콘텐츠 업로드 시 AI를 활용한 학습 리포트, N개 국가 별 자막 생성 및 번역 사용이 가능합니다.
-                    <a href="#" style="color:var(--color-primary); text-decoration:none; font-weight:500; margin-left:4px;">가이드보기</a>
-                </div>
-
-                <!-- 저장공간 부족 경고 -->
-                <div class="content-warning-bar">
-                    <span>저장공간이 부족합니다. 더 많은 콘텐츠를 업로드하려면 플랜을 업그레이드 해주세요.</span>
-                    <button class="btn sm border">플랜 업그레이드</button>
+                    <a href="#" class="admin-infotip__link">가이드보기</a>
                 </div>
 
                 <!-- 콘텐츠 용량 -->
                 <div class="content-storage">
+                    <div class="content-warning-bar">
+                        <span>저장공간이 부족합니다. 더 많은 콘텐츠를 업로드하려면 플랜을 업그레이드 해주세요.</span>
+                        <button class="btn sm border">플랜 업그레이드</button>
+                    </div>
                     <div class="content-storage__head">
                         <span class="content-storage__label">
-                            <span class="content-storage__label-dot"></span>
+                            <img src="../../../images/ico-cloud-error.svg" width="20" height="20" alt="">
                             콘텐츠 용량
                         </span>
+                        <div class="content-storage__bar-wrap" style="flex:1; margin-bottom:0;">
+                            <div class="content-storage__bar-seg" style="width:50%; background:#4CAF50;"></div>
+                            <div class="content-storage__bar-seg" style="width:20%; background:#8BC34A;"></div>
+                            <div class="content-storage__bar-seg" style="width:15%; background:#29B6F6;"></div>
+                            <div class="content-storage__bar-seg" style="width:5%; background:#1565C0;"></div>
+                        </div>
                         <span class="content-storage__usage">80.0 GB 중 <em>79.4MB 사용중</em></span>
-                    </div>
-                    <div class="content-storage__bar-wrap">
-                        <div class="content-storage__bar-seg" style="width:50%; background:#4CAF50;"></div>
-                        <div class="content-storage__bar-seg" style="width:20%; background:#8BC34A;"></div>
-                        <div class="content-storage__bar-seg" style="width:15%; background:#29B6F6;"></div>
-                        <div class="content-storage__bar-seg" style="width:5%; background:#1565C0;"></div>
                     </div>
                     <div class="content-storage__legend">
                         <span class="content-storage__legend-item">
@@ -293,20 +291,20 @@
                 <!-- 콘텐츠 수 통계 -->
                 <div class="content-count-grid">
                     <div class="content-count-card">
-                        <p class="content-count-card__label">동영상</p>
-                        <p class="content-count-card__value">1,247</p>
+                        <span class="content-count-card__label">동영상</span>
+                        <span class="content-count-card__value">1,247</span>
                     </div>
                     <div class="content-count-card">
-                        <p class="content-count-card__label">이미지</p>
-                        <p class="content-count-card__value">57,000</p>
+                        <span class="content-count-card__label">이미지</span>
+                        <span class="content-count-card__value">57,000</span>
                     </div>
                     <div class="content-count-card">
-                        <p class="content-count-card__label">파일</p>
-                        <p class="content-count-card__value">16,000</p>
+                        <span class="content-count-card__label">파일</span>
+                        <span class="content-count-card__value">16,000</span>
                     </div>
                     <div class="content-count-card">
-                        <p class="content-count-card__label">유튜브 링크</p>
-                        <p class="content-count-card__value">16,000</p>
+                        <span class="content-count-card__label">유튜브 링크</span>
+                        <span class="content-count-card__value">16,000</span>
                     </div>
                 </div>
 
@@ -318,22 +316,38 @@
                             <input type="text" class="admin-filter__search-input" placeholder="콘텐츠명 검색">
                         </div>
                         <div class="admin-filter__selects">
-                            <select class="admin-filter__select">
-                                <option>전체 답변상태</option>
-                                <option>활성</option>
-                                <option>비활성</option>
-                                <option>탈퇴</option>
-                            </select>
-                            <select class="admin-filter__select">
-                                <option>전체 문의유형</option>
-                                <option>동영상</option>
-                                <option>이미지</option>
-                                <option>파일</option>
-                                <option>유튜브 링크</option>
-                            </select>
+                            <div class="c-dropdown">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">전체 활성상태</span>
+                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">활성</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">비활성</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin-filter__selects">
+                            <div class="c-dropdown">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">전체 유형</span>
+                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">동영상</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">이미지</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">파일</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">유튜브 링크</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 목록 패널 -->
+                <div class="list-panel">
 
                 <!-- 목록 헤더 -->
                 <div class="content-list-bar">
@@ -345,21 +359,33 @@
                         <span class="folder-tag">웹개발 <button class="folder-tag__del">×</button></span>
                     </div>
                     <div class="content-list-bar__right">
-                        <select class="list-sort-select">
-                            <option>등록 최신순</option>
-                            <option>등록 오래된순</option>
-                            <option>이름순</option>
-                        </select>
-                        <select class="list-sort-select">
-                            <option>30개씩</option>
-                            <option>50개씩</option>
-                            <option>100개씩</option>
-                        </select>
-                        <button class="btn sm border">
-                            <img src="../../../images/ico-fix-edit.svg" width="14" height="14" alt="" style="vertical-align:middle; margin-right:4px;">
+                        <div class="c-dropdown c-dropdown--ghost">
+                            <button class="c-dropdown__trigger" style="gap:16px;" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label">등록 최신순</span>
+                                <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                <button class="c-dropdown__item active" onclick="selectItem(this)">등록 최신순</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">등록 오래된순</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">이름순</button>
+                            </div>
+                        </div>
+                        <div class="c-dropdown c-dropdown--ghost">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label">30개씩</span>
+                                <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                <button class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">100개씩</button>
+                            </div>
+                        </div>
+                        <button class="btn md border">
+                            <img src="../../../images/ico-16px-folder.svg" width="16" height="16" alt="">
                             폴더 관리
                         </button>
-                        <button class="btn sm primary">+ 콘텐츠 등록</button>
+                        <button class="btn md primary">+ 콘텐츠 등록</button>
                     </div>
                 </div>
 
@@ -368,18 +394,20 @@
                     <table class="admin-table">
                         <colgroup>
                             <col style="width:48px;">
-                            <col style="width:80px;">
+                            <col style="width:120px;">
                             <col>
-                            <col style="width:80px;">
-                            <col style="width:70px;">
-                            <col style="width:180px;">
+                            <col style="width:150px;">
+                            <col style="width:100px;">
+                            <col style="width:250px;">
                             <col style="width:160px;">
                         </colgroup>
                         <thead>
                             <tr>
-                                <th><input type="checkbox" class="subtitle-table__check"></th>
+                                <th class="th-check">
+                                    <input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)">
+                                </th>
                                 <th>유형</th>
-                                <th>콘텐츠명</th>
+                                <th style="text-align:left;">콘텐츠명</th>
                                 <th>폴더</th>
                                 <th>크기</th>
                                 <th>활성상태</th>
@@ -388,95 +416,155 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="checkbox" class="subtitle-table__check" checked></td>
-                                <td>문서</td>
-                                <td>JavaScript 완벽 가이드.pdf</td>
+                                <td style="padding:0 5px;">
+                                    <input type="checkbox" class="table-check row-check" checked onchange="onRowCheck()">
+                                </td>
+                                <td style="text-align:center;">문서</td>
+                                <td style="text-align:left;">JavaScript 완벽 가이드.pdf</td>
                                 <td><a href="#" class="content-folder-link">자료실</a></td>
                                 <td>12 MB</td>
                                 <td><span class="status-chip status-chip--active">활성</span></td>
-                                <td>2024-12-15 오전/오후 00:00</td>
+                                <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" class="subtitle-table__check"></td>
-                                <td>동영상</td>
-                                <td>React 컴포넌트 기초.mp4</td>
+                                <td style="padding:0 5px;">
+                                    <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                </td>
+                                <td style="text-align:center;">동영상</td>
+                                <td style="text-align:left;">React 컴포넌트 기초.mp4</td>
                                 <td><a href="#" class="content-folder-link">강의</a></td>
                                 <td>2.1 GM</td>
                                 <td><span class="status-chip status-chip--inactive">비활성</span></td>
-                                <td>2024-12-15 오전/오후 00:00</td>
+                                <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" class="subtitle-table__check"></td>
-                                <td>이미지</td>
+                                <td style="padding:0 5px;">
+                                    <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                </td>
+                                <td style="text-align:center;">이미지</td>
                                 <td style="text-align:left;">
                                     AWS 아키텍처 다이어그램.png
-                                    <span class="ai-badge ai-badge--tutor" style="margin-left:6px;">AI 튜터</span>
+                                    <span class="ai-badge ai-badge--tutor">AI 튜터</span>
                                     <span class="ai-badge ai-badge--translate">AI 번역</span>
                                 </td>
                                 <td><a href="#" class="content-folder-link">자료실</a></td>
                                 <td>2.3 MB</td>
                                 <td><span class="status-chip status-chip--left">탈퇴</span></td>
-                                <td>2024-12-15 오전/오후 00:00</td>
+                                <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" class="subtitle-table__check"></td>
-                                <td>유튜브링크</td>
-                                <td>React 컴포넌트 기초.mp4</td>
+                                <td style="padding:0 5px;">
+                                    <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                </td>
+                                <td style="text-align:center;">유튜브링크</td>
+                                <td style="text-align:left;">React 컴포넌트 기초.mp4</td>
                                 <td><a href="#" class="content-folder-link">자료실</a></td>
                                 <td>2.3 MB</td>
                                 <td>
-                                    <span class="status-chip status-chip--inactive">비활성</span>
-                                    <div class="encoding-info">인코딩 <span style="color:var(--color-primary); font-weight:600;">00%</span> 완료</div>
+                                    <div style="display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:nowrap;">
+                                        <span class="status-chip status-chip--inactive">비활성</span>
+                                        <span class="encoding-info" style="margin-top:0;">인코딩 <span class="encoding-info__retry">00%</span> 완료</span>
+                                    </div>
                                 </td>
-                                <td>2024-12-15 오전/오후 00:00</td>
+                                <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" class="subtitle-table__check"></td>
-                                <td>동영상</td>
-                                <td>환불 및 결제 취소는 어떻게 진행하나요?</td>
+                                <td style="padding:0 5px;">
+                                    <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                </td>
+                                <td style="text-align:center;">동영상</td>
+                                <td style="text-align:left;">환불 및 결제 취소는 어떻게 진행하나요?</td>
                                 <td><a href="#" class="content-folder-link">강의</a></td>
                                 <td>2.1 GM</td>
                                 <td>
-                                    <span class="status-chip status-chip--inactive">비활성</span>
-                                    <div class="encoding-info encoding-info--fail">인코딩 실패 <button class="encoding-info__retry">재실행</button></div>
+                                    <div style="display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:nowrap;">
+                                        <span class="status-chip status-chip--inactive">비활성</span>
+                                        <span class="encoding-info encoding-info--fail" style="margin-top:0;">인코딩 실패 <button class="encoding-info__retry">재실행</button></span>
+                                    </div>
                                 </td>
-                                <td>2024-12-15 오전/오후 00:00</td>
+                                <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- 페이지네이션 -->
-                <div class="pagination" style="margin-top:24px;">
-                    <button class="paging-btn"><img src="../../../images/paging-arrow10.svg" alt="처음" width="16" height="16" style="transform:rotate(180deg);"></button>
-                    <button class="paging-btn"><img src="../../../images/paging-arrow.svg" alt="이전" width="16" height="16" style="transform:rotate(180deg);"></button>
-                    <button class="paging-num active">1</button>
-                    <button class="paging-num">2</button>
-                    <button class="paging-num">3</button>
-                    <button class="paging-num">4</button>
-                    <button class="paging-num">5</button>
-                    <button class="paging-btn"><img src="../../../images/paging-arrow.svg" alt="다음" width="16" height="16"></button>
-                    <button class="paging-btn"><img src="../../../images/paging-arrow10.svg" alt="마지막" width="16" height="16"></button>
+                <div class="pagination" style="padding:20px 0 4px;">
+                    <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
+                    <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                    <button class="pagination__btn active">1</button>
+                    <button class="pagination__btn">2</button>
+                    <button class="pagination__btn">3</button>
+                    <button class="pagination__btn">4</button>
+                    <button class="pagination__btn">5</button>
+                    <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+                    <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
                 </div>
+
+                </div><!-- /list-panel -->
 
             </div>
         </main>
 
     </div>
 
-    <!-- 콘텐츠 선택 바 -->
-    <div class="content-select-bar">
-        <button class="content-select-bar__close">×</button>
-        <span class="content-select-bar__text">{n}개 콘텐츠 선택됨</span>
-        <div class="content-select-bar__actions">
-            <button class="btn nm border" style="color:#fff; border-color:rgba(255,255,255,0.6);">폴더이동</button>
+    <!-- 하단 일괄처리 바 -->
+    <div class="c-bulk-bar hidden" id="bulkBar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+            <span class="c-bulk-bar__text" id="bulkText">(n)개 항목 선택됨</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn">폴더이동</button>
         </div>
     </div>
 
 <script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
     function toggleProfileMenu(e) {
         e.stopPropagation();
         document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    function onRowCheck() {
+        const checks = document.querySelectorAll('.row-check');
+        const checked = [...checks].filter(c => c.checked);
+        const bulkBar = document.getElementById('bulkBar');
+        const bulkText = document.getElementById('bulkText');
+
+        if (checked.length > 0) {
+            bulkText.textContent = checked.length + '개 항목 선택됨';
+            bulkBar.classList.remove('hidden');
+        } else {
+            bulkBar.classList.add('hidden');
+        }
+
+        document.getElementById('checkAll').indeterminate = checked.length > 0 && checked.length < checks.length;
+        document.getElementById('checkAll').checked = checked.length === checks.length;
+    }
+
+    function toggleAll(checkbox) {
+        document.querySelectorAll('.row-check').forEach(c => c.checked = checkbox.checked);
+        onRowCheck();
+    }
+
+    function closeBulkBar() {
+        document.querySelectorAll('.row-check, #checkAll').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
     }
 
     function closeAllLnb() {
@@ -491,6 +579,9 @@
     }
 
     document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
         if (!e.target.closest('#headerUserMenu')) {
             document.getElementById('headerUserMenu').classList.remove('open');
         }
