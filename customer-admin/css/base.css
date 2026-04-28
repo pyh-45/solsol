@@ -1635,7 +1635,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .input-suffix { font-size:14px; color:var(--text-secondary); white-space:nowrap; }
 .input-unit-box { display:inline-flex; align-items:stretch; border:1px solid var(--border-color); border-radius:6px; overflow:hidden; background:#fff; }
 .input-unit-box input { border:none; outline:none; padding:0 12px; height:40px; font-size:14px; color:var(--text-primary); background:transparent; min-width:0; }
-.input-unit-box__unit { display:flex; align-items:flex-end; padding:0 12px; border-left:1px solid var(--border-color); font-size:14px; color:var(--text-secondary); background:#f1f1f1; white-space:nowrap; }
+.input-unit-box__unit { display:flex; align-items:center; padding:0 12px; border-left:1px solid var(--border-color); font-size:14px; color:var(--text-secondary); background:#f1f1f1; white-space:nowrap; }
 .input-unit-box:focus-within { border-color:var(--color-primary); }
 .method-radio { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border:1px solid var(--border-color); border-radius:6px; font-size:14px; color:var(--text-secondary); cursor:pointer; }
 .method-radio--on { border-color:var(--color-primary); color:var(--color-primary); }
