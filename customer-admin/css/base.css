@@ -2430,6 +2430,7 @@ tr:has(.c-check:checked) {
 .setting-action-bar { display: flex; justify-content: flex-end; gap: 4px; }
 .setting-action-bar .btn { min-width: 100px; }
 .panel-action-bar { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.panel-action-bar .btn { min-width: 100px; }
 
 /* --- Header guide badge --- */
 .admin-header__guide-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 100px; background: #E2FFF3; color: #089253; font-size: 11px; font-weight: 600; }
@@ -2620,8 +2621,9 @@ tr:has(.c-check:checked) {
 
 /* 탭메뉴 내부 정보 테이블 — 좌측 라벨/우측 콘텐츠 */
 .tab-info-table { width:100%; border-collapse:separate; border-spacing:0; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color); }
+.tab-info-table ~ .tab-info-table { margin-top:30px; }
 .tab-info-table th { padding:24px 30px; vertical-align:middle; text-align:left; background:#F7F8FA; font-size:14px; font-weight:500; color:var(--color-textgray); white-space:nowrap; }
-.tab-info-table td { padding:24px 20px 24px 16px; vertical-align:middle; }
+.tab-info-table td { padding:20px 0 20px 16px; vertical-align:middle; }
 .tab-info-table tr + tr th, .tab-info-table tr + tr td { border-top:1px solid var(--border-color); }
 .tab-info-table__label { display:inline-flex; align-items:center; gap:6px; }
 .tab-info-table__edit { background:none; border:none; padding:0; cursor:pointer; line-height:0; }
@@ -2629,7 +2631,7 @@ tr:has(.c-check:checked) {
 /* Q/A 아이템 (원형 배지 + 텍스트) */
 .qa-item { display:flex; gap:12px; align-items:flex-start; }
 .qa-item + .qa-item { margin-top:16px; }
-.qa-item__badge { flex-shrink:0; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff; }
+.qa-item__badge { flex-shrink:0; width:24px; height:24px; margin-right:16px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff; }
 .qa-item__badge--q { background:var(--color-primary); }
 .qa-item__badge--a { background:#BFBFBF; }
 .qa-item__text { margin:0; font-size:14px; line-height:1.6; color:var(--text-dark); flex:1; }
@@ -2646,14 +2648,24 @@ tr:has(.c-check:checked) {
 /* 퀴즈 리스트 (4지선다 / OX) */
 .quiz-list { margin:0; padding:0; list-style:none; }
 .quiz-item + .quiz-item { margin-top:24px; }
-.quiz-item__row { display:flex; align-items:flex-start; }
+.quiz-item__row { display:flex; gap:12px; align-items:flex-start; }
 .quiz-item__row + .quiz-item__row { margin-top:12px; }
 .quiz-item__label,
-.quiz-item__answer { flex-shrink:0; width:60px; margin:0; font-size:13px; font-weight:700; }
+.quiz-item__answer { flex-shrink:0; width:40px; margin:4px 0 0; font-size:13px; font-weight:700; line-height:1.5; }
 .quiz-item__label { color:#F22; }
-.quiz-item__label--q { color:var(--color-primary); }
+.quiz-item__label--q { color:var(--color-primary); margin-top:0; align-self:center; }
+.quiz-item__label--neutral { color:#222; }
 .quiz-item__answer { color:#222; }
 .quiz-item__text { flex:1; margin:0; font-size:13px; line-height:1.5; color:#424242;align-self: flex-start; }
+
+/* 강의정보 수정 — Q/A 배지 + 입력필드 가로배치 */
+.qa-edit-row { display:flex; gap:12px; align-items:center; }
+.qa-edit-row + .qa-edit-row { margin-top:12px; }
+.qa-edit-row--top { align-items:flex-start; }
+.qa-edit-row__field { flex:1; min-width:0; }
+.qa-edit-btn { flex-shrink:0; width:24px; height:24px; line-height:1; border-radius:50%; background:#666; font-size:18px; color:#FFF; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; padding:0 0 2px; }
+.qa-edit-btn:hover { border-color:var(--color-primary); color:var(--color-primary); }
+.quiz-item__row .qa-edit-btn { align-self:center; }
 
 /* ==================== 폴더 관리 ==================== */
 .folder-mgmt-title { font-size:17px; font-weight:700; color:#222; padding-bottom:14px; border-bottom:1px solid #EFEFEF; margin-bottom:0; display:block; }
