@@ -755,6 +755,10 @@ ul, ol { list-style: none; }
 .list-panel--flush .list-panel__title { padding: 24px 30px 0 30px; font-size: 20px; }
 .list-panel--flush .list-panel__header { margin-bottom: 8px; }
 
+/* 탭 메뉴 아래 패널 헤더 (padding-top 제거, 타이틀 17px) */
+.list-panel__header--tab { padding-top: 0; }
+.list-panel__header--tab .list-panel__title { font-size: 17px; }
+
 /* 공지 상세 */
 .notice-detail__top { display:flex; align-items:center; gap:10px; padding-bottom:16px; border-bottom:1px solid var(--border-color); margin-bottom:20px; }
 .notice-detail__meta { display:flex; align-items:center; gap:16px; padding-bottom:16px; border-bottom:1px solid var(--border-color); margin-bottom:20px; }
@@ -816,7 +820,7 @@ ul, ol { list-style: none; }
     border-color: transparent;
     cursor: not-allowed;
     opacity: 1;
-}
+} 
 
 /* 크기 변형 */
 .btn.big  { min-width:360px; height: 52px; padding: 0 28px; font-size: 16px; font-weight: 700; color:#fff;border-radius: 6px;background-color: var(--color-primary); }
@@ -827,35 +831,27 @@ ul, ol { list-style: none; }
 .btn.xs   { height: 26px; padding: 0 10px; font-size: 11px; border-radius: 4px; }
 .btn.xxs { height: 21px; padding: 0 5px; font-size: 11px; border-radius: 4px; }
 
-
 .btn.darkgray {background-color: #707070;color:#FFF;border:1px solid #707070;}
 .btn.darkgray:hover  { background:#4F4F4F; border:1px solid #4F4F4F;}
 
 .btn.gray {background-color: #DADDE5;color:#FFF;border:1px solid #DADDE5;}
 .btn.gray:hover  { background: var(--color-blue); border:1px solid var(--color-blue);}
-
-
 .btn.gray:active  { background: var(--color-primary); border:1px solid var(--color-primary);}
-.btn.big.gray {background-color: #DADDE5;color:#FFF;border:1px solid #DADDE5;}
-.btn.big.gray:hover { background: var(--color-blue); }
-.btn.big.gray.active { background: var(--color-primary); }
-.btn.lg.dark { background-color:#424242; color: #fff; }
-.btn.lg.dark:hover { background-color: var(--btn-dark-0); color: #fff; }
-.btn.nm.dark { background-color:#424242; color: #fff; }
-.btn.nm.dark:hover { background-color: var(--btn-dark-0); color: #fff; }
-.btn.sm.dark { background-color:#424242; color: #fff; }
-.btn.sm.dark:hover { background-color: var(--btn-dark-0); color: #fff; }
-.btn.xxs.dark { background-color:#4F4F4F; color: #fff; }
-.btn.xxs.dark:hover { background-color: var(--btn-dark-0); color: #fff; }
+
+.btn.dark { background-color:#424242; color: #fff; }
+.btn.dark:hover { background-color: var(--btn-dark-0); color: #fff; }
 
 .btn.border { background-color:#fff; border: 1px solid #BFBFBF; color: #222; }
 .btn.border:hover { border-color: #4F4F4F; }
 .btn.border:active { background-color: #fff; border-color: #BFBFBF; color: #222; }
+
 .btn.border-primary { background: #fff; border: 1px solid var(--color-primary); color: var(--color-blue); }
 .btn.border-primary:hover { background: #fff; border-color: var(--color-blue); color: var(--color-blue); }
 .btn.border-primary:active { background: #fff; border-color: var(--color-primary); color: var(--color-primary); }
+
 .btn.primary { background: var(--color-primary); color: #fff; }
 .btn.primary:hover { background: var(--color-blue); }
+.btn.primary:active { background: var(--color-primary); color: #fff; }
 
 /* 유틸리티 */
 .btn--full      { width: 100%; }
@@ -954,6 +950,56 @@ textarea.form-control {
 
 .admin-table tr:hover td { background: var(--bg-hover); }
 .admin-table td .input-unit-box { display:flex; width:100%; }
+
+/* 탭메뉴 내부 테이블 (body는 admin-table과 동일, th는 form-table 스타일) */
+.tab-table {
+    width: 100%;
+    min-width: 960px;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.tab-table th {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-dark);
+    background: #f9f9f9;
+    padding: 14px 12px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+.tab-table td {
+    height: 48px;
+    padding: 13px 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center;
+}
+.tab-table td:nth-child(2) { text-align: left; }
+.tab-table tr:hover td { background: var(--bg-hover); }
+.tab-table td .input-unit-box { display:flex; width:100%; }
+
+/* tab-table 헤더 내 드롭다운: th 높이 늘어남 방지 */
+.tab-table th .c-dropdown__trigger {
+    width: auto;
+    height: auto;
+    min-width: 0;
+    padding: 6px 15px;
+    gap: 15px;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-dark);
+    justify-content: center;
+}
+.tab-table th .c-dropdown__panel {
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 0;
+    width: 100%;
+}
 
 /* ==================== Badge / Status ==================== */
 .badge {
@@ -1261,7 +1307,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .c-dropdown--ghost .c-dropdown__trigger.open { border-color: var(--color-primary); border-bottom-color: transparent; border-radius: 6px 6px 0 0; background: #fff; }
 .c-dropdown__item { display: block; width: calc(100% - 8px); margin: 0 4px; padding: 9px 10px; font-size: 13px; color: var(--text-primary); background: transparent; text-align: left; cursor: pointer; border: none; font-family: inherit; border-radius: 6px; }
 .c-dropdown__item:hover { background: var(--bg-hover); }
-.c-dropdown__item.active { background: #EBF3FF; color: var(--color-primary); font-weight: 500; }
+.c-dropdown__item.active { background: #EBF3FF; color: var(--color-blue); font-weight: 500; }
 
 /* ==================== Filter + Stats Panel ==================== */
 .admin-filter-panel {
