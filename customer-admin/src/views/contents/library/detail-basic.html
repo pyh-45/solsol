@@ -279,9 +279,9 @@
                         <h3 class="detail-form__section-title">콘텐츠 정보</h3>
                         <div class="detail-form__grid">
 
-                            <!-- 콘텐츠소명 -->
+                            <!-- 콘텐츠명 -->
                             <div class="detail-form__field">
-                                <span class="detail-form__label">콘텐츠소명</span>
+                                <span class="detail-form__label">콘텐츠명</span>
                                 <div class="input-with-counter">
                                     <input type="text" class="detail-form__input" value="React Hooks 완벽 가이드.mp4">
                                     <span class="input-with-counter__count">3/15</span>
@@ -292,7 +292,7 @@
                             <!-- 등록일시 -->
                             <div class="detail-form__field">
                                 <span class="detail-form__label">등록일시</span>
-                                <p class="detail-form__text">2000.00.00 오전/오후 00:00</p>
+                                <p class="detail-form__text" style="height:40px; display:flex; align-items:center; padding:0;">2000.00.00 오전/오후 00:00</p>
                             </div>
 
                             <!-- 유형 -->
@@ -312,7 +312,7 @@
                                 <span class="detail-form__label">활성상태</span>
                                 <div style="display:flex; align-items:center; gap:10px;">
                                     <span class="status-chip status-chip--active">활성</span>
-                                    <button class="btn xs border">비활성 처리</button>
+                                    <span class="detail-form__text">비활성 처리</span>
                                 </div>
                             </div>
 
@@ -320,7 +320,7 @@
                             <div class="detail-form__field">
                                 <span class="detail-form__label">폴더</span>
                                 <div style="display:flex; align-items:center; gap:10px;">
-                                    <button class="btn sm border">폴더 선택</button>
+                                    <button class="btn md border">폴더 선택</button>
                                     <a href="#" class="content-folder-link">파이썬</a>
                                 </div>
                             </div>
@@ -329,55 +329,54 @@
                             <div class="detail-form__field detail-form__field--full">
                                 <span class="detail-form__label">자막</span>
                                 <div>
-                                    <button class="btn sm border">파일 업로드</button>
+                                    <button class="btn md border">파일 업로드</button>
                                     <table class="subtitle-table">
                                         <colgroup>
-                                            <col style="width:48px;">
-                                            <col>
-                                            <col style="width:110px;">
+                                            <col style="width:30px;">
+                                            <col style="padding-left:50px;">
+                                            <col style="width:120px;">
                                         </colgroup>
                                         <thead>
                                             <tr>
-                                                <th><input type="checkbox" class="subtitle-table__check"></th>
+                                                <th><input type="checkbox" class="table-check"></th>
                                                 <th>파일명</th>
                                                 <th>자막편집</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="checkbox" class="subtitle-table__check" checked></td>
+                                                <td><input type="checkbox" class="table-check" checked></td>
                                                 <td>
                                                     <span class="subtitle-table__filename">
-                                                        <img src="../../../images/form-ico-lock.svg" width="16" height="16" alt="">
+                                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
                                                         강의_자막_ko.vtt
                                                     </span>
                                                 </td>
-                                                <td><button class="btn xs border">자막 편집</button></td>
+                                                <td><button class="btn md border-primary">자막 편집</button></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                                <td><input type="checkbox" class="table-check"></td>
                                                 <td>
                                                     <span class="subtitle-table__filename">
-                                                        <img src="../../../images/form-ico-lock.svg" width="16" height="16" alt="">
+                                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
                                                         강의_자막_EN.vtt
                                                     </span>
                                                 </td>
-                                                <td><button class="btn xs border">자막 편집</button></td>
+                                                <td><button class="btn md border-primary">자막 편집</button></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" class="subtitle-table__check"></td>
+                                                <td><input type="checkbox" class="table-check"></td>
                                                 <td>
                                                     <span class="subtitle-table__filename">
-                                                        <span class="subtitle-table__ai-tag">✦ AI</span>
+                                                        <img src="../../../images/ico-ai-purple.svg" width="35" height="20" alt="AI">
                                                         강의_자막_EN.vtt
                                                     </span>
                                                 </td>
-                                                <td><button class="btn xs border">자막 편집</button></td>
+                                                <td><button class="btn md border-primary">자막 편집</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <p class="detail-form__hint" style="margin-top:8px;">영상에 사용하실 자막을 선택해 주세요.</p>
-                                    <p class="detail-form__hint">업로드 가능 확장자 : SRT, VTT</p>
+                                    <p class="detail-form__hint" style="margin-top:8px;">영상에 사용하실 자막을 선택해 주세요.<br/>업로드 가능 확장자 : SRT, VTT</p>
                                 </div>
                             </div>
 
