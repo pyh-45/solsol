@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - AI 튜터</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <button class="admin-header__back">
+                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">상세페이지</span>
+                <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+
+                <!-- 프로필 툴팁 -->
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn nm border">내 정보</button>
+                        <button class="btn nm border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <!-- 콘텐츠 관리 - 열린 상태 -->
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item active">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 상단 안내 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span>AI 튜터로 생성된 강의 정보입니다. 필요에 따라 내용을 수정할 수 있습니다.
+                    AI 튜터를 재생성하면 기존 정보는 삭제되며, 크레딧이 차감되니 유의해 주세요.</span>
+                </div>
+
+                <!-- 액션 바 -->
+                <div class="setting-action-bar">
+                    <button class="btn nm border">수정</button>
+                    <button class="btn nm ai"><img src="../../../images/ico-ai-symbol.svg" width="16" height="16" alt="">AI 튜터 다시 생성</button>
+                </div>
+
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item">기본 정보</button>
+                    <button class="detail-tab__item active">AI 튜터</button>
+                    <button class="detail-tab__item">AI 번역</button>
+                    <button class="detail-tab__item">사용현황</button>
+                </nav>
+
+                <!-- AI 튜터 강의정보 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="detail-form__section-title">강의정보</h3>
+
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <!-- 학습목표 -->
+                            <tr>
+                                <th>
+                                    <div class="tab-info-table__label">
+                                        학습목표
+                                        <button class="tab-info-table__edit" aria-label="편집">
+                                            <img src="../../../images/ico-24px-edit.svg" width="24" height="24" alt="">
+                                        </button>
+                                    </div>
+                                </th>
+                                <td>본 콘텐츠를 통해 학습자는 1차방정식의 해를 구하고, 실생활 문제에 1차방정식을 적용하여 해결할 수 있다.</td>
+                            </tr>
+
+                            <!-- 학습요약 -->
+                            <tr>
+                                <th>
+                                    <div class="tab-info-table__label">
+                                        학습요약
+                                        <button class="tab-info-table__edit" aria-label="편집">
+                                            <img src="../../../images/ico-24px-edit.svg" width="24" height="24" alt="">
+                                        </button>
+                                    </div>
+                                </th>
+                                <td>
+                                    <ul class="tab-info-list">
+                                        <li>1차 방정식의 해는 미지수에 대한 값을 대입하여 좌변과 우변이 같아지는 값을 찾는다.</li>
+                                        <li>열린 1차 방정식의 해를 구하기 위해 대입법, 가감법 등의 방법을 활용할 수 있다.</li>
+                                        <li>실생활 문제를 1차 방정식으로 모델링하고, 방정식을 풀어 문제를 해결할 수 있다.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <!-- 추천질문 -->
+                            <tr>
+                                <th>
+                                    <div class="tab-info-table__label">
+                                        추천질문
+                                        <button class="tab-info-table__edit" aria-label="편집">
+                                            <img src="../../../images/ico-24px-edit.svg" width="24" height="24" alt="">
+                                        </button>
+                                    </div>
+                                </th>
+                                <td>
+                                    <div class="qa-group">
+                                        <div class="qa-item">
+                                            <span class="qa-item__badge qa-item__badge--q">Q</span>
+                                            <p class="qa-item__text">미지수가 2개인 1차 방정식을 판별하는 기준은 무엇이며, 보기에서 주어진 식들이 1차 방정식인지 확인하는 방법을 설명해주세요?</p>
+                                        </div>
+                                        <div class="qa-item">
+                                            <span class="qa-item__badge qa-item__badge--a">A</span>
+                                            <p class="qa-item__text">미지수가 2개인 1차 방정식은 미지수 X와 Y에 대한 차수가 모두 1인 방정식을 의미합니다. 주어진 식들이 1차 방정식인지 확인하려면, 각 항의 차수를 확인해야 합니다. X 또는 Y의 지수가 1이어야 하며, 지수가 2 이상이거나 분수 형태인 항은 1차 방정식이 될 수 없습니다. 예를 들어, \(x^2 + y = 5\)는 X의 차수가 2이므로 1차 방정식이 아닙니다. 하지만, \(x + 2y = 7\)은 X와 Y 모두 차수가 1이므로 1차 방정식입니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="qa-group">
+                                        <div class="qa-item">
+                                            <span class="qa-item__badge qa-item__badge--q">Q</span>
+                                            <p class="qa-item__text">X는 3, Y는 1을 해로 갖는 열린 1차 방정식을 찾는 방법은 무엇이며, 각 방정식을 대입하여 참/거짓을 확인하는 과정을 설명해주세요.</p>
+                                        </div>
+                                        <div class="qa-item">
+                                            <span class="qa-item__badge qa-item__badge--a">A</span>
+                                            <p class="qa-item__text">X는 3, Y는 1을 해로 갖는 열린 1차 방정식을 찾기 위해서는 주어진 방정식에 X=3, Y=1을 각각 대입하여 좌변과 우변의 값이 일치하는지 확인해야 합니다. 만약 좌변과 우변의 값이 일치하면, 그 방정식은 X=3, Y=1을 해로 가집니다. 예를 들어, \(2x + y = 7\)에 X=3, Y=1을 대입하면 \(2(3) + 1 = 7\)이 되어 좌변과 우변이 일치하므로 해가 됩니다. 하지만, \(x + y = 5\)에 X=3, Y=1을 대입하면 \(3 + 1 = 5\)가 되어 좌변과 우변이 일치하므로 해가 됩니다.</p>
+                                        </div>
+                                    </div>
+                                    <div class="qa-group">
+                                        <div class="qa-item">
+                                            <span class="qa-item__badge qa-item__badge--q">Q</span>
+                                            <p class="qa-item__text">호두와 계란을 이용한 단백질과 지방 섭취 문제를 1차 방정식으로 모델링하는 방법을 설명하고, 각 변수를 정의하여 식을 세우는 과정을 구체적으로 설명해주세요.</p>
+                                        </div>
+                                        <div class="qa-item">
+                                            <span class="qa-item__badge qa-item__badge--a">A</span>
+                                            <p class="qa-item__text">호두 X 개와 계란 Y 개를 이용하여 단백질 50g과 지방 44g을 섭취하는 문제를 1차 방정식으로 모델링하려면, 먼저 각 재료가 제공하는 단백질과 지방의 양을 파악해야 합니다. 문제에서 호두 1개당 단백질 1g, 지방 5g, 계란 1개당 단백질 8g, 지방 2g이 제공된다고 주어졌으므로, 이를 이용하여 단백질과 지방 섭취량에 대한 방정식을 세울 수 있습니다. 단백질 섭취량에 대한 방정식은 \(1x + 8y = 50\)이고, 지방 섭취량에 대한 방정식은 \(5x + 2y = 44\)입니다. 여기서 X는 호두의 개수, Y는 계란의 개수를 나타냅니다.</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4지선다 퀴즈 -->
+                            <tr>
+                                <th>
+                                    <div class="tab-info-table__label">
+                                        4지선다 퀴즈
+                                        <button class="tab-info-table__edit" aria-label="편집">
+                                            <img src="../../../images/ico-24px-edit.svg" width="24" height="24" alt="">
+                                        </button>
+                                    </div>
+                                </th>
+                                <td>
+                                    <ul class="quiz-list">
+                                        <li class="quiz-item">
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--q">Q</span>
+                                                <p class="qa-item__text">미지수가 2개인 1차 방정식인 것을 고르는 문제에서, 보기의 5번은 어떤 특징을 가지고 있을까요?</p>
+                                            </div>
+                                            <p class="quiz-item__label">보기</p>
+                                            <p class="quiz-item__text">1. 미지수 X와 Y에 대한 1차 방정식이 된다.<br>2. 미지수 X를 포함하는 항의 차수가 2이다.<br>3. 우변에 있는 항을 이항했을 때 미지수가 2개인 1차 방정식이 된다.<br>4. 이항하기 전에도 미지수가 2개인 1차 방정식이다.</p>
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--a">A</span>
+                                                <div class="qa-item__group">
+                                                    <p class="quiz-item__answer">정답 1번</p>
+                                                    <p class="quiz-item__text">보기 5번은 1을 좌변으로 향했을 때 미지수 X와 Y가 2개에 대한 1차 방정식이 된다고 설명되어 있습니다. 따라서 정답은 1번입니다.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="quiz-item">
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--q">Q</span>
+                                                <p class="qa-item__text">X는 3, Y는 1을 해로 갖는 열린 방정식을 모두 고르려면, 각 방정식을 대입하여 무엇을 확인해야 할까요?</p>
+                                            </div>
+                                            <p class="quiz-item__label">보기</p>
+                                            <p class="quiz-item__text">1. 첫 번째 방정식에만 대입하여 참이 되는지 확인해야 한다.<br>2. 두 번째 방정식에만 대입하여 참이 되는지 확인해야 한다.<br>3. 각 방정식에 대입하여 실제로 참이 되는지 확인해야 한다.<br>4. 어떤 방정식에 대입해도 참이 되는지 확인해야 한다.</p>
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--a">A</span>
+                                                <div class="qa-item__group">
+                                                    <p class="quiz-item__answer">정답 3번</p>
+                                                    <p class="quiz-item__text">X는 3, Y는 1을 열린 방정식의 해로 가지려면, 첫 번째 방정식과 두 번째 방정식 모두 해로 만족해야 합니다. 따라서 각 방정식을 대입하여 실제로 참이 되는지 확인해야 합니다.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <!-- OX 퀴즈 -->
+                            <tr>
+                                <th>
+                                    <div class="tab-info-table__label">
+                                        OX 퀴즈
+                                        <button class="tab-info-table__edit" aria-label="편집">
+                                            <img src="../../../images/ico-24px-edit.svg" width="24" height="24" alt="">
+                                        </button>
+                                    </div>
+                                </th>
+                                <td>
+                                    <ul class="quiz-list">
+                                        <li class="quiz-item">
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--q">Q</span>
+                                                <p class="qa-item__text">미지수가 2개인 1차 방정식에서, 좌변으로 변수를 이동할 때 부호는 반대로 바뀌는 것은 원리이다.</p>
+                                            </div>
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--a">A</span>
+                                                <div class="qa-item__group">
+                                                    <p class="quiz-item__answer">정답 O</p>
+                                                    <p class="quiz-item__text">1차 방정식을 풀 때, 등식의 성질에 따라 좌변과 우변에 동일한 연산을 수행해도 등식은 성립합니다. 좌변으로 변수를 이동할 때는 부호가 반대로 바뀌는 것은 이 성질을 적용한 결과입니다.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="quiz-item">
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--q">Q</span>
+                                                <p class="qa-item__text">열린 1차 방정식의 해는 반드시 첫 번째 방정식만을 만족해야 한다.</p>
+                                            </div>
+                                            <div class="qa-item">
+                                                <span class="qa-item__badge qa-item__badge--a">A</span>
+                                                <div class="qa-item__group">
+                                                    <p class="quiz-item__answer">정답 X</p>
+                                                    <p class="quiz-item__text">열린 1차 방정식의 해는 두 개의 1차 방정식을 모두 만족해야 합니다. 만약 첫 번째 방정식에서 해가 나오더라도, 두 번째 방정식에도 같은 해가 성립하는지 확인해야 합니다.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 설정 정보 폼 -->
+                <div class="list-panel list-panel--p30">
+                    <div class="detail-form__section">
+                        <h3 class="detail-form__section-title">설정 정보</h3>
+                        <div class="detail-form__grid">
+
+                            <!-- 콘텐츠 설명 -->
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">콘텐츠 설명</span>
+                                <p class="detail-form__text">기초 개념부터 실전 활용까지 체계적으로 학습할 수 있는 강의입니다. 다양한 사례와 예제를 통해 이해를 돕고, 실무에 바로 적용할 수 있도록 구성했습니다.</p>
+                            </div>
+
+                            <!-- 요약 수 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">요약 수</span>
+                                <p class="detail-form__text">사용함</p>
+                            </div>
+
+                            <!-- 추천 질문 수 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">추천 질문 수</span>
+                                <p class="detail-form__text">사용함</p>
+                            </div>
+
+                            <!-- 난이도 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">난이도</span>
+                                <p class="detail-form__text">어려움</p>
+                            </div>
+
+                            <!-- 4지선다 퀴즈 수 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">4지선다 퀴즈 수</span>
+                                <p class="detail-form__text">사용안함</p>
+                            </div>
+
+                            <!-- OX 퀴즈 수 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">OX 퀴즈 수</span>
+                                <p class="detail-form__text">사용안함</p>
+                            </div>
+
+                            <!-- 등록일시 -->
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">등록일시</span>
+                                <p class="detail-form__text">2000.00.00 오전/오후 00:00</p>
+                            </div>
+
+                            <!-- AI 자료 첨부 -->
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">AI 자료 첨부</span>
+                                <div class="ai-file-attach">
+                                    <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                    <span class="ai-file-attach__name">일반강의 자막 추출.srt</span>
+                                    <span class="ai-file-attach__size">5MB</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+<script>
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+</script>
+
+</body>
+</html>

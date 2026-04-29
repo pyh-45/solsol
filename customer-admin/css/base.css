@@ -841,6 +841,11 @@ ul, ol { list-style: none; }
 .btn.dark { background-color:#424242; color: #fff; }
 .btn.dark:hover { background-color: var(--btn-dark-0); color: #fff; }
 
+/* AI 버튼 (lg 사이즈와 동일, 마젠타 → hover/active 다크) */
+.btn.ai { background-color:#F933F2; color:#fff;min-width: 150px; padding:0 15px 0 11px; gap:4px; }
+.btn.ai:hover { background-color:#222; }
+.btn.ai:active { background-color:#424242; }
+
 .btn.border { background-color:#fff; border: 1px solid #BFBFBF; color: #222; }
 .btn.border:hover { border-color: #4F4F4F; }
 .btn.border:active { background-color: #fff; border-color: #BFBFBF; color: #222; }
@@ -1232,6 +1237,8 @@ textarea.form-control {
     white-space: nowrap;
     text-decoration: underline;
 }
+
+.admin-infotip__warn { color:#F22; margin-left:16px; }
 
 /* ==================== Filter Bar ==================== */
 .admin-filter {
@@ -2279,7 +2286,6 @@ tr:has(.c-check:checked) {
 .auth-forgot-desc { font-size: 13px; color: var(--text-secondary); text-align: center; line-height: 1.5; }
 .auth-reset-intro { display: flex; flex-direction: column; gap: 10px; }
 .auth-reset-intro__title { font-size: 22px; font-weight: 700; color: var(--text-primary); line-height: 1.45; letter-spacing: -0.03em; }
-.auth-reset-intro__role {} 
 .auth-reset-intro__desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 .auth-required { color: var(--color-red); }
 .auth-row { display: flex; gap:6px; }
@@ -2603,6 +2609,52 @@ tr:has(.c-check:checked) {
 .content-select-bar__text { color:#fff; font-size:14px; font-weight:500; }
 .content-select-bar__actions { margin-left:auto; }
 .list-sort-select { height:34px; padding:0 10px; border:1px solid var(--border-color); border-radius:6px; font-size:13px; font-family:inherit; color:var(--text-primary); background:#fff; outline:none; cursor:pointer; }
+
+/* 패널 내부 빈 상태 (가운데 정렬, 상하 80px 패딩) */
+.panel-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:40px 20px; text-align:center; }
+.panel-empty__desc { line-height:1.5; margin:0; }
+
+/* AI 자료 첨부 (페이퍼클립 + 파일명 + 크기) */
+.ai-file-attach { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--text-primary); }
+.ai-file-attach__size { color:var(--text-tertiary); margin-left:8px; }
+
+/* 탭메뉴 내부 정보 테이블 — 좌측 라벨/우측 콘텐츠 */
+.tab-info-table { width:100%; border-collapse:separate; border-spacing:0; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color); }
+.tab-info-table th { padding:24px 30px; vertical-align:middle; text-align:left; background:#F7F8FA; font-size:14px; font-weight:500; color:var(--color-textgray); white-space:nowrap; }
+.tab-info-table td { padding:24px 20px 24px 16px; vertical-align:middle; }
+.tab-info-table tr + tr th, .tab-info-table tr + tr td { border-top:1px solid var(--border-color); }
+.tab-info-table__label { display:inline-flex; align-items:center; gap:6px; }
+.tab-info-table__edit { background:none; border:none; padding:0; cursor:pointer; line-height:0; }
+
+/* Q/A 아이템 (원형 배지 + 텍스트) */
+.qa-item { display:flex; gap:12px; align-items:flex-start; }
+.qa-item + .qa-item { margin-top:16px; }
+.qa-item__badge { flex-shrink:0; width:24px; height:24px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff; }
+.qa-item__badge--q { background:var(--color-primary); }
+.qa-item__badge--a { background:#BFBFBF; }
+.qa-item__text { margin:0; font-size:14px; line-height:1.6; color:var(--text-dark); flex:1; }
+.qa-item__badge--a + .qa-item__text { color:#424242; font-size:13px; }
+.qa-item__group { flex:1; }
+.qa-item__group .quiz-item__answer,
+.qa-item__group .quiz-item__text { padding-left:0; }
+
+/* Q/A 그룹 (Q+A 한 묶음, 그룹 사이 간격) */
+.qa-group + .qa-group { margin-top:20px; }
+
+/* tab-info-table 안의 단순 불릿 리스트 (학습요약 등) */
+.tab-info-list { margin:0; padding-left:18px; list-style:disc; }
+.tab-info-list li { font-size:14px; line-height:1.6; color:var(--text-dark); margin:0; }
+.tab-info-list li + li { margin-top:8px; }
+
+/* 퀴즈 리스트 (4지선다 / OX) */
+.quiz-list { margin:0; padding:0; list-style:none; }
+.quiz-item + .quiz-item { margin-top:24px; }
+.quiz-item .qa-item { margin-bottom:12px; }
+.quiz-item .qa-item:has(+ .quiz-item__label) { margin-bottom:4px; }
+.quiz-item__label { margin:0 0 6px; padding-left:36px; font-size:13px; font-weight:700; color:var(--color-primary); }
+.quiz-item__text { margin:0 0 12px; padding-left:36px; font-size:13px; line-height:1.6; color:#424242; }
+.quiz-item__text:last-child { margin-bottom:0; }
+.quiz-item__answer { margin:0 0 6px; padding-left:36px; font-size:13px; font-weight:700; color:#F22; }
 
 /* ==================== 폴더 관리 ==================== */
 .folder-mgmt-title { font-size:17px; font-weight:700; color:#222; padding-bottom:14px; border-bottom:1px solid #EFEFEF; margin-bottom:0; display:block; }
