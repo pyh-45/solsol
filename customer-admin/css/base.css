@@ -2634,9 +2634,6 @@ tr:has(.c-check:checked) {
 .qa-item__badge--a { background:#BFBFBF; }
 .qa-item__text { margin:0; font-size:14px; line-height:1.6; color:var(--text-dark); flex:1; }
 .qa-item__badge--a + .qa-item__text { color:#424242; font-size:13px; }
-.qa-item__group { flex:1; }
-.qa-item__group .quiz-item__answer,
-.qa-item__group .quiz-item__text { padding-left:0; }
 
 /* Q/A 그룹 (Q+A 한 묶음, 그룹 사이 간격) */
 .qa-group + .qa-group { margin-top:20px; }
@@ -2649,12 +2646,14 @@ tr:has(.c-check:checked) {
 /* 퀴즈 리스트 (4지선다 / OX) */
 .quiz-list { margin:0; padding:0; list-style:none; }
 .quiz-item + .quiz-item { margin-top:24px; }
-.quiz-item .qa-item { margin-bottom:12px; }
-.quiz-item .qa-item:has(+ .quiz-item__label) { margin-bottom:4px; }
-.quiz-item__label { margin:0 0 6px; padding-left:36px; font-size:13px; font-weight:700; color:var(--color-primary); }
-.quiz-item__text { margin:0 0 12px; padding-left:36px; font-size:13px; line-height:1.6; color:#424242; }
-.quiz-item__text:last-child { margin-bottom:0; }
-.quiz-item__answer { margin:0 0 6px; padding-left:36px; font-size:13px; font-weight:700; color:#F22; }
+.quiz-item__row { display:flex; align-items:flex-start; }
+.quiz-item__row + .quiz-item__row { margin-top:12px; }
+.quiz-item__label,
+.quiz-item__answer { flex-shrink:0; width:60px; margin:0; font-size:13px; font-weight:700; }
+.quiz-item__label { color:#F22; }
+.quiz-item__label--q { color:var(--color-primary); }
+.quiz-item__answer { color:#222; }
+.quiz-item__text { flex:1; margin:0; font-size:13px; line-height:1.5; color:#424242;align-self: flex-start; }
 
 /* ==================== 폴더 관리 ==================== */
 .folder-mgmt-title { font-size:17px; font-weight:700; color:#222; padding-bottom:14px; border-bottom:1px solid #EFEFEF; margin-bottom:0; display:block; }
