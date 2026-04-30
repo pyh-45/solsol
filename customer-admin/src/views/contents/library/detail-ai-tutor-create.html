@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - AI 튜터 생성</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <button class="admin-header__back">
+                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">상세페이지</span>
+                <span class="btn xxs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+
+                <!-- 프로필 툴팁 -->
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn nm border">내 정보</button>
+                        <button class="btn nm border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <!-- 콘텐츠 관리 - 열린 상태 -->
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item active">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 상단 안내 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span>AI 튜터 설정 시 영상 분에 따라 크레딧이 차감됩니다. (보유 크레딧 1000)</span>
+                </div>
+
+                <!-- 액션 바 -->
+                <div class="setting-action-bar">
+                    <button class="btn nm border">취소</button>
+                    <button class="btn nm dark">AI 튜터 생성</button>
+                </div>
+
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item">기본 정보</button>
+                    <button class="detail-tab__item active">AI 튜터</button>
+                    <button class="detail-tab__item">AI 번역</button>
+                    <button class="detail-tab__item">사용현황</button>
+                </nav>
+
+                <!-- AI 튜터 생성 폼 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="detail-form__section-title">강의정보</h3>
+
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+
+                            <!-- 자막 -->
+                            <tr>
+                                <th>자막</th>
+                                <td>
+                                    <table class="subtitle-table">
+                                        <colgroup>
+                                            <col style="width:30px;">
+                                            <col style="padding-left:50px;">
+                                            <col style="width:120px;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th><input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)"></th>
+                                                <th>파일명</th>
+                                                <th>자막편집</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox" class="table-check row-check" checked onchange="onRowCheck()"></td>
+                                                <td>
+                                                    <span class="subtitle-table__filename">
+                                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                                        강의_자막_ko.vtt
+                                                    </span>
+                                                </td>
+                                                <td><button class="btn md border-primary">자막 편집</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                                <td>
+                                                    <span class="subtitle-table__filename">
+                                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                                        강의_자막_EN.vtt
+                                                    </span>
+                                                </td>
+                                                <td><button class="btn md border-primary">자막 편집</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                                <td>
+                                                    <span class="subtitle-table__filename">
+                                                        <img src="../../../images/ico-ai-purple.svg" width="35" height="20" alt="AI">
+                                                        강의_자막_EN.vtt
+                                                    </span>
+                                                </td>
+                                                <td><button class="btn md border-primary">자막 편집</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="detail-form__hint" style="margin-top:8px;">영상에 사용하실 자막을 선택해 주세요.<br/>업로드 가능 확장자 : SRT, VTT</p>
+
+                                    <div class="ai-subtitle-option">
+                                        <label class="c-radio">
+                                            <input type="radio" name="subtitle-source">
+                                            <span class="ai-subtitle-option__label">
+                                                <img src="../../../images/ico-ai-purple.svg" width="35" height="20" alt="AI">
+                                                <span class="ai-subtitle-option__title">AI 자막생성</span>
+                                                <span>사용</span>
+                                            </span>
+                                        </label>
+                                        <p class="ai-subtitle-option__desc">AI가 영상을 분석하여 자동으로 자막을 추출해주는 기능입니다. 영상 길이에 따라 크레딧이 차감되며, 자막 파일을 직접 업로드할 경우에는 차감되지 않습니다.</p>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 콘텐츠 설명 -->
+                            <tr>
+                                <th>콘텐츠 설명</th>
+                                <td>
+                                    <textarea class="detail-form__textarea qa-edit-row__field" placeholder="콘텐츠 설명을 입력해 주세요."></textarea>
+                                </td>
+                            </tr>
+
+                            <!-- 요약수 -->
+                            <tr>
+                                <th>요약수</th>
+                                <td>
+                                    <div class="c-dropdown" style="width:400px;">
+                                        <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">1개</span>
+                                            <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">1개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">2개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">3개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">4개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">5개</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 추천질문 수 -->
+                            <tr>
+                                <th>추천질문 수</th>
+                                <td>
+                                    <div class="c-dropdown" style="width:400px;">
+                                        <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">1개</span>
+                                            <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">1개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">2개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">3개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">4개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">5개</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 난이도 -->
+                            <tr>
+                                <th>난이도</th>
+                                <td>
+                                    <div class="c-dropdown" style="width:400px;">
+                                        <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">어려움</span>
+                                            <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">쉬움</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">보통</button>
+                                            <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">어려움</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- 4지선다 퀴즈 수 -->
+                            <tr>
+                                <th>4지선다 퀴즈 수</th>
+                                <td>
+                                    <div class="c-dropdown" style="width:400px;">
+                                        <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">사용안함</span>
+                                            <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">사용안함</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">1개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">2개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">3개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">4개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">5개</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- OX 퀴즈 수 -->
+                            <tr>
+                                <th>OX 퀴즈 수</th>
+                                <td>
+                                    <div class="c-dropdown" style="width:400px;">
+                                        <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">사용안함</span>
+                                            <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">사용안함</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">1개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">2개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">3개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">4개</button>
+                                            <button type="button" class="c-dropdown__item" onclick="selectItem(this)">5개</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- AI 자료 첨부 -->
+                            <tr>
+                                <th>AI 자료 첨부</th>
+                                <td>
+                                    <button class="btn md border">파일 업로드</button>
+                                    <table class="subtitle-table" style="margin-top:20px;">
+                                        <colgroup>
+                                            <col style="width:30px;">
+                                            <col style="padding-left:50px;">
+                                            <col style="width:150px;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th><input type="checkbox" class="table-check"></th>
+                                                <th>파일명</th>
+                                                <th>용량</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox" class="table-check" checked></td>
+                                                <td>
+                                                    <span class="subtitle-table__filename">
+                                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                                        일반강의 자막 추출.srt
+                                                    </span>
+                                                </td>
+                                                <td>1.2MB</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="detail-form__hint" style="margin-top:8px;">AI 학습에 활용할 자료를 선택해 주세요.<br/>업로드 가능 확장자 : SRT, VTT, PDF, DOCX</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 크레딧 정보 + 생성 버튼 -->
+                <div class="ai-credit-bar">
+                    <div class="ai-credit-bar__info">
+                        <div class="ai-credit-item">
+                            <span class="ai-credit-item__label">예상 차감 크레딧</span>
+                            <span class="ai-credit-item__value">370,000</span>
+                            <span class="lnb-credits__coin">C</span>
+                        </div>
+                        <div class="ai-credit-item">
+                            <span class="ai-credit-item__label">현재 보유 크레딧</span>
+                            <span class="ai-credit-item__value">370,000</span>
+                            <span class="lnb-credits__coin">C</span>
+                        </div>
+                        <div class="ai-credit-warn">
+                            <span>크레딧이 부족해요. 충전하시겠어요?</span>
+                            <a href="#" class="ai-credit-warn__link">충전하기</a>
+                            <span class="ai-credit-warn__icon">!</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn lg ai-violet">
+                        <img src="../../../images/ico-ai-symbol.svg" width="16" height="16" alt="">
+                        AI 튜터 생성
+                    </button>
+                </div>
+
+                <!-- 하단 일괄처리 바 -->
+                <div class="c-bulk-bar hidden" id="bulkBar">
+                    <div class="c-bulk-bar__left">
+                        <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+                        <span class="c-bulk-bar__text" id="bulkText">(n)개 항목 선택됨</span>
+                    </div>
+                    <div class="c-bulk-bar__actions">
+                        <button class="c-bulk-bar__btn">선택삭제</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+<script>
+    function toggleAll(master) {
+        document.querySelectorAll('.row-check').forEach(c => c.checked = master.checked);
+        onRowCheck();
+    }
+
+    function onRowCheck() {
+        const checks = document.querySelectorAll('.row-check');
+        const checked = [...checks].filter(c => c.checked);
+        const bulkBar = document.getElementById('bulkBar');
+        const bulkText = document.getElementById('bulkText');
+        if (checked.length > 0) {
+            bulkText.textContent = checked.length + '개 항목 선택됨';
+            bulkBar.classList.remove('hidden');
+        } else {
+            bulkBar.classList.add('hidden');
+        }
+        const master = document.getElementById('checkAll');
+        if (master) {
+            master.checked = checked.length === checks.length && checks.length > 0;
+            master.indeterminate = checked.length > 0 && checked.length < checks.length;
+        }
+    }
+
+    function closeBulkBar() {
+        document.querySelectorAll('.row-check, #checkAll').forEach(c => { c.checked = false; c.indeterminate = false; });
+        document.getElementById('bulkBar').classList.add('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', onRowCheck);
+
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+</script>
+
+</body>
+</html>
