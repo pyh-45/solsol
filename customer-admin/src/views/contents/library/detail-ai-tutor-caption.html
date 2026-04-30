@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 강의 이력</title>
+    <title>Admin - 자막 편집</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <button class="admin-header__back">
                     <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
                 </button>
-                <span class="admin-header__page-title">상세페이지</span>
+                <span class="admin-header__page-title">자막 편집</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -33,7 +33,6 @@
 
         <div class="admin-header__right">
             <div class="admin-header__btns">
-                <button class="admin-header__btn admin-header__btn--dark">가이드</button>
                 <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
             </div>
             <div class="admin-header__icons">
@@ -49,6 +48,8 @@
                 <div class="c-avatar30 learner">A</div>
                 <span class="admin-header__username">홍길순</span>
                 <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+
+                <!-- 프로필 툴팁 -->
                 <div class="c-profile-tooltip">
                     <div class="c-profile-tooltip__top">
                         <div class="c-avatar40 learner">A</div>
@@ -94,7 +95,7 @@
                     대시보드
                 </a>
 
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
                         <span class="lnb-accordion__label">사용자</span>
@@ -102,7 +103,7 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">학습자</a>
-                        <a href="#" class="lnb-sub-item active">강사</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
                         <a href="#" class="lnb-sub-item">관리자</a>
                     </div>
                 </div>
@@ -124,14 +125,15 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion">
+                <!-- 콘텐츠 관리 - 열린 상태 -->
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
                         <span class="lnb-accordion__label">콘텐츠 관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                        <a href="#" class="lnb-sub-item active">콘텐츠 라이브러리</a>
                     </div>
                 </div>
 
@@ -250,166 +252,112 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 프로필 박스 -->
-                <div class="detail-profile">
-                    <div class="detail-profile__top">
-                        <div class="c-avatar80 learner"></div>
-                        <div class="detail-profile__body">
-                            <div class="detail-profile__name-row">
-                                <span class="detail-profile__name">Shine_Masters(홍길동)</span>
-                                <span class="profile-badge profile-badge--verify">인증</span>
-                                <span class="profile-badge profile-badge--active">활성</span>
+                <!-- 액션 바 -->
+                <div class="setting-action-bar">
+                    <button class="btn nm dark">변경사항 저장</button>
+                </div>
+
+                <!-- 자막 편집 - 2컬럼 -->
+                <div class="caption-edit">
+
+                    <!-- 좌측: 영상 + 찾기/바꾸기 -->
+                    <div class="caption-edit__left">
+                        <div class="list-panel list-panel--p30">
+                            <h3 class="caption-edit__title">영어 2-1_최선혜_3강 수정_260322</h3>
+
+                            <div class="caption-video">
+                                <button type="button" class="caption-video__btn" aria-label="10초 뒤로">
+                                    <img src="../../../images/ico-44px-rotate-left.svg" width="44" height="44" alt="">
+                                </button>
+                                <button type="button" class="caption-video__btn" aria-label="재생">
+                                    <img src="../../../images/ico-44px-play.svg" width="44" height="44" alt="">
+                                </button>
+                                <button type="button" class="caption-video__btn" aria-label="10초 앞으로">
+                                    <img src="../../../images/ico-44px-rotate-right.svg" width="44" height="44" alt="">
+                                </button>
                             </div>
-                            <p class="detail-profile__email">minjun.kim@example.com</p>
-                            <div class="detail-profile__meta">
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-user.svg" width="16" height="16" alt="">
-                                    가입일 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-logininfo.svg" width="16" height="16" alt="">
-                                    마지막 로그인 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-teacher.svg" width="16" height="16" alt="">
-                                    개설 강좌 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 개
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-people.svg" width="16" height="16" alt="">
-                                    수강자수 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 명
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-star.svg" width="16" height="16" alt="">
-                                    평균 별점 <span class="detail-profile__meta-value" style="color:var(--color-red)">4.5</span>점
-                                </span>
+                        </div>
+
+                        <div class="list-panel list-panel--p30 find-replace">
+                            <h3 class="find-replace__title">찾기 및 바꾸기</h3>
+
+                            <div class="find-replace__row">
+                                <span class="find-replace__label">찾기</span>
+                                <input type="text" class="detail-form__input" placeholder="단어를 입력해 주세요.">
+                                <p class="find-replace__hint">추출된 자막중 잘못된 단어를 입력해주세요.</p>
+                            </div>
+
+                            <div class="find-replace__row">
+                                <span class="find-replace__label">바꾸기</span>
+                                <input type="text" class="detail-form__input" placeholder="바꾸실 단어를 입력해 주세요.">
+                                <p class="find-replace__hint">추출된 자막중 잘못된 단어를 입력해주세요.</p>
+                                <hr class="find-replace__divider">
+                            </div>
+
+                            <div class="find-replace__footer">
+                                <div class="find-replace__pagination">
+                                    <span class="find-replace__page-info">
+                                        <span class="find-replace__page-current">1</span>
+                                        <span>/ 20</span>
+                                    </span>
+                                    <div class="find-replace__nav-group">
+                                        <button type="button" class="find-replace__nav-btn" aria-label="이전">
+                                            <img src="../../../images/arrow-chevron-down.svg" width="16" height="16" alt="" style="transform:rotate(180deg);">
+                                        </button>
+                                        <button type="button" class="find-replace__nav-btn" aria-label="다음">
+                                            <img src="../../../images/arrow-chevron-down.svg" width="16" height="16" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="find-replace__actions">
+                                    <button type="button" class="btn nm border-primary">바꾸기</button>
+                                    <button type="button" class="btn nm">모두 바꾸기</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 탭 메뉴 -->
-                <nav class="detail-tab">
-                    <button class="detail-tab__item">기본 정보</button>
-                    <button class="detail-tab__item">강사 정보</button>
-                    <button class="detail-tab__item">정산 정보</button>
-                    <button class="detail-tab__item active">강의 이력</button>
-                    <button class="detail-tab__item">활동 로그</button>
-                </nav>
-
-                <!-- 강의 이력 테이블 -->
-                <div class="list-panel">
-                    <div class="list-panel__header list-panel__header--tab">
-                        <span class="list-panel__title">강의 이력</span>
-                    </div>
-
-                    <div class="admin-table-wrap">
-                        <table class="tab-table">
-                            <thead>
-                                <tr>
-                                    <th style="min-width:220px">강좌명</th>
-                                    <th style="min-width:160px">등록일</th>
-                                    <th style="min-width:180px">강의 기간</th>
-                                    <th style="min-width:110px">활성 수강자수</th>
-                                    <th style="min-width:110px">총 수강자수</th>
-                                    <th style="min-width:140px">평균 별점</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <!-- Row 1 -->
-                                <tr>
-                                    <td>
-                                        <div class="product-name-cell">
-                                            <span class="product-tag product-tag--normal">일반</span>
-                                            <span class="product-name-cell__text">React 마스터 클래스</span>
-                                        </div>
-                                    </td>
-                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
-                                    <td class="td-sub">2000.00.00 ~ 2000.00.00</td>
-                                    <td style="text-align:center;">45명</td>
-                                    <td style="text-align:center;">90명</td>
-                                    <td>
-                                        <div class="star-rating">
-                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
-                                            <span class="star-rating__score">(8.5점)</span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <!-- Row 2 -->
-                                <tr>
-                                    <td>
-                                        <div class="product-name-cell">
-                                            <span class="product-tag product-tag--digital">디지털</span>
-                                            <span class="product-name-cell__text">Python 데이터 분석 입문</span>
-                                        </div>
-                                    </td>
-                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
-                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">32명</td>
-                                    <td style="text-align:center;">60명</td>
-                                    <td>
-                                        <div class="star-rating">
-                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
-                                            <span class="star-rating__score">(9.2점)</span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <!-- Row 3 -->
-                                <tr>
-                                    <td>
-                                        <div class="product-name-cell">
-                                            <span class="product-tag product-tag--live">라이브</span>
-                                            <span class="product-name-cell__text">JavaScript ES6 완벽 가이드</span>
-                                        </div>
-                                    </td>
-                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
-                                    <td style="font-size:12px; color:var(--text-secondary); text-align:center;">무제한</td>
-                                    <td style="text-align:center;">24명</td>
-                                    <td style="text-align:center;">50명</td>
-                                    <td>
-                                        <div class="star-rating">
-                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
-                                            <span class="star-rating__score">(8.2점)</span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <!-- Row 4 -->
-                                <tr>
-                                    <td>
-                                        <div class="product-name-cell">
-                                            <span class="product-tag product-tag--video">화상</span>
-                                            <span class="product-name-cell__text">JavaScript ES6 완벽 가이드</span>
-                                        </div>
-                                    </td>
-                                    <td class="td-sub">2000.00.00 오전/오후 00:00</td>
-                                    <td style="font-size:12px; color:var(--text-secondary); text-align:center;">만료</td>
-                                    <td style="text-align:center;">28명</td>
-                                    <td style="text-align:center;">50명</td>
-                                    <td>
-                                        <div class="star-rating">
-                                            <img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★"><img src="../../../images/ico-star.svg" width="14" height="14" alt="★">
-                                            <span class="star-rating__score">(8.2점)</span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                    <!-- 우측: 자막 리스트 -->
+                    <div class="caption-edit__right">
+                        <ul class="caption-list">
+                            <li class="caption-list__item">
+                                <div class="caption-list__time">00:00:32.020 - 00:00:35.179</div>
+                                <p class="caption-list__text">첫 번째 학습 목표입니다.</p>
+                            </li>
+                            <li class="caption-list__item caption-list__item--editing">
+                                <div class="caption-list__time">00:00:32.020 - 00:00:35.179</div>
+                                <div class="caption-list__edit-row">
+                                    <input type="text" class="caption-list__edit-input" value="할아버지를 위한 양말에 관한 글을 읽고">
+                                    <button type="button" class="btn nm border-primary">저장</button>
+                                </div>
+                            </li>
+                            <li class="caption-list__item">
+                                <div class="caption-list__time">00:00:32.020 - 00:00:35.179</div>
+                                <p class="caption-list__text">내용을 이해할 수 있다.</p>
+                            </li>
+                            <li class="caption-list__item">
+                                <div class="caption-list__time">00:00:32.020 - 00:00:35.179</div>
+                                <p class="caption-list__text">두 번째 학습 목표입니다.</p>
+                            </li>
+                            <li class="caption-list__item caption-list__item--active">
+                                <div class="caption-list__time">00:00:32.020 - 00:00:35.179</div>
+                                <p class="caption-list__text"><span class="caption-list__highlight">목적격</span> 관계 대명사 that을 이해하고 적용할</p>
+                            </li>
+                            <li class="caption-list__item">
+                                <div class="caption-list__time">00:00:32.020 - 00:00:35.179</div>
+                                <p class="caption-list__text">세 번째 학습 목표입니다.</p>
+                            </li>
+                            <li class="caption-list__item">
+                                <div class="caption-list__time">00:00:32.020 - 00:00:35.179</div>
+                                <p class="caption-list__text">할아버지를 위한 양말에 관한 글을 읽고</p>
+                            </li>
+                        </ul>
                     </div>
 
                 </div>
 
             </div>
         </main>
-
-        <!-- 고정 메모 버튼 -->
-        <button class="c-fab">
-            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
-            <span class="c-fab__text">메모</span>
-        </button>
 
     </div>
 
@@ -418,6 +366,12 @@
         e.stopPropagation();
         document.getElementById('headerUserMenu').classList.toggle('open');
     }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
 
     function closeAllLnb() {
         document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
@@ -429,12 +383,6 @@
         closeAllLnb();
         if (!isOpen) accordion.classList.add('open');
     }
-
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('#headerUserMenu')) {
-            document.getElementById('headerUserMenu').classList.remove('open');
-        }
-    });
 </script>
 
 </body>

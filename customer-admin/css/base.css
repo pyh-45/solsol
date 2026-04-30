@@ -267,7 +267,7 @@ ul, ol { list-style: none; }
 }
 
 .admin-header__btn {
-    height: 26px;
+    height: 30px;
     padding: 0 8px;
     border-radius: 4px;
     font-family: inherit;
@@ -284,10 +284,11 @@ ul, ol { list-style: none; }
 }
 
 .admin-header__btn--outline {
-    background: #FFFFFF;
+    background: #FFFFFF url('../src/images/solsol_logo_korean.svg') no-repeat 13px center;
     color: #222222;
     font-size: 12px;
     border: 1px solid #BFBFBF;
+    padding: 0 13px 0 51px;
 }
 
 /* 아이콘 그룹 */
@@ -748,7 +749,7 @@ ul, ol { list-style: none; }
     color: var(--text-primary);
 }
 
-.list-panel--p30 { padding: 30px; }
+.list-panel--p30 { padding: 30px 30px 24px 30px ; }
 
 /* 테이블이 패널 끝까지 붙는 설정형 패널 */
 .list-panel--flush { padding: 0 0 30px; }
@@ -1085,7 +1086,7 @@ textarea.form-control {
 }
 
 .form-input::placeholder {
-    color: var(--text-disabled);
+    color: var(--text-placeholder);
 }
 
 .form-input:focus {
@@ -1196,7 +1197,7 @@ textarea.form-control {
     line-height: 1.5;
 }
 
-.form-textarea::placeholder { color: var(--text-disabled); }
+.form-textarea::placeholder { color: var(--text-placeholder); }
 .form-textarea:focus        { border-color: var(--color-primary); }
 .form-textarea:disabled {
     background: #F5F5F5;
@@ -1689,6 +1690,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .detail-form__input-box { padding: 10px 14px; border: 1px solid #EFEFEF; border-radius: 6px; font-size: 14px; color: #222; background: #FAFAFA; }
 .detail-form__input { width: 100%; height: 40px; padding: 0 14px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 14px; color: var(--text-primary); font-family: inherit; outline: none; box-sizing: border-box; }
 .detail-form__input:focus { border-color: var(--color-primary); }
+.detail-form__input::placeholder { color: var(--text-placeholder); }
 .detail-form__text { font-size: 14px;line-height:1.5; color: #222; padding: 2px 0; }
 .detail-form__email-row { display: flex; align-items: center; gap:16px; padding: 4px 0; }
 .detail-form__email-row .detail-form__email-addr { font-size: 14px; color: var(--text-primary); }
@@ -1720,6 +1722,45 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .ai-subtitle-option__label { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--text-primary); }
 .ai-subtitle-option__title { color:#F933F2; font-weight:600; }
 .ai-subtitle-option__desc { margin:8px 0 0 28px; font-size:13px; color:var(--text-secondary); line-height:1.5; }
+
+/* 자막 편집 페이지 - 2컬럼 레이아웃 */
+.caption-edit { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:flex-start; }
+.caption-edit__left { display:flex; flex-direction:column; gap:20px; }
+.caption-edit__title { font-size:18px; font-weight:700; color:var(--text-primary); margin:0 -30px 16px; padding:0 30px 15px; border-bottom:1px solid var(--border-color); }
+
+/* 비디오 플레이어 영역 */
+.caption-video { background:#F2F2F2; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; gap:50px; }
+.caption-video__btn { width:44px; height:44px; border:none; background:transparent; cursor:pointer; padding:0; line-height:0; }
+
+/* 찾기 및 바꾸기 */
+.find-replace__title { font-size:17px; font-weight:700; color:var(--text-primary); margin:0 -30px 20px; padding:0 30px 15px; border-bottom:1px solid var(--border-color); }
+.find-replace__row { margin-bottom:20px; }
+.find-replace__label { display:block; font-size:13px; color:var(--color-textgray); margin-bottom:6px; }
+.find-replace__hint { font-size:12px; color:var(--text-tertiary); margin:10px 0; }
+.find-replace__divider { margin:20px 0 0; border:none; border-top:1px solid #EAEAEA; }
+.find-replace__footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:8px; }
+.find-replace__pagination { display:inline-flex; align-items:center; gap:15px; font-size:13px; color:var(--text-secondary); }
+.find-replace__page-info { display:inline-flex; align-items:center; gap:2px; }
+.find-replace__page-current { color:var(--color-primary); font-weight:700; }
+.find-replace__nav-group { display:inline-flex; }
+.find-replace__nav-btn { width:32px; height:28px; border:1px solid var(--border-color); background:#fff; cursor:pointer; font-size:12px; color:var(--text-secondary); display:inline-flex; align-items:center; justify-content:center; padding:0; line-height:1; }
+.find-replace__nav-btn:hover { border-color:var(--color-primary); color:var(--color-primary); position:relative; z-index:1; }
+.find-replace__nav-group .find-replace__nav-btn:first-child { border-radius:4px 0 0 4px; }
+.find-replace__nav-group .find-replace__nav-btn:last-child { border-radius:0 4px 4px 0; border-left:none; }
+.find-replace__actions { display:flex; gap:4px; }
+
+/* 자막 리스트 */
+.caption-list { list-style:none; margin:0; padding:0; background:#fff; border-radius:8px; box-shadow:0 2px 4px 0 rgba(0,0,0,0.08); overflow:hidden; }
+.caption-list__item { padding:20px 30px; border-bottom:1px solid var(--border-color); }
+.caption-list__item:last-child { border-bottom:none; }
+.caption-list__item--active { background:#EAF3FF; }
+.caption-list__time { font-size:13px; color:var(--color-textgray);line-height:1.5;margin-bottom:10px; }
+.caption-list__text { font-size:14px;font-weight: 500; color:var(--text-primary); line-height:1.5; margin:0; }
+.caption-list__highlight { color:var(--color-blue); font-weight:700; }
+.caption-list__edit-row { display:flex; gap:4px; align-items:center; }
+.caption-list__edit-input { flex:1; height:40px; padding:0 12px; border:1px solid var(--border-color); border-radius:4px; font-size:14px; font-family:inherit; outline:none; box-sizing:border-box; }
+.caption-list__edit-input:focus { border-color:var(--color-primary); }
+.caption-list__edit-input::placeholder { color:var(--text-placeholder); }
 
 /* AI 크레딧 정보 + 생성 버튼 바 (테이블 하단 대시보드) */
 .ai-credit-bar { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-top:24px; padding:30px 40px; background:#FFF; border-radius:8px;box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08); }
@@ -2229,7 +2270,7 @@ tr:has(.c-check:checked) {
 }
 
 .auth-field__input:focus { color: #222222; }
-.auth-field__input::placeholder { color: #AAB2C1; }
+.auth-field__input::placeholder { color: var(--text-placeholder); }
 .auth-field__input[type="password"]::-ms-reveal,
 .auth-field__input[type="password"]::-ms-clear { display: none; }
 .auth-field__input[type="password"]::-webkit-credentials-auto-fill-button { display: none; }
