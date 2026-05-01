@@ -2191,12 +2191,14 @@ tr:has(.c-check:checked) {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+.auth-logo img { display:block; margin:0 auto; }
 
 .auth-body {
     display: flex;
     flex-direction: column;
     gap:10px;
 }
+.auth-body--notice { align-items:center; text-align:center; padding:90px 0;margin-bottom:136px; gap:14px; }
 
 .auth-tabs {
     display: flex;
@@ -2395,10 +2397,12 @@ tr:has(.c-check:checked) {
 .c-modal__content { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
 .c-modal__icon-wrap { width: 64px; height: 64px; background: rgba(2, 124, 250, 0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
 .c-modal__icon-wrap img { border-radius: 50%; width: 36px; height: 36px; object-fit: cover; }
+.c-modal__icon-wrap--error { background: rgba(255, 0, 0, 0.05); }
+.c-modal__icon-wrap--error img { border-radius: 0; width: auto; height: auto; object-fit: initial; }
 .c-modal__title { font-size: 20px; font-weight: 700;line-height: 1.4; color: var(--text-primary); letter-spacing: -0.02em; }
-.c-modal__desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.c-modal__desc { font-size: 16px; color: var(--text-primary); line-height: 1.5; }
 .c-modal__desc strong { color: var(--text-primary); font-weight: 500; }
-.c-modal__footer { display: flex; gap: 8px; }
+.c-modal__footer { display: flex; justify-content: center; gap: 8px; }
 .c-modal__footer .auth-submit { margin: 0; }
 .c-modal--gap20 { gap: 20px; }
 .c-modal__logo { text-align: center; font-size: 24px; font-weight: 900; letter-spacing: -0.02em; padding:30px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
