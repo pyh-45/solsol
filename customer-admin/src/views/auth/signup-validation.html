@@ -39,50 +39,53 @@
             <div class="auth-row">
                 <div class="auth-field-group">
                     <label class="auth-field-label" for="auth-last-name">성 <span class="auth-required">*</span></label>
-                    <div class="auth-field">
+                    <div class="auth-field auth-field--error">
                         <input type="text" id="auth-last-name" class="auth-field__input" placeholder="성">
                     </div>
+                    <p class="auth-field-error">필수 항목입니다</p>
                 </div>
                 <div class="auth-field-group">
                     <label class="auth-field-label" for="auth-first-name">이름 <span class="auth-required">*</span></label>
-                    <div class="auth-field">
+                    <div class="auth-field auth-field--error">
                         <input type="text" id="auth-first-name" class="auth-field__input" placeholder="이름">
                     </div>
+                    <p class="auth-field-error">필수 항목입니다</p>
                 </div>
             </div>
 
             <!-- 닉네임 -->
             <div class="auth-field-group">
                 <label class="auth-field-label" for="auth-nickname">닉네임 <span class="auth-required">*</span></label>
-                <div class="auth-field">
+                <div class="auth-field auth-field--error">
                     <input type="text" id="auth-nickname" class="auth-field__input" placeholder="닉네임을 입력하세요">
                 </div>
                 <p class="auth-field-hint">2~20자, 다른 사용자에게 표시되는 이름입니다</p>
-                <!--p class="auth-field-error">필수 항목입니다</p-->
+                <p class="auth-field-error">필수 항목입니다</p>
             </div>
 
             <!-- 이메일 주소 -->
             <div class="auth-field-group">
                 <label class="auth-field-label" for="auth-email">이메일 주소 <span class="auth-required">*</span></label>
                 <div class="auth-field-with-btn">
-                    <div class="auth-field">
+                    <div class="auth-field auth-field--error">
                         <input type="email" id="auth-email" class="auth-field__input" value="jihoon.kim@">
                     </div>
-                    <button class="auth-inline-btn" onclick="document.getElementById('modal-email-verify').classList.remove('is-hidden')">인증코드 발송</button>
+                    <button class="auth-inline-btn">인증코드 발송</button>
                 </div>
+                <p class="auth-field-error">이메일 형식을 준수하여 작성해 주세요.</p>
             </div>
 
             <!-- 인증코드 -->
             <div class="auth-field-group">
                 <label class="auth-field-label" for="auth-code">인증코드 <span class="auth-required">*</span></label>
                 <div class="auth-field-with-btn">
-                    <div class="auth-field">
+                    <div class="auth-field auth-field--error">
                         <input type="text" id="auth-code" class="auth-field__input" value="000000">
                     </div>
                     <button class="auth-inline-btn auth-inline-btn--confirm">확인</button>
                 </div>
-                <!--p class="auth-field-error">인증코드를 다시 한 번 작성해주세요</p-->
-                <!--p class="auth-field-error">이메일 인증을 완료해 주세요</p-->
+                <p class="auth-field-error">인증코드를 다시 한 번 작성해주세요</p>
+                <p class="auth-field-error">이메일 인증을 완료해 주세요</p>
             </div>
 
             <!-- 비밀번호 -->
@@ -96,27 +99,27 @@
                 </div>
                 <div class="auth-strength">
                     <div class="auth-strength__bars">
-                        <div class="auth-strength__bar auth-strength__bar--on"></div>
-                        <!--div class="auth-strength__bar auth-strength__bar--weak"></div-->
+                        <div class="auth-strength__bar auth-strength__bar--weak"></div>
                         <div class="auth-strength__bar"></div>
                         <div class="auth-strength__bar"></div>
                         <div class="auth-strength__bar"></div>
                     </div>
-                    <!--span class="auth-strength__label auth-strength__label--weak">약함</span-->
+                    <span class="auth-strength__label auth-strength__label--weak">약함</span>
                 </div>
-                <!--p class="auth-field-hint">8~16자, 영문 대소문자·숫자·특수문자 조합 필수</p-->
-                <!--p class="auth-field-error">8~16자, 영문 대소문자·숫자·특수문자를 모두 포함해야 합니다</p-->
+                <p class="auth-field-hint">8~16자, 영문 대소문자·숫자·특수문자 조합 필수</p>
+                <p class="auth-field-error">8~16자, 영문 대소문자·숫자·특수문자를 모두 포함해야 합니다</p>
             </div>
 
             <!-- 비밀번호 확인 -->
             <div class="auth-field-group">
                 <label class="auth-field-label" for="auth-password-confirm">비밀번호 확인 <span class="auth-required">*</span></label>
-                <div class="auth-field">
+                <div class="auth-field auth-field--error">
                     <input type="password" id="auth-password-confirm" class="auth-field__input" value="5678">
                     <button class="auth-field__eye">
                         <img src="../../images/form-ico-eye.svg" width="16" height="16" alt="">
                     </button>
                 </div>
+                <p class="auth-field-error">입력하신 비밀번호가 다릅니다</p>
             </div>
         </div>
 
