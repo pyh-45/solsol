@@ -1320,7 +1320,7 @@ textarea.form-control {
 .c-dropdown--full-border .c-dropdown__trigger.open + .c-dropdown__panel { border-color: var(--color-primary); }
 th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .c-dropdown--ghost .c-dropdown__trigger { border-color: transparent; background: transparent; min-width: 100px; }
-.c-dropdown--ghost .c-dropdown__trigger:hover { border-color: transparent; background: var(--bg-hover); }
+.c-dropdown--ghost .c-dropdown__trigger:hover { border-color: transparent; background: transparent; }
 .c-dropdown--ghost .c-dropdown__trigger.open { border-color: var(--color-primary); border-bottom-color: transparent; border-radius: 6px 6px 0 0; background: #fff; }
 .c-dropdown__item { display: block; width: calc(100% - 8px); margin: 0 4px; padding: 9px 10px; font-size: 13px; color: var(--text-primary); background: transparent; text-align: left; cursor: pointer; border: none; font-family: inherit; border-radius: 6px; }
 .c-dropdown__item:hover { background: var(--bg-hover); }
@@ -2419,6 +2419,8 @@ tr:has(.c-check:checked) {
 
 /* 수료여부 변경 모달 */
 .completion-modal { width: 480px; padding: 0; gap: 0; }
+.completion-modal--lg { width: 600px; }
+.completion-modal.completion-modal--lg .c-modal__content { padding-bottom: 40px; }
 .completion-modal__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; padding: 0 18px 0 30px; border-bottom: 1px solid #EAEAEA; }
 .completion-modal__heading { margin: 0; font-size: 18px; font-weight: 700; color: var(--text-primary); }
 .completion-modal__close { width: 24px; height: 24px; padding: 0; border: none; background: none; cursor: pointer; line-height: 0; flex-shrink: 0; }
@@ -2458,7 +2460,7 @@ tr:has(.c-check:checked) {
 .c-avatar22 { display:inline-block; width:24px; height:24px; border-radius:50%; background-color:#D3D3D3; background-repeat:no-repeat; background-position:center; background-size:cover; flex-shrink:0; vertical-align:middle; overflow:hidden; }
 .c-avatar22.basic       { background-image:url('../src/images/avatar-basic.svg'); background-size:24px; background-position:bottom; }
 .c-avatar22.instructor,
-.c-avatar22.teacher     { background-image:url('../src/images/avatar-teacher.png'); }
+.c-avatar22.teacher     { background-image:url('../src/images/avatar-teacher-sub.png'); }
 .c-avatar22.manager     { background-image:url('../src/images/avatar-manager.png'); }
 .c-avatar22.sub-teacher { background-image:url('../src/images/avatar-teacher-sub.png'); }
 .c-avatar22.learner     { background-image:url('../src/images/avatar-user.png'); }
@@ -2470,7 +2472,7 @@ tr:has(.c-check:checked) {
 .user-tag__remove:hover { color:var(--color-primary); }
 
 /* + 강사 추가 버튼 (점선) */
-.add-tutor-btn { display:inline-flex; align-items:center; gap:4px; height:32px; padding:0 12px; border:1px dashed var(--border-color); border-radius:6px; background:#fff; font-size:13px; color:var(--text-secondary); cursor:pointer; }
+.add-tutor-btn { display:inline-flex; align-items:center; gap:4px; height:32px; padding:0 12px; border:1px solid var(--border-color); border-radius:6px; background:#fff; font-size:13px; color:var(--text-secondary); cursor:pointer; }
 .add-tutor-btn:hover { border-color:var(--color-primary); color:var(--color-primary); }
 
 /* 권한 설정 - 강사 행 */
@@ -2508,6 +2510,38 @@ tr:has(.c-check:checked) {
 /* 선택된 대상 */
 .tutor-selected__title { margin:0 0 12px; font-size:14px; font-weight:700; color:var(--text-primary); }
 .tutor-selected__tags { display:flex; flex-wrap:wrap; gap:8px; }
+
+/* 모달용 대시보드 (3개 카드 가로 배치, 라벨-숫자 한 줄) */
+.modal-dashboard { display:grid; grid-template-columns:repeat(3, 1fr); gap:4px; }
+.modal-dashboard__item { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; background:#FFF;border:1px solid #DEDFE0; border-radius:8px; }
+.modal-dashboard__label { font-size:13px; color:var(--color-textgray); }
+.modal-dashboard__value { font-size:24px; font-weight:700; color:var(--text-primary); letter-spacing:-0.02em; }
+
+/* 모달용 필터 (드롭다운 영역, 우측 정렬) */
+.modal-filter { display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+
+/* 모달용 테이블 (admin-table 변형) */
+.modal-table { min-width:0; }
+.modal-table th { height:42px; border-bottom-color:#AAA; font-size:13px; font-weight:400; color:var(--text-secondary); }
+.modal-table td { height:auto; padding:12px 0; border-bottom:1px solid #EAEAEA; font-size:13px; color:var(--text-primary); }
+.modal-table td:first-child { text-align:left; }
+.modal-table td:nth-child(2) { text-align:center; }
+.modal-table__user { display:inline-flex; align-items:center; gap:8px; }
+
+/* 수강 상태 칩 (모달 테이블용) */
+.status-pill { display:inline-flex; align-items:center; justify-content:center; height:24px; padding:0 14px; border-radius:100px; font-size:12px; font-weight:500; white-space:nowrap; }
+.status-pill--done     { background:#FFE4E4; color:#F22; }
+.status-pill--fail     { background:#FFF4BC; color:#FF7700; }
+.status-pill--ongoing  { background:#E2FFF3; color:#089253; }
+.status-pill--canceled { background:#F0ECFF; color:#6756ED; }
+.status-pill--expired  { background:#ECECEC; color:#666; }
+
+/* 모달용 페이지네이션 */
+.modal-pagination { display:flex; align-items:center; justify-content:center; gap:4px; }
+.modal-pagination .pagination__btn { width:32px; height:32px; border:1px solid var(--border-color); background:#fff; border-radius:4px; font-size:13px; color:var(--text-secondary); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
+.modal-pagination .pagination__btn:hover:not(:disabled) { border-color:var(--color-primary); color:var(--color-primary); }
+.modal-pagination .pagination__btn.active { background:var(--text-primary); border-color:var(--text-primary); color:#fff; }
+.modal-pagination .pagination__btn:disabled { opacity:0.4; cursor:not-allowed; }
 
 .c-modal__logo { text-align: center; font-size: 24px; font-weight: 900; letter-spacing: -0.02em; padding:30px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .c-modal__content hr { width: 100%; }

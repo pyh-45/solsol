@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수강자수</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">수강자수</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content">
+
+            <!-- 대시보드 -->
+            <div class="modal-dashboard">
+                <div class="modal-dashboard__item">
+                    <span class="modal-dashboard__label">총 학습자</span>
+                    <span class="modal-dashboard__value">1,247</span>
+                </div>
+                <div class="modal-dashboard__item">
+                    <span class="modal-dashboard__label">수료</span>
+                    <span class="modal-dashboard__value">57,000</span>
+                </div>
+                <div class="modal-dashboard__item">
+                    <span class="modal-dashboard__label">미수료</span>
+                    <span class="modal-dashboard__value">16,000</span>
+                </div>
+            </div>
+
+            <div>
+            <!-- 필터 (정렬 + 페이지 사이즈) -->
+            <div class="modal-filter">
+                <div class="c-dropdown c-dropdown--ghost">
+                    <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                        <span class="c-dropdown__label">신청일 최신순</span>
+                        <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                    </button>
+                    <div class="c-dropdown__panel">
+                        <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">신청일 최신순</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">신청일 오래된순</button>
+                    </div>
+                </div>
+                <div class="c-dropdown c-dropdown--ghost">
+                    <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                        <span class="c-dropdown__label">30개씩</span>
+                        <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                    </button>
+                    <div class="c-dropdown__panel">
+                        <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">100개씩</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 학습자 목록 -->
+            <table class="admin-table modal-table">
+                <colgroup>
+                    <col style="width:30%;">
+                    <col style="width:45%;">
+                    <col style="width:25px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>학습자명</th>
+                        <th>신청일시</th>
+                        <th>수강상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="modal-table__user">
+                                <span class="c-avatar22 basic"></span>
+                                <span>닉네임</span>
+                            </div>
+                        </td>
+                        <td>2024-12-15 오전/오후 00:00</td>
+                        <td><span class="status-pill status-pill--done">수료</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="modal-table__user">
+                                <span class="c-avatar22 instructor"></span>
+                                <span>alpha_user_kr</span>
+                            </div>
+                        </td>
+                        <td>2024-12-15 오전/오후 00:00</td>
+                        <td><span class="status-pill status-pill--fail">미수료</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="modal-table__user">
+                                <span class="c-avatar22 basic"></span>
+                                <span>닉네임</span>
+                            </div>
+                        </td>
+                        <td>2024-12-15 오전/오후 00:00</td>
+                        <td><span class="status-pill status-pill--ongoing">수강중</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="modal-table__user">
+                                <span class="c-avatar22 basic"></span>
+                                <span>닉네임</span>
+                            </div>
+                        </td>
+                        <td>2024-12-15 오전/오후 00:00</td>
+                        <td><span class="status-pill status-pill--canceled">수강취소</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="modal-table__user">
+                                <span class="c-avatar22 instructor"></span>
+                                <span>alpha_user_kr</span>
+                            </div>
+                        </td>
+                        <td>2024-12-15 오전/오후 00:00</td>
+                        <td><span class="status-pill status-pill--expired">기간만료</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="modal-pagination">
+                <button type="button" class="pagination__btn" disabled>«</button>
+                <button type="button" class="pagination__btn" disabled>‹</button>
+                <button type="button" class="pagination__btn active">1</button>
+                <button type="button" class="pagination__btn">2</button>
+                <button type="button" class="pagination__btn">3</button>
+                <button type="button" class="pagination__btn">4</button>
+                <button type="button" class="pagination__btn">5</button>
+                <button type="button" class="pagination__btn">›</button>
+                <button type="button" class="pagination__btn">»</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+</script>
+
+</body>
+</html>
