@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강사 선택 / 권한 설정</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay" style="gap:30px; align-items:flex-start; padding:60px 0;">
+
+    <!-- ========= 권한 설정 모달 ========= -->
+    <div class="c-modal completion-modal">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">권한 설정</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content">
+
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>권한은 2 depth 단위로 설정할 수 있으며, 메뉴 접근과 알림 권한이 동시에 설정됩니다.</span>
+            </div>
+
+            <!-- 강사 row -->
+            <div class="perm-tutor-row">
+                <span class="perm-tutor-row__label">강사</span>
+                <div class="perm-tutor-row__tags">
+                    <span class="user-tag">
+                        <span class="c-avatar22 basic"></span>
+                        <span class="role-badge role-badge--instructor">강사</span>
+                        닉네임
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                    <span class="user-tag">
+                        <span class="c-avatar22 manager"></span>
+                        <span class="role-badge role-badge--manager">관리자</span>
+                        alpha_user_kr
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                    <button type="button" class="add-tutor-btn">+ 강사 추가</button>
+                </div>
+            </div>
+
+            <!-- 권한 트리 -->
+            <div class="perm-tree">
+                <ul class="perm-tree__list">
+                    <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>알림 보기</span></label></li>
+                    <li>
+                        <label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>상품</span></label>
+                        <ul class="perm-tree__sub">
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>일반 강의</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>화상 강의</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>라이브 강의</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>디지털 상품</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>패키지 상품</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>멤버십</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>프리미엄 커뮤니티</span></label></li>
+                        </ul>
+                    </li>
+                    <li><label class="c-checkbox"><input type="checkbox" class="c-check"><span>콘텐츠</span></label></li>
+                    <li><label class="c-checkbox"><input type="checkbox" class="c-check"><span>판매</span></label></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">설정 완료</button>
+        </div>
+    </div>
+
+    <!-- ========= 강사 추가 모달 ========= -->
+    <div class="c-modal completion-modal">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">강사 추가</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content">
+
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>권한을 설정할 강사를 추가해주세요.</span>
+            </div>
+
+            <!-- 검색 -->
+            <div class="tutor-search">
+                <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                <input type="text" class="tutor-search__input" placeholder="강사명 또는 이메일 검색">
+            </div>
+
+            <!-- 강사 목록 -->
+            <div class="tutor-pick-list">
+                <h4 class="tutor-pick-list__title">강사 목록</h4>
+                <table class="admin-table tutor-pick-table">
+                    <colgroup>
+                        <col>
+                        <col style="width:90px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>정보</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 manager"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add tutor-pick-add--selected">
+                                    <span class="tutor-pick-add__icon">✓</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 basic"></span>
+                                    <span class="role-badge role-badge--instructor">강사</span>
+                                    <span class="tutor-pick-info__name">alpha_user_kr</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 sub-teacher"></span>
+                                    <span class="role-badge role-badge--sub">서브강사</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 manager"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 basic"></span>
+                                    <span class="role-badge role-badge--instructor">강사</span>
+                                    <span class="tutor-pick-info__name">alpha_user_kr</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 sub-teacher"></span>
+                                    <span class="role-badge role-badge--sub">서브강사</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 선택된 대상 -->
+            <div class="tutor-selected">
+                <h4 class="tutor-selected__title">선택된 대상 {n}</h4>
+                <div class="tutor-selected__tags">
+                    <span class="user-tag">
+                        <span class="c-avatar22 basic"></span>
+                        <span class="role-badge role-badge--instructor">강사</span>
+                        닉네임
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                    <span class="user-tag">
+                        <span class="c-avatar22 manager"></span>
+                        <span class="role-badge role-badge--manager">관리자</span>
+                        alpha_user_kr
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">저장</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1227,6 +1227,7 @@ textarea.form-control {
     align-self: flex-start;
     width: 16px;
     height: 16px;
+    margin-top:3px;
     border:2px solid var(--color-blue);
     border-radius: 50%;
     color: var(--color-blue);
@@ -2452,6 +2453,61 @@ tr:has(.c-check:checked) {
 .email-tag--error { border-color: #F22; color: #222; }
 .email-tag--error .email-tag__remove { color: #F22; }
 .invitation-modal__error { margin: 0; padding-bottom: 8px; font-size: 12px; color: #F22; }
+
+/* 22px 아바타 (인라인 사용) */
+.c-avatar22 { display:inline-block; width:24px; height:24px; border-radius:50%; background-color:#D3D3D3; background-repeat:no-repeat; background-position:center; background-size:cover; flex-shrink:0; vertical-align:middle; overflow:hidden; }
+.c-avatar22.basic       { background-image:url('../src/images/avatar-basic.svg'); background-size:24px; background-position:bottom; }
+.c-avatar22.instructor,
+.c-avatar22.teacher     { background-image:url('../src/images/avatar-teacher.png'); }
+.c-avatar22.manager     { background-image:url('../src/images/avatar-manager.png'); }
+.c-avatar22.sub-teacher { background-image:url('../src/images/avatar-teacher-sub.png'); }
+.c-avatar22.learner     { background-image:url('../src/images/avatar-user.png'); }
+.c-avatar22 img { width:100%; height:100%; object-fit:cover; }
+
+/* 사용자 태그 (아바타 + 역할뱃지 + 이름 + 닫기) */
+.user-tag { display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 12px 0 4px; border:1px solid var(--border-color); border-radius:100px; background:#fff; font-size:13px; color:var(--text-primary); }
+.user-tag__remove { width:14px; height:14px; padding:0; border:none; background:none; cursor:pointer; font-size:14px; line-height:1; color:var(--text-secondary); display:inline-flex; align-items:center; justify-content:center; margin-left:4px; }
+.user-tag__remove:hover { color:var(--color-primary); }
+
+/* + 강사 추가 버튼 (점선) */
+.add-tutor-btn { display:inline-flex; align-items:center; gap:4px; height:32px; padding:0 12px; border:1px dashed var(--border-color); border-radius:6px; background:#fff; font-size:13px; color:var(--text-secondary); cursor:pointer; }
+.add-tutor-btn:hover { border-color:var(--color-primary); color:var(--color-primary); }
+
+/* 권한 설정 - 강사 행 */
+.perm-tutor-row { display:flex; gap:16px; align-items:flex-start; }
+.perm-tutor-row__label { flex-shrink:0; width:48px; font-size:14px; color:var(--text-primary); padding-top:8px; }
+.perm-tutor-row__tags { display:flex; flex-wrap:wrap; gap:8px; flex:1; }
+
+/* 권한 트리 */
+.perm-tree { padding:16px; border:1px solid var(--border-color); border-radius:8px; background:#FAFAFA; }
+.perm-tree__list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:14px; color:var(--text-primary); }
+.perm-tree__sub { list-style:none; margin:10px 0 0; padding-left:24px; display:flex; flex-direction:column; gap:10px; }
+.c-checkbox { display:inline-flex; align-items:center; gap:8px; cursor:pointer; }
+
+/* 강사 검색 */
+.tutor-search { display:flex; align-items:center; gap:8px; height:40px; padding:0 14px; border:1px solid var(--border-color); border-radius:6px; background:#fff; }
+.tutor-search__input { flex:1; height:100%; border:none; outline:none; background:transparent; font-size:13px; color:var(--text-primary); font-family:inherit; }
+.tutor-search__input::placeholder { color:var(--text-placeholder); }
+
+/* 강사 목록 */
+.tutor-pick-list__title { margin:0 0 8px; font-size:14px; font-weight:700; color:var(--text-primary); }
+/* admin-table 변형: 강사 선택 모달용 (소형 + 알약 행) */
+.tutor-pick-table { min-width:0; }
+.tutor-pick-table th { height:42px; border-bottom-color:#AAA; font-size:13px; font-weight:400; color:var(--text-secondary); }
+.tutor-pick-table td { height:auto; padding:7px 0; border-bottom:1px solid #EAEAEA; font-size:13px; }
+.tutor-pick-table td:first-child { text-align:left; }
+.tutor-pick-table td:nth-child(2) { text-align:right; }
+.tutor-pick-info { display:inline-flex; align-items:center; gap:8px; padding:4px 14px 4px 6px; background:#fff; border:1px solid var(--border-color); border-radius:100px; }
+.tutor-pick-info__name { color:var(--text-primary); font-weight:500; margin-left:2px; }
+.tutor-pick-info__email { color:var(--text-secondary); font-size:12px; }
+.tutor-pick-add { display:inline-flex; align-items:center; gap:6px; padding:0; border:none; background:none; cursor:pointer; font-size:13px; color:var(--text-secondary); }
+.tutor-pick-add__icon { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:#E5E7EB; color:#fff; font-size:11px; font-weight:600; line-height:1; }
+.tutor-pick-add--selected { color:var(--text-primary); }
+.tutor-pick-add--selected .tutor-pick-add__icon { background:var(--color-blue); color:#fff; }
+
+/* 선택된 대상 */
+.tutor-selected__title { margin:0 0 12px; font-size:14px; font-weight:700; color:var(--text-primary); }
+.tutor-selected__tags { display:flex; flex-wrap:wrap; gap:8px; }
 
 .c-modal__logo { text-align: center; font-size: 24px; font-weight: 900; letter-spacing: -0.02em; padding:30px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .c-modal__content hr { width: 100%; }
