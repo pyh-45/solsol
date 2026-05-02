@@ -1218,19 +1218,21 @@ textarea.form-control {
     gap: 8px;
     font-size: 13px;
     color: #027CFA;
+    line-height:1.4;
     letter-spacing: -0.02em;
 }
 
 .admin-infotip__icon {
     flex-shrink: 0;
+    align-self: flex-start;
     width: 16px;
     height: 16px;
-    border:2px solid var(--color-primary);
+    border:2px solid var(--color-blue);
     border-radius: 50%;
-    background: #fff;
-    color: var(--color-primary);
-    font-size: 11px;
+    color: var(--color-blue);
+    font-size: 13px;
     font-weight: 700;
+    line-height:1.4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2275,7 +2277,7 @@ tr:has(.c-check:checked) {
     border: none;
     outline: none;
     background: transparent;
-    font-size: 15px;
+    font-size: 14px;
     font-family: inherit;
     color: var(--text-secondary);
     letter-spacing: -0.02em;
@@ -2435,6 +2437,21 @@ tr:has(.c-check:checked) {
 .completion-textarea__input:focus { border-color: var(--color-primary); }
 .completion-textarea__input::placeholder { color: var(--text-placeholder); }
 .completion-textarea__count { position: absolute; right: 16px; bottom: 12px; font-size: 12px; color: var(--text-secondary); pointer-events: none; font-weight: 600; }
+
+/* 강사 초대 모달 */
+.invitation-modal__hint { margin: 0; padding-bottom: 8px; font-size: 12px; color: #A0A0A0; }
+.email-tag-input { padding: 16px; border: 1px solid var(--border-color); border-radius: 6px; background: #FAFAFA; }
+.email-tag-input__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.email-tag-input__tags:empty { margin-bottom: 0; }
+.email-tag { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 8px 12px 8px 18px; border: 1px solid var(--color-primary); border-radius: 100px; background: #fff; font-size: 13px; color: var(--text-dark); }
+.email-tag__remove { width: 14px; height: 14px; padding: 0; border: none; background: none; cursor: pointer; font-size: 14px; line-height: 1; color: var(--color-primary); display: inline-flex; align-items: center; justify-content: center; }
+.email-tag__remove:hover { opacity: 0.7; }
+.email-tag-input__field { width: 100%; height: 24px; padding: 0; border: none; background: transparent; font-size: 13px; color: var(--text-primary); outline: none; font-family: inherit; }
+.email-tag-input__field::placeholder { color: var(--text-placeholder); }
+.email-tag-input--error { border-color: #F22; }
+.email-tag--error { border-color: #F22; color: #222; }
+.email-tag--error .email-tag__remove { color: #F22; }
+.invitation-modal__error { margin: 0; padding-bottom: 8px; font-size: 12px; color: #F22; }
 
 .c-modal__logo { text-align: center; font-size: 24px; font-weight: 900; letter-spacing: -0.02em; padding:30px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .c-modal__content hr { width: 100%; }

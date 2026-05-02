@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강사 초대하기</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">강사 초대하기</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content">
+
+            <!-- 안내 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>초대할 강사의 이메일 주소를 입력하세요.<br>회원가입 링크가 포함된 메일이 발송됩니다.</span>
+            </div>
+
+            <!-- 이메일 주소 -->
+            <div class="completion-section">
+                <label class="completion-section__title" for="invite-email">이메일 주소 <span class="auth-required">*</span></label>
+                <div class="auth-field">
+                    <img src="../../../images/form-ico-mail.svg" width="16" height="16" alt="">
+                    <input type="email" id="invite-email" class="auth-field__input" placeholder="example@email.com">
+                </div>
+                <p class="invitation-modal__hint">* 쉼표(,)나 엔터로 구분하여 여러 명을 동시에 초대할 수 있습니다.</p>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">발송</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
