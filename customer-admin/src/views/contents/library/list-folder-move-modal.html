@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콘텐츠 폴더 이동</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal folder-move-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">{n}개 콘텐츠 폴더 이동</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content">
+
+            <p class="folder-move__hint">선택한 콘텐츠가 이동할 폴더를 선택해 주세요.</p>
+
+            <div class="folder-move__list">
+                <ul class="folder-tree">
+                    <li>
+                        <label class="c-radio"><input type="radio" name="folder"><span>개발 (20개)</span></label>
+                        <ul class="folder-tree__sub">
+                            <li><label class="c-radio"><input type="radio" name="folder" checked><span>프론트엔드 (5개)</span></label></li>
+                            <li><label class="c-radio"><input type="radio" name="folder"><span>백엔드 (2개)</span></label></li>
+                            <li><label class="c-radio"><input type="radio" name="folder"><span>모바일 / 앱 (5개)</span></label></li>
+                            <li><label class="c-radio"><input type="radio" name="folder"><span>데이터 / AI (5개)</span></label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label class="c-radio"><input type="radio" name="folder"><span>디자인 (55개)</span></label>
+                        <ul class="folder-tree__sub">
+                            <li><label class="c-radio"><input type="radio" name="folder"><span>UI/UX (5개)</span></label></li>
+                            <li><label class="c-radio"><input type="radio" name="folder"><span>그래픽 디자인 (5개)</span></label></li>
+                            <li><label class="c-radio"><input type="radio" name="folder"><span>영상 / 모션 (5개)</span></label></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-folder-move-confirm').classList.remove('is-hidden')">적용</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- 폴더 이동 확인 모달 -->
+<div class="c-modal-overlay is-hidden" id="modal-folder-move-confirm">
+    <div class="c-modal">
+        <div class="c-modal__content">
+            <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+            </div>
+            <p class="c-modal__desc">{n}개 콘텐츠를 {폴더}(으)로 이동하시겠어요?</p>
+        </div>
+        <div class="c-modal__footer c-modal__footer--split">
+            <button type="button" class="btn lg border" onclick="document.getElementById('modal-folder-move-confirm').classList.add('is-hidden')">취소</button>
+            <button type="button" class="btn lg">확인</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
