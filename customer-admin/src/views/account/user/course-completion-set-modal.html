@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수료여부 변경</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">수료여부 변경</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content" style="gap:20px;">
+
+            <!-- 현재 학습 정보 -->
+            <section class="completion-section">
+                <h4 class="completion-section__title">현재 학습 정보</h4>
+                <table class="completion-info">
+                    <tbody>
+                        <tr>
+                            <th>학습자</th>
+                            <td>닉네임(홍길동)</td>
+                        </tr>
+                        <tr>
+                            <th>상품명</th>
+                            <td>
+                                <span class="product-tag product-tag--normal">일반</span>
+                                React 마스터 클래스
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>현재 상태</th>
+                            <td>
+                                <span class="learn-badge learn-badge--progress">진행중</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>진행률</th>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar" style="flex:1;"><div class="progress-bar__fill" style="width:85%;"></div></div>
+                                    <span class="progress-bar__text">85%</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>수강기간</th>
+                            <td>2024-12-20 ~ 2025-06-19</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 변경할 수료 상태 -->
+            <section class="completion-section">
+                <h4 class="completion-section__title">변경할 수료 상태 <span class="auth-required">*</span></h4>
+                <div class="completion-radio-box">
+                    <label class="c-radio"><input type="radio" name="status" checked> 수료</label>
+                    <label class="c-radio"><input type="radio" name="status"> 진행중</label>
+                    <label class="c-radio"><input type="radio" name="status"> 미수료</label>
+                </div>
+            </section>
+
+            <!-- 변경 사유 -->
+            <section class="completion-section">
+                <h4 class="completion-section__title">변경 사유 <span class="auth-required">*</span></h4>
+                <div class="completion-textarea">
+                    <textarea class="completion-textarea__input" placeholder="수료 상태를 변경하는 사유를 입력해주세요. (최소 10자)&#10;예) 강사 확인 결과 수료 기준(80% 이상 수강 완료)을 충족하여 수료 처리합니다."></textarea>
+                    <span class="completion-textarea__count"><strong>0</strong>/200</span>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">확인</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

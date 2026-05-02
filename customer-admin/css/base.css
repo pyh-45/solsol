@@ -961,6 +961,7 @@ textarea.form-control {
 
 .admin-table tr:hover td { background: var(--bg-hover); }
 .admin-table td .input-unit-box { display:flex; width:100%; }
+.admin-table td > img { margin: 0 auto; }
 
 /* 탭메뉴 내부 테이블 (body는 admin-table과 동일, th는 form-table 스타일) */
 .tab-table {
@@ -1421,13 +1422,13 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 
 /* ==================== Role Badge ==================== */
 .role-badge {
-    width: 40px;
-    height: 18px;
-    line-height:18px;
+    width: 34px;
+    height: 16px;
+    line-height:16px;
     text-align: center;
     border-radius: 3px;
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 600;
     color: #FFFFFF;
     white-space: nowrap;
     flex-shrink: 0;
@@ -1438,7 +1439,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .role-badge--manager    { background: #F55F02; }
 .role-badge--instructor { background: #027CFA; }
 .role-badge--sub        { background: #4FC0FC; }
-.role-badge--first      { background: #6756ED; width: auto; padding: 0 4px; }
+.role-badge--first      { background: #FFF2CA; color: #F55F02; width: auto; height: 16px; padding: 0 4px; font-weight: 700; }
 
 /* ==================== Avatar ==================== */
 .c-avatar30 {
@@ -1506,7 +1507,6 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 
 .grade-tag {
     display: inline-block;
-    border:1px solid #EAEAEA;
     border-radius:25px;
     padding: 10px 12px;
     background: #FFF;
@@ -1588,9 +1588,10 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
     white-space: nowrap;
 }
 
-.status-chip--active   { background: #FFEAEA; color: #F55F02; }
-.status-chip--inactive { background: #E2FFF3; color: #089253; }
-.status-chip--left     { background: #ECEBF0; color: #2C2C2C; }
+.status-chip--active   { background: #E2FFF3; color: #089253; }
+.status-chip--inactive { background: #EBEBEB; color: #424242; }
+.status-chip--left     { background: #f5f5f5; color: #808080; }
+.status-chip--sent     { background: #E2F9FF; color: #027CFA; }
 
 /* ==================== Learn Status Badge ==================== */
 /* 학습상태 뱃지 (피그마 기준) — 투명 배경 outline 스타일 */
@@ -1706,7 +1707,11 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .detail-form__select:focus { border-color:var(--color-primary); }
 .input-with-counter { position:relative; }
 .input-with-counter input { padding-right:56px; }
-.input-with-counter__count { position:absolute; right:14px; top:50%; transform:translateY(-50%); font-size:12px; color:var(--text-secondary); pointer-events:none; }
+.input-with-counter__count { position:absolute; right:14px; top:50%; transform:translateY(-50%); font-size:12px; color:#808080; pointer-events:none; }
+.input-with-counter__count strong,
+.completion-textarea__count strong,
+.setting-table__count strong,
+.setting-table__counter strong { color:#222; font-weight:700; }
 .content-folder-link { font-size:14px; color:var(--color-blue); text-decoration:none; }
 .content-folder-link:hover { text-decoration:underline; }
 .subtitle-table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; margin-top:24px; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color); }
@@ -2399,12 +2404,38 @@ tr:has(.c-check:checked) {
 .c-modal__icon-wrap img { border-radius: 50%; width: 36px; height: 36px; object-fit: cover; }
 .c-modal__icon-wrap--error { background: rgba(255, 0, 0, 0.05); }
 .c-modal__icon-wrap--error img { border-radius: 0; width: auto; height: auto; object-fit: initial; }
+.c-modal__icon-wrap--notice { background: rgba(33, 182, 132, 0.1); }
+.c-modal__icon-wrap--notice img { border-radius: 0; width: 36px; height: 36px; object-fit: initial; }
 .c-modal__title { font-size: 20px; font-weight: 700;line-height: 1.4; color: var(--text-primary); letter-spacing: -0.02em; }
-.c-modal__desc { font-size: 16px; color: var(--text-primary); line-height: 1.5; }
+.c-modal__desc { font-size: 16px; color: var(--text-primary); line-height: 1.5;font-weight:500; }
 .c-modal__desc strong { color: var(--text-primary); font-weight: 500; }
+.c-modal__desc-sub { font-size: 13px; color: #424242; line-height: 1.5; }
 .c-modal__footer { display: flex; justify-content: center; gap: 8px; }
 .c-modal__footer .auth-submit { margin: 0; }
 .c-modal--gap20 { gap: 20px; }
+
+/* 수료여부 변경 모달 */
+.completion-modal { width: 480px; padding: 0; gap: 0; }
+.completion-modal__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; padding: 0 18px 0 30px; border-bottom: 1px solid #EAEAEA; }
+.completion-modal__heading { margin: 0; font-size: 18px; font-weight: 700; color: var(--text-primary); }
+.completion-modal__close { width: 24px; height: 24px; padding: 0; border: none; background: none; cursor: pointer; line-height: 0; flex-shrink: 0; }
+.completion-modal .c-modal__content { padding: 24px 30px 0; gap: 16px; align-items: stretch; text-align: left; }
+.completion-modal .c-modal__footer { padding: 24px 30px; }
+.completion-section { display: flex; flex-direction: column; gap: 10px; }
+.completion-section__title { margin: 0; font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.completion-info { width: 100%; border-collapse: separate; border-spacing: 0; background: #F7F8FA; border-radius: 8px; overflow: hidden;border: 1px solid #EAEAEA; }
+.completion-info th { width: 100px; padding: 0 20px; text-align: left; font-size: 13px; font-weight: 500; color:#808080; vertical-align: middle; border-bottom: 1px solid #EAEAEA; }
+.completion-info td { padding: 12px 16px; font-size: 14px; color: var(--text-dark); vertical-align: middle; border-bottom: 1px solid #EAEAEA; }
+.completion-info tr:last-child th, .completion-info tr:last-child td { border-bottom: none; }
+.completion-info .progress-bar { background: #FFFFFF; }
+.completion-info .product-tag { margin-right: 8px; }
+.completion-radio-box { display: flex; align-items: center; gap: 24px; padding: 14px 16px; border: 1px solid var(--border-color); border-radius: 8px; }
+.completion-textarea { position: relative; }
+.completion-textarea__input { width: 100%; min-height: 120px; padding: 16px 20px 32px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 13px; color: var(--text-primary); font-family: inherit; resize: vertical; outline: none; box-sizing: border-box; line-height: 1.5; }
+.completion-textarea__input:focus { border-color: var(--color-primary); }
+.completion-textarea__input::placeholder { color: var(--text-placeholder); }
+.completion-textarea__count { position: absolute; right: 16px; bottom: 12px; font-size: 12px; color: var(--text-secondary); pointer-events: none; font-weight: 600; }
+
 .c-modal__logo { text-align: center; font-size: 24px; font-weight: 900; letter-spacing: -0.02em; padding:30px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .c-modal__content hr { width: 100%; }
 .c-modal__info-list { width: 100%; background: #fff; border: 1px solid #E0E0E0; border-radius: 8px; padding: 14px 16px 14px 32px; display: flex; flex-direction: column; gap: 4px; list-style: disc; text-align: left; }
@@ -2432,7 +2463,7 @@ tr:has(.c-check:checked) {
 .email-security__title { font-size: 13px; font-weight: 700; color: var(--text-primary); }
 .email-security__list { list-style: disc; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
 .email-security__list li { font-size: 12px; color: var(--text-secondary); line-height: 1.2; }
-.email-security__list a { color: var(--color-primary); }
+.email-security__list a { color: var(--color-blue); }
 
 /* --- Invite Card --- */
 .email-invite-card { background: #EEF3FA; border-radius: 10px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }

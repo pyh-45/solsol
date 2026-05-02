@@ -413,7 +413,7 @@
                                             일반
                                         </span>
                                     </td>
-                                    <td>G</td>
+                                    <td><img src="../../../images/ico-google.png" width="24" height="24" alt="Google"></td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>3</td>
                                     <td>
@@ -449,7 +449,7 @@
                                             숏링크
                                         </span>
                                     </td>
-                                    <td>-</td>
+                                    <td><img src="../../../images/ico-apple.png" width="24" height="24" alt="Apple"></td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>5</td>
                                     <td>
@@ -485,7 +485,7 @@
                                             숏링크
                                         </span>
                                     </td>
-                                    <td>N</td>
+                                    <td><img src="../../../images/ico-kakao.png" width="24" height="24" alt="Kakao"></td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>2</td>
                                     <td>
@@ -602,7 +602,7 @@
                                             <span class="progress-bar__text">60%</span>
                                         </div>
                                     </td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
+                                    <td><span class="status-chip status-chip--sent">발송완료</span></td>
                                 </tr>
 
                                 <tr>
@@ -665,7 +665,7 @@
                                             숏링크
                                         </span>
                                     </td>
-                                    <td>N</td>
+                                    <td><img src="../../../images/ico-naver.png" width="24" height="24" alt="Naver"></td>
                                     <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
                                     <td>2</td>
                                     <td>
@@ -709,9 +709,55 @@
             <span class="c-bulk-bar__text" id="bulkText">(n)개 항목 선택됨</span>
         </div>
         <div class="c-bulk-bar__actions">
-            <button class="c-bulk-bar__btn">활성</button>
-            <button class="c-bulk-bar__btn">중지</button>
-            <button class="c-bulk-bar__btn">탈퇴</button>
+            <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-already-active').classList.remove('is-hidden')">활성</button>
+            <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-already-stopped').classList.remove('is-hidden')">중지</button>
+            <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-active-courses').classList.remove('is-hidden')">탈퇴</button>
+        </div>
+    </div>
+
+    <!-- 활성: 이미 활성화 된 강사 -->
+    <div class="c-modal-overlay is-hidden" id="modal-already-active">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">이미 활성화 된 강사입니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button class="btn lg" onclick="document.getElementById('modal-already-active').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 중지: 이미 중지된 학습자 -->
+    <div class="c-modal-overlay is-hidden" id="modal-already-stopped">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">이미 중지된 학습자입니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button class="btn lg" onclick="document.getElementById('modal-already-stopped').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 탈퇴: 만료되지 않은 강좌 있음 -->
+    <div class="c-modal-overlay is-hidden" id="modal-active-courses">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">선택한 학습자의 만료되지 않은 강좌가 있습니다.</p>
+                <p class="c-modal__desc-sub">강좌를 만료한 후 학습자를 삭제할 수 있습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button class="btn lg" onclick="document.getElementById('modal-active-courses').classList.add('is-hidden')">확인</button>
+            </div>
         </div>
     </div>
 
