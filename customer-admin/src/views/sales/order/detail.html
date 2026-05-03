@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 콘텐츠 등록</title>
+    <title>Admin - 주문 상세</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <button class="admin-header__back">
                     <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
                 </button>
-                <span class="admin-header__page-title">콘텐츠 등록</span>
+                <span class="admin-header__page-title">상세페이지</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -123,26 +123,26 @@
                     </div>
                 </div>
 
-                <!-- 콘텐츠 관리 - 열린 상태 -->
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
                         <span class="lnb-accordion__label">콘텐츠 관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item active">콘텐츠 라이브러리</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
                     </div>
                 </div>
 
-                <div class="lnb-accordion">
+                <!-- 판매 관리 - 열린 상태 -->
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
                         <span class="lnb-accordion__label">판매 관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item active">주문</a>
                         <a href="#" class="lnb-sub-item">쿠폰</a>
                         <a href="#" class="lnb-sub-item">환불</a>
                     </div>
@@ -250,75 +250,164 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 상단 안내 -->
-                <div class="admin-infotip">
-                    <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">모든 파일 업로드가 완료되기 전에 브라우저를 종료하면, 진행 중이거나 대기 중인 업로드가 중단됩니다. 완료될 때까지 브라우저를 유지해 주세요.</span>
+                <!-- 주문 정보 -->
+                <div class="list-panel order-info-row">
+                    <div class="order-info-row__col">
+                        <span class="order-info-row__label">상품 주문번호</span>
+                        <span class="order-info-row__value">{주문번호}</span>
+                    </div>
+                    <div class="order-info-row__col">
+                        <span class="order-info-row__label">상품구매일시</span>
+                        <span class="order-info-row__value">2000.00.00 오전/오후 00:00</span>
+                    </div>
+                    <div class="order-info-row__action">
+                        <button class="btn sm border">영수증</button>
+                    </div>
                 </div>
 
-                <!-- 저장 폴더 패널 -->
+                <!-- 주문 상품 -->
                 <div class="list-panel list-panel--p30">
-                    <h3 class="panel-section-title">저장 폴더</h3>
-
-                    <div class="c-form-row c-form-row--col">
-                        <span class="c-form-row__label">폴더 선택 <span class="c-form-row__req">*</span></span>
-                        <div class="c-form-row__body">
-                            <div class="c-form-row__inline">
-                                <button class="btn nm border">폴더 선택</button>
-                                <span class="c-form-row__selected">디자인</span>
+                    <h3 class="panel-section-title">주문상품</h3>
+                    <div class="order-product-card">
+                        <img class="order-product-card__thumb" src="../../../images/product-thumb.png" alt="">
+                        <div class="order-product-card__body">
+                            <div class="order-product-card__meta">
+                                <span class="sale-status-tag sale-status-tag--ongoing sale-status-tag--sm">판매중</span>
+                                <span class="cate-tag cate-tag--youtube">유튜브 운영</span>
+                                <span class="order-product-card__code">PRD-2025-0001</span>
                             </div>
-                            <p class="c-form-row__hint">파일을 저장할 폴더를 선택해 주세요. 설정한 폴더가 없는 경우 <a href="#" class="c-form-row__link">폴더관리</a>에서 설정해 주세요.</p>
+                            <a href="#" class="order-product-card__title">유튜브 채널 성장 마스터</a>
+                            <div class="order-product-card__author">김강사</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 업로드 목록 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <div class="list-panel__header list-panel__header--meta">
-                        <h3 class="list-panel__title">업로드 목록</h3>
-                    </div>
+                <!-- 결제정보 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-section-title">결제정보</h3>
+                    <div class="detail-form__grid">
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문일시</span>
+                            <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문자명</span>
+                            <span class="detail-form__text">닉네임(홍길동)</span>
+                        </div>
 
-                    <table class="setting-table">
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">결제금액</span>
+                            <span class="detail-form__text">00,000원</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">쿠폰할인<span class="help-icon">?</span></span>
+                            <span class="detail-form__text">-00,000원</span>
+                        </div>
+
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문상태</span>
+                            <div class="detail-form__text">
+                                <span class="status-chip status-chip--red">결제실패</span>
+                                <div class="cell-sub-text">4/6회 · 한도초과</div>
+                            </div>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">카드 정보</span>
+                            <div class="detail-form__text">
+                                신용카드 (현대 3333 **** **** ****, 일시불)
+                                <div class="cell-sub-text">· 승인번호 : 12345678</div>
+                                <div class="cell-sub-text">· 매입사 : 현대카드</div>
+                            </div>
+                        </div>
+
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">상품유형</span>
+                            <span class="detail-form__text">구독</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">구독 기간</span>
+                            <span class="detail-form__text">
+                                20000.00.00 ~ 2000.00.00 (다음 결제 예정일 : <a href="#" style="color:var(--color-blue);">2000.00.00</a>)
+                            </span>
+                        </div>
+
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">구독 유형</span>
+                            <span class="detail-form__text">멤버십 (뉴미디어 마스터 멤버십)</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">구독 상태</span>
+                            <span class="detail-form__text">구독중</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 할인 혜택 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-section-title">할인 혜택</h3>
+                    <div class="detail-form__grid">
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">쿠폰명</span>
+                            <span class="detail-form__text">첫 구매 특가</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">쿠폰 유효기간</span>
+                            <span class="detail-form__text">2000.00.00 ~ 2000.00.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 로그 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-section-title">로그</h3>
+                    <table class="admin-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col style="width:160px;">
+                            <col>
+                            <col style="width:140px;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>일시</th>
+                                <th>로그명</th>
+                                <th>설명</th>
+                                <th>로그처리자</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr>
-                                <th>유튜브 링크 추가<span class="setting-table__required">*</span></th>
-                                <td>
-                                    <div style="display:flex; gap:6px;">
-                                        <input type="text" class="setting-table__input" placeholder="https://">
-                                        <button class="btn nm border-primary" style="flex-shrink:0; width:84px;">추가</button>
-                                    </div>
-                                    <span class="setting-table__desc">유튜브 영상 하단의 [공유] 버튼에서 링크를 복사해 입력해 주세요.<br>비공개 또는 일부 공개 영상은 정상 재생되지 않을 수 있으니, 영상 공개 상태를 '공개' 또는 '일부 공개(링크 보유자)'로 설정해 주세요.</span>
-                                </td>
+                                <td>2000.00.00 오전/오후 00:00</td>
+                                <td style="text-align:center;">주문 생성</td>
+                                <td><strong>신규 주문</strong>이 접수되었습니다.</td>
+                                <td>시스템</td>
+                            </tr>
+                            <tr>
+                                <td>2000.00.00 오전/오후 00:00</td>
+                                <td style="text-align:center;">결제 완료</td>
+                                <td><strong>결제</strong>가 정상적으로 완료되었습니다.</td>
+                                <td>시스템</td>
+                            </tr>
+                            <tr>
+                                <td>2000.00.00 오전/오후 00:00</td>
+                                <td style="text-align:center;">결제 실패</td>
+                                <td><strong>2/6회차 자동결제 실패 (한도초과)</strong></td>
+                                <td>시스템</td>
+                            </tr>
+                            <tr>
+                                <td>2000.00.00 오전/오후 00:00</td>
+                                <td style="text-align:center;">결제유예 전환</td>
+                                <td>6/6회차 결제 실패로 <strong>결제유예</strong> 전환되어 27일간 유예된 후 구독취소됩니다. 마지막 결제일 <strong>0000-00-00</strong></td>
+                                <td>시스템</td>
+                            </tr>
+                            <tr>
+                                <td>2000.00.00 오전/오후 00:00</td>
+                                <td style="text-align:center;">미결제 전환</td>
+                                <td>결제유예 후 27일 경과로 <strong>미결제 전환 · 상품 자동 해지</strong></td>
+                                <td>시스템</td>
                             </tr>
                         </tbody>
                     </table>
-
-                    <div style="padding:0 30px 30px;">
-
-                        <!-- 콘텐츠 용량 -->
-                        <div class="upload-storage-info">
-                            <span>콘텐츠 용량 80.0 GB <a href="#" class="upload-storage-info__used">중 79.4MB 사용중</a></span>
-                        </div>
-
-                        <!-- 업로드 목록 테이블 -->
-                        <table class="form-table">
-                            <thead>
-                                <tr>
-                                    <th style="text-align:center;width:60%;">콘텐츠명</th>
-                                    <th style="width:25%;">유형</th>
-                                    <th style="width:15%;">전송 상태</th>
-                                </tr>
-                            </thead>
-                        </table>
-
-                        <!-- 드래그 업로드 영역 -->
-                        <div class="c-upload-dropzone">
-                            <img src="../../../images/ico-file-upload.svg" width="40" height="40" alt="">
-                            <p class="c-upload-dropzone__text">파일을 마우스로 드래그하여 추가해 주세요.<br>유튜브 영상은 '링크 추가' 버튼을 통해 등록할 수 있습니다.</p>
-                            <button class="btn nm darkgray upload-start-btn">콘텐츠 업로드 시작하기</button>
-                        </div>
-
-                    </div>
                 </div>
 
             </div>

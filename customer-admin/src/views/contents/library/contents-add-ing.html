@@ -274,29 +274,32 @@
 
                 <!-- 업로드 목록 패널 -->
                 <div class="list-panel list-panel--flush">
-                    <div class="list-panel__header" style="margin-right:30px; margin-bottom:0;">
+                    <div class="list-panel__header list-panel__header--meta">
                         <h3 class="list-panel__title">업로드 목록</h3>
-                    </div>
-                    <div style="padding:0 30px 30px;">
-                        <!-- 콘텐츠 용량 -->
                         <div class="upload-storage-info">
                             <span>콘텐츠 용량 80.0 GB <a href="#" class="upload-storage-info__used">중 79.4MB 사용중</a></span>
                         </div>
-
+                    </div>
+                    <div style="padding:0 30px 30px;">
                         <!-- 업로드 목록 테이블 -->
-                        <table class="form-table">
+                        <table class="admin-table">
+                            <colgroup>
+                                <col style="width:60%;">
+                                <col style="width:25%;">
+                                <col style="width:15%;">
+                            </colgroup>
                             <thead>
                                 <tr>
-                                    <th style="text-align:center;width:60%;">콘텐츠명</th>
-                                    <th style="width:25%;">유형</th>
-                                    <th style="width:15%;">전송 상태</th>
+                                    <th>콘텐츠명</th>
+                                    <th>유형</th>
+                                    <th>전송 상태</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="padding-left:12px; font-size:14px; color:var(--text-primary);">강의_소개_영상.mp4</td>
-                                    <td style="text-align:center; font-size:14px; color:var(--text-primary);">동영상</td>
-                                    <td style="text-align:center;">
+                                    <td>강의_소개_영상.mp4</td>
+                                    <td>동영상</td>
+                                    <td>
                                         <div class="upload-progress">
                                             <span class="upload-progress__text">업로드 완료</span>
                                             <span class="upload-progress__bar"><span class="upload-progress__fill" style="width:100%;"></span></span>
@@ -304,9 +307,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding-left:12px; font-size:14px; color:var(--text-primary);">https://www.youtube.com/watch?v=QkF3kYbW9Y0</td>
-                                    <td style="text-align:center; font-size:14px; color:var(--text-primary);">유튜브 링크</td>
-                                    <td style="text-align:center;">
+                                    <td>https://www.youtube.com/watch?v=QkF3kYbW9Y0</td>
+                                    <td>유튜브 링크</td>
+                                    <td>
                                         <div class="upload-progress">
                                             <span class="upload-progress__text upload-progress__text--ing">업로드 중</span>
                                             <span class="upload-progress__bar"><span class="upload-progress__fill" style="width:70%;"></span></span>
@@ -314,9 +317,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding-left:12px; font-size:14px; color:var(--text-primary);">강의자료_요약본.pdf</td>
-                                    <td style="text-align:center; font-size:14px; color:var(--text-primary);">파일</td>
-                                    <td style="text-align:center;">
+                                    <td>강의자료_요약본.pdf</td>
+                                    <td>파일</td>
+                                    <td>
                                         <div class="upload-progress">
                                             <span class="upload-progress__text upload-progress__text--wait">대기 중</span>
                                             <span class="upload-progress__bar"><span class="upload-progress__fill upload-progress__fill--gray" style="width:50%;"></span></span>
@@ -324,9 +327,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding-left:12px; font-size:14px; color:var(--text-primary);">썸네일_이미지.png</td>
-                                    <td style="text-align:center; font-size:14px; color:var(--text-primary);">이미지</td>
-                                    <td style="text-align:center;">
+                                    <td>썸네일_이미지.png</td>
+                                    <td>이미지</td>
+                                    <td>
                                         <div class="upload-progress">
                                             <span class="upload-progress__text upload-progress__text--fail">실패</span>
                                             <span class="upload-progress__bar"></span>
@@ -335,8 +338,6 @@
                                 </tr>
                             </tbody>
                         </table>
-
-
                     </div>
                 </div>
 
