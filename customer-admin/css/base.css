@@ -2470,6 +2470,7 @@ tr:has(.c-check:checked) {
 
 /* 사용자 태그 (아바타 + 역할뱃지 + 이름 + 닫기) */
 .user-tag { display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 12px 0 4px; border:1px solid var(--border-color); border-radius:100px; background:#fff; font-size:13px; color:var(--text-primary); }
+.user-tag--plain { border:none; padding:0 8px 0 0; background:transparent; }
 .user-tag__remove { width:14px; height:14px; padding:0; border:none; background:none; cursor:pointer; font-size:14px; line-height:1; color:var(--text-secondary); display:inline-flex; align-items:center; justify-content:center; margin-left:4px; }
 .user-tag__remove:hover { color:var(--color-primary); }
 
@@ -2493,14 +2494,21 @@ tr:has(.c-check:checked) {
 .tutor-search__input { flex:1; height:100%; border:none; outline:none; background:transparent; font-size:13px; color:var(--text-primary); font-family:inherit; }
 .tutor-search__input::placeholder { color:var(--text-placeholder); }
 
+/* 검색 자동완성 패널 (c-dropdown 패널 스타일 재활용) */
+.tutor-search-wrap { position:relative; }
+.tutor-search-wrap .c-dropdown__panel { top:calc(100% + 4px); left:0; right:0; border-top:1px solid #DDDDDD; border-radius:8px; max-height:240px; overflow-y:auto; }
+.tutor-search-wrap:focus-within .c-dropdown__panel { display:block; }
+
 /* 강사 목록 */
 .tutor-pick-list__title { margin:0 0 8px; font-size:14px; font-weight:700; color:var(--text-primary); }
+.tutor-pick-list__scroll { max-height:336px; overflow-y:auto; }
+.tutor-pick-list__scroll .tutor-pick-table thead th { position:sticky; top:0; background:#fff; z-index:1; }
 /* admin-table 변형: 강사 선택 모달용 (소형 + 알약 행) */
 .tutor-pick-table { min-width:0; }
 .tutor-pick-table th { height:42px; border-bottom-color:#AAA; font-size:13px; font-weight:400; color:var(--text-secondary); }
-.tutor-pick-table td { height:auto; padding:7px 0; border-bottom:1px solid #EAEAEA; font-size:13px; }
+.tutor-pick-table td { height:42px; padding:7px 0; border-bottom:1px solid #EAEAEA; font-size:13px; }
 .tutor-pick-table td:first-child { text-align:left; }
-.tutor-pick-table td:nth-child(2) { text-align:right; }
+.tutor-pick-table td:nth-child(2) { text-align:center; }
 .tutor-pick-info { display:inline-flex; align-items:center; gap:8px; padding:4px 14px 4px 6px; background:#fff; border:1px solid var(--border-color); border-radius:100px; }
 .tutor-pick-info__name { color:var(--text-primary); font-weight:500; margin-left:2px; }
 .tutor-pick-info__email { color:var(--text-secondary); font-size:12px; }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 번역 생성 완료</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">AI 번역 생성 완료</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content">
+
+            <!-- 안내 문구 -->
+            <div class="ai-result-text">
+                <p class="ai-result-text__title">AI 번역 생성이 완료되었습니다.</p>
+                <p class="ai-result-text__desc">생성된 번역은 필요에 따라 수정할 수 있습니다.</p>
+                <p class="ai-result-text__hint">번역을 추가 생성하거나 재생성할 경우 기존 정보는 삭제되며, 크레딧이 차감되니 유의해 주세요.</p>
+            </div>
+
+            <!-- 차감 크레딧 박스 -->
+            <div class="credit-summary">
+                <div class="credit-summary__total">
+                    <span class="credit-summary__label">차감된 크레딧</span>
+                    <span class="credit-summary__amount">
+                        - 310,000
+                        <span class="c-credit-coin">C</span>
+                    </span>
+                </div>
+                <ul class="credit-summary__list">
+                    <li>
+                        <span class="credit-summary__sub-label">AI 자막생성</span>
+                        <span class="credit-summary__sub-value">-1,000</span>
+                    </li>
+                    <li>
+                        <span class="credit-summary__sub-label">AI 번역(한국어)</span>
+                        <span class="credit-summary__sub-value">-150,000</span>
+                    </li>
+                    <li>
+                        <span class="credit-summary__sub-label">AI 번역(영어)</span>
+                        <span class="credit-summary__sub-value">-150,000</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 현재 보유 크레딧 -->
+            <div class="credit-balance">
+                <span class="credit-balance__label">현재 보유 크레딧</span>
+                <span class="credit-balance__amount">
+                    370,000
+                    <span class="c-credit-coin">C</span>
+                </span>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">확인</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

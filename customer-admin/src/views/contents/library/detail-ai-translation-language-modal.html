@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>언어 선택</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+
+    <!-- ========= 언어 선택 모달 ========= -->
+    <div class="c-modal completion-modal">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">언어 선택</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content">
+
+            <!-- 검색 -->
+            <div class="tutor-search-wrap">
+                <div class="tutor-search">
+                    <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                    <input type="text" class="tutor-search__input" placeholder="번역할 언어 검색">
+                </div>
+                <div class="c-dropdown__panel">
+                    <button type="button" class="c-dropdown__item">영어</button>
+                    <button type="button" class="c-dropdown__item">일본어</button>
+                    <button type="button" class="c-dropdown__item">중국어(간체)</button>
+                    <button type="button" class="c-dropdown__item">스페인어</button>
+                    <button type="button" class="c-dropdown__item">프랑스어</button>
+                </div>
+            </div>
+
+            <!-- 언어 목록 -->
+            <div class="tutor-pick-list">
+                <h4 class="tutor-pick-list__title">언어 목록</h4>
+                <div class="tutor-pick-list__scroll">
+                <table class="admin-table tutor-pick-table">
+                    <colgroup>
+                        <col>
+                        <col style="width:90px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>언어</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>그리스어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add tutor-pick-add--selected">
+                                    <span class="tutor-pick-add__icon">✓</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>구자라트어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>네덜란드어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>노르웨이어(보크몰)</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>다리어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>덴마크어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>독일어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>라트비아어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>러시아어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>루마니아어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>리투아니아어</td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <!-- 선택된 대상 -->
+            <div class="tutor-selected">
+                <h4 class="tutor-selected__title">선택된 대상 {n}</h4>
+                <div class="tutor-selected__tags">
+                    <span class="user-tag user-tag--plain">
+                        그리스어
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">저장</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
