@@ -631,6 +631,7 @@ ul, ol { list-style: none; }
 }
 
 .lnb-credits__coin { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: #6756ED; font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.c-credit-coin { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; padding: 0 1px 1px 0; box-sizing: border-box; border-radius: 50%; background: #6756ED; font-size: 9px; font-weight: 700; color: #fff; flex-shrink: 0; }
 
 .lnb-credits__btn {
     display: inline-flex;
@@ -2551,6 +2552,25 @@ tr:has(.c-check:checked) {
 .folder-move__list { padding: 20px; border: 1px solid var(--border-color); border-radius: 8px; background: #FAFAFA; }
 .folder-tree { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .folder-tree__sub { list-style: none; margin: 12px 0 0; padding-left: 24px; display: flex; flex-direction: column; gap: 12px; }
+
+/* AI 튜터 생성 완료 모달 */
+.ai-result-text { display: flex; flex-direction: column; gap: 6px; }
+.ai-result-text__title { margin: 0; font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.ai-result-text__desc { margin: 0; font-size: 13px; color:#424242; line-height: 1.5; }
+.ai-result-text__hint { margin: 4px 0 0; font-size: 12px; color: var(--color-textgray); line-height: 1.5; }
+
+.credit-summary { padding: 20px; border: 1px solid var(--border-color); border-radius: 8px; background: #FAFAFA; display: flex; flex-direction: column; gap: 12px; }
+.credit-summary__total { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color); font-size: 20px; font-weight: 700;letter-spacing: -1px; color: var(--text-primary); }
+.credit-summary__label { font-size:14px;font-weight:500; }
+.credit-summary__amount { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; }
+.credit-summary__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.credit-summary__list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-right:20px; font-size: 13px; color: #A0A0A0; }
+.credit-summary__sub-label { color: #A0A0A0; }
+.credit-summary__sub-value { color: var(--text-primary);font-weight: 600; }
+
+.credit-balance { display: flex; align-items: center; gap: 24px; padding: 4px 4px; }
+.credit-balance__label { font-size: 14px; color: var(--text-dark); }
+.credit-balance__amount { display: inline-flex; align-items: center; gap: 6px; font-size: 20px; font-weight: 700; letter-spacing: -1px;color: var(--text-primary); }
 
 .c-modal__logo { text-align: center; font-size: 24px; font-weight: 900; letter-spacing: -0.02em; padding:30px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .c-modal__content hr { width: 100%; }
