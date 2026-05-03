@@ -743,6 +743,8 @@ ul, ol { list-style: none; }
     gap: 12px;
 }
 
+.list-panel__header-right { display: flex; align-items: center; gap: 8px; }
+
 .list-panel__title {
     font-size: 20px;
     line-height:1.4;
@@ -864,6 +866,9 @@ ul, ol { list-style: none; }
 .btn.primary { background: var(--color-primary); color: #fff; }
 .btn.primary:hover { background: var(--color-blue); }
 .btn.primary:active { background: var(--color-primary); color: #fff; }
+
+/* 좌측 아이콘 버튼 (아이콘 + 텍스트) */
+.btn.icon-left { gap: 4px; padding-left: 12px; }
 
 /* 유틸리티 */
 .btn--full      { width: 100%; }
@@ -1286,7 +1291,7 @@ textarea.form-control {
 .admin-filter__selects {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     margin-left: auto;
 }
 
@@ -2131,6 +2136,8 @@ tr:has(.c-check:checked) {
 .product-tag--live     { border-color: var(--tag-live-color);     color: var(--tag-live-color); }
 .product-tag--video    { border-color: var(--tag-video-color);    color: var(--tag-video-color); }
 .product-tag--digital  { border-color: var(--tag-digital-color);  color: var(--tag-digital-color); }
+.product-tag--package  { border-color: #089253; color: #089253; }
+.product-tag--premium  { border-color: #F59500; color: #F59500; }
 
 /* 학습 상태 / 수강 상태 칩 추가 변형 */
 .status-chip--outline-green  { background: transparent; border: 1px solid var(--color-green); color: var(--color-green); }
@@ -2840,10 +2847,14 @@ tr:has(.c-check:checked) {
 .content-storage__legend-dot--image  { background:#49EEB4; }
 .content-storage__legend-dot--file   { background:var(--color-primary); }
 .content-storage__legend-dot--other  { background:var(--color-blue); }
-.content-count-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
-.content-count-card { padding:20px 30px; background:#fff; border:1px solid var(--border-color); border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.content-count-card__label { font-size:13px; color:var(--text-secondary); }
-.content-count-card__value { font-size:26px; font-weight:700; color:#222; letter-spacing:-0.5px; line-height:1; }
+.count-card-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+.count-card-grid--3 { grid-template-columns:repeat(3,1fr); }
+.count-card { padding:20px 30px; background:#fff; border:1px solid var(--border-color); border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.count-card__label { font-size:13px; color:var(--text-secondary); }
+.count-card__value { font-size:26px; font-weight:700; color:#222; letter-spacing:-0.5px; line-height:1; }
+
+/* 테이블 셀 내 서브 텍스트 (메인 값 아래 보조 정보) */
+.cell-sub-text { font-size:12px; color:#888; margin-top:4px; }
 .content-list-bar { display:flex; align-items:center; gap:20px; padding:14px 0 10px; flex-wrap:wrap; }
 .content-list-bar__title { font-size:20px; font-weight:700; color:#222; flex-shrink:0; }
 .content-list-bar__folders { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 강사 목록</title>
+    <title>Admin - 환불 목록</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -18,11 +18,11 @@
         </div>
 
         <div class="admin-header__center">
-            <span class="admin-header__page-title">강사</span>
+            <span class="admin-header__page-title">환불</span>
             <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             <div class="admin-header__search">
                 <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
-                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+                <input type="text" class="admin-header__search-input" placeholder="주문번호, 학습자명으로 검색">
             </div>
         </div>
 
@@ -90,15 +90,14 @@
                     대시보드
                 </a>
 
-                <!-- 사용자 - 열린 상태 -->
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
                         <span class="lnb-accordion__label">사용자</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item active">학습자</a>
+                        <a href="#" class="lnb-sub-item">학습자</a>
                         <a href="#" class="lnb-sub-item">강사</a>
                         <a href="#" class="lnb-sub-item">관리자</a>
                     </div>
@@ -133,7 +132,8 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion">
+                <!-- 판매 관리 - 열린 상태 -->
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
                         <span class="lnb-accordion__label">판매 관리</span>
@@ -142,7 +142,7 @@
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">주문</a>
                         <a href="#" class="lnb-sub-item">쿠폰</a>
-                        <a href="#" class="lnb-sub-item">환불</a>
+                        <a href="#" class="lnb-sub-item active">환불</a>
                     </div>
                 </div>
 
@@ -254,64 +254,115 @@
                 <!-- Info & Tip -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">직접 회원가입을 한 경우 등록유형이 '일반'으로, 유튜브 숏링크 랜딩페이지로 가입한 경우 '숏링크'로 기재됩니다.</span>
-                    <a href="#" class="admin-infotip__link">가이드보기</a>
+                    <span class="admin-infotip__text">운영자 간 환불 이력 공유를 위한 기록용 메뉴입니다. 수기 환불 완료 후 반드시 주문번호와 처리 일시를 확인하여 기재해 주세요. 기록된 내용은 실제 결제 시스템에 영향을 주지 않습니다. 디지털 상품은 환불할 수 없습니다.</span>
                 </div>
 
-                <!-- 검색 패널 -->
-                <div class="user-search-box">
-                    <div class="admin-filter">
+                <!-- 검색 필터 -->
+                <div class="admin-filter-panel">
+                    <!-- 기간/날짜 선택 -->
+                    <div class="c-date-filter">
+                        <div class="c-date-filter__period">
+                            <button class="btn md border">오늘</button>
+                            <button class="btn md border">1주일</button>
+                            <button class="btn md primary">이번 달</button>
+                            <button class="btn md border">3개월</button>
+                        </div>
+                        <div class="c-date-filter__range">
+                            <div class="c-date-input">
+                                <input type="text" value="2025.08.17" readonly>
+                                <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                            </div>
+                            <span class="c-date-filter__sep">~</span>
+                            <div class="c-date-input">
+                                <input type="text" value="2025.08.17" readonly>
+                                <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 검색 + 필터 -->
+                    <div class="admin-filter" style="margin-top:16px;">
                         <div class="admin-filter__search">
                             <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
-                            <input type="text" class="admin-filter__search-input" placeholder="문의 제목 및 작성자 검색">
+                            <input type="text" class="admin-filter__search-input" placeholder="주문번호, 학습자명으로 검색">
                         </div>
                         <div class="admin-filter__selects">
                             <div class="c-dropdown">
                                 <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">상태별 조회</span>
+                                    <span class="c-dropdown__label">환불상태 전체</span>
                                     <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
                                 </button>
                                 <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">활성</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">중지</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">탈퇴</button>
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">환불상태 전체</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">환불요청</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">환불완료</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">환불불가</button>
+                                </div>
+                            </div>
+                            <div class="c-dropdown">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">환불유형 전체</span>
+                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">환불유형 전체</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">자동환불</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">수동환불</button>
+                                </div>
+                            </div>
+                            <div class="c-dropdown">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">내보내기</span>
+                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">xls</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">csv</button>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn nm primary">초대하기</button>
+                        <button class="btn nm primary icon-left">
+                            <img src="../../../images/ico-16px-btn-plus.svg" width="16" height="16" alt="">
+                            환불접수
+                        </button>
                     </div>
                 </div>
 
                 <!-- 통계 카드 -->
-                <div class="count-card-grid count-card-grid--3">
+                <div class="count-card-grid">
                     <div class="count-card">
-                        <span class="count-card__label">총 강사</span>
-                        <span class="count-card__value">1,247</span>
+                        <span class="count-card__label">총 환불 요청 건수</span>
+                        <span class="count-card__value">128</span>
                     </div>
                     <div class="count-card">
-                        <span class="count-card__label">활성 강사수</span>
-                        <span class="count-card__value">892</span>
+                        <span class="count-card__label">환불 완료 금액</span>
+                        <span class="count-card__value">2,840,000</span>
                     </div>
                     <div class="count-card">
-                        <span class="count-card__label">비활성 강사수</span>
-                        <span class="count-card__value">355</span>
+                        <span class="count-card__label">환불 불가 건수</span>
+                        <span class="count-card__value">23</span>
+                    </div>
+                    <div class="count-card">
+                        <span class="count-card__label">환불요청 건수</span>
+                        <span class="count-card__value">18</span>
                     </div>
                 </div>
 
-                <!-- 강사 목록 테이블 -->
+                <!-- 환불 목록 테이블 -->
                 <div class="list-panel">
 
                     <div class="list-panel__header">
-                        <span class="list-panel__title">강사 목록</span>
-                        <div class="c-dropdown c-dropdown--ghost">
-                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                <span class="c-dropdown__label">정렬</span>
-                                <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
-                            </button>
-                            <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                <button class="c-dropdown__item active" onclick="selectItem(this)">구매순</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">등급순</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">가입순</button>
+                        <span class="list-panel__title">환불처리 기록</span>
+                        <div class="list-panel__header-right">
+                            <div class="c-dropdown c-dropdown--ghost">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">정렬</span>
+                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">등록일 최신순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">등록일 오래된순</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -323,105 +374,175 @@
                                     <th class="th-check">
                                         <input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)">
                                     </th>
-                                    <th style="min-width:160px">강사명</th>
-                                    <th style="min-width:180px; text-align:center">이메일</th>
-                                    <th style="min-width:120px">연락처</th>
-                                    <th style="min-width:140px">가입일시</th>
-                                    <th style="min-width:80px">강좌수</th>
-                                    <th style="min-width:130px">활성/총 수강생수</th>
-                                    <th style="min-width:80px">상태</th>
+                                    <th>주문번호</th>
+                                    <th>상품명</th>
+                                    <th>주문상태</th>
+                                    <th>주문일시</th>
+                                    <th>주문자명</th>
+                                    <th>실 구매금액</th>
+                                    <th>할인/쿠폰</th>
+                                    <th>환불금액</th>
+                                    <th>환불상태</th>
+                                    <th>등록일시</th>
+                                    <th>환불일시</th>
                                 </tr>
                             </thead>
                             <tbody>
-
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
-                                    <td style="text-align:center"><div class="email-cell" style="justify-content:center"><span class="role-badge role-badge--first">최초</span>minjun.kim@example.com25...</div></td>
-                                    <td>010-1234-567</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>12</td>
-                                    <td style="font-size:13px;">145 / 300</td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">{주문번호}</a></td>
+                                    <td>
+                                        <span class="product-tag product-tag--normal">일반</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">유튜브 채널 성장 마스터</a>
+                                    </td>
+                                    <td><span class="status-chip status-chip--red">취소</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 learner"></div>
+                                            <span class="role-badge role-badge--learner">학습자</span>
+                                            닉네임
+                                        </div>
+                                    </td>
+                                    <td>00,000원</td>
+                                    <td>
+                                        <div>-00,000원</div>
+                                        <div class="cell-sub-text">(신규가입 쿠폰)</div>
+                                    </td>
+                                    <td>00,000원</td>
+                                    <td><span class="status-chip status-chip--green">환불완료</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
                                 </tr>
 
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 sub-teacher"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--sub">서브강사</span>vintage_auto</div></div></div></td>
-                                    <td style="text-align:center">seoyeon.lee@example.com2...</td>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">{주문번호}</a></td>
+                                    <td>
+                                        <span class="product-tag product-tag--premium">프리미엄</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">콘텐츠 제작 마스터클래스</a>
+                                    </td>
+                                    <td><span class="status-chip status-chip--green">결제완료</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 learner"></div>
+                                            <span class="role-badge role-badge--learner">학습자</span>
+                                            닉네임
+                                        </div>
+                                    </td>
+                                    <td>00,000원</td>
                                     <td>-</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>5</td>
-                                    <td style="font-size:13px;">88 / 120</td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 basic"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--instructor">강사</span>닉네임</div></div></div></td>
-                                    <td style="text-align:center">jihoon.park@example.com</td>
-                                    <td>010-1234-567</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>8</td>
-                                    <td style="font-size:13px;">32 / 95</td>
-                                    <td><span class="status-chip status-chip--left">탈퇴</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 sub-teacher"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--sub">서브강사</span>vintage_auto</div></div></div></td>
-                                    <td style="text-align:center">seoyeon.lee@example.com</td>
-                                    <td>010-1234-567</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>4</td>
-                                    <td style="font-size:13px;">210 / 450</td>
-                                    <td><span class="status-chip status-chip--inactive">비활성</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
-                                    <td style="text-align:center"><div class="email-cell" style="justify-content:center"><span class="role-badge role-badge--first">최초</span>jihoon.park@example.com</div></td>
                                     <td>-</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>1</td>
-                                    <td style="font-size:13px;">67 / 80</td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 learner"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--learner">학습자</span>닉네임</div></div></div></td>
-                                    <td style="text-align:center">seoyeon.lee@example.com2...</td>
                                     <td>-</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>5</td>
-                                    <td style="font-size:13px;">19 / 55</td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>-</td>
                                 </tr>
 
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
-                                    <td style="text-align:center">seoyeon.lee@example.com</td>
-                                    <td>010-1234-567</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>4</td>
-                                    <td style="font-size:13px;">301 / 520</td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">{주문번호}</a></td>
+                                    <td>
+                                        <span class="product-tag product-tag--premium">프리미엄</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">콘텐츠 제작 마스터클래스</a>
+                                    </td>
+                                    <td><span class="status-chip status-chip--green">결제완료</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 learner"></div>
+                                            <span class="role-badge role-badge--learner">학습자</span>
+                                            닉네임
+                                        </div>
+                                    </td>
+                                    <td>000,000원</td>
+                                    <td>
+                                        <div>-00,000원</div>
+                                        <div class="cell-sub-text">(여름방학 특별 할인)</div>
+                                    </td>
+                                    <td>-</td>
+                                    <td><span class="status-chip status-chip--green">환불요청</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>
+                                        <div>2000.00.00<br>오전/오후 00:00</div>
+                                        <div class="cell-sub-text">외 1</div>
+                                    </td>
                                 </tr>
 
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 sub-teacher"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--sub">서브강사</span>닉네임</div></div></div></td>
-                                    <td style="text-align:center">jihoon.park@example.com</td>
-                                    <td>010-1234-567</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>2</td>
-                                    <td style="font-size:13px;">44 / 110</td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">{주문번호}</a></td>
+                                    <td>
+                                        <span class="product-tag product-tag--video">화상</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">영상 편집 기초</a>
+                                    </td>
+                                    <td><span class="status-chip status-chip--green">결제완료</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 learner"></div>
+                                            <span class="role-badge role-badge--learner">학습자</span>
+                                            닉네임
+                                        </div>
+                                    </td>
+                                    <td>00,000원</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><span class="status-chip status-chip--red">환불불가</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>-</td>
                                 </tr>
 
+                                <tr>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">{주문번호}</a></td>
+                                    <td>
+                                        <span class="product-tag product-tag--package">패키지</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">브랜드 마스터</a>
+                                    </td>
+                                    <td><span class="status-chip status-chip--green">결제완료</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 learner"></div>
+                                            <span class="role-badge role-badge--learner">학습자</span>
+                                            닉네임
+                                        </div>
+                                    </td>
+                                    <td>00,000원</td>
+                                    <td>
+                                        <div>-0,000원</div>
+                                        <div class="cell-sub-text">(친구 초대 쿠폰)</div>
+                                    </td>
+                                    <td>00,000원</td>
+                                    <td><span class="status-chip status-chip--red">환불불가</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>-</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">{주문번호}</a></td>
+                                    <td>
+                                        <span class="product-tag product-tag--live">LIVE</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">커뮤니티 운영</a>
+                                    </td>
+                                    <td><span class="status-chip status-chip--green">결제완료</span></td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 learner"></div>
+                                            <span class="role-badge role-badge--learner">학습자</span>
+                                            닉네임
+                                        </div>
+                                    </td>
+                                    <td>000,000원</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>2000.00.00<br>오전/오후 00:00</td>
+                                    <td>-</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -441,57 +562,6 @@
 
                 </div>
 
-                <!-- 강사 목록 테이블 2 -->
-                <div class="list-panel">
-
-                    <div class="list-panel__header">
-                        <span class="list-panel__title">강사 목록</span>
-                        <div class="c-dropdown c-dropdown--ghost">
-                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                <span class="c-dropdown__label">정렬</span>
-                                <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
-                            </button>
-                            <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                <button class="c-dropdown__item active" onclick="selectItem(this)">구매순</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">등급순</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">가입순</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="admin-table-wrap">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th class="th-check">
-                                        <input type="checkbox" class="table-check" id="checkAll2" onchange="toggleAll(this)">
-                                    </th>
-                                    <th style="min-width:160px">강사명</th>
-                                    <th style="min-width:180px; text-align:center">이메일</th>
-                                    <th style="min-width:120px">연락처</th>
-                                    <th style="min-width:140px">가입일시</th>
-                                    <th style="min-width:80px">강좌수</th>
-                                    <th style="min-width:130px">활성/총 수강생수</th>
-                                    <th style="min-width:80px">상태</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>alpha_user_kr</div></div></div></td>
-                                    <td style="text-align:center"><div class="email-cell" style="justify-content:center"><span class="role-badge role-badge--first">최초</span>minjun.kim@example.com25...</div></td>
-                                    <td>010-1234-567</td>
-                                    <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
-                                    <td>12</td>
-                                    <td style="font-size:13px;">145 / 300</td>
-                                    <td><span class="status-chip status-chip--active">활성</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-
             </div>
 
         </main>
@@ -505,10 +575,7 @@
             <span class="c-bulk-bar__text" id="bulkText">(n)개 항목 선택됨</span>
         </div>
         <div class="c-bulk-bar__actions">
-            <button class="c-bulk-bar__btn">활성</button>
-            <button class="c-bulk-bar__btn">중지</button>
-            <button class="c-bulk-bar__btn">권한설정</button>
-            <button class="c-bulk-bar__btn">탈퇴</button>
+            <button class="c-bulk-bar__btn">환불 삭제</button>
         </div>
     </div>
 
