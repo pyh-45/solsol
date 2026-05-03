@@ -949,7 +949,7 @@ textarea.form-control {
     padding: 0 12px;
     background: #fff;
     border-top: 2px solid #222;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #aaa;
     font-weight: 600;
     color: #919191;
     text-align: center;
