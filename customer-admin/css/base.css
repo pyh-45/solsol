@@ -1702,6 +1702,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .detail-form__section-title { font-size: 17px; font-weight: 700; color: #222; padding-bottom: 10px; border-bottom: 1px solid #EFEFEF; margin-bottom:15px; }
 .detail-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 30px; }
 .help-icon { display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; border:1px solid var(--text-secondary); border-radius:50%; font-size:9px; font-weight:700; color:var(--text-secondary); margin-left:4px; vertical-align:middle; }
+.info-mark { display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; border-radius:50%; background:#fff; border:1px solid var(--color-blue); color:var(--color-blue); font-size:9px; font-weight:700; vertical-align:middle; margin-right:4px; flex-shrink:0; }
 .detail-form__field { display: flex; flex-direction: column; gap: 6px; }
 .detail-form__field--full { grid-column: 1 / -1; }
 .detail-form__label { font-size: 13px;line-height:1.5; color: var(--color-textgray); }
@@ -1728,14 +1729,15 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .input-with-counter__count strong,
 .completion-textarea__count strong,
 .setting-table__count strong,
-.setting-table__counter strong { color:#222; font-weight:700; }
+.setting-table__counter strong,
+.textarea-counter__count strong { color:#222; font-weight:700; }
 .content-folder-link { font-size:14px; color:var(--color-blue); text-decoration:none; }
 .content-folder-link:hover { text-decoration:underline; }
 .subtitle-table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; margin-top:24px; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color); }
 .subtitle-table th { height:44px; padding:0 12px; background:#f9f9f9; border-bottom:1px solid var(--border-color); font-weight:500; font-size:14px; color:var(--text-dark); text-align:center; }
 .subtitle-table th:first-child, .subtitle-table td:first-child { width:48px; text-align:center; }
 .subtitle-table th:last-child, .subtitle-table td:last-child { width:110px; text-align:center; }
-.subtitle-table td { height:44px; padding:0 6px; border-bottom:1px solid var(--border-color); font-size:14px; color:var(--text-primary); vertical-align:middle; }
+.subtitle-table td { height:44px; padding:6px; border-bottom:1px solid var(--border-color); font-size:14px; color:var(--text-primary); vertical-align:middle; }
 .subtitle-table tr:last-child td { border-bottom:none; }
 .tab-info-table .subtitle-table { margin-top:0; }
 
@@ -2456,7 +2458,48 @@ tr:has(.c-check:checked) {
 .completion-textarea__input { width: 100%; min-height: 120px; padding: 16px 20px 32px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 13px; color: var(--text-primary); font-family: inherit; resize: vertical; outline: none; box-sizing: border-box; line-height: 1.5; }
 .completion-textarea__input:focus { border-color: var(--color-primary); }
 .completion-textarea__input::placeholder { color: var(--text-placeholder); }
-.completion-textarea__count { position: absolute; right: 16px; bottom: 12px; font-size: 12px; color: var(--text-secondary); pointer-events: none; font-weight: 600; }
+.completion-textarea__count { position: absolute; right: 16px; bottom: 12px; font-size: 12px; color: var(--text-secondary); pointer-events: none; font-weight: 400; }
+
+/* 공통: 텍스트에어리어 + 글자수 카운터 */
+.textarea-counter { position: relative; }
+.textarea-counter > textarea { padding-bottom: 32px; }
+.textarea-counter__count { position: absolute; right: 16px; bottom: 12px; font-size: 12px; font-weight: 400; color: var(--text-secondary); pointer-events: none; }
+
+/* 쿠폰 사용 통계 바 (Figma 디자인시안 기반) */
+.coupon-usage { display:flex; flex-direction:column; gap:20px; margin:30px 0; }
+.coupon-usage__row { display:flex; align-items:center; gap:10px; }
+.coupon-usage__label { flex-shrink:0; font-size:13px; color:#222; letter-spacing:-0.02em; }
+.coupon-usage__bar { flex:1; height:10px; background:#EFEFEF; border-radius:100px; overflow:hidden; }
+.coupon-usage__fill { height:100%; border-radius:100px; }
+.coupon-usage__fill--blue { background:#4FC0FC; }
+.coupon-usage__fill--purple { background:#6756ED; }
+.coupon-usage__text { flex-shrink:0; font-size:13px; color:#202224; letter-spacing:-0.02em; }
+.coupon-usage__sub { color:#BDBDBD; }
+
+/* 달력 (Customer Front 디자인시안 기반) */
+.c-calendar { width:300px;height:300px; padding:36px 28px; background:#fff;border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,0.05); font-family:var(--font-base); box-sizing:border-box; }
+.c-calendar__header { display:flex; align-items:center; justify-content:space-between; padding:0 8px 16px; }
+.c-calendar__nav { width:24px; height:24px; padding:0; border:none; background:none; cursor:pointer; color:#222; font-size:18px; line-height:1; }
+.c-calendar__title { font-size:14px; font-weight:600; color:#222; letter-spacing:-0.02em; }
+.c-calendar__weekdays { display:grid; grid-template-columns:repeat(7, 1fr); padding:4px 0 8px; font-size:12px; font-weight:500; color:#4FC0FC; text-align:center; }
+.c-calendar__grid { display:grid; grid-template-columns:repeat(7, 1fr); row-gap:1px; }
+.c-calendar__day { display:flex; align-items:center; justify-content:center; width: 28px; height:28px; margin:0 auto; padding:0; border:1.5px solid transparent; background:transparent; border-radius:50%; font-size:13px; color:#222; font-family:inherit; cursor:pointer; }
+.c-calendar__day:hover { background:#F4F5F7; }
+.c-calendar__day--muted { color:#BDBDBD; }
+.c-calendar__day--today { background:#4FC0FC; color:#fff; }
+.c-calendar__day--today:hover { background:#4FC0FC; }
+.c-calendar__day--selected { border-color:#4FC0FC; color:#4FC0FC; }
+.c-calendar__day--selected:hover { background:transparent; }
+
+.c-calendar-legend { display:flex; flex-direction:column; gap:10px; font-size:13px; color:#222; }
+.c-calendar-legend__item { display:flex; align-items:center; gap:8px; }
+.c-calendar-legend__dot { width:14px; height:14px; border-radius:50%; box-sizing:border-box; flex-shrink:0; }
+.c-calendar-legend__dot--filled { background:#4FC0FC; }
+.c-calendar-legend__dot--outline { border:1.5px solid #4FC0FC; }
+
+/* 달력 팝업 모드 (날짜 입력 필드 클릭 시 표시) */
+.c-calendar--popup { display:none; position:absolute; z-index:1000; }
+.c-calendar--popup.is-open { display:block; }
 
 /* 강사 초대 모달 */
 .invitation-modal__hint { margin: 0; padding-bottom: 8px; font-size: 12px; color: #A0A0A0; }

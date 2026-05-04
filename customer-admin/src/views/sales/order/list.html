@@ -284,12 +284,12 @@
                             <button class="btn md border">3개월</button>
                         </div>
                         <div class="c-date-filter__range">
-                            <div class="c-date-input">
+                            <div class="c-date-input" onclick="toggleCalendar(this)">
                                 <input type="text" value="2025.08.17" readonly>
                                 <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
                             </div>
                             <span class="c-date-filter__sep">~</span>
-                            <div class="c-date-input">
+                            <div class="c-date-input" onclick="toggleCalendar(this)">
                                 <input type="text" value="2025.08.17" readonly>
                                 <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
                             </div>
@@ -662,6 +662,66 @@
 
     </div>
 
+    <!-- 날짜 선택 팝업 달력 -->
+    <div class="c-calendar c-calendar--popup" id="datePopupCalendar">
+        <div class="c-calendar__header">
+            <button class="c-calendar__nav" aria-label="이전 달">
+                <img src="../../../images/arrow-calendar-disabled.svg" width="20" height="20" alt="">
+            </button>
+            <span class="c-calendar__title">January, 2021</span>
+            <button class="c-calendar__nav" aria-label="다음 달">
+                <img src="../../../images/arrow-calendar-active.svg" width="20" height="20" alt="">
+            </button>
+        </div>
+        <div class="c-calendar__weekdays">
+            <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+        </div>
+        <div class="c-calendar__grid">
+            <button class="c-calendar__day c-calendar__day--muted">27</button>
+            <button class="c-calendar__day c-calendar__day--muted">28</button>
+            <button class="c-calendar__day c-calendar__day--muted">29</button>
+            <button class="c-calendar__day c-calendar__day--muted">30</button>
+            <button class="c-calendar__day c-calendar__day--muted">31</button>
+            <button class="c-calendar__day">1</button>
+            <button class="c-calendar__day">2</button>
+            <button class="c-calendar__day c-calendar__day--selected">3</button>
+            <button class="c-calendar__day">4</button>
+            <button class="c-calendar__day">5</button>
+            <button class="c-calendar__day">6</button>
+            <button class="c-calendar__day c-calendar__day--today">7</button>
+            <button class="c-calendar__day">8</button>
+            <button class="c-calendar__day">9</button>
+            <button class="c-calendar__day">10</button>
+            <button class="c-calendar__day">11</button>
+            <button class="c-calendar__day">12</button>
+            <button class="c-calendar__day">13</button>
+            <button class="c-calendar__day">14</button>
+            <button class="c-calendar__day">15</button>
+            <button class="c-calendar__day">16</button>
+            <button class="c-calendar__day">17</button>
+            <button class="c-calendar__day">18</button>
+            <button class="c-calendar__day">19</button>
+            <button class="c-calendar__day">20</button>
+            <button class="c-calendar__day">21</button>
+            <button class="c-calendar__day">22</button>
+            <button class="c-calendar__day">23</button>
+            <button class="c-calendar__day">24</button>
+            <button class="c-calendar__day">25</button>
+            <button class="c-calendar__day">26</button>
+            <button class="c-calendar__day">27</button>
+            <button class="c-calendar__day">28</button>
+            <button class="c-calendar__day">29</button>
+            <button class="c-calendar__day">30</button>
+            <button class="c-calendar__day">31</button>
+            <button class="c-calendar__day c-calendar__day--muted">1</button>
+            <button class="c-calendar__day c-calendar__day--muted">2</button>
+            <button class="c-calendar__day c-calendar__day--muted">3</button>
+            <button class="c-calendar__day c-calendar__day--muted">4</button>
+            <button class="c-calendar__day c-calendar__day--muted">5</button>
+            <button class="c-calendar__day c-calendar__day--muted">6</button>
+        </div>
+    </div>
+
     <!-- 하단 일괄처리 바 (체크박스 선택 시 노출) -->
     <div class="c-bulk-bar hidden" id="bulkBar">
         <div class="c-bulk-bar__left">
@@ -741,6 +801,28 @@
         document.querySelectorAll('.row-check, #checkAll').forEach(c => c.checked = false);
         document.getElementById('bulkBar').classList.add('hidden');
     }
+
+    function toggleCalendar(wrap) {
+        const cal = document.getElementById('datePopupCalendar');
+        if (!cal) return;
+        const isCurrent = cal.dataset.target === wrap.dataset.calId;
+        if (cal.classList.contains('is-open') && isCurrent) {
+            cal.classList.remove('is-open');
+            return;
+        }
+        const id = wrap.dataset.calId || ('cal-' + Math.random().toString(36).slice(2, 8));
+        wrap.dataset.calId = id;
+        const rect = wrap.getBoundingClientRect();
+        cal.style.top = (rect.bottom + window.scrollY + 4) + 'px';
+        cal.style.left = (rect.left + window.scrollX) + 'px';
+        cal.classList.add('is-open');
+        cal.dataset.target = id;
+    }
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.c-date-input') && !e.target.closest('.c-calendar')) {
+            document.getElementById('datePopupCalendar')?.classList.remove('is-open');
+        }
+    });
 </script>
 
 </body>
