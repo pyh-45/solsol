@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수신자 그룹 선택</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">수신자 그룹 선택</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content" style="padding-bottom:0;">
+
+            <!-- 검색 -->
+            <div class="tutor-search">
+                <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                <input type="text" class="tutor-search__input" placeholder="그룹명, 설명으로 검색">
+            </div>
+
+            <!-- 그룹 목록 -->
+            <div class="tutor-pick-list">
+                <div class="tutor-pick-list__scroll">
+                <table class="admin-table tutor-pick-table">
+                    <colgroup>
+                        <col style="width:30px;">
+                        <col>
+                        <col style="width:80px;">
+                        <col style="width:70px;">
+                        <col style="width:70px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;"><input type="checkbox" class="table-check"></th>
+                            <th>그룹명</th>
+                            <th>수신자수</th>
+                            <th>오픈율</th>
+                            <th>전환율</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div>메인 커뮤니티 구독자</div>
+                                <div class="cell-sub-text">메인 커뮤니티 전체 구독 회원</div>
+                            </td>
+                            <td>1,240명</td>
+                            <td>42.3%</td>
+                            <td>8.1%</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div>프리미엄 멤버십 회원</div>
+                                <div class="cell-sub-text">프리미엄 플랜 활성 사용자</div>
+                            </td>
+                            <td>387명</td>
+                            <td>61.5%</td>
+                            <td>15.4%</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div>베이직 멤버십 회원</div>
+                                <div class="cell-sub-text">베이직 플랜 활성 사용자</div>
+                            </td>
+                            <td>853명</td>
+                            <td>38.7%</td>
+                            <td>6.9%</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div>커뮤니티 A 구독자</div>
+                                <div class="cell-sub-text">커뮤니티 A 전용 수신자 그룹</div>
+                            </td>
+                            <td>214명</td>
+                            <td>55.2%</td>
+                            <td>11.3%</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div>커뮤니티 B 구독자</div>
+                                <div class="cell-sub-text">커뮤니티 B 전용 수신자 그룹</div>
+                            </td>
+                            <td>178명</td>
+                            <td>49.8%</td>
+                            <td>9.7%</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div>신규 가입자 (30일 이내)</div>
+                                <div class="cell-sub-text">최근 30일 내 가입한 신규 회원</div>
+                            </td>
+                            <td>96명</td>
+                            <td>70.1%</td>
+                            <td>22.0%</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div>비활성 회원</div>
+                                <div class="cell-sub-text">90일 이상 미접속 휴면 사용자</div>
+                            </td>
+                            <td>320명</td>
+                            <td>18.4%</td>
+                            <td>2.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="modal-pagination">
+                <button type="button" class="pagination__btn" disabled>‹</button>
+                <button type="button" class="pagination__btn active">1</button>
+                <button type="button" class="pagination__btn">2</button>
+                <button type="button" class="pagination__btn">3</button>
+                <button type="button" class="pagination__btn">4</button>
+                <button type="button" class="pagination__btn">5</button>
+                <button type="button" class="pagination__btn">›</button>
+            </div>
+
+            <!-- 선택된 수신자 그룹 -->
+            <div class="tutor-selected">
+                <h4 class="tutor-selected__title" style="color:var(--text-primary);">선택된 수신자 그룹 {n}</h4>
+                <div class="tutor-selected__tags">
+                    <span class="user-tag user-tag--plain">
+                        [{상품유형}] {상품명}
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                    <span class="user-tag user-tag--plain">
+                        [화상강의] 인스타그램 콘텐츠 기획 템플릿 세트
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">확인</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
