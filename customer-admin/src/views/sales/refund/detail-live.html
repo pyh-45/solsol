@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 쿠폰 수정</title>
+    <title>Admin - 환불 상세 (라이브강의)</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <button class="admin-header__back">
                     <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
                 </button>
-                <span class="admin-header__page-title">쿠폰 수정</span>
+                <span class="admin-header__page-title">상세페이지</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -143,8 +143,8 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">주문</a>
-                        <a href="#" class="lnb-sub-item active">쿠폰</a>
-                        <a href="#" class="lnb-sub-item">환불</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item active">환불</a>
                     </div>
                 </div>
 
@@ -250,268 +250,176 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- Info & Tip -->
+                <!-- 인포박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">본 페이지에서 생성된 쿠폰은 캠페인 생성 화면에서 수신자 그룹을 대상으로 배포될 수 있습니다.</span>
+                    <span class="admin-infotip__text">디지털 상품은 환불이 불가능합니다.</span>
                 </div>
 
                 <!-- 상단 액션 바 -->
                 <div class="panel-action-bar">
-                    <button class="btn lg dark">변경사항 저장</button>
+                    <button type="button" class="btn lg border">취소</button>
+                    <button type="button" class="btn lg dark">변경사항 저장</button>
                 </div>
 
-                <!-- 쿠폰 정보 -->
+                <!-- 주문 정보 -->
                 <div class="list-panel list-panel--p30">
-                    <h3 class="panel-section-title">쿠폰 정보</h3>
-                    <div class="detail-form__grid">
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">쿠폰명 <span class="auth-required">*</span></span>
-                            <input type="text" class="detail-form__input" placeholder="쿠폰명을 입력해 주세요.">
-                        </div>
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">쿠폰설명</span>
-                            <div class="textarea-counter">
-                                <textarea class="detail-form__textarea" placeholder="쿠폰설명을 입력해 주세요."></textarea>
-                                <span class="textarea-counter__count"><strong>0</strong>/200</span>
+                    <div class="panel-section-title" style="display:flex; align-items:center; justify-content:space-between;">
+                        <span>주문 정보</span>
+                        <div class="c-dropdown" style="font-size:13px; font-weight:400;">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label">환불 상태 변경</span>
+                                <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                <button class="c-dropdown__item" onclick="selectItem(this)">환불요청</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">환불완료</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">환불불가</button>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 사용 정보 -->
-                <div class="list-panel list-panel--p30">
-                    <h3 class="panel-section-title">사용 정보</h3>
-                    <div class="detail-form__grid">
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">쿠폰 상태 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:30px; flex-wrap:wrap;">
-                                <div class="c-radio-group">
-                                    <label class="c-radio"><input type="radio" name="status" checked>사용</label>
-                                    <label class="c-radio"><input type="radio" name="status">사용 중지</label>
-                                    <label class="c-radio"><input type="radio" name="status">회수</label>
-                                </div>
-                                <p class="detail-form__hint" style="margin:0; color:var(--color-blue);"><span class="info-mark">?</span><strong>회수란?</strong> 쿠폰이 배포되었으나 아직 사용하지 않은 학습자에 한하여 더이상 사용할 수 없게 하는 것을 말합니다. 사용한 쿠폰에 대해서는 별도의 조치를 취하지 않습니다.</p>
-                            </div>
+                    <!-- 주문번호 검색 -->
+                    <div class="detail-form__field detail-form__field--full" style="margin-bottom:20px;">
+                        <span class="detail-form__label">주문번호 <span class="auth-required">*</span></span>
+                        <div class="tutor-search">
+                            <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                            <input type="text" class="tutor-search__input" placeholder="주문번호를 검색해 주세요.">
                         </div>
+                        <p style="margin:8px 0 0; font-size:13px; color:var(--color-red); font-weight:500;">디지털 상품은 환불이 어렵습니다.</p>
+                    </div>
 
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">적용 범위 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
-                                <div class="c-radio-group">
-                                    <label class="c-radio"><input type="radio" name="scope" checked>모든 상품</label>
-                                    <label class="c-radio"><input type="radio" name="scope">특정 상품</label>
-                                </div>
-                                <span style="color:#222; font-weight:500;">{상품명1} {상품명2} {상품명3}</span>
-                                <button class="btn md border">개별 상품 선택</button>
+                    <!-- 상품 카드 -->
+                    <div class="order-product-card order-product-card--bordered">
+                        <img class="order-product-card__thumb" src="../../../images/product-thumb.png" alt="" style="width:160px; height:96px;">
+                        <div class="order-product-card__body">
+                            <div class="order-product-card__meta">
+                                <span class="sale-status-tag sale-status-tag--ongoing sale-status-tag--sm">판매중</span>
+                                <span class="cate-tag cate-tag--ai">AI·빅데이터</span>
+                                <span class="order-product-card__code">PRD-2025-0001</span>
                             </div>
-                        </div>
-
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">적용 대상 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
-                                <div class="c-radio-group">
-                                    <label class="c-radio"><input type="radio" name="target" checked>전체 회원</label>
-                                    <label class="c-radio"><input type="radio" name="target">수신자 그룹</label>
-                                </div>
-                                <span style="color:#222; font-weight:500;">{수신자 그룹명1} {수신자 그룹명2} {수신자 그룹명3}</span>
-                                <button class="btn md border">수신자 그룹 선택</button>
-                            </div>
+                            <a href="#" class="order-product-card__title">2026 AI 트렌드 라이브 세미나</a>
+                            <div class="order-product-card__author">김강사</div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 발행 정보 -->
-                <div class="list-panel list-panel--p30">
-                    <h3 class="panel-section-title">발행 정보</h3>
-                    <div class="detail-form__grid">
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">발행 수량 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <input type="text" class="detail-form__input" value="300" style="width:120px;">
-                                <span class="detail-form__hint" style="margin:0; color:var(--color-blue);">숫자를 입력하세요</span>
+                    <!-- 상세 정보 (3열 그리드) -->
+                    <div class="detail-form__grid" style="grid-template-columns:1fr 1fr 1fr; margin-top:24px;">
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문번호</span>
+                            <span class="detail-form__text">{주문번호}</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문일시</span>
+                            <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문상태</span>
+                            <span class="detail-form__text">
+                                <span class="status-chip status-chip--red">취소</span>
+                            </span>
+                        </div>
+
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문자명</span>
+                            <span class="detail-form__text">닉네임(홍길동)</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">결제수단</span>
+                            <span class="detail-form__text">신용카드 (일시불)</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">카드 정보</span>
+                            <div class="detail-form__text">
+                                현대카드 3333 **** **** ****
+                                <div class="cell-sub-text">승인번호 : 12345678</div>
                             </div>
                         </div>
 
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">사용 기간 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                <label class="c-radio"><input type="radio" name="period" checked>기간 설정</label>
-                                <span class="detail-form__label" style="margin:0;">시작일</span>
-                                <div style="display:flex; align-items:center; gap:4px;">
-                                    <div class="c-date-input" onclick="toggleCalendar(this)">
-                                        <input type="text" value="20.00.00" readonly>
-                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                    </div>
-                                    <div class="c-date-input">
-                                        <input type="text" value="00:00" readonly style="width:60px;">
-                                    </div>
-                                </div>
-                                <span>~</span>
-                                <span class="detail-form__label" style="margin:0;">종료일</span>
-                                <div style="display:flex; align-items:center; gap:4px;">
-                                    <div class="c-date-input" onclick="toggleCalendar(this)">
-                                        <input type="text" value="20.00.00" readonly>
-                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                    </div>
-                                    <div class="c-date-input">
-                                        <input type="text" value="00:00" readonly style="width:60px;">
-                                    </div>
-                                </div>
-                                <label class="c-radio"><input type="radio" name="period">제한 없음</label>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">정가</span>
+                            <span class="detail-form__text">000,000원</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">쿠폰할인</span>
+                            <div class="detail-form__text">
+                                <span style="color:var(--color-red); font-weight:600;">-00,000원</span>
+                                <div class="cell-sub-text">신규가입 쿠폰</div>
                             </div>
                         </div>
-
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">유효 기간 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                <label class="c-radio"><input type="radio" name="valid" checked>사용가능 일수</label>
-                                <input type="text" class="detail-form__input" value="30" style="width:80px;">
-                                <span>일</span>
-                                <label class="c-radio"><input type="radio" name="valid">제한 없음</label>
-                            </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">실 결제금액</span>
+                            <span class="detail-form__text" style="font-weight:700;">00,000원</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 할인 정보 -->
+                <!-- 수강 정보 -->
                 <div class="list-panel list-panel--p30">
-                    <h3 class="panel-section-title">할인 정보</h3>
-                    <div class="detail-form__grid">
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">할인 타입 <span class="auth-required">*</span></span>
-                            <span class="detail-form__text detail-form__text--accent">정액</span>
-                        </div>
+                    <h3 class="panel-section-title">수강 정보</h3>
 
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">할인 금액(원) <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <input type="text" class="detail-form__input" value="1,000" style="width:200px;">
-                                <span>원</span>
-                                <span class="detail-form__hint" style="margin:0; color:var(--color-blue);">숫자를 입력하세요</span>
-                            </div>
+                    <div class="detail-form__grid" style="grid-template-columns:1fr 1fr 1fr;">
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">수강기간</span>
+                            <span class="detail-form__text">2000.00.00 ~ 2000.00.00</span>
                         </div>
-
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">최소 결제 금액(원) <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <input type="text" class="detail-form__input" value="0" style="width:200px;">
-                                <span>원 이상</span>
-                                <span class="detail-form__hint" style="margin:0; color:var(--color-blue);">숫자를 입력하세요</span>
-                            </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">진도율</span>
+                            <span class="detail-form__text detail-form__text--accent">수강완료</span>
+                        </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">마지막 학습일</span>
+                            <span class="detail-form__text">2000.00.00 오전/오후 HH:MM:SS</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 쿠폰 사용 내역 -->
+                <!-- 환불 처리 로그 -->
                 <div class="list-panel list-panel--p30">
-                    <h3 class="panel-section-title">쿠폰 사용 내역</h3>
+                    <h3 class="panel-section-title">환불 처리 로그</h3>
 
-                    <!-- 사용 통계 바 -->
-                    <div class="coupon-usage">
-                        <div class="coupon-usage__row">
-                            <span class="coupon-usage__label">등록률</span>
-                            <div class="coupon-usage__bar"><div class="coupon-usage__fill coupon-usage__fill--blue" style="width:100%;"></div></div>
-                            <span class="coupon-usage__text">758명 등록중 <span class="coupon-usage__sub">/ 300명(100% +)</span></span>
-                        </div>
-                        <div class="coupon-usage__row">
-                            <span class="coupon-usage__label">사용률</span>
-                            <div class="coupon-usage__bar"><div class="coupon-usage__fill coupon-usage__fill--purple" style="width:80.3%;"></div></div>
-                            <span class="coupon-usage__text">241명 사용 <span class="coupon-usage__sub">/ 300명(80.3%)</span></span>
-                        </div>
-                    </div>
-
-                    <!-- 검색 + 필터 -->
-                    <div class="admin-filter" style="background:transparent; padding:0; margin-top:24px;">
-                        <div class="admin-filter__search" style="background:#fff; border:1px solid var(--border-color);">
-                            <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
-                            <input type="text" class="admin-filter__search-input" placeholder="닉네임, 이름, 클래스명으로 검색">
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">구독 상태별</span>
-                                    <img src="../../../images/ico-dropdown-arrow.svg" width="10" height="10" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">등록</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">사용</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">회수</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 테이블 -->
                     <table class="subtitle-table">
                         <thead>
                             <tr>
-                                <th style="width:160px;">쿠폰 코드</th>
-                                <th>사용자</th>
-                                <th>상품명</th>
-                                <th style="width:120px;">할인 금액</th>
-                                <th style="width:200px;">사용일</th>
-                                <th style="width:100px;">구독상태</th>
+                                <th style="width:220px;">처리일시</th>
+                                <th style="width:180px;">처리자</th>
+                                <th style="width:180px;">환불 금액</th>
+                                <th>이체내역</th>
+                                <th>내용</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{쿠폰 코드}</td>
+                                <td>2000.00.00 오전/오후 00:00</td>
                                 <td>
                                     <div class="user-cell">
-                                        <div class="c-avatar30 learner"></div>
-                                        <span class="role-badge role-badge--learner">학습자</span>
+                                        <div class="c-avatar30 manager"></div>
+                                        <span class="role-badge role-badge--manager">관리자</span>
                                         닉네임
                                     </div>
                                 </td>
-                                <td>
-                                    <span class="product-tag product-tag--normal">일반</span>
-                                    유튜브 채널 성장 마스터
-                                </td>
-                                <td>00,000원</td>
-                                <td>2000.00.00 오전/오후 00:00</td>
-                                <td><span class="status-chip status-chip--green">등록</span></td>
+                                <td style="text-align:center;">-</td>
+                                <td>-</td>
+                                <td>환불 접수</td>
                             </tr>
                             <tr>
-                                <td>{쿠폰 코드}</td>
+                                <td>2000.00.00 오전/오후 00:00</td>
                                 <td>
                                     <div class="user-cell">
                                         <div class="c-avatar30 learner"></div>
-                                        <span class="role-badge role-badge--learner">학습자</span>
+                                        <span class="role-badge role-badge--instructor">강사</span>
                                         닉네임
                                     </div>
                                 </td>
-                                <td>
-                                    <span class="product-tag product-tag--digital">디지털</span>
-                                    1인브랜드 구축법
-                                </td>
-                                <td>00,000원</td>
-                                <td>2000.00.00 오전/오후 00:00</td>
-                                <td><span class="status-chip status-chip--blue">사용</span></td>
-                            </tr>
-                            <tr>
-                                <td>{쿠폰 코드}</td>
-                                <td>
-                                    <div class="user-cell">
-                                        <div class="c-avatar30 learner"></div>
-                                        <span class="role-badge role-badge--learner">학습자</span>
-                                        닉네임
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="product-tag product-tag--video">화상</span>
-                                    영상 편집 기초
-                                </td>
-                                <td>00,000원</td>
-                                <td>2000.00.00 오전/오후 00:00</td>
-                                <td><span class="status-chip status-chip--red">회수</span></td>
+                                <td style="text-align:center; font-weight:600;">00,000원</td>
+                                <td>국민은행 123-456-789 최수아</td>
+                                <td>카드 취소 완료</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <!-- 페이지네이션 -->
-                    <div class="pagination" style="padding: 20px 0 4px;">
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
+                    <div class="pagination" style="padding:20px 0 4px;">
                         <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
                         <button class="pagination__btn active">1</button>
                         <button class="pagination__btn">2</button>
@@ -519,7 +427,71 @@
                         <button class="pagination__btn">4</button>
                         <button class="pagination__btn">5</button>
                         <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
+                    </div>
+                </div>
+
+                <!-- 환불 로그 작성 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-section-title">환불 로그 작성</h3>
+                    <div class="detail-form__grid">
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">처리일 <span class="auth-required">*</span></span>
+                            <div style="display:flex; gap:4px;">
+                                <div class="c-date-input" onclick="toggleCalendar(this)">
+                                    <input type="text" value="20.00.00" readonly>
+                                    <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                </div>
+                                <div class="c-date-input">
+                                    <input type="text" value="00:00" readonly style="width:60px;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">환불 금액 <span class="auth-required">*</span></span>
+                            <input type="text" class="detail-form__input" placeholder="환불 금액을 입력하세요">
+                        </div>
+
+                        <div class="detail-form__field detail-form__field--full">
+                            <input type="text" class="detail-form__input" placeholder="이체 내역을 입력하세요 (예: 국민은행 123-456-789 홍길동)">
+                        </div>
+
+                        <div class="detail-form__field detail-form__field--full">
+                            <div class="textarea-counter">
+                                <textarea class="detail-form__textarea" placeholder="운영진 공유용 메모 입력"></textarea>
+                                <span class="textarea-counter__count"><strong>0</strong>/200</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-action-bar">
+                        <span class="panel-action-bar__hint">필수 입력 항목을 확인해주세요</span>
+                        <button type="button" class="btn lg primary">로그 저장</button>
+                    </div>
+                </div>
+
+                <!-- 추가 조치 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-section-title">추가 조치</h3>
+                    <div class="detail-form__grid">
+                        <div class="detail-form__field">
+                            <label class="c-checkbox" style="align-items:flex-start;">
+                                <input type="checkbox" class="c-check">
+                                <span style="display:flex; flex-direction:column; gap:2px;">
+                                    <span class="detail-form__text">수강권한 즉시 회수</span>
+                                    <span class="detail-form__sub-text">해당 강좌 접근이 차단됩니다.</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="detail-form__field">
+                            <label class="c-checkbox" style="align-items:flex-start;">
+                                <input type="checkbox" class="c-check">
+                                <span style="display:flex; flex-direction:column; gap:2px;">
+                                    <span class="detail-form__text">수료증 무효 처리</span>
+                                    <span class="detail-form__sub-text">발급된 수료증 조회가 불가합니다.</span>
+                                </span>
+                            </label>
+                        </div>
                     </div>
                 </div>
 
@@ -527,6 +499,12 @@
         </main>
 
     </div>
+
+    <!-- 하단 고정 메모 버튼 -->
+    <button type="button" class="c-fab" aria-label="메모">
+        <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
+        <span class="c-fab__text">메모</span>
+    </button>
 
     <!-- 날짜 선택 팝업 달력 -->
     <div class="c-calendar c-calendar--popup" id="datePopupCalendar">
