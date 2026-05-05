@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단 메모</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">간단 메모</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <!-- 프로필 -->
+        <div class="memo-modal__profile">
+            <div class="memo-modal__profile-avatar learner"></div>
+            <div class="memo-modal__profile-body">
+                <span class="memo-modal__profile-name">Shine_Masters(홍길동)</span>
+                <div class="memo-modal__profile-meta">
+                    <span>가입일<span class="memo-modal__profile-meta-value">2000.00.00 오전/오후 00:00</span></span>
+                    <span>마지막 로그인<span class="memo-modal__profile-meta-value">2000.00.00 오전/오후 00:00</span></span>
+                </div>
+                <div class="memo-modal__profile-meta">
+                    <span>수강 강좌<span class="memo-modal__profile-meta-value">3 개</span></span>
+                    <span>멤버쉽 이용중<span class="memo-modal__profile-meta-value">아이하나</span></span>
+                    <span>커뮤니티 구독중<span class="memo-modal__profile-meta-value">3 개</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메모 목록 -->
+        <div class="memo-modal__section">
+            <div class="memo-modal__section-header">
+                <span class="memo-modal__section-title">메모 목록</span>
+                <div class="c-dropdown c-dropdown--ghost c-dropdown--modal">
+                    <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                        <span class="c-dropdown__label">등록 최신순</span>
+                        <img src="../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                    </button>
+                    <div class="c-dropdown__panel" style="right:0; left:auto;">
+                        <button class="c-dropdown__item active" onclick="selectItem(this)">등록 최신순</button>
+                        <button class="c-dropdown__item" onclick="selectItem(this)">등록 오래된순</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-table-wrap">
+                <table class="modal-table">
+                    <colgroup>
+                        <col style="width:50px;">
+                        <col style="width:100px;">
+                        <col>
+                        <col style="width:140px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="c-dropdown c-dropdown--ghost" style="display:inline-flex;">
+                                    <button class="c-dropdown__trigger" style="width:auto; min-width:0;" onclick="toggleDropdown(this)">
+                                        <span class="c-dropdown__label">구분</span>
+                                        <img src="../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow" style="margin-left:0;">
+                                    </button>
+                                    <div class="c-dropdown__panel">
+                                        <button class="c-dropdown__item active" onclick="selectItem(this)">전체</button>
+                                        <button class="c-dropdown__item" onclick="selectItem(this)">학습자</button>
+                                        <button class="c-dropdown__item" onclick="selectItem(this)">주문</button>
+                                        <button class="c-dropdown__item" onclick="selectItem(this)">환불</button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>메모</th>
+                            <th>작성일</th>
+                            <th>작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>학습자</td>
+                            <td>{메모 내용}</td>
+                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
+                            <td class="td-left">
+                                <div class="user-cell user-cell--modal">
+                                    <span class="c-avatar22 basic"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    닉네임
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>주문</td>
+                            <td>{메모 내용}</td>
+                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
+                            <td class="td-left">
+                                <div class="user-cell user-cell--modal">
+                                    <span class="c-avatar22 manager"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    alpha_user_kr
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>환불</td>
+                            <td>{메모 내용}</td>
+                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
+                            <td class="td-left">
+                                <div class="user-cell user-cell--modal">
+                                    <span class="c-avatar22 basic"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    닉네임
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>주문</td>
+                            <td>{메모 내용}</td>
+                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
+                            <td class="td-left">
+                                <div class="user-cell user-cell--modal">
+                                    <span class="c-avatar22 manager"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    alpha_user_kr
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>환불</td>
+                            <td>{메모 내용}</td>
+                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
+                            <td class="td-left">
+                                <div class="user-cell user-cell--modal">
+                                    <span class="c-avatar22 basic"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    닉네임
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>학습자</td>
+                            <td>{메모 내용}</td>
+                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
+                            <td class="td-left">
+                                <div class="user-cell user-cell--modal">
+                                    <span class="c-avatar22 manager"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    alpha_user_kr
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>주문</td>
+                            <td>{메모 내용}</td>
+                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
+                            <td class="td-left">
+                                <div class="user-cell user-cell--modal">
+                                    <span class="c-avatar22 basic"></span>
+                                    <span class="role-badge role-badge--manager">관리자</span>
+                                    닉네임
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="modal-pagination" style="margin-top:16px;">
+                <button class="pagination__btn disabled" disabled><img src="../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
+                <button class="pagination__btn disabled" disabled><img src="../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                <button class="pagination__btn active">1</button>
+                <button class="pagination__btn">2</button>
+                <button class="pagination__btn">3</button>
+                <button class="pagination__btn">4</button>
+                <button class="pagination__btn">5</button>
+                <button class="pagination__btn"><img src="../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+                <button class="pagination__btn"><img src="../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
+            </div>
+        </div>
+
+        <!-- 메모 작성 -->
+        <div class="memo-modal__section">
+            <div class="memo-modal__section-header">
+                <span class="memo-modal__section-title">메모 작성</span>
+            </div>
+            <div class="completion-textarea">
+                <textarea class="completion-textarea__input" maxlength="200" placeholder="메모를 입력해 주세요.">적극적인 학습자. 다양한 강좌에 관심이 많으며 완강율이 높음. 추후 강사로 전환 가능성 있음.
+적극적인 학습자. 다양한 강좌에 관심이 많으며 완강율이 높음. 추후 강사로 전환 가능성 있음.
+적극적인 학습자. 다양한 강좌에 관심이 많으며 완강율이 높음. 추후 강사로 전환 가능성 있음.</textarea>
+                <span class="completion-textarea__count"><strong>0</strong>/200</span>
+            </div>
+        </div>
+
+        <!-- 저장 -->
+        <div class="memo-modal__footer">
+            <button class="btn big" style="width:100%;">메모저장</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+    });
+</script>
+
+</body>
+</html>
