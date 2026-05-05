@@ -2637,7 +2637,7 @@ tr:has(.c-check:checked) {
 .inbox-item__desc { font-size:13px; color:var(--text-secondary); line-height:1.5; }
 .inbox-item__time { font-size:12px; color:var(--text-tertiary); margin-top:4px; }
 .inbox-item__arrow { display:inline-block; width:32px; height:32px; background-color:#222; -webkit-mask:url('../src/images/chevron-down.svg') no-repeat center / contain; mask:url('../src/images/chevron-down.svg') no-repeat center / contain; transform:rotate(-90deg); flex-shrink:0; margin-right:10px; }
-.inbox-item--unread { background:#FFFAEA; }
+.inbox-item--unread { background:#FFFBE9; }
 .inbox-more { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:0; margin-top:5px; background:none; border:none; cursor:pointer; font-size:14px; color:var(--text-secondary); font-family:inherit; }
 .inbox-more__icon { display:inline-block; width:24px; height:24px; background-color:#222; -webkit-mask:url('../src/images/chevron-down.svg') no-repeat center / contain; mask:url('../src/images/chevron-down.svg') no-repeat center / contain; flex-shrink:0; }
 .completion-section { display: flex; flex-direction: column; gap: 10px; }
