@@ -1832,6 +1832,49 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .detail-form__permission-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
 .detail-form__permission-list li { font-size: 14px; color: var(--text-primary); line-height: 1.5; }
 .detail-form__sub-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin: 0 0 10px; }
+.detail-form__profile { margin: 30px 0; }
+.detail-form__profile-row { display: flex; align-items: flex-end; gap: 20px; }
+
+/* 프로필 설정 모달 */
+.profile-modal__content { padding: 30px 30px 0; }
+.profile-modal__upload { height: 230px; background: #F5F5F5; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.profile-modal__upload-btn { padding: 8px 14px; border: none; border-radius: 6px; background: #4B4B4B; color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; }
+.profile-modal__crop { position: relative; height: 230px; overflow: hidden; border-radius: 8px; background-color:#fff; background-image: linear-gradient(45deg, #DDD 25%, transparent 25%), linear-gradient(-45deg, #DDD 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #DDD 75%), linear-gradient(-45deg, transparent 75%, #DDD 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
+.profile-modal__crop-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.profile-modal__crop-box { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 220px; height: 130px; border: 2px solid #027CFA; box-shadow: 0 0 0 9999px rgba(0,0,0,0.45); }
+.profile-modal__crop-box::before, .profile-modal__crop-box::after { content:''; position:absolute; left:0; right:0; border-top:1px dashed rgba(255,255,255,0.7); }
+.profile-modal__crop-box::before { top:33%; }
+.profile-modal__crop-box::after { top:66%; }
+.profile-modal__crop-handle { position:absolute; width:10px; height:10px; background:#027CFA; border:1px solid #fff; box-sizing:border-box; }
+.profile-modal__crop-handle--tl { top:-5px; left:-5px; }
+.profile-modal__crop-handle--tr { top:-5px; right:-5px; }
+.profile-modal__crop-handle--bl { bottom:-5px; left:-5px; }
+.profile-modal__crop-handle--br { bottom:-5px; right:-5px; }
+.profile-modal__crop-handle--t  { top:-5px; left:50%; margin-left:-5px; }
+.profile-modal__crop-handle--b  { bottom:-5px; left:50%; margin-left:-5px; }
+.profile-modal__crop-handle--l  { left:-5px; top:50%; margin-top:-5px; }
+.profile-modal__crop-handle--r  { right:-5px; top:50%; margin-top:-5px; }
+.profile-modal__hint { font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.profile-modal__hints { padding: 24px 30px 0; }
+.profile-modal__footer { padding: 20px 30px 30px; }
+.profile-modal__footer .btn { width: 100%; }
+
+/* 사용자 유형 뱃지 */
+.user-type-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border: 1px solid #027CFA;
+    border-radius: 100px;
+    background: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #027CFA;
+    white-space: nowrap;
+}
+.user-type-tag--learner { color: #F55F02; border-color: #F55F02; }
 .detail-form__hint { font-size: 12px; color: var(--color-textgray);line-height:1.5; margin: 0 0 10px; }
 .detail-form__textarea { width: 100%; min-height: 120px; padding: 15px 30px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px; color: var(--text-dark); font-family: inherit; resize: vertical; outline: none; box-sizing: border-box; line-height: 1.6; }
 .detail-form__textarea:focus { border-color: var(--color-primary); }
@@ -2133,6 +2176,21 @@ tr:has(.c-check:checked) {
 .c-avatar80.manager     { background-image: url('../src/images/avatar-manager.png'); }
 .c-avatar80.teacher     { background-image: url('../src/images/avatar-teacher.png'); }
 .c-avatar80.sub-teacher { background-image: url('../src/images/avatar-teacher-sub.png'); }
+
+.c-avatar88 {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: #D3D3D3;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    flex-shrink: 0;
+}
+.c-avatar88.learner     { background-image: url('../src/images/avatar-user.png'); }
+.c-avatar88.manager     { background-image: url('../src/images/avatar-manager.png'); }
+.c-avatar88.teacher     { background-image: url('../src/images/avatar-teacher.png'); }
+.c-avatar88.sub-teacher { background-image: url('../src/images/avatar-teacher-sub.png'); }
 
 .detail-profile__body { flex: 1; display: flex; flex-direction: column; gap: 6px; }
 
