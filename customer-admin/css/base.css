@@ -760,6 +760,14 @@ ul, ol { list-style: none; }
 /* 테이블이 패널 끝까지 붙는 설정형 패널 */
 .list-panel--flush { padding: 0 0 30px; }
 .list-panel--flush .list-panel__title { padding: 24px 30px 0 30px; font-size: 20px; }
+.list-panel--flush .list-panel__title--flat,
+.list-panel__title--flat { padding: 0; line-height: 1; }
+
+/* 폼 패널 액션 헤더 (제목 + 우측 버튼, 좌우 30 / 상 24 / 하 8 마진) */
+.panel-form-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 24px 30px 8px; padding: 0; }
+
+/* setting-table 셀 - 입력 행 컴팩트 패딩 (상하 2px) */
+.setting-table td.setting-table__cell--tight { padding-top: 2px; padding-bottom: 2px; }
 .list-panel--flush .list-panel__header { margin-bottom: 8px; }
 
 /* 탭 메뉴 아래 패널 헤더 (padding-top 제거, 타이틀 17px) */
@@ -837,6 +845,35 @@ ul, ol { list-style: none; }
 .status-change-item__check { width:20px; height:20px; flex-shrink:0; margin:0 20px; }
 .status-change-item__desc { font-size:13px; color:var(--text-secondary); }
 .status-change-modal__footer { padding:0 30px 30px; }
+
+/* 간이 리치 텍스트 에디터 */
+.rt-editor { border:1px solid var(--border-color); border-radius:6px; background:#fff; overflow:hidden; }
+.rt-editor__toolbar { display:flex; align-items:center; gap:6px; padding:8px 12px; border-bottom:1px solid var(--border-color); background:#F8F9FA; }
+.rt-editor__group { display:flex; align-items:center; gap:2px; }
+.rt-editor__btn { width:30px; height:30px; padding:0; background:none; border:none; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; font-size:13px; color:#666; font-family:inherit; }
+.rt-editor__btn:hover { background:#F4F5F7; }
+.rt-editor__divider { width:1px; height:16px; background:var(--border-color); margin:0 4px; }
+.rt-editor__body { min-height:340px; padding:20px 24px; font-size:14px; line-height:1.7; color:var(--text-primary); outline:none; }
+.rt-editor__body p { margin:0 0 8px; }
+.rt-editor__body img { max-width:100%; height:auto; }
+.rt-editor__footer { display:flex; align-items:center; justify-content:flex-end; gap:14px; padding:20px; }
+.rt-editor__usage { font-size:13px; color:var(--text-primary); }
+.rt-editor__usage-total { color:var(--text-tertiary); }
+
+/* 업로드 리스트 */
+.upload-list { margin-top:16px; }
+.upload-list__head { display:flex; align-items:center; justify-content:space-between; margin-bottom:0; }
+.upload-list__title { margin:0; margin-block:0; margin-inline:0; font-size:17px; font-weight:700; color:var(--text-primary); }
+.upload-list__file { display:inline-flex; align-items:center; gap:6px; }
+
+/* 업로드 리스트 전용 테이블 (admin-table 변형, setting-table 안에서도 동작) */
+.upload-list .upload-table { width:100%; min-width:600px; border-collapse:collapse; font-size:13px; }
+.upload-list .upload-table thead tr th { height:46px; padding:0 12px; background:transparent; border-top:2px solid #222; border-bottom:1px solid #aaa; font-weight:600; color:#919191; text-align:center; white-space:nowrap; width:auto; }
+.upload-list .upload-table tbody tr td { padding:4px 12px; background:transparent; border-bottom:1px solid #EAEAEA; color:var(--text-primary); font-size:13px; vertical-align:middle; text-align:center; height:auto; }
+.upload-list .upload-table td.td-left,
+.upload-list .upload-table th.td-left { text-align:left; }
+.upload-list .upload-table tr:hover td { background:var(--bg-hover); }
+
 
 /* 플로팅 하단 바 */
 .admin-float-bar {
