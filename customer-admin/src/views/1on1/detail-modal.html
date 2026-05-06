@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>답변상태 변경</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center; gap:40px; align-items:flex-start;">
+
+    <!-- 답변상태 변경 (480) -->
+    <div class="c-modal completion-modal">
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">답변상태 변경</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <ul class="status-change-list">
+            <li class="status-change-item">
+                <img class="status-change-item__check" src="../../images/modal-check-unselected.svg" width="20" height="20" alt="">
+                <span class="status-chip status-chip--answer-wait">답변 대기</span>
+                <span class="status-change-item__desc">담당자 미답변 상태 (최초)</span>
+            </li>
+            <li class="status-change-item status-change-item--checked">
+                <img class="status-change-item__check" src="../../images/modal-check-selected.svg" width="20" height="20" alt="">
+                <span class="status-chip status-chip--answer-ing">답변 중</span>
+                <span class="status-change-item__desc">사용자가 추가로 답변(질문)한 상태</span>
+            </li>
+            <li class="status-change-item">
+                <img class="status-change-item__check" src="../../images/modal-check-unselected.svg" width="20" height="20" alt="">
+                <span class="status-chip status-chip--answer-done">답변완료</span>
+                <span class="status-change-item__desc">담당자가 마지막으로 답변한 상태</span>
+            </li>
+            <li class="status-change-item">
+                <img class="status-change-item__check" src="../../images/modal-check-unselected.svg" width="20" height="20" alt="">
+                <span class="status-chip status-chip--inquiry-end">문의종료</span>
+                <span class="status-change-item__desc">담당자가 마지막으로 답변한 상태</span>
+            </li>
+        </ul>
+
+        <div class="status-change-modal__footer">
+            <button type="button" class="btn lg primary" style="width:100%;">확인</button>
+        </div>
+    </div>
+
+    <!-- 우측: alert 2종 -->
+    <div style="display:flex; flex-direction:column; gap:30px;">
+
+        <!-- alert 1: 변경 확인 (취소/확인) -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc c-modal__desc--left">답변 상태를 답변대기/답변중/답변완료/문의종료(으)로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border">취소</button>
+                <button type="button" class="btn lg primary">확인</button>
+            </div>
+        </div>
+
+        <!-- alert 2: 완료 -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc c-modal__desc--left">문의 답변상태가 변경되었습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg primary" style="width:100%;">확인</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -831,6 +831,13 @@ ul, ol { list-style: none; }
 .comment-item__reply-actions { display:flex; justify-content:flex-end; margin-top:8px; }
 .comment-item--indent { padding-left:30px; }
 
+/* 답변상태 변경 모달 */
+.status-change-list { list-style:none; margin:0; padding:24px 30px; display:flex; flex-direction:column; gap:14px; }
+.status-change-item { display:flex; align-items:center; gap:10px; cursor:pointer; }
+.status-change-item__check { width:20px; height:20px; flex-shrink:0; margin:0 20px; }
+.status-change-item__desc { font-size:13px; color:var(--text-secondary); }
+.status-change-modal__footer { padding:0 30px 30px; }
+
 /* 플로팅 하단 바 */
 .admin-float-bar {
     position: sticky;
@@ -2705,6 +2712,7 @@ tr:has(.c-check:checked) {
 .c-modal__icon-wrap--notice img { border-radius: 0; width: 36px; height: 36px; object-fit: initial; }
 .c-modal__title { font-size: 20px; font-weight: 700;line-height: 1.4; color: var(--text-primary); letter-spacing: -0.02em; }
 .c-modal__desc { font-size: 16px; color: var(--text-primary); line-height: 1.5;font-weight:500; }
+.c-modal__desc--left { text-align: left; width: 100%; }
 .c-modal__desc strong { color: var(--text-primary); font-weight: 500; }
 .c-modal__desc-sub { font-size: 13px; color: #424242; line-height: 1.5; }
 .c-modal__footer { display: flex; justify-content: center; gap: 8px; }
