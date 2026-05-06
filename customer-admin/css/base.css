@@ -785,6 +785,7 @@ ul, ol { list-style: none; }
 .inquiry-detail__meta { justify-content:flex-start; border-bottom:none; padding-bottom:0; }
 .inquiry-detail__actions { display:flex; align-items:center; gap:4px; margin-left:auto; flex-shrink:0; }
 .inquiry-detail__actions > .c-dropdown { margin-right:4px; }
+.inquiry-detail__actions .c-dropdown__trigger { height:36px; }
 .inquiry-detail__expand { width:24px; height:24px; padding:0; background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
 .inquiry-detail__hint { font-size:13px; color:var(--color-textgray); margin:0 0 16px; }
 .inquiry-detail__content { background:#F5F5F5; border-radius:8px; min-height:380px; }
@@ -3346,11 +3347,11 @@ tr:has(.c-check:checked) {
 .folder-dots { position:relative; }
 .folder-dots__btn { background:none; border:none; cursor:pointer; padding:4px;display:flex; align-items:center; border-radius:4px; }
 .folder-dots__btn:hover { background:var(--bg-hover); }
-.folder-dots__menu { display:none; position:absolute; right:0; top:calc(100% + 4px); background:#fff; border:1px solid var(--border-color); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.08); z-index:100; min-width:90px; padding:4px 0; }
-.folder-dots__menu:hover { display:block;border:1px solid var(--color-blue); }
+.folder-dots__menu { display:none; position:absolute; right:0; top:calc(100% + 4px); background:#fff; border:1px solid #027CFA; border-radius:6px; box-shadow:0 4px 12px rgba(0,0,0,0.08); z-index:100; min-width:60px; padding:0; overflow:hidden; }
+.folder-dots__menu:hover { display:block; border-color:var(--color-blue); }
 .folder-dots__menu.open { display:block; }
-.folder-dots__item { display:block; width:calc(100% - 8px); margin:0 4px; padding:9px 10px; font-size:13px; color:var(--text-primary); background:transparent; text-align:left; border:none; cursor:pointer; font-family:inherit; border-radius:6px; white-space:nowrap; }
-.folder-dots__item:hover { background:#EAF3FF; }
+.folder-dots__item { display:block; width:100%; margin:0; padding:9px 10px; font-size:13px; color:var(--text-primary); background:transparent; text-align:center; border:none; cursor:pointer; font-family:inherit; border-radius:0; white-space:nowrap; }
+.folder-dots__item:hover { background:#EAF3FF; color:var(--color-blue); }
 
 /* ==================== Panel Section Title ==================== */
 .panel-section-title { font-size:20px; font-weight:700; color:#222; margin:0 -30px 0; padding:0 30px 16px; border-bottom:1px solid #EFEFEF; }
