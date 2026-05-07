@@ -430,16 +430,16 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <select class="detail-form__select">
-                                            <option value="">강좌선택</option>
-                                            <option>React 마스터 클래스</option>
-                                            <option>JavaScript ES6 완벽 가이드</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <div class="input-unit-box">
-                                            <input type="text" value="0">
-                                            <span class="input-unit-box__unit">원</span>
+                                        <div class="c-dropdown c-dropdown--block">
+                                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">강좌선택</span>
+                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button class="c-dropdown__item active" onclick="selectItem(this)">강좌선택</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">React 마스터 클래스</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">JavaScript ES6 완벽 가이드</button>
+                                            </div>
                                         </div>
                                     </td>
                                     <td>
@@ -449,11 +449,23 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <select class="detail-form__select">
-                                            <option>완료</option>
-                                            <option>대기</option>
-                                            <option>취소</option>
-                                        </select>
+                                        <div class="input-unit-box">
+                                            <input type="text" value="0">
+                                            <span class="input-unit-box__unit">원</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="c-dropdown" style="width:100%;">
+                                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)" style="min-width:0;">
+                                                <span class="c-dropdown__label">완료</span>
+                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button class="c-dropdown__item active" onclick="selectItem(this)">완료</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">대기</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">취소</button>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td><button class="btn md primary">입력</button></td>
                                 </tr>

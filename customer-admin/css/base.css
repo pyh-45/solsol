@@ -1177,10 +1177,13 @@ textarea.form-control {
 .tab-table td .input-unit-box { display:flex; width:100%; }
 
 /* tab-table 헤더 내 드롭다운: th 높이 늘어남 방지 */
+.tab-table th .c-dropdown { max-width: none; vertical-align: middle; }
 .tab-table th .c-dropdown__trigger {
     width: auto;
     height: auto;
     min-width: 0;
+    min-height: 0;
+    max-width: none;
     padding: 6px 15px;
     gap: 15px;
     background: transparent;
@@ -1491,13 +1494,15 @@ textarea.form-control {
 .admin-filter__select--auto { width: auto; }
 
 /* --- Custom Dropdown --- */
-.c-dropdown { position: relative; display: inline-block; }
-.c-dropdown__trigger { display: flex; align-items: center; gap: 6px; width: 100%; min-width:140px; height: 40px; padding: 0 12px; border: 1px solid #DDDDDD; border-radius: 6px; background: #fff; font-family: inherit; font-size: 13px; color: var(--text-primary); cursor: pointer; white-space: nowrap; }
+.c-dropdown { position: relative; display: inline-block; max-width: 100%; }
+.c-dropdown--block { display: block; width: 100%; max-width: 100%; }
+.c-dropdown--block .c-dropdown__trigger { min-width: 0; max-width: 100%; }
+.c-dropdown__trigger { display: flex; align-items: center; gap: 6px; width: 100%; min-width:140px;max-width:300px; height: 40px; padding: 0 8px 0 12px; border: 1px solid #DDDDDD; border-radius: 6px; background: #fff; font-family: inherit; font-size: 13px; color: var(--text-primary); cursor: pointer; white-space: nowrap; }
 .c-dropdown__trigger:hover { border-color: var(--color-primary); }
 .c-dropdown__trigger.open { border-color: var(--color-primary); border-bottom-color: transparent; border-radius: 6px 6px 0 0; }
 .c-dropdown__arrow { transition: transform 0.2s; flex-shrink: 0; margin-left: auto; }
 .c-dropdown__trigger.open .c-dropdown__arrow { transform: rotate(180deg); }
-.c-dropdown__panel { display: none; position: absolute; top: 100%; left: 0; min-width: 100%; background: #fff; border: 1px solid #DDDDDD; border-top: none; border-radius: 0 0 8px 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); z-index: 500; padding: 4px 0; }
+.c-dropdown__panel { display: none; position: absolute; top: 100%; left: 0; width: 100%; min-width: 100%; max-width: 100%; background: #fff; border: 1px solid #DDDDDD; border-top: none; border-radius: 0 0 8px 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); z-index: 500; padding: 4px 0; }
 .c-dropdown__trigger.open + .c-dropdown__panel { display: block; border-color: var(--color-primary); }
 .c-dropdown--full-border .c-dropdown__panel { border-top: 1px solid #DDDDDD; border-radius: 8px; }
 .c-dropdown--full-border .c-dropdown__trigger.open + .c-dropdown__panel { border-color: var(--color-primary); }
@@ -1509,7 +1514,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .c-dropdown__item:hover { background: #EAF3FF; }
 .c-dropdown__item.active { background: #EBF3FF; color: var(--color-blue); font-weight: 500; }
 
-/* ==================== Filter + Stats Panel ==================== */
+/* ==================== Filter + Stats Panel ==================== */든 
 .admin-filter-panel {
     background: var(--bg-white);
     padding:30px;
@@ -1995,8 +2000,10 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .detail-form__textarea { width: 100%; min-height: 120px; padding: 15px 30px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px; color: var(--text-dark); font-family: inherit; resize: vertical; outline: none; box-sizing: border-box; line-height: 1.6; }
 .detail-form__textarea:focus { border-color: var(--color-primary); }
 .detail-form__textarea::placeholder { color: var(--text-placeholder); }
-.detail-form__select { width:100%; height:40px; padding:0 14px; border:1px solid var(--border-color); border-radius:6px; font-size:14px; font-family:inherit; color:var(--text-primary); background:#fff; outline:none; box-sizing:border-box; }
-.detail-form__select:focus { border-color:var(--color-primary); }
+.detail-form__select,
+.form-table td select.detail-form__select { width:100%; height:40px; padding:0 36px 0 14px; border:1px solid var(--border-color); border-radius:6px; font-size:14px; font-family:inherit; color:var(--text-primary); background:#fff url('../src/images/chevron-down.svg') no-repeat right 8px center; background-size:20px 20px; outline:none; box-sizing:border-box; appearance:none; -webkit-appearance:none; -moz-appearance:none; }
+.detail-form__select:focus,
+.form-table td select.detail-form__select:focus { border-color:var(--color-primary); }
 .input-with-counter { position:relative; }
 .input-with-counter input { padding-right:56px; }
 .input-with-counter__count { position:absolute; right:14px; top:50%; transform:translateY(-50%); font-size:12px; color:#808080; pointer-events:none; }
@@ -2092,7 +2099,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .account-row { display:flex; gap:8px; align-items:center; }
 .account-row__bank { height:40px; padding:0 10px; border:1px solid var(--border-color); border-radius:6px; font-size:14px; font-family:inherit; color:var(--text-primary); background:#fff; outline:none; min-width:100px; }
 .account-row__bank:focus { border-color:var(--color-primary); }
-.account-row__number { flex:1; height:40px; padding:0 14px; border:1px solid var(--border-color); border-radius:6px; font-size:14px; font-family:inherit; color:var(--text-primary); outline:none; box-sizing:border-box; }
+.account-row__number { flex:1; max-width:280px; height:40px; padding:0 14px; border:1px solid var(--border-color); border-radius:6px; font-size:14px; font-family:inherit; color:var(--text-primary); outline:none; box-sizing:border-box; }
 .account-row__number:focus { border-color:var(--color-primary); }
 .tag-input-wrap { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding:16px; border: 1px solid var(--border-color); border-radius: 6px; min-height: 44px; background: #fff; cursor: text; }
 .tag-input-wrap:focus-within { border-color: var(--color-primary); }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 활동 로그</title>
+    <title>Admin - 관리자 목록</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -18,13 +18,8 @@
         </div>
 
         <div class="admin-header__center">
-            <div class="admin-header__nav">
-                <button class="admin-header__back">
-                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
-                </button>
-                <span class="admin-header__page-title">상세페이지</span>
-                <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
-            </div>
+            <span class="admin-header__page-title">운영자</span>
+            <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             <div class="admin-header__search">
                 <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
                 <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
@@ -44,10 +39,12 @@
                     <span class="admin-header__bell-badge">6</span>
                 </button>
             </div>
-            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+             <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
                 <div class="c-avatar30 learner">A</div>
                 <span class="admin-header__username">홍길순</span>
                 <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+
+                <!-- 프로필 툴팁 -->
                 <div class="c-profile-tooltip">
                     <div class="c-profile-tooltip__top">
                         <div class="c-avatar40 learner">A</div>
@@ -95,6 +92,7 @@
                     대시보드
                 </a>
 
+                <!-- 사용자 - 열린 상태 -->
                 <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
@@ -103,10 +101,11 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">학습자</a>
-                        <a href="#" class="lnb-sub-item active">강사</a>
-                        <a href="#" class="lnb-sub-item">관리자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item active">관리자</a>
                     </div>
                 </div>
+
 
                 <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
@@ -160,6 +159,7 @@
                         <a href="#" class="lnb-sub-item">팝업메뉴</a>
                     </div>
                 </div>
+
 
                 <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
@@ -249,160 +249,189 @@
 
         <!-- ===== 콘텐츠 영역 ===== -->
         <main class="admin-content">
+
+            <!-- 메인 작업 영역 -->
             <div class="admin-body">
 
-                <!-- 인포 박스 -->
+                <!-- Info & Tip -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">활동 로그는 '학습, 글작성, 구매, 다운로드 및 시스템' 항목이 노출됩니다.</span>
+                    <span class="admin-infotip__text">권한수를 클릭하면 관리자별 부여 권한수가 나타납니다. '초대하기' 버튼을 클릭하여 새로운 운영자를 초대할 수 있습니다.</span>
+                    <a href="#" class="admin-infotip__link">가이드보기</a>
                 </div>
 
-                <!-- 프로필 박스 -->
-                <div class="detail-profile">
-                    <div class="detail-profile__top">
-                        <div class="c-avatar80 learner"></div>
-                        <div class="detail-profile__body">
-                            <div class="detail-profile__name-row">
-                                <span class="detail-profile__name">Shine_Masters(홍길동)</span>
-                                <span class="profile-badge profile-badge--verify">인증</span>
-                                <span class="profile-badge profile-badge--active">활성</span>
+                <!-- 검색 패널 -->
+                <div class="user-search-box">
+                    <div class="admin-filter">
+                        <div class="admin-filter__search">
+                            <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
+                            <input type="text" class="admin-filter__search-input" placeholder="닉네임, 이름, 이메일로 검색...">
+                        </div>
+                        <div class="admin-filter__selects">
+                            <div class="c-dropdown">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">상태별 조회</span>
+                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">활성</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">중지</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">탈퇴</button>
+                                </div>
                             </div>
-                            <p class="detail-profile__email">minjun.kim@example.com</p>
-                            <div class="detail-profile__meta">
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-user.svg" width="16" height="16" alt="">
-                                    가입일 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-logininfo.svg" width="16" height="16" alt="">
-                                    마지막 로그인 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-teacher.svg" width="16" height="16" alt="">
-                                    개설 강좌 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 개
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-people.svg" width="16" height="16" alt="">
-                                    수강자수 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 명
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-star.svg" width="16" height="16" alt="">
-                                    평균 별점 <span class="detail-profile__meta-value" style="color:var(--color-red)">4.5</span>점
-                                </span>
+                        </div>
+                        <button class="btn nm primary">초대하기</button>
+                    </div>
+                </div>
+
+                <!-- 통계 카드 -->
+                <div class="count-card-grid count-card-grid--3">
+                    <div class="count-card">
+                        <span class="count-card__label">총 운영자수</span>
+                        <span class="count-card__value">54</span>
+                    </div>
+                    <div class="count-card">
+                        <span class="count-card__label">활성 운영자수</span>
+                        <span class="count-card__value">21</span>
+                    </div>
+                    <div class="count-card">
+                        <span class="count-card__label">비활성 운영자수</span>
+                        <span class="count-card__value">33</span>
+                    </div>
+                </div>
+
+                <!-- 운영자 목록 테이블 -->
+                <div class="list-panel">
+
+                    <div class="list-panel__header">
+                        <span class="list-panel__title">운영자 목록</span>
+                        <div class="c-dropdown c-dropdown--ghost">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label">정렬</span>
+                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                <button class="c-dropdown__item active" onclick="selectItem(this)">구매순</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">등급순</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">가입순</button>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- 탭 메뉴 -->
-                <nav class="detail-tab">
-                    <button class="detail-tab__item">기본 정보</button>
-                    <button class="detail-tab__item">강사 정보</button>
-                    <button class="detail-tab__item">정산 정보</button>
-                    <button class="detail-tab__item">강의 이력</button>
-                    <button class="detail-tab__item active">활동 로그</button>
-                </nav>
-
-                <!-- 활동 로그 테이블 -->
-                <div class="list-panel">
-                    <div class="list-panel__header list-panel__header--tab">
-                        <span class="list-panel__title">활동 로그</span>
-                    </div>
 
                     <div class="admin-table-wrap">
-                        <table class="tab-table">
+                        <table class="admin-table">
                             <thead>
                                 <tr>
-                                    <th style="width:150px;padding:0;">
-                                        <div class="c-dropdown c-dropdown--full-border">
-                                            <button class="c-dropdown__trigger" style="border:none;" onclick="toggleDropdown(this)">
-                                                <span class="c-dropdown__label">로그명</span>
-                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                            </button>
-                                            <div class="c-dropdown__panel">
-                                                <button class="c-dropdown__item active" onclick="selectItem(this)">관리자 접속</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">글작성</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">콘텐츠 관리</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">크레딧 사용</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">시스템</button>
-                                            </div>
-                                        </div>
+                                    <th class="th-check">
+                                        <input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)">
                                     </th>
-                                    <th>설명</th>
-                                    <th style="min-width:160px; text-align:center;">일시</th>
+                                    <th style="min-width:160px">운영자</th>
+                                    <th style="min-width:180px">이메일</th>
+                                    <th style="min-width:140px">마지막 접속일</th>
+                                    <th style="min-width:80px">권한수</th>
+                                    <th style="min-width:140px">초대일</th>
+                                    <th style="min-width:140px">가입일</th>
+                                    <th style="min-width:80px">상태</th>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <!-- Row 1 -->
                                 <tr>
-                                    <td class="td-log-name">학습</td>
-                                    <td class="td-log-desc"><strong>계정</strong>이 <strong>생성</strong>되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>닉네임</div></div></div></td>
+                                    <td>{이메일 주소}</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><a href="#" style="color:var(--color-blue); text-decoration:underline;">0개</a></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
-                                <!-- Row 2 -->
                                 <tr>
-                                    <td class="td-log-name">글작성</td>
-                                    <td class="td-log-desc">관리자 페이지에 <strong>로그인</strong>했습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>닉네임</div></div></div></td>
+                                    <td>{이메일 주소}</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><a href="#" style="color:var(--color-blue); text-decoration:underline;">0개</a></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
-                                <!-- Row 3 -->
                                 <tr>
-                                    <td class="td-log-name">구매</td>
-                                    <td class="td-log-desc"><strong>공지사항</strong> 게시판에 <strong>유튜브 10기 수강생들 필수 준비물</strong> 글을 작성했습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>닉네임</div></div></div></td>
+                                    <td>{이메일 주소}</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><a href="#" style="color:var(--color-blue); text-decoration:underline;">0개</a></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><span class="status-chip status-chip--inactive">중지</span></td>
                                 </tr>
 
-                                <!-- Row 4 -->
                                 <tr>
-                                    <td class="td-log-name">다운로드</td>
-                                    <td class="td-log-desc">[일반강의] "</strong>유튜브 원샷</strong>" 강의를 수정했습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>닉네임</div></div></div></td>
+                                    <td>{이메일 주소}</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><a href="#" style="color:var(--color-blue); text-decoration:underline;">0개</a></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><span class="status-chip status-chip--active">활성</span></td>
                                 </tr>
 
-                                <!-- Row 5 -->
                                 <tr>
-                                    <td class="td-log-name">시스템</td>
-                                    <td class="td-log-desc"><strong>AI 자막 생성</strong>에 <strong>100,000 크레딧</strong>을 사용하였습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
+                                    <td><div class="user-cell"><div class="c-avatar30 manager"></div><div class="user-cell__info"><div class="user-cell__name"><span class="role-badge role-badge--manager">관리자</span>닉네임</div></div></div></td>
+                                    <td>{이메일 주소}</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><a href="#" style="color:var(--color-blue); text-decoration:underline;">0개</a></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td><span class="status-chip status-chip--left">탈퇴</span></td>
                                 </tr>
 
                             </tbody>
                         </table>
                     </div>
 
+                    <!-- 페이지네이션 -->
+                    <div class="pagination" style="padding: 20px 0 4px;">
+                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
+                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                        <button class="pagination__btn active">1</button>
+                        <button class="pagination__btn">2</button>
+                        <button class="pagination__btn">3</button>
+                        <button class="pagination__btn">4</button>
+                        <button class="pagination__btn">5</button>
+                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+                        <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
+                    </div>
+
                 </div>
 
             </div>
-        </main>
 
-        <!-- 고정 메모 버튼 -->
-        <button class="c-fab">
-            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
-            <span class="c-fab__text">메모</span>
-        </button>
+        </main>
 
     </div>
 
+    <!-- 하단 일괄처리 바 (체크박스 선택 시 노출) -->
+    <div class="c-bulk-bar hidden" id="bulkBar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+            <span class="c-bulk-bar__text" id="bulkText">(n)개 항목 선택됨</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn">활성</button>
+            <button class="c-bulk-bar__btn">중지</button>
+            <button class="c-bulk-bar__btn">권한 설정</button>
+            <button class="c-bulk-bar__btn">탈퇴</button>
+        </div>
+    </div>
+
+
 <script>
-    function toggleProfileMenu(e) {
-        e.stopPropagation();
-        document.getElementById('headerUserMenu').classList.toggle('open');
-    }
-
-    function closeAllLnb() {
-        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
-    }
-
-    function toggleLnb(btn) {
-        const accordion = btn.closest('.lnb-accordion');
-        const isOpen = accordion.classList.contains('open');
-        closeAllLnb();
-        if (!isOpen) accordion.classList.add('open');
-    }
-
     function toggleDropdown(trigger) {
         const isOpen = trigger.classList.contains('open');
         document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
@@ -418,14 +447,57 @@
         trigger.classList.remove('open');
     }
 
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
     document.addEventListener('click', function(e) {
-        if (!e.target.closest('#headerUserMenu')) {
-            document.getElementById('headerUserMenu').classList.remove('open');
-        }
         if (!e.target.closest('.c-dropdown')) {
             document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
         }
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
     });
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    function onRowCheck() {
+        const checks = document.querySelectorAll('.row-check');
+        const checked = [...checks].filter(c => c.checked);
+        const bulkBar = document.getElementById('bulkBar');
+        const bulkText = document.getElementById('bulkText');
+
+        if (checked.length > 0) {
+            bulkText.textContent = checked.length + '개 항목 선택됨';
+            bulkBar.classList.remove('hidden');
+        } else {
+            bulkBar.classList.add('hidden');
+        }
+
+        document.getElementById('checkAll').indeterminate = checked.length > 0 && checked.length < checks.length;
+        document.getElementById('checkAll').checked = checked.length === checks.length;
+    }
+
+    function toggleAll(checkbox) {
+        document.querySelectorAll('.row-check').forEach(c => c.checked = checkbox.checked);
+        onRowCheck();
+    }
+
+    function closeBulkBar() {
+        document.querySelectorAll('.row-check, #checkAll').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
+    }
 </script>
 
 </body>

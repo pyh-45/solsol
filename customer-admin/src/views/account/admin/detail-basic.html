@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 활동 로그</title>
+    <title>Admin - 기본 정보</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -103,8 +103,8 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">학습자</a>
-                        <a href="#" class="lnb-sub-item active">강사</a>
-                        <a href="#" class="lnb-sub-item">관리자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item active">관리자</a>
                     </div>
                 </div>
 
@@ -251,10 +251,11 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 인포 박스 -->
-                <div class="admin-infotip">
+                <!-- 상단 안내 -->
+                <div class="admin-infotip" style="margin-bottom:16px;">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">활동 로그는 '학습, 글작성, 구매, 다운로드 및 시스템' 항목이 노출됩니다.</span>
+                    비밀번호 분실시 <strong>비밀번호 재설정</strong> 버튼을 클릭하여 메일을 발송할 수 있습니다.
+                    <a href="#" class="admin-infotip__link">가이드보기</a>
                 </div>
 
                 <!-- 프로필 박스 -->
@@ -263,7 +264,7 @@
                         <div class="c-avatar80 learner"></div>
                         <div class="detail-profile__body">
                             <div class="detail-profile__name-row">
-                                <span class="detail-profile__name">Shine_Masters(홍길동)</span>
+                                <span class="detail-profile__name">닉네임(홍길동)</span>
                                 <span class="profile-badge profile-badge--verify">인증</span>
                                 <span class="profile-badge profile-badge--active">활성</span>
                             </div>
@@ -279,100 +280,111 @@
                                 </span>
                                 <span class="detail-profile__meta-item">
                                     <img src="../../../images/profile-ico-teacher.svg" width="16" height="16" alt="">
-                                    개설 강좌 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 개
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-people.svg" width="16" height="16" alt="">
-                                    수강자수 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 명
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-star.svg" width="16" height="16" alt="">
-                                    평균 별점 <span class="detail-profile__meta-value" style="color:var(--color-red)">4.5</span>점
+                                    권한수 : <a href="#" class="detail-profile__meta-value" style="color:var(--color-blue); text-decoration:underline;">0개</a>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- 변경사항 저장 버튼 -->
+                <div class="setting-action-bar">
+                    <button class="btn lg border">권한 설정</button>
+                    <button class="btn lg dark">변경사항 저장</button>
+                </div>
+
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
-                    <button class="detail-tab__item">기본 정보</button>
-                    <button class="detail-tab__item">강사 정보</button>
-                    <button class="detail-tab__item">정산 정보</button>
-                    <button class="detail-tab__item">강의 이력</button>
-                    <button class="detail-tab__item active">활동 로그</button>
+                    <button class="detail-tab__item active">기본 정보</button>
+                    <button class="detail-tab__item">지급 정보</button>
+                    <button class="detail-tab__item">활동 로그</button>
+                    <button class="detail-tab__item">발송 이력</button>
                 </nav>
 
-                <!-- 활동 로그 테이블 -->
+                <!-- 기본 정보 폼 -->
                 <div class="list-panel">
-                    <div class="list-panel__header list-panel__header--tab">
-                        <span class="list-panel__title">활동 로그</span>
+
+                    <!-- 개인 정보 -->
+                    <div class="detail-form__section">
+                        <h3 class="detail-form__section-title">개인 정보</h3>
+                        <div class="detail-form__grid">
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">닉네임</span>
+                                <input type="text" class="detail-form__input" value="닉네임">
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">이름</span>
+                                <input type="text" class="detail-form__input" value="홍길동">
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">연락처</span>
+                                <input type="text" class="detail-form__input" value="010-0000-0000">
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">이메일</span>
+                                <div class="detail-form__email-row">
+                                    <span class="detail-form__email-addr">minjun.kim@example.com</span>
+                                    <button class="btn sm border">비밀번호 재설정</button>
+                                </div>
+                            </div>
+
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">가입일</span>
+                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
+                            </div>
+
+                        </div>
                     </div>
 
-                    <div class="admin-table-wrap">
-                        <table class="tab-table">
-                            <thead>
-                                <tr>
-                                    <th style="width:150px;padding:0;">
-                                        <div class="c-dropdown c-dropdown--full-border">
-                                            <button class="c-dropdown__trigger" style="border:none;" onclick="toggleDropdown(this)">
-                                                <span class="c-dropdown__label">로그명</span>
-                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                            </button>
-                                            <div class="c-dropdown__panel">
-                                                <button class="c-dropdown__item active" onclick="selectItem(this)">관리자 접속</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">글작성</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">콘텐츠 관리</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">크레딧 사용</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">시스템</button>
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th>설명</th>
-                                    <th style="min-width:160px; text-align:center;">일시</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <!-- 계정 정보 -->
+                    <div class="detail-form__section">
+                        <h3 class="detail-form__section-title">계정 정보</h3>
+                        <div class="detail-form__grid">
 
-                                <!-- Row 1 -->
-                                <tr>
-                                    <td class="td-log-name">학습</td>
-                                    <td class="td-log-desc"><strong>계정</strong>이 <strong>생성</strong>되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">상태</span>
+                                <span class="detail-form__text">
+                                    <span class="status-chip status-chip--active">활성</span>
+                                </span>
+                            </div>
 
-                                <!-- Row 2 -->
-                                <tr>
-                                    <td class="td-log-name">글작성</td>
-                                    <td class="td-log-desc">관리자 페이지에 <strong>로그인</strong>했습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">마지막 로그인</span>
+                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
+                            </div>
 
-                                <!-- Row 3 -->
-                                <tr>
-                                    <td class="td-log-name">구매</td>
-                                    <td class="td-log-desc"><strong>공지사항</strong> 게시판에 <strong>유튜브 10기 수강생들 필수 준비물</strong> 글을 작성했습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">로그인 횟수</span>
+                                <span class="detail-form__text">42회</span>
+                            </div>
 
-                                <!-- Row 4 -->
-                                <tr>
-                                    <td class="td-log-name">다운로드</td>
-                                    <td class="td-log-desc">[일반강의] "</strong>유튜브 원샷</strong>" 강의를 수정했습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <!-- Row 5 -->
-                                <tr>
-                                    <td class="td-log-name">시스템</td>
-                                    <td class="td-log-desc"><strong>AI 자막 생성</strong>에 <strong>100,000 크레딧</strong>을 사용하였습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                        </div>
                     </div>
 
+                    <!-- 권한 -->
+                    <div class="detail-form__section">
+                        <h3 class="detail-form__section-title">권한</h3>
+                        <div class="detail-form__grid">
+                            <div class="detail-form__field detail-form__field--full">
+                                <ul class="detail-form__permission-list">
+                                    <li>· 사용자 관리 &gt; 학습자</li>
+                                    <li>· 사용자 관리 &gt; 강사</li>
+                                    <li>· 강좌 관리 &gt; 강좌 목록</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 하단 버튼 -->
+                <div class="panel-action-bar">
+                    <button class="btn lg border-primary">권한 설정</button>
+                    <button class="btn lg">변경사항 저장</button>
                 </div>
 
             </div>
@@ -403,27 +415,9 @@
         if (!isOpen) accordion.classList.add('open');
     }
 
-    function toggleDropdown(trigger) {
-        const isOpen = trigger.classList.contains('open');
-        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
-        if (!isOpen) trigger.classList.add('open');
-    }
-
-    function selectItem(item) {
-        const panel = item.closest('.c-dropdown__panel');
-        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        const trigger = panel.previousElementSibling;
-        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
-        trigger.classList.remove('open');
-    }
-
     document.addEventListener('click', function(e) {
         if (!e.target.closest('#headerUserMenu')) {
             document.getElementById('headerUserMenu').classList.remove('open');
-        }
-        if (!e.target.closest('.c-dropdown')) {
-            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
         }
     });
 </script>

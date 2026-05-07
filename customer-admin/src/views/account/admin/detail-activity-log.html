@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 활동 로그</title>
+    <title>Admin - 활동 로그 (관리자)</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -103,8 +103,8 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">학습자</a>
-                        <a href="#" class="lnb-sub-item active">강사</a>
-                        <a href="#" class="lnb-sub-item">관리자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item active">관리자</a>
                     </div>
                 </div>
 
@@ -254,7 +254,7 @@
                 <!-- 인포 박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">활동 로그는 '학습, 글작성, 구매, 다운로드 및 시스템' 항목이 노출됩니다.</span>
+                    <span class="admin-infotip__text">활동 로그는 각 메뉴별 운영자의 행위 항목이 노출됩니다.</span>
                 </div>
 
                 <!-- 프로필 박스 -->
@@ -263,7 +263,7 @@
                         <div class="c-avatar80 learner"></div>
                         <div class="detail-profile__body">
                             <div class="detail-profile__name-row">
-                                <span class="detail-profile__name">Shine_Masters(홍길동)</span>
+                                <span class="detail-profile__name">닉네임(홍길동)</span>
                                 <span class="profile-badge profile-badge--verify">인증</span>
                                 <span class="profile-badge profile-badge--active">활성</span>
                             </div>
@@ -279,15 +279,7 @@
                                 </span>
                                 <span class="detail-profile__meta-item">
                                     <img src="../../../images/profile-ico-teacher.svg" width="16" height="16" alt="">
-                                    개설 강좌 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 개
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-people.svg" width="16" height="16" alt="">
-                                    수강자수 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 명
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-star.svg" width="16" height="16" alt="">
-                                    평균 별점 <span class="detail-profile__meta-value" style="color:var(--color-red)">4.5</span>점
+                                    권한수 : <a href="#" class="detail-profile__meta-value" style="color:var(--color-blue); text-decoration:underline;">0개</a>
                                 </span>
                             </div>
                         </div>
@@ -297,10 +289,9 @@
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
                     <button class="detail-tab__item">기본 정보</button>
-                    <button class="detail-tab__item">강사 정보</button>
-                    <button class="detail-tab__item">정산 정보</button>
-                    <button class="detail-tab__item">강의 이력</button>
+                    <button class="detail-tab__item">지급 정보</button>
                     <button class="detail-tab__item active">활동 로그</button>
+                    <button class="detail-tab__item">발송 이력</button>
                 </nav>
 
                 <!-- 활동 로그 테이블 -->
@@ -321,9 +312,15 @@
                                             </button>
                                             <div class="c-dropdown__panel">
                                                 <button class="c-dropdown__item active" onclick="selectItem(this)">관리자 접속</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">글작성</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">사용자</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">상품 관리</button>
                                                 <button class="c-dropdown__item" onclick="selectItem(this)">콘텐츠 관리</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">크레딧 사용</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">판매 관리</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">글작성</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">마케팅 지원</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">사이트 관리</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">매출 · 정산</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">메모</button>
                                                 <button class="c-dropdown__item" onclick="selectItem(this)">시스템</button>
                                             </div>
                                         </div>
@@ -334,38 +331,69 @@
                             </thead>
                             <tbody>
 
-                                <!-- Row 1 -->
                                 <tr>
-                                    <td class="td-log-name">학습</td>
-                                    <td class="td-log-desc"><strong>계정</strong>이 <strong>생성</strong>되었습니다.</td>
+                                    <td class="td-log-name">관리자 접속</td>
+                                    <td class="td-log-desc"><strong>{닉네임}</strong> 님이 <strong>로그인</strong> 하였습니다.</td>
                                     <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
                                 </tr>
 
-                                <!-- Row 2 -->
+                                <tr>
+                                    <td class="td-log-name">사용자</td>
+                                    <td class="td-log-desc"><strong>[닉네임](홍길동)</strong> 님을 <strong>중지</strong> 하였습니다.</td>
+                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="td-log-name">상품관리</td>
+                                    <td class="td-log-desc"><strong>{상품명}</strong>을 '카테고리1'에서 '카테고리 2'로 <strong>카테고리 이동</strong> 하였습니다.</td>
+                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="td-log-name">콘텐츠 관리</td>
+                                    <td class="td-log-desc"><strong>{콘텐츠명}</strong>이 <strong>업로드</strong> 되었습니다.</td>
+                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="td-log-name">판매 관리</td>
+                                    <td class="td-log-desc"><strong>{상품명}</strong>이 <strong>환불접수</strong> 되었습니다.</td>
+                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+
                                 <tr>
                                     <td class="td-log-name">글작성</td>
-                                    <td class="td-log-desc">관리자 페이지에 <strong>로그인</strong>했습니다.</td>
+                                    <td class="td-log-desc">'아아한잔' 프리미엄 커뮤니티에 <strong>{제목}</strong>이 <strong>작성</strong>되었습니다.</td>
                                     <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
                                 </tr>
 
-                                <!-- Row 3 -->
                                 <tr>
-                                    <td class="td-log-name">구매</td>
-                                    <td class="td-log-desc"><strong>공지사항</strong> 게시판에 <strong>유튜브 10기 수강생들 필수 준비물</strong> 글을 작성했습니다.</td>
+                                    <td class="td-log-name">마케팅 지원</td>
+                                    <td class="td-log-desc">캠페인 <strong>'여름휴가 자기계발 패키지'</strong> 가 <strong>생성</strong>되었습니다.</td>
                                     <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
                                 </tr>
 
-                                <!-- Row 4 -->
                                 <tr>
-                                    <td class="td-log-name">다운로드</td>
-                                    <td class="td-log-desc">[일반강의] "</strong>유튜브 원샷</strong>" 강의를 수정했습니다.</td>
+                                    <td class="td-log-name">사이트 관리</td>
+                                    <td class="td-log-desc">페이지 <strong>{페이지명}</strong>이 <strong>비공개</strong> 되었습니다.</td>
                                     <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
                                 </tr>
 
-                                <!-- Row 5 -->
+                                <tr>
+                                    <td class="td-log-name">매출·정산</td>
+                                    <td class="td-log-desc"><strong>{부가세 신고자료명}</strong>을 <strong>다운로드</strong> 하였습니다.</td>
+                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="td-log-name">메모</td>
+                                    <td class="td-log-desc">{메뉴명} 위치에서 {학습자}에 대한 메모를 작성하였습니다.</td>
+                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+
                                 <tr>
                                     <td class="td-log-name">시스템</td>
-                                    <td class="td-log-desc"><strong>AI 자막 생성</strong>에 <strong>100,000 크레딧</strong>을 사용하였습니다.</td>
+                                    <td class="td-log-desc"><strong>계정</strong>이 <strong>생성</strong>되었습니다.</td>
                                     <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
                                 </tr>
 
