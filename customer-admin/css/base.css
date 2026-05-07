@@ -766,6 +766,26 @@ ul, ol { list-style: none; }
 /* 폼 패널 액션 헤더 (제목 + 우측 버튼, 좌우 30 / 상 24 / 하 8 마진) */
 .panel-form-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 24px 30px 8px; padding: 0; }
 
+/* 영수증 모달 본문 (placeholder) */
+.bill-modal__body { margin: 0 30px 30px; min-height: 260px; background: #F5F5F5; border-radius: 4px; }
+
+/* 모달 정보 테이블 (라벨-값 2열, 행 보더만, 모달 안에서만 사용) */
+.modal-info-table { width: 100%; border-collapse: collapse; border-top:2px solid #222; }
+.modal-info-table th { width: 100px;height:46px; padding: 10px 20px; text-align: left; font-size: 14px; font-weight: 500; color: var(--color-textgray);background-color: #F7F8FA; border-bottom: 1px solid #EFEFEF; vertical-align: middle; }
+.modal-info-table td { padding: 10px 12px; font-size: 14px; color: var(--text-dark); border-bottom: 1px solid #EFEFEF; vertical-align: middle; }
+
+.modal-info-table__highlight { color: var(--color-blue); font-weight: 500; }
+.modal-info-table__cancel { color: var(--color-red); font-weight: 500; margin-left: 16px; }
+
+/* 크레딧 상세 모달 - 본문 영역(infotip + 테이블) */
+.credit-detail__body { padding: 0 30px; }
+.credit-detail__body .admin-infotip { margin: 0 0 12px; }
+.credit-detail__footer { padding: 20px 30px 30px; }
+.credit-detail__footer .btn { width: 100%; }
+
+/* 공통 모달 본문 - 헤더 아래 24px 패딩 (memo-modal, 360px alert 모달 제외) */
+.completion-modal__body { padding-top: 24px; }
+
 /* setting-table 셀 - 입력 행 컴팩트 패딩 (상하 2px) */
 .setting-table td.setting-table__cell--tight { padding-top: 2px; padding-bottom: 2px; }
 .list-panel--flush .list-panel__header { margin-bottom: 8px; }
@@ -1931,7 +1951,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .detail-form__profile-row { display: flex; align-items: flex-end; gap: 20px; }
 
 /* 프로필 설정 모달 */
-.profile-modal__content { padding: 30px 30px 0; }
+.profile-modal__content { padding-left: 30px; padding-right: 30px; }
 .profile-modal__upload { height: 230px; background: #F5F5F5; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
 .profile-modal__upload-btn { padding: 8px 14px; border: none; border-radius: 6px; background: #4B4B4B; color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; }
 .profile-modal__crop { position: relative; height: 230px; overflow: hidden; border-radius: 8px; background-color:#fff; background-image: linear-gradient(45deg, #DDD 25%, transparent 25%), linear-gradient(-45deg, #DDD 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #DDD 75%), linear-gradient(-45deg, transparent 75%, #DDD 75%); background-size: 16px 16px; background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
@@ -2748,10 +2768,9 @@ tr:has(.c-check:checked) {
 .c-modal__icon-wrap--notice { background: rgba(33, 182, 132, 0.1); }
 .c-modal__icon-wrap--notice img { border-radius: 0; width: 36px; height: 36px; object-fit: initial; }
 .c-modal__title { font-size: 20px; font-weight: 700;line-height: 1.4; color: var(--text-primary); letter-spacing: -0.02em; }
-.c-modal__desc { font-size: 16px; color: var(--text-primary); line-height: 1.5;font-weight:500; }
-.c-modal__desc--left { text-align: left; width: 100%; }
+.c-modal__desc { text-align: left; font-size: 16px; color: var(--text-dark); line-height: 1.5;font-weight:500; }
 .c-modal__desc strong { color: var(--text-primary); font-weight: 500; }
-.c-modal__desc-sub { font-size: 13px; color: #424242; line-height: 1.5; }
+.c-modal__desc-sub { width: 100%; text-align: left;font-size: 13px; color: #424242; line-height: 1.5; }
 .c-modal__footer { display: flex; justify-content: center; gap: 8px; }
 .c-modal__footer--split .btn { flex: 1; }
 .c-modal__footer .auth-submit { margin: 0; }
@@ -3231,6 +3250,30 @@ tr:has(.c-check:checked) {
 .credit-charge-notice__title { font-size:14px; font-weight:700; color:var(--color-primary-dark); margin-bottom:10px; }
 .credit-charge-notice__list { padding-left:4px; margin:0; list-style:none; display:flex; flex-direction:column; gap:6px; }
 .credit-charge-notice__list li { font-size:13px; color:var(--text-secondary); line-height:1.6; }
+
+/* 크레딧 결제 완료 페이지 (모달형) */
+.credit-paid { width:500px; max-width:100%; padding:30px; background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); display:flex; flex-direction:column; }
+.credit-paid__header { display:flex; flex-direction:column; align-items:center; gap:16px; padding:20px 0; }
+.credit-paid__body { display:flex; flex-direction:column; gap:12px; margin-top:12px; }
+.credit-paid__footer { margin-top:20px; }
+.credit-paid__icon { width:64px; height:64px; display:flex; align-items:center; justify-content:center; }
+.credit-paid__title { margin:0; font-size:24px; font-weight:700; color:var(--text-primary); text-align:center; letter-spacing:-0.02em; }
+.credit-paid__info { width:100%; margin:0; padding:24px 36px; list-style:none; border:1px solid #EAEAEA; border-radius:8px; display:flex; flex-direction:column; gap:16px; }
+.credit-paid__info li { display:flex; align-items:center; gap:16px; }
+.credit-paid__info-label { flex-shrink:0; width:100px; font-size:14px; font-weight:400; color:var(--color-textgray); }
+.credit-paid__info-value { flex:1; font-size:14px; color:var(--text-dark); display:inline-flex; align-items:center; gap:4px; }
+.credit-paid__info-value--fail { color:var(--color-red); font-weight:500; }
+.credit-paid__order-no { font-size:16px; font-weight:700; color:var(--color-blue); text-decoration:none; }
+.credit-paid__btn { width:100%; }
+
+/* 크레딧 비교 박스 (결제 전 / 결제 후) */
+.credit-compare { width:100%; position:relative; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:30px 12px; border:1px solid var(--color-primary); border-radius:8px; background:#F8FCFF; }
+.credit-compare::before { content:''; position:absolute; top:0; bottom:0; left:50%; border-left:1px dashed #D9E5F4; }
+.credit-compare__col { display:flex; flex-direction:column; align-items:center; gap:8px; }
+.credit-compare__label { font-size:13px; color:var(--color-blue); font-weight:500; }
+.credit-compare__value { font-size:26px; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:6px; line-height:1; letter-spacing:-0.02em; }
+.credit-compare__arrow { position:relative; z-index:1; width:28px; height:28px; border-radius:50%; background:#2A2D34; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.credit-compare__arrow img { width:30px; height:30px; transform:rotate(-90deg); filter:brightness(0) invert(1); }
 
 /* ==================== 콘텐츠 라이브러리 ==================== */
 .content-warning-bar { display:flex; align-items:center; justify-content:flex-end; gap:12px; padding:0 0 14px; font-size:13px; color:var(--color-red); margin-bottom:2px; }

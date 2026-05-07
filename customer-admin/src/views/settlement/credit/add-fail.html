@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크레딧 결제 실패</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888;">
+
+<div class="c-modal-overlay">
+
+    <!-- 결제 실패 카드 -->
+    <div class="credit-paid">
+
+        <div class="credit-paid__header">
+            <div class="credit-paid__icon">
+                <img src="../../../images/ico-64px-fail.svg" width="64" height="64" alt="">
+            </div>
+            <h2 class="credit-paid__title">결제에 실패했습니다</h2>
+        </div>
+
+        <div class="credit-paid__body">
+            <ul class="credit-paid__info">
+                <li>
+                    <span class="credit-paid__info-label">주문번호</span>
+                    <span class="credit-paid__info-value"><a href="#" class="credit-paid__order-no">20260102039482948</a></span>
+                </li>
+                <li>
+                    <span class="credit-paid__info-label">주문일시</span>
+                    <span class="credit-paid__info-value">2000.00.00 오전/오후 00:00</span>
+                </li>
+                <li>
+                    <span class="credit-paid__info-label">결제금액</span>
+                    <span class="credit-paid__info-value">110,000원 (VAT 포함)</span>
+                </li>
+                <li>
+                    <span class="credit-paid__info-label">결제정보</span>
+                    <span class="credit-paid__info-value">신용카드 (현대 3333 **** **** ****, 일시불)</span>
+                </li>
+                <li>
+                    <span class="credit-paid__info-label">실패사유</span>
+                    <span class="credit-paid__info-value credit-paid__info-value--fail">한도초과</span>
+                </li>
+            </ul>
+
+            <div class="credit-compare">
+                <div class="credit-compare__col">
+                    <span class="credit-compare__label">결제 전 크레딧</span>
+                    <span class="credit-compare__value">300,000 <span class="lnb-credits__coin">C</span></span>
+                </div>
+                <span class="credit-compare__arrow">
+                    <img src="../../../images/chevron-down.svg" width="14" height="14" alt="">
+                </span>
+                <div class="credit-compare__col">
+                    <span class="credit-compare__label">결제 후 크레딧</span>
+                    <span class="credit-compare__value">370,000 <span class="lnb-credits__coin">C</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="credit-paid__footer">
+            <button type="button" class="btn lg primary credit-paid__btn">크레딧 관리 바로가기</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

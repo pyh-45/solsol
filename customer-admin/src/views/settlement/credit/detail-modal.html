@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크레딧 상세내용</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:grid; grid-template-columns:480px 360px; gap:40px; justify-content:center; align-items:flex-start;">
+
+    <!-- 좌측: 크레딧 상세 (충전, 결제완료/취소 정보 포함) -->
+    <div>
+        <div class="c-modal completion-modal" style="margin-bottom:40px;">
+
+            <div class="completion-modal__header">
+                <h3 class="completion-modal__heading">크레딧 상세내용</h3>
+            </div>
+
+            <div class="credit-detail__body completion-modal__body">
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">크레딧 취소 및 환불 방법은 <a href="#" class="admin-infotip__link">이용가이드</a>를 참고해 주세요.</span>
+                </div>
+
+                <table class="modal-info-table">
+                    <tbody>
+                        <tr>
+                            <th>일시</th>
+                            <td>2000.00.00 오전/오후 00:00</td>
+                        </tr>
+                        <tr>
+                            <th>구분</th>
+                            <td>충전</td>
+                        </tr>
+                        <tr>
+                            <th>내용</th>
+                            <td>크레딧 구매</td>
+                        </tr>
+                        <tr>
+                            <th>크레딧</th>
+                            <td><span class="modal-info-table__highlight">+200,000</span></td>
+                        </tr>
+                        <tr>
+                            <th>유효기간</th>
+                            <td>2000.00.00 까지</td>
+                        </tr>
+                        <tr>
+                            <th>주문번호</th>
+                            <td>결제완료</td>
+                        </tr>
+                        <tr>
+                            <th>주문상태</th>
+                            <td>결제완료<a href="#" class="modal-info-table__cancel">결제취소</a></td>
+                        </tr>
+                        <tr>
+                            <th>결제금액</th>
+                            <td>200,000원</td>
+                        </tr>
+                        <tr>
+                            <th>결제정보</th>
+                            <td>신용카드 (현대 3333 **** **** ****, 일시불)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="credit-detail__footer">
+                <button type="button" class="btn lg primary">확인</button>
+            </div>
+
+        </div>
+
+        <!-- 좌측 하단: 크레딧 상세 (간단 - 5행) -->
+        <div class="c-modal completion-modal">
+
+            <div class="completion-modal__header">
+                <h3 class="completion-modal__heading">크레딧 상세내용</h3>
+            </div>
+
+            <div class="credit-detail__body completion-modal__body">
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">크레딧 취소 및 환불 방법은 <a href="#" class="admin-infotip__link">이용가이드</a>를 참고해 주세요.</span>
+                </div>
+
+                <table class="modal-info-table">
+                    <tbody>
+                        <tr>
+                            <th>일시</th>
+                            <td>2000.00.00 오전/오후 00:00</td>
+                        </tr>
+                        <tr>
+                            <th>구분</th>
+                            <td>충전</td>
+                        </tr>
+                        <tr>
+                            <th>내용</th>
+                            <td>크레딧 구매</td>
+                        </tr>
+                        <tr>
+                            <th>크레딧</th>
+                            <td><span class="modal-info-table__highlight">+200,000</span></td>
+                        </tr>
+                        <tr>
+                            <th>유효기간</th>
+                            <td>2000.00.00 까지</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="credit-detail__footer">
+                <button type="button" class="btn lg primary">확인</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 우측: alert 2종 -->
+    <div style="display:flex; flex-direction:column; gap:30px;">
+
+        <!-- 결제 취소 확인 -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">결제를 취소하시겠습니까?</p>
+                <p class="c-modal__desc-sub">취소 완료 시 전액 환불 처리되며,<br>카드사 정책에 따라 영업일 기준 3~7일 내 반영됩니다.</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border">취소</button>
+                <button type="button" class="btn lg primary">확인</button>
+            </div>
+        </div>
+
+        <!-- 결제 취소 완료 -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">결제 취소가 완료되었습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg primary" style="width:100%;">확인</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
