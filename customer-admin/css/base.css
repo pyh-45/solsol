@@ -757,6 +757,10 @@ ul, ol { list-style: none; }
 .list-panel--p30 { padding: 30px 30px 24px 30px ; }
 .list-panel--p24-30 { padding: 24px 30px 30px ; }
 
+/* 검색 필터 패널 (검색창 + 드롭다운 필터) */
+.list-panel--filter { padding: 20px; }
+.list-panel--filter .admin-filter__search { background: #fff; border: 1px solid #DEDFE0; }
+
 /* 테이블이 패널 끝까지 붙는 설정형 패널 */
 .list-panel--flush { padding: 0 0 30px; }
 .list-panel--flush .list-panel__title { padding: 24px 30px 0 30px; font-size: 20px; }
@@ -967,6 +971,10 @@ ul, ol { list-style: none; }
 .ico-mask { display:inline-block; width:16px; height:16px; flex-shrink:0; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; -webkit-mask-size:contain; mask-size:contain; }
 .ico-mask--plus-gray { background-color:#676A6E; -webkit-mask-image:url('../src/images/ico-16px-plus03.svg'); mask-image:url('../src/images/ico-16px-plus03.svg'); }
 
+.btn.primary { background: var(--color-primary); color: #fff; }
+.btn.primary:hover { background: var(--color-blue); }
+.btn.primary:active { background: var(--color-primary); color: #fff; }
+
 .btn.darkgray {background-color: #707070;color:#FFF;border:1px solid #707070;}
 .btn.darkgray:hover  { background:#4F4F4F; border:1px solid #4F4F4F;}
 
@@ -976,6 +984,7 @@ ul, ol { list-style: none; }
 
 .btn.dark { background-color:#424242; color: #fff; }
 .btn.dark:hover { background-color: var(--btn-dark-0); color: #fff; }
+.btn.dark:active { background-color: var(--btn-dark-1); color: #fff; }
 
 /* AI 버튼 (lg 사이즈와 동일, 마젠타 → hover/active 다크) */
 .btn.ai { background-color:#F933F2; color:#fff;min-width: 150px; padding:0 15px 0 11px; gap:4px; }
@@ -995,9 +1004,6 @@ ul, ol { list-style: none; }
 .btn.border-primary:hover { background: #fff; border-color: var(--color-blue); color: var(--color-blue); }
 .btn.border-primary:active { background: #fff; border-color: var(--color-primary); color: var(--color-primary); }
 
-.btn.primary { background: var(--color-primary); color: #fff; }
-.btn.primary:hover { background: var(--color-blue); }
-.btn.primary:active { background: var(--color-primary); color: #fff; }
 
 /* 좌측 아이콘 버튼 (아이콘 + 텍스트) */
 .btn.icon-left { gap: 4px; padding-left: 12px; }
@@ -1903,6 +1909,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 }
 .send-status-chip--success { background: var(--status-green-bg);  color: var(--status-green-text); }
 .send-status-chip--fail    { background: var(--status-red-bg);    color: var(--status-red-text);   }
+.send-status-chip--pending { background: var(--status-yellow-bg); color: var(--status-yellow-text); }
 
 /* ==================== Detail Basic Form ==================== */
 .detail-form__section { margin-bottom: 30px; }
@@ -2486,8 +2493,8 @@ tr:has(.c-check:checked) {
     font-size: 11px;
 }
 .status-chip--answer-wait    { background: #FF7700; color: #fff; }
-.status-chip--answer-ing     { background: #666666; color: #fff; }
-.status-chip--answer-done    { background: #089253; color: #fff; }
+.status-chip--answer-ing     { background: #089253; color: #fff; }
+.status-chip--answer-done    { background: #666666; color: #fff; }
 .status-chip--inquiry-end    { background: #AEB0B4; color: #fff; }
 
 /* 테이블 셀 안 칩 (in-table) - 테두리(outline) 스타일 */
@@ -2716,7 +2723,7 @@ tr:has(.c-check:checked) {
 }
 .auth-help a {
     margin-left: 8px;
-    color: var(--color-primary);
+    color: var(--color-blue);
     font-weight: 700;
 }
 
@@ -2775,7 +2782,7 @@ tr:has(.c-check:checked) {
 .c-modal__icon-wrap--notice { background: rgba(33, 182, 132, 0.1); }
 .c-modal__icon-wrap--notice img { border-radius: 0; width: 36px; height: 36px; object-fit: initial; }
 .c-modal__title { font-size: 20px; font-weight: 700;line-height: 1.4; color: var(--text-primary); letter-spacing: -0.02em; }
-.c-modal__desc { text-align: left; font-size: 16px; color: var(--text-dark); line-height: 1.5;font-weight:500; }
+.c-modal__desc { width: 100%; text-align: left; font-size: 16px; color: var(--text-dark); line-height: 1.5;font-weight:500; }
 .c-modal__desc strong { color: var(--text-primary); font-weight: 500; }
 .c-modal__desc-sub { width: 100%; text-align: left;font-size: 13px; color: #424242; line-height: 1.5; }
 .c-modal__footer { display: flex; justify-content: center; gap: 8px; }
@@ -3225,13 +3232,11 @@ tr:has(.c-check:checked) {
 .credit-option__amount { font-size:20px; font-weight:700; color:var(--text-primary); display:flex; align-items:center; gap:4px;line-height: -2px; }
 .credit-option__bonus { font-size:12px; font-weight:600; color:var(--color-blue); }
 
-.credit-charge__summary { display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
-.credit-charge__summary-label { font-size:16px; color:var(--text-dark); font-weight: 600;}
+.credit-charge__summary { display:flex; flex-direction:column; align-items:center; gap:8px; padding:16px 0; }
+.credit-charge__summary-label { font-size:16px; color:var(--text-dark); font-weight:600; }
+.credit-charge__summary-amount { display:inline-flex; align-items:center; justify-content:center; gap:4px; font-size:36px; font-weight:700; letter-spacing:-1px; color:#6756ED; line-height:1; }
+.credit-charge__summary-unit { font-size:18px; font-weight:500; color:#424242; }
 .credit-charge__summary-vat { font-size:12px; color:var(--color-textgray); }
-.credit-charge__summary-right { display:flex; flex-direction:column; align-items:center; gap:2px; }
-.credit-charge__summary-service { font-size:12px; color:var(--text-primary); }
-.credit-charge__summary-amount { font-size:28px; font-weight:700;letter-spacing:-1px;color:var(--color-accent); line-height:1; }
-.credit-charge__summary-unit { font-size:16px; font-weight:400;color:var(--text-primary);}
 
 .payment-row { display:flex; align-items:center; gap:40px; margin-bottom:14px; }
 .payment-row__label { font-size:17px; font-weight:700; color:var(--text-dark); white-space:nowrap; padding-top:2px; min-width:60px; }
@@ -3239,6 +3244,7 @@ tr:has(.c-check:checked) {
 .payment-card { display:flex; align-items:center; gap:30px; padding:12px 14px; border:none; border-radius:8px; cursor:pointer; background:#fff; }
 .payment-card__radio-input { display:none; }
 .payment-card__check { width:24px; height:24px; flex-shrink:0; background-color:#ddd; -webkit-mask-image:url("../src/images/ico-custom-radio-select.svg"); mask-image:url("../src/images/ico-custom-radio-select.svg"); -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; -webkit-mask-size:contain; mask-size:contain; }
+.payment-card__radio-input:checked + .payment-card__check,
 .payment-card__check--on { background-color:var(--color-primary); }
 .payment-card__body { display:flex; align-items:center; gap:12px; }
 .payment-card__thumb { width:56px; height:36px; border-radius:4px; flex-shrink:0; object-fit:cover; }
@@ -3247,6 +3253,7 @@ tr:has(.c-check:checked) {
 .payment-card__number { font-size:12px; color:var(--color-textgray); }
 
 .payment-no-card { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text-secondary); padding-top:2px; }
+.payment-empty { display:flex; align-items:center; justify-content:center; gap:6px; padding:20px 0; font-size:14px; color:#BFBFBF; }
 .payment-agree { display:flex; align-items:center; gap:8px; margin:12px 0 20px 0; cursor:pointer; }
 .payment-agree__text { font-size:13px; color:var(--text-secondary); }
 .payment-submit { display:block; width:100%; height:48px; border:none; border-radius:8px; background:var(--color-primary); color:#fff; font-size:15px; font-weight:700; cursor:pointer; transition:background 0.15s; }

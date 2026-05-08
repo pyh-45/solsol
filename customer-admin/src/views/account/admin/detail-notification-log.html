@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 크레딧 충전</title>
+    <title>Admin - 발송 이력</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <button class="admin-header__back">
                     <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
                 </button>
-                <span class="admin-header__page-title">크레딧 충전</span>
+                <span class="admin-header__page-title">상세페이지</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -57,7 +57,7 @@
                                 <span class="c-profile-tooltip__name">djkim</span>
                             </div>
                             <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
-                        </div>현 페이지 첨부파일 참고해서 수정해줘. 
+                        </div>
                     </div>
                     <hr class="c-profile-tooltip__divider">
                     <div class="c-profile-tooltip__actions">
@@ -95,7 +95,7 @@
                     대시보드
                 </a>
 
-                <div class="lnb-accordion">
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
                         <span class="lnb-accordion__label">사용자</span>
@@ -104,7 +104,7 @@
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">학습자</a>
                         <a href="#" class="lnb-sub-item">강사</a>
-                        <a href="#" class="lnb-sub-item">관리자</a>
+                        <a href="#" class="lnb-sub-item active">관리자</a>
                     </div>
                 </div>
 
@@ -206,14 +206,13 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
                         <span class="lnb-accordion__label">매출 및 정산관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item active">크레딧 관리</a>
                         <a href="#" class="lnb-sub-item">정산 정보관리</a>
                         <a href="#" class="lnb-sub-item">정산 내역</a>
                         <a href="#" class="lnb-sub-item">부가세 신고자료</a>
@@ -229,7 +228,7 @@
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">기본 설정</a>
                         <a href="#" class="lnb-sub-item">플레이어</a>
-                        <a href="#" class="lnb-sub-item">수료증 템플릿</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
                         <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
                         <a href="#" class="lnb-sub-item">학습자 알람</a>
                     </div>
@@ -252,136 +251,167 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 2단 레이아웃 -->
-                <div class="two-col-layout">
+                <!-- 인포 박스 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">발송이력은 해당 운영자가 발송한 캠페인 및 메세지가 노출됩니다.</span>
+                </div>
 
-                    <!-- 왼쪽: 금액 선택 -->
-                    <div class="two-col-layout__col">
-                        <div class="list-panel">
-                            <h2 class="panel-title">크레딧 충전 금액 선택</h2>
-
-                            <!-- 보유 크레딧 -->
-                            <div class="credit-charge__balance">
-                                <span class="credit-charge__balance-label">보유 크레딧</span>
-                                <span class="credit-charge__balance-value">300,000 <span class="lnb-credits__coin">C</span></span>
+                <!-- 프로필 박스 -->
+                <div class="detail-profile">
+                    <div class="detail-profile__top">
+                        <div class="c-avatar80 learner"></div>
+                        <div class="detail-profile__body">
+                            <div class="detail-profile__name-row">
+                                <span class="detail-profile__name">닉네임(홍길동)</span>
+                                <span class="profile-badge profile-badge--verify">인증</span>
+                                <span class="profile-badge profile-badge--active">활성</span>
                             </div>
-
-                            <!-- 금액 옵션 그리드 -->
-                            <div class="credit-option-grid">
-
-                                <button class="credit-option credit-option--active" onclick="selectOption(this)">
-                                    <span class="credit-option__amount">10,000 <span class="lnb-credits__coin">C</span></span>
-                                </button>
-
-                                <button class="credit-option" onclick="selectOption(this)">
-                                    <span class="credit-option__amount">30,000 <span class="lnb-credits__coin">C</span></span>
-                                    <span class="credit-option__bonus">+ 보너스 3,000</span>
-                                </button>
-
-                                <button class="credit-option" onclick="selectOption(this)">
-                                    <span class="credit-option__amount">50,000 <span class="lnb-credits__coin">C</span></span>
-                                    <span class="credit-option__bonus">+ 보너스 5,000</span>
-                                </button>
-
-                                <button class="credit-option" onclick="selectOption(this)">
-                                    <span class="credit-option__amount">100,000 <span class="lnb-credits__coin">C</span></span>
-                                    <span class="credit-option__bonus">+ 보너스 10,000</span>
-                                </button>
-
-                                <button class="credit-option" onclick="selectOption(this)">
-                                    <span class="credit-option__amount">300,000 <span class="lnb-credits__coin">C</span></span>
-                                    <span class="credit-option__bonus">+ 보너스 30,000</span>
-                                </button>
-
-                                <button class="credit-option" onclick="selectOption(this)">
-                                    <span class="credit-option__amount">500,000 <span class="lnb-credits__coin">C</span></span>
-                                    <span class="credit-option__bonus">+ 보너스 3,000</span>
-                                </button>
-
+                            <p class="detail-profile__email">minjun.kim@example.com</p>
+                            <div class="detail-profile__meta">
+                                <span class="detail-profile__meta-item">
+                                    <img src="../../../images/profile-ico-user.svg" width="16" height="16" alt="">
+                                    가입일 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
+                                </span>
+                                <span class="detail-profile__meta-item">
+                                    <img src="../../../images/profile-ico-logininfo.svg" width="16" height="16" alt="">
+                                    마지막 로그인 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
+                                </span>
+                                <span class="detail-profile__meta-item">
+                                    <img src="../../../images/profile-ico-teacher.svg" width="16" height="16" alt="">
+                                    권한수 : <a href="#" class="detail-profile__meta-value" style="color:var(--color-blue); text-decoration:underline;">0개</a>
+                                </span>
                             </div>
-
-                            <!-- 결제 예정 금액 -->
-                            <div class="credit-charge__summary">
-                                <span class="credit-charge__summary-label">결제 예정 금액</span>
-                                <span class="credit-charge__summary-amount">500,000 <span class="credit-charge__summary-unit">원</span></span>
-                                <span class="credit-charge__summary-vat">(VAT포함)</span>
-                            </div>
-
                         </div>
                     </div>
+                </div>
 
-                    <!-- 오른쪽: 결제하기 (카드 있음) -->
-                    <div class="two-col-layout__col">
-                        <div class="list-panel">
-                            <h2 class="panel-title">결제하기</h2>
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item">기본 정보</button>
+                    <button class="detail-tab__item">지급 정보</button>
+                    <button class="detail-tab__item">활동 로그</button>
+                    <button class="detail-tab__item active">발송 이력</button>
+                </nav>
 
-                            <!-- 결제카드 -->
-                            <div class="payment-row">
-                                <span class="payment-row__label">결제카드</span>
-                                <div class="payment-card-list">
+                <!-- 발송 이력 테이블 -->
+                <div class="list-panel">
+                    <div class="list-panel__header list-panel__header--tab">
+                        <span class="list-panel__title">발송 이력</span>
+                    </div>
 
-                                    <label class="payment-card">
-                                        <input type="radio" name="payCard" class="payment-card__radio-input">
-                                        <span class="payment-card__check"></span>
-                                        <div class="payment-card__body">
-                                            <img src="../../../images/card-master.png" class="payment-card__thumb" alt="MASTER">
-                                            <div class="payment-card__info">
-                                                <span class="payment-card__name">MASTER</span>
-                                                <span class="payment-card__number">************5547</span>
-                                            </div>
-                                        </div>
-                                    </label>
+                    <div class="admin-table-wrap">
+                        <table class="tab-table">
+                            <thead>
+                                <tr>
+                                    <th style="min-width:160px; text-align:center;">발송일시</th>
+                                    <th style="min-width:110px; text-align:center;">발송유형</th>
+                                    <th style="min-width:100px; text-align:center;">발송수</th>
+                                    <th style="text-align:center;">캠페인명</th>
+                                    <th style="min-width:100px; text-align:center;">수신상태</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                    <label class="payment-card">
-                                        <input type="radio" name="payCard" class="payment-card__radio-input" checked>
-                                        <span class="payment-card__check"></span>
-                                        <div class="payment-card__body">
-                                            <img src="../../../images/card-visa.png" class="payment-card__thumb" alt="VISA">
-                                            <div class="payment-card__info">
-                                                <span class="payment-card__name">VISA</span>
-                                                <span class="payment-card__number">************6118</span>
-                                            </div>
-                                        </div>
-                                    </label>
+                                <tr>
+                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-type-chip"><img src="../../../images/Ico_16px_table_mail.svg" width="14" height="14" alt="">이메일</span>
+                                    </td>
+                                    <td style="text-align:center;"><a href="#" style="color:var(--color-blue); text-decoration:underline;">0,000</a></td>
+                                    <td style="text-align:center;">{캠페인명}</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-status-chip send-status-chip--success">수신완료</span>
+                                    </td>
+                                </tr>
 
-                                </div>
-                            </div>
+                                <tr>
+                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-type-chip"><img src="../../../images/Ico_16px_table_sns.svg" width="14" height="14" alt="">SMS</span>
+                                    </td>
+                                    <td style="text-align:center;"><a href="#" style="color:var(--color-blue); text-decoration:underline;">000</a></td>
+                                    <td style="text-align:center;">{캠페인명}</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-status-chip send-status-chip--success">수신완료</span>
+                                    </td>
+                                </tr>
 
-                            <!-- 카드 추가 버튼 -->
-                            <button class="btn--add">+ 카드 추가</button>
+                                <tr>
+                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-type-chip"><img src="../../../images/Ico_16px_table_talk.svg" width="14" height="14" alt="">알림톡</span>
+                                    </td>
+                                    <td style="text-align:center;"><a href="#" style="color:var(--color-blue); text-decoration:underline;">0,000</a></td>
+                                    <td style="text-align:center;">{캠페인명}</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-status-chip send-status-chip--success">수신완료</span>
+                                    </td>
+                                </tr>
 
-                            <!-- 동의 체크박스 -->
-                            <label class="payment-agree">
-                                <input type="checkbox" class="c-check-setting">
-                                <span class="payment-agree__text">결제 및 환불안내 조건을 확인했습니다.</span>
-                            </label>
+                                <tr>
+                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-type-chip"><img src="../../../images/Ico_16px_table_mail.svg" width="14" height="14" alt="">이메일</span>
+                                    </td>
+                                    <td style="text-align:center;"><a href="#" style="color:var(--color-blue); text-decoration:underline;">000</a></td>
+                                    <td style="text-align:center;">{캠페인명}</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-status-chip send-status-chip--success">수신완료</span>
+                                    </td>
+                                </tr>
 
-                            <!-- 결제하기 버튼 -->
-                            <button class="btn nm gray btn--full">결제하기</button>
+                                <tr>
+                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-type-chip"><img src="../../../images/Ico_16px_table_sns.svg" width="14" height="14" alt="">SMS</span>
+                                    </td>
+                                    <td style="text-align:center;"><a href="#" style="color:var(--color-blue); text-decoration:underline;">000</a></td>
+                                    <td style="text-align:center;">{캠페인명}</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-status-chip send-status-chip--fail">발송실패</span>
+                                    </td>
+                                </tr>
 
-                            <!-- 결제 및 환불안내 -->
-                            <div class="credit-charge-notice">
-                                <p class="credit-charge-notice__title">결제 및 환불안내</p>
-                                <ul class="credit-charge-notice__list">
-                                    <li>· 크레딧 유효기간은 결제일 기준 1년이며, 유효기간 만료될 경우 자동 소멸됩니다.</li>
-                                    <li>· 크레딧은 10,000원 단위로 충전 가능합니다. (VAT 별도)</li>
-                                    <li>· 크레딧 환불은 <strong>[서비스 이용약관]</strong> 위치 확인해주세요.</li>
-                                    <li>· 크레딧 충전 관련하여 기타 문의나 요청이 있으실 경우 아래로 1:1문의로 연락해주세요.</li>
-                                </ul>
-                            </div>
+                                <tr>
+                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-type-chip"><img src="../../../images/Ico_16px_table_talk.svg" width="14" height="14" alt="">알림톡</span>
+                                    </td>
+                                    <td style="text-align:center;"><a href="#" style="color:var(--color-blue); text-decoration:underline;">000</a></td>
+                                    <td style="text-align:center;">{캠페인명}</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-status-chip send-status-chip--pending">발송대기</span>
+                                    </td>
+                                </tr>
 
-                        </div>
+                                <tr>
+                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-type-chip"><img src="../../../images/Ico_16px_table_mail.svg" width="14" height="14" alt="">이메일</span>
+                                    </td>
+                                    <td style="text-align:center;"><a href="#" style="color:var(--color-blue); text-decoration:underline;">0,000</a></td>
+                                    <td style="text-align:center;">{캠페인명}</td>
+                                    <td style="text-align:center;">
+                                        <span class="send-status-chip send-status-chip--success">수신완료</span>
+                                    </td>
+                                </tr>
 
-                        <!-- 결제하기 (카드 없음 - 빈 상태) -->
-                        <div class="list-panel" style="margin-top:16px;">
-                            <h2 class="panel-title">결제하기</h2>
+                            </tbody>
+                        </table>
+                    </div>
 
-                            <div class="payment-empty">
-                                <img src="../../../images/ico-20px-noting.svg" width="16" height="16" alt="">
-                                <span>등록된 카드가 없습니다</span>
-                            </div>
-
-                        </div>
+                    <!-- 페이지네이션 -->
+                    <div class="pagination" style="padding: 20px 0 4px;">
+                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
+                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                        <button class="pagination__btn active">1</button>
+                        <button class="pagination__btn">2</button>
+                        <button class="pagination__btn">3</button>
+                        <button class="pagination__btn">4</button>
+                        <button class="pagination__btn">5</button>
+                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+                        <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
                     </div>
 
                 </div>
@@ -392,11 +422,6 @@
     </div>
 
 <script>
-    function selectOption(btn) {
-        document.querySelectorAll('.credit-option').forEach(el => el.classList.remove('credit-option--active'));
-        btn.classList.add('credit-option--active');
-    }
-
     function toggleProfileMenu(e) {
         e.stopPropagation();
         document.getElementById('headerUserMenu').classList.toggle('open');
@@ -420,21 +445,11 @@
     });
 </script>
 
-    <!-- 크레딧 충전 진행 확인 모달 -->
-    <div class="c-modal-overlay" id="creditChargeConfirmModal" style="display:none;">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">크레딧 충전을 진행하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border">취소</button>
-                <button type="button" class="btn lg primary">확인</button>
-            </div>
-        </div>
-    </div>
+        <!-- 고정 메모 버튼 -->
+        <button class="c-fab">
+            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
+            <span class="c-fab__text">메모</span>
+        </button>
 
 </body>
 </html>

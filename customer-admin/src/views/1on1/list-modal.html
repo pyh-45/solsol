@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의종료 변경 모달</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body style="background:#888;">
+
+<div class="c-modal-overlay" style="gap:30px;">
+
+    <!-- alert 1: 변경 확인 (취소/확인) -->
+    <div class="c-modal">
+        <div class="c-modal__content">
+            <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                <img src="../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+            </div>
+            <p class="c-modal__desc">선택한 {n}개의<br>답변상태를 문의종료로 변경하시겠어요?</p>
+        </div>
+        <div class="c-modal__footer c-modal__footer--split">
+            <button type="button" class="btn lg border">취소</button>
+            <button type="button" class="btn lg primary">확인</button>
+        </div>
+    </div>
+
+    <!-- alert 2: 변경 완료 -->
+    <div class="c-modal">
+        <div class="c-modal__content">
+            <div class="c-modal__icon-wrap">
+                <img src="../../images/ico-modal-success.svg" width="36" height="36" alt="">
+            </div>
+            <p class="c-modal__desc">{n}개 답변상태가 문의종료로 변경되었습니다.</p>
+        </div>
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg primary" style="width:100%;">확인</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

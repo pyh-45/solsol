@@ -15,6 +15,10 @@
         .auth-logo { text-align: center; font-size: 24px; padding: 30px 0; font-weight: 900; letter-spacing: -0.24px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .auth-divider { border: none; border-top: 1px solid #EAEAEA; margin: 0; }
 
+        /* 이메일 타이틀 영역 */
+        .email-title-bg { position: relative; height: 120px; background-color: #4FC0FC; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 24px; font-weight: 800; letter-spacing: -0.24px; overflow: hidden; }
+        .email-title-bg__deco { position: absolute; right: 0; top: 0; height: 100%; width: auto; opacity: 0.1; pointer-events: none; }
+
         /* 버튼 */
         .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 40px; padding: 0 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; border: 1px solid transparent; white-space: nowrap; letter-spacing: -0.02em; text-decoration: none; }
         .btn.big { min-width: 360px; height: 52px; padding: 0 28px; font-size: 16px; font-weight: 600; color: #fff; border-radius: 6px; background-color: #4FC0FC; }
@@ -63,9 +67,10 @@
 <div class="email-wrap">
     <div class="email-container">
 
-        <!-- 1. 로고 영역 -->
-        <div class="email-section">
-            <div class="auth-logo">DJ테크트리</div>
+        <!-- 1. 이메일 타이틀 -->
+        <div class="email-title-bg">
+            <span>DJ테크트리</span>
+            <img class="email-title-bg__deco" src="../../images/email-top-bg.png" alt="">
         </div>
 
         <!-- 2. 제목 + 안내텍스트 영역 -->
