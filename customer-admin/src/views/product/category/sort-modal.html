@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 정렬 설정</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">상품 정렬 설정</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content c-modal__content--pb10 completion-modal__body" style="gap:30px;">
+
+            <table class="modal-info-table">
+                <tbody>
+                    <tr>
+                        <th>카테고리명</th>
+                        <td>
+                            <span class="modal-info-table__highlight">포토샵</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>정렬순서</th>
+                        <td>
+                            <div class="c-dropdown">
+                                <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">직접 설정순</span>
+                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel">
+                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">등록 최신순</button>
+                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">등록 오래된순</button>
+                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">평점 높은순</button>
+                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">평점 낮은순</button>
+                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">금액 높은순</button>
+                                    <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">직접 설정순</button>
+                                </div>
+                            </div>
+                            <p class="modal-info-table__hint">선택한 정렬 방식은 상위 카테고리 기준으로 적용됩니다.<br>직접 설정 선택 시 상품 정렬을 개별적으로 지정할 수 있습니다. <a href="#" class="admin-infotip__link">가이드보기</a></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div>
+            <h4 class="tutor-pick-list__title">상품 목록</h4>
+
+            <!-- 상품 목록 -->
+            <div class="modal-table-wrap">
+            <table class="modal-table">
+                <colgroup>
+                    <col>
+                    <col style="width:120px;">
+                    <col style="width:100px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>상품명</th>
+                        <th>공개여부</th>
+                        <th>판매상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--partial"><img src="../../../images/ico-badge-piece.svg" alt="">일부공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--green">공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--neutral">비공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--closed">판매마감</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--green">공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--partial"><img src="../../../images/ico-badge-piece.svg" alt="">일부공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--closed">판매마감</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--neutral">비공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--green">공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--closed">판매마감</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <button class="row-drag" aria-label="드래그"><img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt=""></button>
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>기초부터 배우는 포토샵 디자인 클래스</span>
+                            </div>
+                        </td>
+                        <td><span class="status-chip status-chip--partial"><img src="../../../images/ico-badge-piece.svg" alt="">일부공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg" style="width:100%;">확인</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+</script>
+
+</body>
+</html>
