@@ -266,9 +266,9 @@
 
                 <!-- 주문 정보 -->
                 <div class="list-panel list-panel--p30">
-                    <div class="panel-section-title" style="display:flex; align-items:center; justify-content:space-between;">
+                    <div class="panel-section-title panel-section-title--with-action">
                         <span>주문 정보</span>
-                        <div class="c-dropdown" style="font-size:13px; font-weight:400;">
+                        <div class="c-dropdown c-dropdown--ghost" style="font-size:13px; font-weight:400;">
                             <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
                                 <span class="c-dropdown__label">환불 상태 변경</span>
                                 <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
@@ -282,13 +282,15 @@
                     </div>
 
                     <!-- 주문번호 검색 -->
-                    <div class="detail-form__field detail-form__field--full" style="margin-bottom:20px;">
-                        <span class="detail-form__label">주문번호 <span class="auth-required">*</span></span>
-                        <div class="tutor-search">
-                            <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
-                            <input type="text" class="tutor-search__input" placeholder="주문번호를 검색해 주세요.">
+                    <div class="detail-form__grid detail-form__grid--1col detail-form__grid--mb20">
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">주문번호 <span class="auth-required">*</span></span>
+                            <div class="tutor-search">
+                                <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                                <input type="text" class="tutor-search__input" placeholder="주문번호를 검색해 주세요.">
+                            </div>
+                            <p style="margin:8px 0 0; font-size:13px; color:var(--color-red); font-weight:500;">디지털 상품은 환불이 어렵습니다.</p>
                         </div>
-                        <p style="margin:8px 0 0; font-size:13px; color:var(--color-red); font-weight:500;">디지털 상품은 환불이 어렵습니다.</p>
                     </div>
 
                     <!-- 상품 카드 -->
@@ -306,7 +308,7 @@
                     </div>
 
                     <!-- 상세 정보 (3열 그리드) -->
-                    <div class="detail-form__grid" style="grid-template-columns:1fr 1fr 1fr; margin-top:24px;">
+                    <div class="detail-form__grid detail-form__grid--3col">
                         <div class="detail-form__field">
                             <span class="detail-form__label">주문번호</span>
                             <span class="detail-form__text">{주문번호}</span>
@@ -360,7 +362,7 @@
                 <div class="list-panel list-panel--p30">
                     <h3 class="panel-section-title">구독 정보</h3>
 
-                    <div class="detail-form__grid" style="grid-template-columns:1fr 1fr 1fr;">
+                    <div class="detail-form__grid detail-form__grid--3col">
                         <div class="detail-form__field">
                             <span class="detail-form__label">구독 커뮤니티명</span>
                             <span class="detail-form__text">{커뮤니티명}</span>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap - 페이지 목록</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; color: #222; background: #F4F5F7; padding: 40px 20px; }
+        .wrap { max-width: 1200px; margin: 0 auto; }
+        h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .desc { color: #666; margin-bottom: 24px; }
+        .toc { background: #fff; border-radius: 8px; padding: 16px 24px; margin-bottom: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 8px 16px; }
+        .toc a { color: #027CFA; text-decoration: none; font-weight: 500; font-size: 13px; }
+        .toc a:hover { text-decoration: underline; }
+        section { background: #fff; border-radius: 8px; padding: 24px 30px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #4FC0FC; color: #222; }
+        h2 .count { font-size: 12px; font-weight: 400; color: #888; margin-left: 8px; }
+        .page-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 24px; }
+        .page-list li { display: flex; align-items: baseline; gap: 8px; padding: 6px 0; border-bottom: 1px dashed #EAEAEA; }
+        .page-list .title { font-weight: 600; color: #222; flex-shrink: 0; min-width: 220px; }
+        .page-list .link { color: #888; font-size: 12px; word-break: break-all; }
+        .page-list .link a { color: #027CFA; text-decoration: none; }
+        .page-list .link a:hover { text-decoration: underline; }
+        .modal-tag { display: inline-block; padding: 2px 6px; font-size: 10px; background: #FFF4BC; color: #FF7700; border-radius: 4px; margin-left: 6px; }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>📄 Customer Admin Sitemap</h1>
+    <p class="desc">customer-admin 내 모든 페이지 목록 (총 <strong>111</strong>건). 링크는 Live Server (포트 5501) 기준입니다.</p>
+
+    <nav class="toc">
+        <strong>바로가기:</strong>
+        <a href="#home">홈/대시보드</a>
+        <a href="#my">내정보</a>
+        <a href="#1on1">1:1 문의</a>
+        <a href="#user">학습자</a>
+        <a href="#tutor">강사</a>
+        <a href="#admin">관리자(운영자)</a>
+        <a href="#product">상품</a>
+        <a href="#contents">콘텐츠</a>
+        <a href="#sales">판매</a>
+        <a href="#settlement">크레딧</a>
+        <a href="#setting">설정</a>
+        <a href="#auth">인증</a>
+        <a href="#email">이메일</a>
+        <a href="#styleguide">스타일가이드</a>
+    </nav>
+
+    <!-- 홈 -->
+    <section id="home">
+        <h2>🏠 홈/대시보드 <span class="count">3개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">대시보드</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/home.html" target="_blank">home.html</a></span></li>
+            <li><span class="title">알림센터</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/home/inbox.html" target="_blank">home/inbox.html</a></span></li>
+            <li><span class="title">간단 메모<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/home/memo-modal.html" target="_blank">home/memo-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 내정보 -->
+    <section id="my">
+        <h2>👤 내정보 <span class="count">2개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">내정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/my/profile.html" target="_blank">my/profile.html</a></span></li>
+            <li><span class="title">프로필 설정<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/my/profile-modal.html" target="_blank">my/profile-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 1:1 문의 -->
+    <section id="1on1">
+        <h2>💬 1:1 문의 <span class="count">5개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">1:1 문의 관리</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/1on1/list.html" target="_blank">1on1/list.html</a></span></li>
+            <li><span class="title">1:1 문의 상세</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/1on1/detail.html" target="_blank">1on1/detail.html</a></span></li>
+            <li><span class="title">1:1 문의 수정</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/1on1/edit.html" target="_blank">1on1/edit.html</a></span></li>
+            <li><span class="title">답변상태 변경<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/1on1/detail-modal.html" target="_blank">1on1/detail-modal.html</a></span></li>
+            <li><span class="title">문의종료 변경<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/1on1/list-modal.html" target="_blank">1on1/list-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 학습자 -->
+    <section id="user">
+        <h2>🎓 학습자 <span class="count">7개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">학습자 목록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/user/list.html" target="_blank">account/user/list.html</a></span></li>
+            <li><span class="title">기본 정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/user/detail-basic.html" target="_blank">account/user/detail-basic.html</a></span></li>
+            <li><span class="title">학습 이력</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/user/detail-learning-history.html" target="_blank">account/user/detail-learning-history.html</a></span></li>
+            <li><span class="title">구매 이력</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/user/detail-order-history.html" target="_blank">account/user/detail-order-history.html</a></span></li>
+            <li><span class="title">활동 로그</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/user/detail-activity-log.html" target="_blank">account/user/detail-activity-log.html</a></span></li>
+            <li><span class="title">발송 이력</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/user/detail-notification-log.html" target="_blank">account/user/detail-notification-log.html</a></span></li>
+            <li><span class="title">수료여부 변경<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/user/course-completion-set-modal.html" target="_blank">account/user/course-completion-set-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 강사 -->
+    <section id="tutor">
+        <h2>🧑‍🏫 강사 <span class="count">11개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">강사 목록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/list.html" target="_blank">account/tutor/list.html</a></span></li>
+            <li><span class="title">기본 정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/detail-basic.html" target="_blank">account/tutor/detail-basic.html</a></span></li>
+            <li><span class="title">강사 정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/detail-profile.html" target="_blank">account/tutor/detail-profile.html</a></span></li>
+            <li><span class="title">정산 정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/detail-settlement.html" target="_blank">account/tutor/detail-settlement.html</a></span></li>
+            <li><span class="title">강의 이력</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/detail-teacher-history.html" target="_blank">account/tutor/detail-teacher-history.html</a></span></li>
+            <li><span class="title">활동 로그</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/detail-activity-log.html" target="_blank">account/tutor/detail-activity-log.html</a></span></li>
+            <li><span class="title">강사 초대하기<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/invitation-modal.html" target="_blank">account/tutor/invitation-modal.html</a></span></li>
+            <li><span class="title">강사 초대 (이메일 태그)<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/invitation-modal-sent.html" target="_blank">account/tutor/invitation-modal-sent.html</a></span></li>
+            <li><span class="title">강사 초대 (오류)<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/invitation-modal-validation.html" target="_blank">account/tutor/invitation-modal-validation.html</a></span></li>
+            <li><span class="title">강사 선택/권한 설정<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/tutor-select-modal.html" target="_blank">account/tutor/tutor-select-modal.html</a></span></li>
+            <li><span class="title">수강자수<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/tutor/course-student-modal.html" target="_blank">account/tutor/course-student-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 관리자 -->
+    <section id="admin">
+        <h2>👔 관리자(운영자) <span class="count">8개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">관리자 목록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/list.html" target="_blank">account/admin/list.html</a></span></li>
+            <li><span class="title">기본 정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/detail-basic.html" target="_blank">account/admin/detail-basic.html</a></span></li>
+            <li><span class="title">지급 정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/detail-settlement.html" target="_blank">account/admin/detail-settlement.html</a></span></li>
+            <li><span class="title">활동 로그</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/detail-activity-log.html" target="_blank">account/admin/detail-activity-log.html</a></span></li>
+            <li><span class="title">발송 이력</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/detail-notification-log.html" target="_blank">account/admin/detail-notification-log.html</a></span></li>
+            <li><span class="title">관리자 초대하기<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/invitation-modal.html" target="_blank">account/admin/invitation-modal.html</a></span></li>
+            <li><span class="title">관리자 초대 (오류)<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/invitation-modal-validation.html" target="_blank">account/admin/invitation-modal-validation.html</a></span></li>
+            <li><span class="title">관리자 선택/권한 설정<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/account/admin/admin-select-modal.html" target="_blank">account/admin/admin-select-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 상품 -->
+    <section id="product">
+        <h2>🛍 상품 관리 <span class="count">13개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">일반강의</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/course/list.html" target="_blank">product/course/list.html</a></span></li>
+            <li><span class="title">카테고리 선택<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/course/list-category-modal.html" target="_blank">product/course/list-category-modal.html</a></span></li>
+            <li><span class="title">카테고리 이동<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/course/list-category-move-modal.html" target="_blank">product/course/list-category-move-modal.html</a></span></li>
+            <li><span class="title">상품 복사<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/course/list-copy-modal.html" target="_blank">product/course/list-copy-modal.html</a></span></li>
+            <li><span class="title">라이브강의</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/live/list.html" target="_blank">product/live/list.html</a></span></li>
+            <li><span class="title">화상강의</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/meeting/list.html" target="_blank">product/meeting/list.html</a></span></li>
+            <li><span class="title">디지털 상품</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/digital/list.html" target="_blank">product/digital/list.html</a></span></li>
+            <li><span class="title">패키지 상품</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/package/list.html" target="_blank">product/package/list.html</a></span></li>
+            <li><span class="title">멤버십</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/plan/list.html" target="_blank">product/plan/list.html</a></span></li>
+            <li><span class="title">멤버십 - 구독자 정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/plan/subscriber.html" target="_blank">product/plan/subscriber.html</a></span></li>
+            <li><span class="title">프리미엄 커뮤니티</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/community/list.html" target="_blank">product/community/list.html</a></span></li>
+            <li><span class="title">카테고리 관리</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/category/index.html" target="_blank">product/category/index.html</a></span></li>
+            <li><span class="title">상품 정렬 설정<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/product/category/sort-modal.html" target="_blank">product/category/sort-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 콘텐츠 -->
+    <section id="contents">
+        <h2>📦 콘텐츠 라이브러리 <span class="count">22개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">콘텐츠 라이브러리</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/list.html" target="_blank">contents/library/list.html</a></span></li>
+            <li><span class="title">폴더 관리</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/folder/list.html" target="_blank">contents/library/folder/list.html</a></span></li>
+            <li><span class="title">콘텐츠 등록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/contents-add.html" target="_blank">contents/library/contents-add.html</a></span></li>
+            <li><span class="title">콘텐츠 등록 (업로드 중)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/contents-add-ing.html" target="_blank">contents/library/contents-add-ing.html</a></span></li>
+            <li><span class="title">콘텐츠 등록 (업로드 완료)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/contents-add-uploaded.html" target="_blank">contents/library/contents-add-uploaded.html</a></span></li>
+            <li><span class="title">콘텐츠 상세</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-basic.html" target="_blank">contents/library/detail-basic.html</a></span></li>
+            <li><span class="title">사용 현황</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-usage.html" target="_blank">contents/library/detail-usage.html</a></span></li>
+            <li><span class="title">AI 튜터</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-tutor.html" target="_blank">contents/library/detail-ai-tutor.html</a></span></li>
+            <li><span class="title">AI 튜터 생성</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-tutor-create.html" target="_blank">contents/library/detail-ai-tutor-create.html</a></span></li>
+            <li><span class="title">AI 튜터 재생성</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-tutor-recreate.html" target="_blank">contents/library/detail-ai-tutor-recreate.html</a></span></li>
+            <li><span class="title">AI 튜터 (생성 완료 후)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-tutor-after.html" target="_blank">contents/library/detail-ai-tutor-after.html</a></span></li>
+            <li><span class="title">AI 튜터 수정</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-tutor-edit.html" target="_blank">contents/library/detail-ai-tutor-edit.html</a></span></li>
+            <li><span class="title">자막 편집</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-tutor-caption.html" target="_blank">contents/library/detail-ai-tutor-caption.html</a></span></li>
+            <li><span class="title">AI 번역</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-translation.html" target="_blank">contents/library/detail-ai-translation.html</a></span></li>
+            <li><span class="title">AI 번역 생성</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-translation-create.html" target="_blank">contents/library/detail-ai-translation-create.html</a></span></li>
+            <li><span class="title">AI 번역 재생성</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-translation-recreate.html" target="_blank">contents/library/detail-ai-translation-recreate.html</a></span></li>
+            <li><span class="title">AI 번역 (생성 완료 후)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-translation-after.html" target="_blank">contents/library/detail-ai-translation-after.html</a></span></li>
+            <li><span class="title">AI 튜터 생성 완료<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-tutor-complete-modal.html" target="_blank">contents/library/detail-ai-tutor-complete-modal.html</a></span></li>
+            <li><span class="title">AI 번역 생성 완료<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-translation-complete-modal.html" target="_blank">contents/library/detail-ai-translation-complete-modal.html</a></span></li>
+            <li><span class="title">언어 선택<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/detail-ai-translation-language-modal.html" target="_blank">contents/library/detail-ai-translation-language-modal.html</a></span></li>
+            <li><span class="title">콘텐츠 폴더 이동<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/list-folder-move-modal.html" target="_blank">contents/library/list-folder-move-modal.html</a></span></li>
+            <li><span class="title">폴더 선택<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/contents/library/add-folder-modal.html" target="_blank">contents/library/add-folder-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 판매 -->
+    <section id="sales">
+        <h2>🛒 판매 관리 <span class="count">10개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">주문 목록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/order/list.html" target="_blank">sales/order/list.html</a></span></li>
+            <li><span class="title">주문 상세</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/order/detail.html" target="_blank">sales/order/detail.html</a></span></li>
+            <li><span class="title">쿠폰 목록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/coupon/list.html" target="_blank">sales/coupon/list.html</a></span></li>
+            <li><span class="title">쿠폰 등록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/coupon/add.html" target="_blank">sales/coupon/add.html</a></span></li>
+            <li><span class="title">쿠폰 수정</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/coupon/edit.html" target="_blank">sales/coupon/edit.html</a></span></li>
+            <li><span class="title">수신자 그룹 선택<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/coupon/edit-target-modal.html" target="_blank">sales/coupon/edit-target-modal.html</a></span></li>
+            <li><span class="title">환불 목록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/refund/list.html" target="_blank">sales/refund/list.html</a></span></li>
+            <li><span class="title">환불 상세 (강의)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/refund/detail-course.html" target="_blank">sales/refund/detail-course.html</a></span></li>
+            <li><span class="title">환불 상세 (라이브강의)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/refund/detail-live.html" target="_blank">sales/refund/detail-live.html</a></span></li>
+            <li><span class="title">환불 상세 (멤버십)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/refund/detail-membership.html" target="_blank">sales/refund/detail-membership.html</a></span></li>
+            <li><span class="title">환불 상세 (커뮤니티)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/sales/refund/detail-community.html" target="_blank">sales/refund/detail-community.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 크레딧/정산 -->
+    <section id="settlement">
+        <h2>💳 크레딧 관리 <span class="count">6개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">크레딧 관리</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/settlement/credit/list.html" target="_blank">settlement/credit/list.html</a></span></li>
+            <li><span class="title">크레딧 충전</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/settlement/credit/add.html" target="_blank">settlement/credit/add.html</a></span></li>
+            <li><span class="title">크레딧 결제 완료<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/settlement/credit/add-success.html" target="_blank">settlement/credit/add-success.html</a></span></li>
+            <li><span class="title">크레딧 결제 실패<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/settlement/credit/add-fail.html" target="_blank">settlement/credit/add-fail.html</a></span></li>
+            <li><span class="title">크레딧 상세내용<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/settlement/credit/detail-modal.html" target="_blank">settlement/credit/detail-modal.html</a></span></li>
+            <li><span class="title">영수증<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/settlement/credit/bill-modal.html" target="_blank">settlement/credit/bill-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 설정 -->
+    <section id="setting">
+        <h2>⚙️ 설정 <span class="count">10개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">기본정보</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/basic/index.html" target="_blank">setting/basic/index.html</a></span></li>
+            <li><span class="title">플레이어</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/player/index.html" target="_blank">setting/player/index.html</a></span></li>
+            <li><span class="title">수료증 템플릿 관리</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/certificate/list.html" target="_blank">setting/certificate/list.html</a></span></li>
+            <li><span class="title">수료증 템플릿 상세</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/certificate/detail-template.html" target="_blank">setting/certificate/detail-template.html</a></span></li>
+            <li><span class="title">수료증 템플릿 상세 (사용중인 상품)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/certificate/detail-product.html" target="_blank">setting/certificate/detail-product.html</a></span></li>
+            <li><span class="title">학습자 알림</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/learner-notification/index.html" target="_blank">setting/learner-notification/index.html</a></span></li>
+            <li><span class="title">공지 목록</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/notice/list.html" target="_blank">setting/notice/list.html</a></span></li>
+            <li><span class="title">공지 상세</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/notice/detail.html" target="_blank">setting/notice/detail.html</a></span></li>
+            <li><span class="title">공지 글쓰기</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/notice/add.html" target="_blank">setting/notice/add.html</a></span></li>
+            <li><span class="title">공지 수정</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/setting/notice/edit.html" target="_blank">setting/notice/edit.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 인증 -->
+    <section id="auth">
+        <h2>🔐 인증 <span class="count">7개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">로그인</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/login.html" target="_blank">auth/login.html</a></span></li>
+            <li><span class="title">로그인 (로고형)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/login-logo.html" target="_blank">auth/login-logo.html</a></span></li>
+            <li><span class="title">회원가입</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/signup.html" target="_blank">auth/signup.html</a></span></li>
+            <li><span class="title">회원가입 (검증)</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/signup-validation.html" target="_blank">auth/signup-validation.html</a></span></li>
+            <li><span class="title">비밀번호 재설정</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/password-forgot.html" target="_blank">auth/password-forgot.html</a></span></li>
+            <li><span class="title">인증 메일 발송</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/password-forgot-email.html" target="_blank">auth/password-forgot-email.html</a></span></li>
+            <li><span class="title">비밀번호 설정</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/password-reset.html" target="_blank">auth/password-reset.html</a></span></li>
+            <li><span class="title">비밀번호 변경 완료<span class="modal-tag">MODAL</span></span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/auth/password-reset-modal.html" target="_blank">auth/password-reset-modal.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 이메일 -->
+    <section id="email">
+        <h2>📧 이메일 템플릿 <span class="count">4개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">관리자 초대 메일</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/email/invite-admin.html" target="_blank">email/invite-admin.html</a></span></li>
+            <li><span class="title">강사 초대 메일</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/email/invite-tutor.html" target="_blank">email/invite-tutor.html</a></span></li>
+            <li><span class="title">인증코드 발송 메일</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/email/signup-verification.html" target="_blank">email/signup-verification.html</a></span></li>
+            <li><span class="title">비밀번호 재설정 인증 메일</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/email/password-reset-verification.html" target="_blank">email/password-reset-verification.html</a></span></li>
+        </ul>
+    </section>
+
+    <!-- 스타일가이드 -->
+    <section id="styleguide">
+        <h2>🎨 스타일가이드 <span class="count">5개</span></h2>
+        <ul class="page-list">
+            <li><span class="title">Style Guide</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/styleguide/index.html" target="_blank">styleguide/index.html</a></span></li>
+            <li><span class="title">Style Guide - Badges &amp; Status Chips</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/styleguide/badge.html" target="_blank">styleguide/badge.html</a></span></li>
+            <li><span class="title">Style Guide - Data Table</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/styleguide/table.html" target="_blank">styleguide/table.html</a></span></li>
+            <li><span class="title">Style Guide - Alert Box</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/styleguide/alert.html" target="_blank">styleguide/alert.html</a></span></li>
+            <li><span class="title">Modal Style Guide</span><span class="link"><a href="http://127.0.0.1:5501/customer-admin/src/views/styleguide/popup.html" target="_blank">styleguide/popup.html</a></span></li>
+        </ul>
+    </section>
+
+</div>
+
+</body>
+</html>
