@@ -350,6 +350,40 @@
 
     </div>
 
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 1. 콘텐츠 삭제 확인 (error + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-content-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">콘텐츠를 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-content-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button class="btn lg" onclick="document.getElementById('modal-content-delete-confirm').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 업로드 시작 확인 (error + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-upload-start-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">업로드가 완료될 때까지 추가 파일 업로드가 제한됩니다<br>콘텐츠 업로드를 시작하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-upload-start-confirm').classList.add('is-hidden')">취소</button>
+                <button class="btn lg" onclick="document.getElementById('modal-upload-start-confirm').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
 <script>
     function toggleProfileMenu(e) {
         e.stopPropagation();

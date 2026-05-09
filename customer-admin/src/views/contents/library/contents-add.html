@@ -328,6 +328,39 @@
 
     </div>
 
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 1. 유튜브 링크 검증 (notice) -->
+    <div class="c-modal-overlay is-hidden" id="modal-youtube-invalid">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">유효한 유튜브 링크를 입력해 주세요</p>
+            </div>
+            <div class="c-modal__footer">
+                <button class="btn lg" onclick="document.getElementById('modal-youtube-invalid').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 저장 용량 초과 (error + sub) -->
+    <div class="c-modal-overlay is-hidden" id="modal-storage-exceeded">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">콘텐츠 저장 용량을 초과했습니다.</p>
+                <p class="c-modal__desc-sub">불필요한 콘텐츠를 정리하거나 플랜 업그레이드를 통해 용량을 확장할 수 있습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button class="btn lg" onclick="document.getElementById('modal-storage-exceeded').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
 <script>
     function toggleProfileMenu(e) {
         e.stopPropagation();

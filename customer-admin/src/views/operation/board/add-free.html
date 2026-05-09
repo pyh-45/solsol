@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 활동 로그 (관리자)</title>
+    <title>Admin - 게시판 생성 (자유게시판)</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <button class="admin-header__back">
                     <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
                 </button>
-                <span class="admin-header__page-title">상세페이지</span>
+                <span class="admin-header__page-title">게시판 생성</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -95,7 +95,7 @@
                     대시보드
                 </a>
 
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
                         <span class="lnb-accordion__label">사용자</span>
@@ -104,7 +104,7 @@
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">학습자</a>
                         <a href="#" class="lnb-sub-item">강사</a>
-                        <a href="#" class="lnb-sub-item active">관리자</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
                     </div>
                 </div>
 
@@ -149,14 +149,14 @@
                     </div>
                 </div>
 
-                <div class="lnb-accordion">
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
                         <span class="lnb-accordion__label">운영관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item active">게시판</a>
                         <a href="#" class="lnb-sub-item">팝업메뉴</a>
                     </div>
                 </div>
@@ -254,163 +254,119 @@
                 <!-- 인포 박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">활동 로그는 각 메뉴별 운영자의 행위 항목이 노출됩니다.</span>
+                    <span class="admin-infotip__text">게시판은 생성 즉시 사이트에 노출되지 않습니다. <strong>사이트 &gt; 메뉴</strong> 에서 활성화 후 노출할 수 있습니다.</span>
                 </div>
 
-                <!-- 프로필 박스 -->
-                <div class="detail-profile">
-                    <div class="detail-profile__top">
-                        <div class="c-avatar80 learner"></div>
-                        <div class="detail-profile__body">
-                            <div class="detail-profile__name-row">
-                                <span class="detail-profile__name">닉네임(홍길동)</span>
-                                <span class="profile-badge profile-badge--verify">인증</span>
-                                <span class="profile-badge profile-badge--active">활성</span>
-                            </div>
-                            <p class="detail-profile__email">minjun.kim@example.com</p>
-                            <div class="detail-profile__meta">
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-user.svg" width="16" height="16" alt="">
-                                    가입일 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-logininfo.svg" width="16" height="16" alt="">
-                                    마지막 로그인 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-teacher.svg" width="16" height="16" alt="">
-                                    권한수 : <a href="#" class="detail-profile__meta-value" style="color:var(--color-blue); text-decoration:underline;">0개</a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                <!-- 상단 액션바 -->
+                <div class="admin-action-bar">
+                    <button class="btn lg dark btn--icon">
+                        <img src="../../../images/ico-16px-plus03.svg" width="16" height="16" alt="">
+                        게시판 생성
+                    </button>
                 </div>
 
-                <!-- 탭 메뉴 -->
-                <nav class="detail-tab">
-                    <button class="detail-tab__item">기본 정보</button>
-                    <button class="detail-tab__item">지급 정보</button>
-                    <button class="detail-tab__item active">활동 로그</button>
-                    <button class="detail-tab__item">발송 이력</button>
-                </nav>
-
-                <!-- 활동 로그 테이블 -->
-                <div class="list-panel">
-                    <div class="list-panel__header list-panel__header--tab">
-                        <span class="list-panel__title">활동 로그</span>
-                    </div>
-
-                    <div class="admin-table-wrap">
-                        <table class="tab-table">
-                            <thead>
-                                <tr>
-                                    <th style="width:150px;padding:0;">
-                                        <div class="c-dropdown c-dropdown--full-border">
-                                            <button class="c-dropdown__trigger" style="border:none;" onclick="toggleDropdown(this)">
-                                                <span class="c-dropdown__label">로그명</span>
-                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                            </button>
-                                            <div class="c-dropdown__panel">
-                                                <button class="c-dropdown__item active" onclick="selectItem(this)">관리자 접속</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">사용자</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">상품 관리</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">콘텐츠 관리</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">판매 관리</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">글작성</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">마케팅 지원</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">사이트 관리</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">매출 · 정산</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">메모</button>
-                                                <button class="c-dropdown__item" onclick="selectItem(this)">시스템</button>
-                                            </div>
+                <!-- 게시판 정보 패널 -->
+                <div class="list-panel list-panel--flush">
+                    <h3 class="list-panel__title">게시판 정보</h3>
+                    <table class="setting-table">
+                        <tbody>
+                            <tr>
+                                <th>게시판 유형</th>
+                                <td>
+                                    <div class="c-dropdown" style="max-width:340px;">
+                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">자유게시판</span>
+                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">공지사항</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">FAQ</button>
+                                            <button class="c-dropdown__item active" onclick="selectItem(this)">자유게시판</button>
                                         </div>
-                                    </th>
-                                    <th>설명</th>
-                                    <th style="min-width:160px; text-align:center;">일시</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-                                    <td class="td-log-name">관리자 접속</td>
-                                    <td class="td-log-desc"><strong>{닉네임}</strong> 님이 <strong>로그인</strong> 하였습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">사용자</td>
-                                    <td class="td-log-desc"><strong>[닉네임](홍길동)</strong> 님을 <strong>중지</strong> 하였습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">상품관리</td>
-                                    <td class="td-log-desc"><strong>{상품명}</strong>을 '카테고리1'에서 '카테고리 2'로 <strong>카테고리 이동</strong> 하였습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">콘텐츠 관리</td>
-                                    <td class="td-log-desc"><strong>{콘텐츠명}</strong>이 <strong>업로드</strong> 되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">판매 관리</td>
-                                    <td class="td-log-desc"><strong>{상품명}</strong>이 <strong>환불접수</strong> 되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">글작성</td>
-                                    <td class="td-log-desc">'아아한잔' 프리미엄 커뮤니티에 <strong>{제목}</strong>이 <strong>작성</strong>되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">마케팅 지원</td>
-                                    <td class="td-log-desc">캠페인 <strong>'여름휴가 자기계발 패키지'</strong> 가 <strong>생성</strong>되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">사이트 관리</td>
-                                    <td class="td-log-desc">페이지 <strong>{페이지명}</strong>이 <strong>비공개</strong> 되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">매출·정산</td>
-                                    <td class="td-log-desc"><strong>{부가세 신고자료명}</strong>을 <strong>다운로드</strong> 하였습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">메모</td>
-                                    <td class="td-log-desc">{메뉴명} 위치에서 {학습자}에 대한 메모를 작성하였습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="td-log-name">시스템</td>
-                                    <td class="td-log-desc"><strong>계정</strong>이 <strong>생성</strong>되었습니다.</td>
-                                    <td class="td-log-date">2000.00.00 오전/오후 00:00</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-
+                                    </div>
+                                    <span class="setting-table__desc">게시판 생성 후에는 타입을 변경할 수 없습니다. <a href="#" class="guide-link">가이드보기</a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>게시판명</th>
+                                <td>
+                                    <div class="setting-table__input-count-wrap">
+                                        <input type="text" class="setting-table__input" placeholder="게시판명을 입력해주세요." maxlength="20">
+                                        <span class="setting-table__count"><strong>0</strong>/20</span>
+                                    </div>
+                                    <span class="setting-table__desc">동일한 게시판명은 사용할 수 없습니다. 예) 자유게시판, 공지사항</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>권한 설정</th>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:24px;">
+                                        <span style="font-size:14px; color:var(--color-textgray); min-width:60px;">글 읽기</span>
+                                        <label class="c-radio">
+                                            <input type="radio" name="readPermission">
+                                            <span>모든 사용자</span>
+                                        </label>
+                                        <label class="c-radio">
+                                            <input type="radio" name="readPermission" checked>
+                                            <span>사이트 회원</span>
+                                        </label>
+                                        <label class="c-radio">
+                                            <input type="radio" name="readPermission">
+                                            <span>관리자</span>
+                                        </label>
+                                    </div>
+                                    <div style="display:flex; align-items:center; gap:24px; margin-top:16px;">
+                                        <span style="font-size:14px; color:var(--color-textgray); min-width:60px;">글 쓰기</span>
+                                        <label class="c-radio">
+                                            <input type="radio" name="writePermission" checked>
+                                            <span>사이트 회원</span>
+                                        </label>
+                                        <label class="c-radio">
+                                            <input type="radio" name="writePermission">
+                                            <span>관리자</span>
+                                        </label>
+                                    </div>
+                                    <div style="display:flex; align-items:center; gap:24px; margin-top:16px;">
+                                        <span style="font-size:14px; color:var(--color-textgray); min-width:60px;">댓글 쓰기</span>
+                                        <label class="c-radio">
+                                            <input type="radio" name="commentPermission" checked>
+                                            <span>사이트 회원</span>
+                                        </label>
+                                        <label class="c-radio">
+                                            <input type="radio" name="commentPermission">
+                                            <span>관리자</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>비밀 글 설정</th>
+                                <td>
+                                    <div class="c-dropdown" style="max-width:400px;">
+                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">비밀 글, 비밀 댓글 모두 허용</span>
+                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button class="c-dropdown__item active" onclick="selectItem(this)" style="white-space:nowrap;">비밀 글, 비밀 댓글 모두 허용</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)" style="white-space:nowrap;">비밀 글만 허용</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)" style="white-space:nowrap;">비밀 댓글만 허용</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)" style="white-space:nowrap;">비밀 글, 비밀 댓글 모두 허용 안함</button>
+                                        </div>
+                                    </div>
+                                    <label class="setting-check-label setting-check-label--block">
+                                        <input type="checkbox" class="c-check-blue" checked>
+                                        제목 '비밀글 입니다' 표시
+                                        <span class="setting-check-label__desc">선택하지 않을 경우 작성한 제목이 표시됩니다.</span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
         </main>
-
-        <!-- 고정 메모 버튼 -->
-        <button class="c-fab">
-            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
-            <span class="c-fab__text">메모</span>
-        </button>
 
     </div>
 

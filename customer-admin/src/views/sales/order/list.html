@@ -408,235 +408,156 @@
                             </thead>
                             <tbody>
 
+                                <!-- 1. 미결제 -->
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
                                     <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0001</a></td>
-                                    <td>
+                                    <td class="td-left">
                                         <span class="product-tag product-tag--normal">일반</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">유튜브 채널 성장 마스터</a>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">상품명이길어질때열다섯자로제...</a>
                                     </td>
                                     <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
+                                    <td class="td-left">
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
                                             <span class="role-badge role-badge--learner">학습자</span>
-                                            닉네임
+                                            alpha_user_kr
                                         </div>
                                     </td>
-                                    <td>
+                                    <td class="td-right">
                                         <div>99,000원</div>
                                         <div class="cell-sub-text">현대 5623</div>
                                     </td>
-                                    <td>
+                                    <td class="td-right">
                                         <div>-0원</div>
                                         <div class="cell-sub-text">쿠폰 없음</div>
                                     </td>
-                                    <td><span class="status-chip status-chip--yellow">미결제</span></td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0002</a></td>
                                     <td>
-                                        <span class="product-tag product-tag--digital">디지털</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">1인브랜드 구축법</a>
-                                    </td>
-                                    <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <span class="role-badge role-badge--learner">학습자</span>
-                                            닉네임
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>149,000원</div>
-                                        <div class="cell-sub-text">신한 8812</div>
-                                    </td>
-                                    <td>
-                                        <div>-5,000원</div>
-                                        <div class="cell-sub-text">신규가입 5,000원 쿠폰</div>
-                                    </td>
-                                    <td>
-                                        <span class="status-chip status-chip--green">결제완료</span>
-                                        <span class="status-chip status-chip--red">환불</span>
+                                        <div><span class="status-chip status-chip--warning">미결제</span></div>
+                                        <div class="cell-sub-text">4회, 한도초과</div>
                                     </td>
                                     <td><button class="btn sm border">영수증</button></td>
                                 </tr>
 
+                                <!-- 2. 결제완료 + 환불 -->
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0003</a></td>
-                                    <td>
-                                        <span class="product-tag product-tag--video">화상</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">영상 편집 기초</a>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0001</a></td>
+                                    <td class="td-left">
+                                        <span class="product-tag product-tag--live">라이브</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">상품명이길어질때열다섯자로제한</a>
                                     </td>
                                     <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
+                                    <td class="td-left">
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
                                             <span class="role-badge role-badge--learner">학습자</span>
-                                            닉네임
+                                            vintage_auto
                                         </div>
                                     </td>
-                                    <td>
-                                        <div>59,000원</div>
-                                        <div class="cell-sub-text">삼성 3341</div>
+                                    <td class="td-right">
+                                        <div>149,000원</div>
+                                        <div class="cell-sub-text">현대 5623</div>
                                     </td>
-                                    <td>
+                                    <td class="td-right">
                                         <div>-5,000원</div>
                                         <div class="cell-sub-text">주말 할인 쿠폰</div>
                                     </td>
                                     <td>
-                                        <div><span class="status-chip status-chip--green">결제유예</span></div>
-                                        <div class="cell-sub-text">D-13일</div>
+                                        <div>
+                                            <span class="status-chip status-chip--info">결제완료</span>
+                                            <span class="status-chip status-chip--danger">환불</span>
+                                        </div>
+                                        <div class="cell-sub-text">-150,000</div>
                                     </td>
-                                    <td></td>
+                                    <td><button class="btn sm border">영수증</button></td>
                                 </tr>
 
+                                <!-- 3. 결제유예 -->
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0004</a></td>
-                                    <td>
-                                        <span class="product-tag product-tag--package">패키지</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">브랜드 마스터</a>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0001</a></td>
+                                    <td class="td-left">
+                                        <span class="product-tag product-tag--video">화상</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">JavaScript ES6 완벽 가이드</a>
                                     </td>
                                     <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
+                                    <td class="td-left">
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
                                             <span class="role-badge role-badge--learner">학습자</span>
-                                            닉네임
+                                            vintage_auto
                                         </div>
                                     </td>
-                                    <td>
-                                        <div>299,000원</div>
-                                        <div class="cell-sub-text">국민 7790</div>
+                                    <td class="td-right">
+                                        <div>59,000원</div>
+                                        <div class="cell-sub-text">현대 5623</div>
                                     </td>
-                                    <td>
-                                        <div>-30,000원</div>
+                                    <td class="td-right">
+                                        <div>-5,000원</div>
                                         <div class="cell-sub-text">연인장 3만원 쿠폰</div>
                                     </td>
                                     <td>
-                                        <div>
-                                            <span class="status-chip status-chip--green">결제완료</span>
-                                            <span class="status-chip status-chip--red">환불</span>
-                                        </div>
-                                        <div class="cell-sub-text">-150,000원</div>
+                                        <div><span class="status-chip status-chip--success">결제유예</span></div>
+                                        <div class="cell-sub-text">D-13일</div>
                                     </td>
-                                    <td></td>
+                                    <td><button class="btn sm border">영수증</button></td>
                                 </tr>
 
+                                <!-- 4. 기간만료 -->
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0005</a></td>
-                                    <td>
-                                        <span class="product-tag product-tag--live">LIVE</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">커뮤니티 운영</a>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0001</a></td>
+                                    <td class="td-left">
+                                        <span class="product-tag product-tag--live">라이브</span>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">Python 데이터 분석 입문</a>
                                     </td>
-                                    <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
+                                    <td>-</td>
+                                    <td class="td-left">
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
                                             <span class="role-badge role-badge--learner">학습자</span>
-                                            닉네임
+                                            alpha_user_kr
                                         </div>
                                     </td>
-                                    <td>
-                                        <div>79,000원</div>
-                                        <div class="cell-sub-text">우리 2256</div>
+                                    <td class="td-right">
+                                        <div>1,230,000원</div>
+                                        <div class="cell-sub-text">현대 5623</div>
                                     </td>
-                                    <td>
-                                        <div>-10,000원</div>
+                                    <td class="td-right">
+                                        <div>-230,000원</div>
                                         <div class="cell-sub-text">주말 할인 쿠폰</div>
                                     </td>
-                                    <td><span class="status-chip status-chip--purple">전액환불</span></td>
-                                    <td></td>
+                                    <td><span class="status-chip status-chip--muted">기간만료</span></td>
+                                    <td><button class="btn sm border">영수증</button></td>
                                 </tr>
 
+                                <!-- 5. 전액환불 -->
                                 <tr>
                                     <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0006</a></td>
-                                    <td>
-                                        <span class="product-tag product-tag--premium">프리미엄</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">콘텐츠 제작 마스터클래스</a>
-                                    </td>
-                                    <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <span class="role-badge role-badge--learner">학습자</span>
-                                            닉네임
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>89,000원</div>
-                                        <div class="cell-sub-text">카카오페이</div>
-                                    </td>
-                                    <td>
-                                        <div>-0원</div>
-                                        <div class="cell-sub-text">쿠폰 없음</div>
-                                    </td>
-                                    <td>
-                                        <div><span class="status-chip status-chip--green">결제완료</span></div>
-                                        <div class="cell-sub-text">4회, 한도초과</div>
-                                    </td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0007</a></td>
-                                    <td>
+                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0001</a></td>
+                                    <td class="td-left">
                                         <span class="product-tag product-tag--normal">일반</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">유튜브 채널 성장 마스터</a>
+                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">React 마스터 클래스</a>
                                     </td>
-                                    <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
+                                    <td>-</td>
+                                    <td class="td-left">
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
                                             <span class="role-badge role-badge--learner">학습자</span>
                                             닉네임
                                         </div>
                                     </td>
-                                    <td>
-                                        <div>99,000원</div>
+                                    <td class="td-right">
+                                        <div>50,000원</div>
                                         <div class="cell-sub-text">현대 5623</div>
                                     </td>
-                                    <td>
+                                    <td class="td-right">
                                         <div>-0원</div>
-                                        <div class="cell-sub-text">쿠폰 없음</div>
+                                        <div class="cell-sub-text">쿠폰없음</div>
                                     </td>
-                                    <td><span class="status-chip status-chip--neutral">기간만료</span></td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td style="text-align:center;"><a href="#" class="content-folder-link" style="color:var(--text-primary);">ORD-2026-0008</a></td>
-                                    <td>
-                                        <span class="product-tag product-tag--normal">일반</span>
-                                        <a href="#" class="content-folder-link" style="color:var(--text-primary);">유튜브 채널 성장 마스터</a>
-                                    </td>
-                                    <td>2000.00.00 오전/오후 00:00</td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <span class="role-badge role-badge--learner">학습자</span>
-                                            닉네임
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>99,000원</div>
-                                        <div class="cell-sub-text">현대 5623</div>
-                                    </td>
-                                    <td>
-                                        <div>-0원</div>
-                                        <div class="cell-sub-text">쿠폰 없음</div>
-                                    </td>
-                                    <td><span class="status-chip status-chip--neutral">카드사 취소</span></td>
-                                    <td></td>
+                                    <td><span class="status-chip status-chip--accent">전액환불</span></td>
+                                    <td><button class="btn sm border">영수증</button></td>
                                 </tr>
 
                             </tbody>

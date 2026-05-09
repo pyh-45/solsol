@@ -412,6 +412,24 @@
 
     </div>
 
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- AI 번역 재생성 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-translation-recreate-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">AI 번역을 재생성하면 새로운 번역이 추가되고 적용 번역이 변경되며, 기존 번역은 유지됩니다<br>재생성하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-translation-recreate-confirm').classList.add('is-hidden')">취소</button>
+                <button class="btn lg" onclick="document.getElementById('modal-translation-recreate-confirm').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
 <script>
     function toggleAll(master) {
         document.querySelectorAll('.row-check').forEach(c => c.checked = master.checked);

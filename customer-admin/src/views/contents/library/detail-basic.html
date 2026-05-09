@@ -312,10 +312,13 @@
                             <!-- 활성상태 -->
                             <div class="detail-form__field">
                                 <span class="detail-form__label">활성상태</span>
-                                <div style="display:flex; align-items:center; gap:10px;">
-                                    <span class="status-chip status-chip--active">활성</span>
-                                    <span class="detail-form__text">비활성 처리</span>
-                                </div>
+                                <label class="c-toggle-text">
+                                    <input type="checkbox" checked>
+                                    <span class="c-toggle-text__track">
+                                        <span class="c-toggle-text__pill c-toggle-text__pill--on">활성</span>
+                                        <span class="c-toggle-text__pill c-toggle-text__pill--off">비활성</span>
+                                    </span>
+                                </label>
                             </div>
 
                             <!-- 폴더 -->
