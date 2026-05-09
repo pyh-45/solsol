@@ -2786,7 +2786,7 @@ tr:has(.c-check:checked) {
 /* ==================== Common Modal ====================*/
 .c-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 .c-modal-overlay.is-hidden { display: none; }
-.c-modal { width: 360px; background: #fff; border-radius: 12px; padding: 36px 30px; display: flex; flex-direction: column; gap: 30px; }
+.c-modal { width: 360px; background: #fff; border-radius: 12px; padding: 30px; display: flex; flex-direction: column; gap: 30px; }
 .c-modal__content { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
 .c-modal__icon-wrap { width: 64px; height: 64px; background: rgba(2, 124, 250, 0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
 .c-modal__icon-wrap img { border-radius: 50%; width: 36px; height: 36px; object-fit: cover; }
@@ -2798,7 +2798,7 @@ tr:has(.c-check:checked) {
 .c-modal__desc { width: 100%; text-align: left; font-size: 16px; color: var(--text-dark); line-height: 1.5;font-weight:500; }
 .c-modal__desc strong { color: var(--text-primary); font-weight: 500; }
 .c-modal__desc-sub { width: 100%; text-align: left;font-size: 13px; color: #424242; line-height: 1.5; }
-.c-modal__footer { display: flex; justify-content: center; gap: 8px; }
+.c-modal__footer { display: flex; justify-content: center; gap: 6px; }
 .c-modal__footer--split .btn { flex: 1; }
 .c-modal__footer .auth-submit { margin: 0; }
 .c-modal--gap20 { gap: 20px; }
@@ -2813,6 +2813,13 @@ tr:has(.c-check:checked) {
 .completion-modal .c-modal__content { padding: 24px 30px 0; gap: 16px; align-items: stretch; text-align: left; }
 .completion-modal .c-modal__content.c-modal__content--pb10 { padding-bottom: 10px; margin-bottom: 10px; }
 .completion-modal .c-modal__footer { padding: 24px 30px; }
+
+/* 수료증 템플릿 유형 미리보기 모달 (max 1280, min 600) */
+.template-type-modal { width: calc(100vw - 80px); min-width: 600px; max-width: 1280px; }
+.template-type-modal__body { padding: 24px 30px 0; display: flex; flex-direction: column; gap: 8px; }
+.template-type-modal__label { margin: 0; font-size: 13px; font-weight: 500; color: var(--text-primary); text-align: left; }
+.template-type-modal__img { width: 100%; height: auto; display: block; }
+.template-type-modal__footer { padding: 24px 30px; }
 
 /* 메모 모달 (간단 메모) */
 .memo-modal__profile { background:#272A31; padding:24px 30px; display:flex; align-items:flex-start; gap:16px; }

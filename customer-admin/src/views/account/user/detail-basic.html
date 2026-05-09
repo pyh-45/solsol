@@ -439,6 +439,39 @@
 
     </div>
 
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 1. 저장하지 않은 내용 안내 (notice) -->
+    <div class="c-modal-overlay is-hidden" id="modal-unsaved">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">저장하지 않은 내용이 있습니다.</p>
+                <p class="c-modal__desc-sub">저장을 눌러 작업하신 내용을 보관하세요.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button class="btn lg" onclick="document.getElementById('modal-unsaved').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 변경사항 저장 확인 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-save-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">변경사항을 저장하시겠습니까?</p>
+            </div>
+            <div class="c-modal__footer">
+                <button class="btn lg" onclick="document.getElementById('modal-save-confirm').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
 <script>
     function toggleProfileMenu(e) {
         e.stopPropagation();

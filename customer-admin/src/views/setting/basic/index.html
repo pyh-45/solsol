@@ -366,6 +366,38 @@
 
     </div>
 
+    <!-- ===== 모달창 모음 (display:none 상태) ===== -->
+
+    <!-- 1. 도메인 설정 안내 (success) -->
+    <div class="c-modal-overlay" id="domainGuideModal" style="display:none;">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">Growth 이상 상품만 도메인 설정이 가능합니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 변경사항 저장 완료 (success) -->
+    <div class="c-modal-overlay" id="saveCompleteModal" style="display:none;">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">변경사항이 저장되었습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;">확인</button>
+            </div>
+        </div>
+    </div>
+
 <script>
     function toggleProfileMenu(e) {
         e.stopPropagation();

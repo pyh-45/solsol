@@ -355,6 +355,40 @@
 
     </div>
 
+    <!-- ===== 모달창 모음 (display:none 상태) ===== -->
+
+    <!-- 1. 수료증 템플릿 수정 확인 (notice + split) -->
+    <div class="c-modal-overlay" id="templateEditConfirmModal" style="display:none;">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">수료증 템플릿을 수정하시겠어요?</p>
+                <p class="c-modal__desc-sub">변경 내용은 신규 발급부터 적용됩니다.</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border">취소</button>
+                <button type="button" class="btn lg">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 수료증 템플릿 수정 완료 (success) -->
+    <div class="c-modal-overlay" id="templateEditDoneModal" style="display:none;">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">수료증 템플릿이 수정되었습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;">확인</button>
+            </div>
+        </div>
+    </div>
+
 <script>
     function toggleProfileMenu(e) {
         e.stopPropagation();
