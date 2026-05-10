@@ -145,6 +145,7 @@ body { overflow-x: hidden; }
 body {
     font-family: var(--font-base);
     font-size: 14px;
+    line-height: 1.5;
     color: var(--text-primary);
     background: var(--bg-body);
     -webkit-font-smoothing: antialiased;
@@ -815,7 +816,8 @@ ul, ol { list-style: none; }
 /* 아바타 + 역할 뱃지 + 이름 인라인 (재사용 가능) — role-badge 흰색 유지 */
 .user-id { display: inline-flex; align-items: center; gap: 8px; }
 .user-id__name { font-size: 13px; color: var(--text-primary); }
-.notice-detail__meta-item { display:inline-flex; align-items:center; gap:4px; font-size:13px; color:var(--text-secondary); }
+.user-id--lg .user-id__name { font-size: 17px; font-weight: 600; }
+.notice-detail__meta-item { display:inline-flex; align-items:center; gap:4px; font-size:13px; color:#A0A0A0; }
 .notice-detail__category { font-size:13px; font-weight:600; color:var(--color-blue); margin-bottom:8px; }
 .notice-detail__title { font-size:22px; font-weight:700; color:var(--text-primary); line-height:1.5; margin-bottom:16px; }
 .notice-detail__content { background:#fff; border:1px solid var(--border-color); border-radius:8px; padding:24px; min-height:400px; font-size:14px; line-height:1.8; color:var(--text-primary); }
@@ -1204,6 +1206,8 @@ textarea.form-control {
     text-align: center;
 }
 .tab-table td:nth-child(2) { text-align: left; }
+.tab-table td.td-left { text-align: left; }
+.tab-table td.td-right { text-align: right; }
 .tab-table tr:hover td { background: var(--bg-hover); }
 .tab-table td .input-unit-box { display:flex; width:100%; }
 /* tab-table--compact : td 상하 패딩 8px */
@@ -1975,6 +1979,9 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 
 /* 대시보드 헤더 바 (게시판/정산/폼/상품 등 상단 요약 바) */
 .dashboard-bar { display:flex; align-items:center; gap:20px; padding:24px 30px; background:#fff; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.08); margin-bottom:16px; }
+
+/* 일반 콘텐츠 바 — 세로 흐름 콘텐츠용 (dashboard-bar와 동일 외형, padding 24 30) */
+.content-bar { padding:24px 30px; background:#fff; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.08); margin-bottom:16px; }
 .dashboard-bar__thumb { width:120px; height:80px; flex-shrink:0; background:#F4F5F7; border-radius:6px; padding:10px; font-size:11px; color:#999; line-height:1.4; overflow:hidden; }
 .dashboard-bar__main { flex:1; min-width:0; display:flex; flex-direction:column; gap:8px; }
 .dashboard-bar__label { font-size:12px; color:var(--color-blue); font-weight:500; }
@@ -3138,7 +3145,7 @@ tr:has(.c-check:checked) {
 .setting-table__required { color: var(--color-red); margin-left: 3px; }
 .setting-table__input:focus { border-color: var(--color-primary); }
 .setting-table__input::placeholder { color: var(--text-placeholder); }
-.setting-table__textarea { width: 100%; padding: 10px 14px; border: 1px solid #E5E7EB; border-radius: 6px; font-size: 14px; font-family: inherit; color: #222; resize: none; outline: none; height: 100px; box-sizing: border-box; }
+.setting-table__textarea { width: 100%; padding: 10px 14px; border: 1px solid #E5E7EB; border-radius: 6px; font-size: 14px; line-height: 1.5; font-family: inherit; color: #222; resize: none; outline: none; height: 100px; box-sizing: border-box; }
 .setting-table__textarea:focus { border-color: var(--color-primary); }
 .setting-table__textarea::placeholder { color: var(--text-placeholder); }
 .setting-table__textarea-wrap { position: relative; }
@@ -3468,6 +3475,13 @@ tr:has(.c-check:checked) {
 
 /* Q/A 그룹 (Q+A 한 묶음, 그룹 사이 간격) */
 .qa-group + .qa-group { margin-top:20px; }
+
+/* FAQ 상세 — Q 강조 텍스트 / A 회색 박스 */
+.qa-item__text--q { font-size:17px; font-weight:600; color:var(--color-primary); }
+.qa-item--center { align-items:center; gap:15px; }
+.qa-item--center .qa-item__badge { margin-right:0; }
+.qa-item__answer { flex:1; display:flex; align-items:flex-start; background:#F9F9F9; border-radius:8px; padding:30px; }
+.qa-item__answer-text { flex:1; font-size:14px; line-height:1.8; color:var(--text-primary); }
 
 /* tab-info-table 안의 단순 불릿 리스트 (학습요약 등) */
 .tab-info-list { margin:0; padding-left:18px; list-style:disc; }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - (공지사항) 게시글 상세페이지</title>
+    <title>Admin - (FAQ) 게시글 상세페이지</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -252,65 +252,45 @@
         <main class="admin-content">
             <div class="admin-body">
 
+                <!-- 상단 액션바 -->
+                <div class="admin-action-bar">
+                    <button class="btn lg border">삭제</button>
+                    <button class="btn lg dark">수정</button>
+                </div>
+
                 <!-- 게시글 본문 패널 -->
-                <div class="list-panel">
+                <div class="content-bar">
 
-                    <!-- 고정글 라벨 -->
-                    <p class="post-detail__label">
-                        <img src="../../../images/Ico_16px_pin.svg" width="16" height="16" alt="">
-                        고정글
-                    </p>
-
-                    <!-- 제목 -->
-                    <h2 class="notice-detail__title">게시물 제목</h2>
-
-                    <!-- 메타 정보 + 우측 액션 -->
-                    <div class="notice-detail__meta inquiry-detail__meta">
-                        <div class="user-id">
-                            <div class="c-avatar30 learner"></div>
-                            <span class="role-badge role-badge--learner">학습자</span>
+                    <!-- 작성자 + 작성일 -->
+                    <div class="notice-detail__meta inquiry-detail__meta" style="gap:8px; padding-bottom:12px; border-bottom:1px solid var(--border-color); margin-bottom:20px;">
+                        <div class="user-id user-id--lg">
+                            <div class="c-avatar24 learner"></div>
                             <span class="user-id__name">닉네임</span>
                         </div>
                         <span class="notice-detail__meta-item">
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#A0A0A0" stroke-width="1.2"/><path d="M7 4.5V7L8.5 8.5" stroke="#A0A0A0" stroke-width="1.2" stroke-linecap="round"/></svg>
                             2000.00.00
                         </span>
-                        <span class="notice-detail__meta-item">
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 3C4 3 1.5 7 1.5 7C1.5 7 4 11 7 11C10 11 12.5 7 12.5 7C12.5 7 10 3 7 3Z" stroke="#A0A0A0" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" stroke="#A0A0A0" stroke-width="1.2"/></svg>
-                            300
-                        </span>
-                        <div class="inquiry-detail__actions">
-                            <button class="btn md border">삭제</button>
-                            <button class="btn md primary">수정</button>
+                    </div>
+
+                    <!-- Q -->
+                    <div class="qa-item qa-item--center qa-group">
+                        <span class="qa-item__badge qa-item__badge--q">Q</span>
+                        <p class="qa-item__text qa-item__text--q">동영상이 자꾸 끊기는데 왜이러나요?</p>
+                    </div>
+
+                    <!-- A -->
+                    <div class="qa-item qa-group">
+                        <div class="qa-item__answer">
+                            <span class="qa-item__badge qa-item__badge--a">A</span>
+                            <div class="qa-item__answer-text">
+                                1. 강의를 시청하실때에는 되도록 안정적인 네트워크 상태에서 학습하시기 바라며 우선적으로 인터넷 환경을 점검해주시기 바랍니다.<br>
+                                2. 와이파이나 인터넷 모뎀 및 공유기 등의 확인을 부탁드리며, 확인 후에도 재생이 원활하지 않을경우 플레이어를 삭제 후 재설치 해보시기 바랍니다.
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 본문 영역 (placeholder) -->
-                    <div class="inquiry-detail__content"></div>
-
-                </div><!-- /.list-panel -->
-
-                <!-- 첨부파일 -->
-                <div class="list-panel list-panel--p24-30">
-                    <h3 class="attach-list__title">첨부파일</h3>
-                    <ul class="attach-list">
-                        <li class="attach-list__item">
-                            <img class="attach-list__icon" src="../../../images/ico-download-clip.svg" width="24" height="24" alt="">
-                            <span class="attach-list__name">image.jpg</span>
-                            <button type="button" class="btn md border">다운로드</button>
-                        </li>
-                        <li class="attach-list__item">
-                            <img class="attach-list__icon" src="../../../images/ico-download-clip.svg" width="24" height="24" alt="">
-                            <span class="attach-list__name">image.jpg</span>
-                            <button type="button" class="btn md border">다운로드</button>
-                        </li>
-                        <li class="attach-list__item">
-                            <img class="attach-list__icon" src="../../../images/ico-download-clip.svg" width="24" height="24" alt="">
-                            <span class="attach-list__name">image.jpg</span>
-                            <button type="button" class="btn md border">다운로드</button>
-                        </li>
-                    </ul>
-                </div><!-- /.list-panel -->
+                </div><!-- /.content-bar -->
 
             </div>
         </main>
@@ -318,44 +298,10 @@
     </div>
 
 <script>
-    function toggleDropdown(trigger) {
-        const isOpen = trigger.classList.contains('open');
-        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
-        if (!isOpen) trigger.classList.add('open');
-    }
-
-    function selectItem(item) {
-        const panel = item.closest('.c-dropdown__panel');
-        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        const trigger = panel.previousElementSibling;
-        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
-        trigger.classList.remove('open');
-    }
-
     function toggleProfileMenu(e) {
         e.stopPropagation();
         document.getElementById('headerUserMenu').classList.toggle('open');
     }
-
-    function toggleDots(btn) {
-        const menu = btn.nextElementSibling;
-        const isOpen = menu.classList.contains('open');
-        document.querySelectorAll('.folder-dots__menu.open').forEach(m => m.classList.remove('open'));
-        if (!isOpen) menu.classList.add('open');
-    }
-
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.c-dropdown')) {
-            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
-        }
-        if (!e.target.closest('.folder-dots')) {
-            document.querySelectorAll('.folder-dots__menu.open').forEach(m => m.classList.remove('open'));
-        }
-        if (!e.target.closest('#headerUserMenu')) {
-            document.getElementById('headerUserMenu').classList.remove('open');
-        }
-    });
 
     function closeAllLnb() {
         document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
@@ -367,8 +313,13 @@
         closeAllLnb();
         if (!isOpen) accordion.classList.add('open');
     }
-</script>
 
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+</script>
 
 </body>
 </html>

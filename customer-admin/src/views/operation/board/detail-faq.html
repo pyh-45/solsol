@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - (공지사항) 게시글</title>
+    <title>Admin - (FAQ) 게시판 정보</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -251,7 +251,7 @@
                 <!-- 게시판 공지 -->
                 <div class="dashboard-bar">
                     <div class="dashboard-bar__main">
-                        <span class="dashboard-bar__label">공지사항</span>
+                        <span class="dashboard-bar__label">FAQ</span>
                         <div class="dashboard-bar__head">
                             <span class="dashboard-bar__title dashboard-bar__title--ellipsis">게시판 제목 자릿수는 얼마나 될까요. 두줄일 경우가 있을까요. 최대한 한줄로 가는게 좋겠습니다. 75자정도에서...</span>
                         </div>
@@ -291,205 +291,76 @@
 
                 <!-- 상단 액션바 -->
                 <div class="admin-action-bar">
-                    <button class="btn lg dark btn--icon">
-                        <img src="../../../images/ico-16px-plus03.svg" width="16" height="16" alt="">
-                        게시글 등록
-                    </button>
-                </div>
-
-                <!-- 검색 필터 -->
-                <div class="list-panel list-panel--filter">
-                    <div class="admin-filter">
-                        <div class="admin-filter__search">
-                            <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
-                            <input type="text" class="admin-filter__search-input" placeholder="제목, 내용, 작성자 검색">
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">전체 고정상태</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체 고정상태</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">고정</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">고정 해제</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="btn lg dark">변경사항 저장</button>
                 </div>
 
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
-                    <button class="detail-tab__item">게시판 정보</button>
-                    <button class="detail-tab__item active">게시글 <span class="lnb-badge">3</span></button>
+                    <button class="detail-tab__item active">게시판 정보</button>
+                    <button class="detail-tab__item">게시글 <span class="lnb-badge">3</span></button>
                 </nav>
 
-                <!-- 게시글 목록 패널 -->
-                <div class="list-panel">
+                <!-- 게시판 정보 패널 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="tab-info-title">게시판 정보</h3>
 
-                    <!-- 목록 헤더 -->
-                    <div class="content-list-bar">
-                        <span class="content-list-bar__title">게시글 목록</span>
-                        <div class="content-list-bar__right">
-                            <div class="c-dropdown c-dropdown--ghost">
-                                <button class="c-dropdown__trigger" style="gap:16px;" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">작성일 최신순</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">작성일 최신순</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">작성일 오래된순</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">조회수 많은순</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">조회수 적은순</button>
-                                </div>
-                            </div>
-                            <div class="c-dropdown c-dropdown--ghost">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">30개씩</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">100개씩</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 게시글 목록 -->
-                    <div class="admin-table-wrap">
-                        <table class="tab-table">
-                            <colgroup>
-                                <col style="width:48px;">
-                                <col>
-                                <col style="width:200px;">
-                                <col style="width:120px;">
-                                <col style="width:160px;">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th class="th-check">
-                                        <input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)">
-                                    </th>
-                                    <th>제목</th>
-                                    <th>작성자</th>
-                                    <th>조회수</th>
-                                    <th>작성일</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="checkbox" class="table-check row-check" checked onchange="onRowCheck()"></td>
-                                    <td class="td-left">
-                                        <span style="display:inline-flex; align-items:center; gap:8px;">
-                                            <img src="../../../images/Ico_16px_pin.svg" width="16" height="16" alt="고정">
-                                            <a href="#" class="content-folder-link" style="color:var(--text-primary);">서비스 이용 안내 및 주요 변경사항 공지</a>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="user-cell" style="justify-content:center;">
-                                            <div class="c-avatar30 manager"></div>
-                                            <span class="role-badge role-badge--manager">관리자</span>
-                                            닉네임
-                                        </div>
-                                    </td>
-                                    <td>1</td>
-                                    <td>방금전</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td class="td-left"><a href="#" class="content-folder-link" style="color:var(--text-primary);">안정적인 서비스 제공을 위한 시스템 점검 안내</a></td>
-                                    <td>
-                                        <div class="user-cell" style="justify-content:center;">
-                                            <div class="c-avatar30 basic"></div>
-                                            <span class="role-badge role-badge--instructor">강사</span>
-                                            닉네임
-                                        </div>
-                                    </td>
-                                    <td>20</td>
-                                    <td>1시간전</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" class="table-check row-check" onchange="onRowCheck()"></td>
-                                    <td class="td-left"><a href="#" class="content-folder-link" style="color:var(--text-primary);">이용자 편의를 위한 기능 업데이트 안내</a></td>
-                                    <td>
-                                        <div class="user-cell" style="justify-content:center;">
-                                            <div class="c-avatar30 manager"></div>
-                                            <span class="role-badge role-badge--manager">관리자</span>
-                                            닉네임
-                                        </div>
-                                    </td>
-                                    <td>421</td>
-                                    <td>2000.00.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 페이지네이션 -->
-                    <div class="pagination" style="padding:20px 0 4px;">
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
-                        <button class="pagination__btn active">1</button>
-                        <button class="pagination__btn">2</button>
-                        <button class="pagination__btn">3</button>
-                        <button class="pagination__btn">4</button>
-                        <button class="pagination__btn">5</button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
-                    </div>
-
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>게시판 타입</th>
+                                <td>
+                                    <p style="margin:0; font-size:14px; color:var(--text-primary); font-weight:500;">FAQ</p>
+                                    <p class="setting-table__desc">게시판 생성 후에는 타입을 변경할 수 없습니다. <a href="#" class="guide-link">가이드보기</a></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>게시판명</th>
+                                <td>
+                                    <div class="setting-table__input-count-wrap">
+                                        <input type="text" class="setting-table__input" value="게시판 제목" maxlength="20">
+                                        <span class="setting-table__count"><strong>0</strong>/20</span>
+                                    </div>
+                                    <p class="setting-table__desc">동일한 게시판명은 사용할 수 없습니다. 예) 자유게시판, 공지사항</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>권한 설정</th>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:24px;">
+                                        <span style="font-size:14px; color:var(--color-textgray); min-width:48px;">글 쓰기</span>
+                                        <label class="c-radio">
+                                            <input type="radio" name="writePermission" checked>
+                                            <span>관리자</span>
+                                        </label>
+                                    </div>
+                                    <div style="display:flex; align-items:center; gap:24px; margin-top:16px;">
+                                        <span style="font-size:14px; color:var(--color-textgray); min-width:48px;">글 읽기</span>
+                                        <label class="c-radio">
+                                            <input type="radio" name="readPermission" checked>
+                                            <span>모든 사용자</span>
+                                        </label>
+                                        <label class="c-radio">
+                                            <input type="radio" name="readPermission">
+                                            <span>사이트 회원</span>
+                                        </label>
+                                        <label class="c-radio">
+                                            <input type="radio" name="readPermission">
+                                            <span>관리자</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
             </div>
         </main>
 
-    </div>
-
-    <!-- 하단 일괄처리 바 -->
-    <div class="c-bulk-bar hidden" id="bulkBar">
-        <div class="c-bulk-bar__left">
-            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
-            <span class="c-bulk-bar__text" id="bulkText">(n)개 항목 선택됨</span>
-        </div>
-        <div class="c-bulk-bar__actions">
-            <button class="c-bulk-bar__btn">고정글 설정</button>
-            <button class="c-bulk-bar__btn">삭제</button>
-        </div>
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1. 게시글 삭제 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-post-delete-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">선택한 {n}개의 게시글을 삭제하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-post-delete-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-post-delete-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 게시글 삭제 완료 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-post-delete-done">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">{n}개 의 게시글이 삭제되었습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-post-delete-done').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>

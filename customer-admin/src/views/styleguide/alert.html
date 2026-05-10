@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guide - Alert & Info</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+    <style>
+        body { background: #F4F5F7; }
+        .sg-wrap { width:1200px; margin:0 auto; padding:40px 20px; }
+
+        /* 섹션 헤더 */
+        .sg-section { margin-bottom:48px; }
+        .sg-section__head { display:flex; align-items:center; gap:12px; padding:0 0 12px; margin:0 0 24px; border-bottom:2px solid #222; }
+        .sg-section__bar { width:4px; height:18px; background:#027CFA; }
+        .sg-section__title { margin:0; font-size:20px; font-weight:700; color:#027CFA; letter-spacing:0.04em; }
+
+        /* 서브 섹션 */
+        .sg-subsection { margin-bottom:32px; }
+        .sg-subsection__head { display:flex; align-items:center; gap:14px; padding:0 0 12px; margin:0 0 16px; border-bottom:1px solid #DDD; }
+        .sg-subsection__title { margin:0; font-size:14px; font-weight:700; color:#222; letter-spacing:0.04em; }
+        .sg-subsection__desc { font-size:12px; color:#888; }
+
+        /* 카드 그리드 */
+        .sg-grid { display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start; }
+        .sg-card { position:relative; background:transparent; border:0; padding:32px 0 0; box-shadow:none; }
+        .sg-card__label { position:absolute; top:0; left:0; height:24px; padding:0 10px; background:#222; color:#fff; border-radius:12px; font-size:12px; font-weight:700; line-height:1; display:inline-flex; align-items:center; justify-content:center; letter-spacing:0; white-space:nowrap; z-index:1; }
+
+
+
+        /* 불릿 리스트 — 원 안에 ! 아이콘 */
+        .info-bullet { display:flex; align-items:center; gap:8px; font-size:12px; padding:4px 0; }
+        .info-bullet__dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:10px; font-weight:700; line-height:1; font-family:Arial, sans-serif; }
+        .info-bullet--info { color:#027CFA; }
+        .info-bullet--error { color:#FF3B30; }
+        .info-bullet__dot--info { background:#027CFA; }
+        .info-bullet__dot--error { background:#FF3B30; }
+
+        /* 토스트 알림 */
+        .toast { display:flex; width:320px; padding:10px 0 24px 0; flex-direction:column; align-items:flex-end; border-radius:12px; background:#FFF; box-shadow:0 2px 16px 0 rgba(0, 0, 0, 0.25); }
+        .toast__header { display:flex; padding:0 10px; justify-content:flex-end; align-items:center; gap:10px; align-self:stretch; }
+        .toast__close { background:none; border:0; padding:0; font-size:14px; color:#999; cursor:pointer; line-height:1; }
+        .toast__main { display:flex; padding:0 24px; justify-content:flex-end; align-items:flex-start; gap:12px; align-self:stretch; }
+        .toast__icon { flex-shrink:0; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; margin-top:2px; }
+        .toast__body { flex:1; }
+        .toast__title { color:#222; font-family:Pretendard; font-size:15px; font-style:normal; font-weight:600; line-height:140%; letter-spacing:-0.3px; margin:0; }
+        .toast__desc { color:#424242; font-family:Pretendard; font-size:12px; font-style:normal; font-weight:400; line-height:150%; letter-spacing:-0.24px; margin:0; }
+
+        /* 카카오 알림톡 아이콘 (그린 라운드 박스) */
+        .alimtalk-toast__icon { width:64px; height:64px; background:rgba(33, 182, 132, 0.1); border-radius:16px; display:inline-flex; align-items:center; justify-content:center; }
+    </style>
+</head>
+<body>
+
+<div class="sg-wrap">
+
+    <h1 style="font-size:28px; font-weight:700; color:#222; margin:0 0 8px;">Style Guide - Alert &amp; Info</h1>
+    <p style="font-size:14px; color:#666; margin:0 0 32px;">알림/확인용 모달 + 인포 배너 + 토스트 — 참조용 모음.</p>
+
+    <!-- ============================================ -->
+    <!-- MODAL                                        -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+        <div class="sg-section__head">
+            <span class="sg-section__bar"></span>
+            <h2 class="sg-section__title">MODAL</h2>
+        </div>
+
+        <!-- ALERT AND CONFIRM -->
+        <div class="sg-subsection">
+            <div class="sg-subsection__head">
+                <h3 class="sg-subsection__title">ALERT AND CONFIRM</h3>
+                <span class="sg-subsection__desc">레이어로 브라우저의 새 창 제어 옵션에는 전혀 영향을 받지 않는다.</span>
+            </div>
+
+            <!-- Row 1 : 아이콘 없는 단순 컨펌 -->
+            <div class="sg-grid" style="margin-bottom:16px;">
+
+                <!-- A. 2버튼 컨펌 -->
+                <div class="sg-card">
+                    <span class="sg-card__label">A_Modal_Basic</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <p class="c-modal__desc">선택한 학습자를 탈퇴시키겠습니까?</p>
+                            <p class="c-modal__desc-sub">선택한 학습자를 탈퇴시시겠습니까?</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B. 1버튼 컨펌 -->
+                <div class="sg-card">
+                    <span class="sg-card__label">B_Modal_Basic</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <p class="c-modal__desc">선택한 학습자를 탈퇴시키겠습니까?</p>
+                            <p class="c-modal__desc-sub">선택한 학습자를 탈퇴시시겠습니까?</p>
+                        </div>
+                        <div class="c-modal__footer">
+                            <button type="button" class="btn lg" style="width:100%;">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 2 : 아이콘 + 타이틀 + 설명 -->
+            <div class="sg-grid" style="margin-bottom:16px;">
+
+                <!-- C. 오류 (red) -->
+                <div class="sg-card">
+                    <span class="sg-card__label">C_Modal_오류</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                <img src="../../images/ico-modal-error.svg" width="28" height="26" alt="">
+                            </div>
+                            <p class="c-modal__title">비밀번호 변경 오류</p>
+                            <p class="c-modal__desc">비밀번호를 한번 더 시도해 주시겠습니까?</p>
+                            <p class="c-modal__desc-sub">선택한 학습자를 탈퇴시시겠습니까?</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- D. 안내 (green/notice) -->
+                <div class="sg-card">
+                    <span class="sg-card__label">D_Modal_확인</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                <img src="../../images/ico-modal-notice.svg" width="28" height="28" alt="">
+                            </div>
+                            <p class="c-modal__title">비밀번호 변경 안내</p>
+                            <p class="c-modal__desc">선택한 학습자를 탈퇴시키겠습니까?</p>
+                            <p class="c-modal__desc-sub">선택한 학습자를 탈퇴시시겠습니까?</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E. 완료 (blue/success) -->
+                <div class="sg-card">
+                    <span class="sg-card__label">E_Modal_안내</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap">
+                                <img src="../../images/ico-modal-success.svg" width="28" height="28" alt="">
+                            </div>
+                            <p class="c-modal__title">비밀번호 변경 완료</p>
+                            <p class="c-modal__desc">선택한 학습자를 탈퇴되었습니다.</p>
+                            <p class="c-modal__desc-sub">선택한 학습자를 탈퇴시시겠습니까?</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 3 : 변형 케이스 (모두 error 아이콘) -->
+            <div class="sg-grid" style="margin-bottom:16px;">
+
+                <!-- F. 두 줄 설명 -->
+                <div class="sg-card">
+                    <span class="sg-card__label">F_Modal_오류</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                <img src="../../images/ico-modal-error.svg" width="28" height="26" alt="">
+                            </div>
+                            <p class="c-modal__title">비밀번호 변경 오류</p>
+                            <p class="c-modal__desc">비밀번호를 한번 더 시도해 주시겠습니까?<br>두 줄일 경우</p>
+                            <p class="c-modal__desc-sub">선택한 학습자를 탈퇴시시겠습니까?</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- G. 타이틀 없이 메시지만 -->
+                <div class="sg-card">
+                    <span class="sg-card__label">G_Modal_오류</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                <img src="../../images/ico-modal-error.svg" width="28" height="26" alt="">
+                            </div>
+                            <p class="c-modal__desc">타이틀없이 오류내용만 기재하여 사용 가능합니다.</p>
+                            <p class="c-modal__desc-sub">강좌를 완료한 후 학습자를 삭제할 수 있습니다.</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- H. 두 줄 메시지 + 보조설명 -->
+                <div class="sg-card">
+                    <span class="sg-card__label">H_Modal_오류</span>
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                <img src="../../images/ico-modal-error.svg" width="28" height="26" alt="">
+                            </div>
+                            <p class="c-modal__desc">두 줄일 경우,<br>실패했습니다. 다시 시도하시겠습니까?</p>
+                            <p class="c-modal__desc-sub">선택한 학습자를 탈퇴시시겠습니까?</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 4 : 카카오 알림톡 연결 완료 (480 모달 구조) -->
+            <div class="sg-grid">
+                <div class="sg-card">
+                    <span class="sg-card__label">I_W480</span>
+                    <div class="c-modal completion-modal">
+                        <div class="completion-modal__header" style="height:54px; justify-content:flex-end; border-bottom:0;">
+                            <button type="button" class="completion-modal__close" aria-label="닫기">
+                                <img src="../../images/btn-modal-close.svg" width="24" height="24" alt="">
+                            </button>
+                        </div>
+                        <div class="c-modal__content completion-modal__body" style="align-items:center; text-align:center; gap:0; padding-top:0;">
+                            <span class="alimtalk-toast__icon">
+                                <img src="../../images/ico-modal-link2.svg" width="36" height="36" alt="">
+                            </span>
+                            <div style="margin:30px 0; display:flex; flex-direction:column; gap:20px;">
+                                <p style="margin:0; font-size:16px; font-weight:600; color:#222;"><strong style="color:#21B684; font-weight:700;">카카오 알림톡</strong>이 정상적으로 연결되었습니다.</p>
+                                <p style="margin:0; font-size:15px; color:#424242;">@(아이디)</p>
+                            </div>
+                        </div>
+                        <div class="c-modal__footer" style="padding-top:0;">
+                            <button type="button" class="btn lg" style="width:100%;">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- INFO                                         -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+        <div class="sg-section__head">
+            <span class="sg-section__bar"></span>
+            <h2 class="sg-section__title">INFO</h2>
+        </div>
+
+        <!-- 인포 배너 (info / error) -->
+        <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:24px;">
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>문의 상태는 답변 진행에 따라 자동으로 변경되며, 필요 시 수동으로도 변경할 수 있습니다. <a href="#" class="admin-infotip__link">가이드보기</a></span>
+            </div>
+            <div class="admin-infotip admin-infotip--error">
+                <span class="admin-infotip__icon">!</span>
+                <span>문의 상태는 답변 진행에 따라 자동으로 변경되며, 필요 시 수동으로도 변경할 수 있습니다. <a href="#" class="admin-infotip__link">가이드보기</a></span>
+            </div>
+        </div>
+
+        <!-- 불릿 텍스트 (info / error) -->
+        <div style="display:flex; flex-direction:column; gap:2px; margin-bottom:24px;">
+            <div class="info-bullet info-bullet--info">
+                <span class="info-bullet__dot info-bullet__dot--info">!</span>
+                <span>수신자 그룹 관리 메뉴에서 그룹을 추가·편집할 수 있습니다.</span>
+            </div>
+            <div class="info-bullet info-bullet--error">
+                <span class="info-bullet__dot info-bullet__dot--error">!</span>
+                <span>수신자 그룹 관리 메뉴에서 그룹을 추가·편집할 수 있습니다.</span>
+            </div>
+        </div>
+
+        <!-- 토스트 알림 -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="sg-card">
+                <span class="sg-card__label">토스트팝업창A</span>
+                <div class="toast">
+                    <div class="toast__header">
+                        <button type="button" class="toast__close">×</button>
+                    </div>
+                    <div class="toast__main">
+                        <span class="toast__icon">
+                            <img src="../../images/ico-toast-confirm.svg" width="20" height="20" alt="">
+                        </span>
+                        <div class="toast__body">
+                            <p class="toast__title">초대 메일 발송 완료</p>
+                            <p class="toast__desc"><strong style="color:#222; font-weight:600;">2명</strong>에게 초대 메일이 성공적으로 발송되었습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sg-card">
+                <span class="sg-card__label">토스트팝업창B</span>
+                <div class="toast">
+                    <div class="toast__header">
+                        <button type="button" class="toast__close">×</button>
+                    </div>
+                    <div class="toast__main">
+                        <span class="toast__icon">
+                            <img src="../../images/ico-toast-error.svg" width="20" height="20" alt="">
+                        </span>
+                        <div class="toast__body">
+                            <p class="toast__title">메일 발송 실패</p>
+                            <p class="toast__desc">일시적인 오류가 발생했습니다.<br>잠시 후 다시 시도해 주세요.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

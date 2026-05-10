@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guide - Badges & Status Chips</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <main class="admin-content" style="padding:40px;">
+        <div class="admin-body" style="width:1200px; margin:0 auto;">
+
+            <h1 style="font-size:28px; font-weight:700; color:#222; margin:0 0 8px;">Style Guide - Badges &amp; Status Chips</h1>
+            <p style="font-size:14px; color:var(--text-secondary); margin:0 0 32px;">뱃지·상태 칩·태그·사용자 셀 등 컴포넌트 가이드.</p>
+
+            <!-- ========================================== -->
+            <!-- 뱃지 & 상태 칩 (Badges & Status Chips)         -->
+            <!-- ========================================== -->
+            <section class="list-panel list-panel--p30" style="margin-bottom:24px;">
+                <h3 class="panel-section-title">뱃지 & 상태 칩</h3>
+
+                <!-- Role Badge -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">역할 뱃지 (.role-badge)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">사용자 역할 표시. 학습자/관리자/강사/서브강사 등.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="role-badge role-badge--learner">학습자</span>
+                        <span class="role-badge role-badge--manager">관리자</span>
+                        <span class="role-badge role-badge--instructor">강사</span>
+                        <span class="role-badge role-badge--sub">서브강사</span>
+                        <span class="role-badge role-badge--first">최초</span>
+                    </div>
+                </div>
+
+                <!-- Status Chip - Solid -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">상태 칩 - Solid (.status-chip)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">테이블 행/상세 영역의 상태 표시. 컬러는 의미별로 사용.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--active">활성</span>
+                        <span class="status-chip status-chip--inactive">비활성</span>
+                        <span class="status-chip status-chip--left">탈퇴</span>
+                        <span class="status-chip status-chip--sent">발송완료</span>
+                        <span class="status-chip status-chip--success">결제완료</span>
+                        <span class="status-chip status-chip--info">사용</span>
+                        <span class="status-chip status-chip--danger">결제실패</span>
+                        <span class="status-chip status-chip--warning">미결제</span>
+                        <span class="status-chip status-chip--accent">전액환불</span>
+                        <span class="status-chip status-chip--neutral">기간만료</span>
+                    </div>
+                </div>
+
+                <!-- Status Chip - Outline -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">상태 칩 - Outline (.status-chip--outline-*)</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--outline-green">진행중</span>
+                        <span class="status-chip status-chip--outline-gray">종료</span>
+                    </div>
+                </div>
+
+                <!-- Status Pill -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">상태 필 (.status-pill)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">수강 상태, 결제 상태 등 알약 형태. status-chip보다 살짝 큰 라운드.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-pill status-pill--done">수료</span>
+                        <span class="status-pill status-pill--fail">미수료</span>
+                        <span class="status-pill status-pill--ongoing">수강중</span>
+                        <span class="status-pill status-pill--canceled">수강취소</span>
+                        <span class="status-pill status-pill--expired">기간만료</span>
+                    </div>
+                </div>
+
+                <!-- Learn Badge -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">학습 뱃지 (.learn-badge)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">진행중/참여중/종료 상태를 outline 형태로 표시.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="learn-badge learn-badge--progress">진행중</span>
+                        <span class="learn-badge learn-badge--join">참여중</span>
+                        <span class="learn-badge learn-badge--end">종료</span>
+                    </div>
+                </div>
+
+                <!-- Send Status Chip -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">발송 상태 칩 (.send-status-chip)</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="send-status-chip send-status-chip--success">발송 성공</span>
+                        <span class="send-status-chip send-status-chip--fail">발송 실패</span>
+                    </div>
+                </div>
+
+                <!-- Product Tag -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">상품 태그 (.product-tag)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">상품 유형 분류. outline + 컬러 텍스트 형태.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="product-tag product-tag--normal">일반</span>
+                        <span class="product-tag product-tag--live">LIVE</span>
+                        <span class="product-tag product-tag--video">화상</span>
+                        <span class="product-tag product-tag--digital">디지털</span>
+                        <span class="product-tag product-tag--package">패키지</span>
+                        <span class="product-tag product-tag--premium">프리미엄</span>
+                    </div>
+                </div>
+
+                <!-- Category Tag -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">카테고리 태그 (.cate-tag)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">상품 카테고리/태그용. 라이트 배경 + 컬러 텍스트, 작은 라운드 알약.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="cate-tag cate-tag--youtube">유튜브 운영</span>
+                    </div>
+                </div>
+
+                <!-- Sale Status Tag -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">판매 상태 뱃지 (.sale-status-tag)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">상품의 판매 상태. 컬러 outline 형태. <code style="background:#F4F5F7; padding:2px 6px; border-radius:4px; font-size:11px;">--sm</code> 모디파이어로 작은 사이즈 가능.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="sale-status-tag sale-status-tag--selling">판매중</span>
+                        <span class="sale-status-tag sale-status-tag--suspended">판매중지</span>
+                        <span class="sale-status-tag sale-status-tag--closed">판매마감</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="sale-status-tag sale-status-tag--ongoing sale-status-tag--sm">판매중</span>
+                        <span class="sale-status-tag sale-status-tag--processing sale-status-tag--sm">처리중</span>
+                    </div>
+                </div>
+
+                <!-- 가입 유형 (Join Tag) -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">가입 유형 (.join-tag)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">학습자 가입 경로 표시. 일반/숏링크 등 outline + 컬러 텍스트.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="join-tag join-tag--normal">일반</span>
+                        <span class="join-tag join-tag--shortlink">숏링크</span>
+                    </div>
+                </div>
+
+                <!-- 답변 상태 (Q&A Status) -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">답변 / 문의 상태</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">1:1 문의의 답변 단계. solid 배경 + 흰 텍스트.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--answer-wait">답변 대기</span>
+                        <span class="status-chip status-chip--answer-ing">답변 중</span>
+                        <span class="status-chip status-chip--answer-done">답변완료</span>
+                        <span class="status-chip status-chip--inquiry-end">문의종료</span>
+                    </div>
+                </div>
+
+                <!-- AI 종류 (AI Type) — cate-tag 재활용 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">AI 종류 / 카테고리</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">AI 기능 종류, 콘텐츠 카테고리. cate-tag 재활용.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="cate-tag cate-tag--youtube">유튜브 운영</span>
+                        <span class="cate-tag cate-tag--youtube">AI · 빅데이터</span>
+                    </div>
+                </div>
+
+                <!-- 테이블 셀용 칩 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">테이블 셀용 칩 (.status-chip--in-table)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">데이터 테이블 셀 안에서 사용하는 컴팩트 칩. 너비 고정 해제 + 작은 폰트.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="status-chip status-chip--answer-wait status-chip--in-table">답변대기</span>
+                        <span class="status-chip status-chip--answer-done status-chip--in-table">답변완료</span>
+                        <span class="status-chip status-chip--answer-ing status-chip--in-table">답변중</span>
+                        <span class="status-chip status-chip--inquiry-end status-chip--in-table">문의종료</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="cate-tag cate-tag--ai-tutor">AI 튜터</span>
+                        <span class="cate-tag cate-tag--ai-translate">AI 번역</span>
+                        <span class="cate-tag cate-tag--ai-subtitle">AI 자막</span>
+                    </div>
+                </div>
+
+                <!-- 수강/결제/구독 상태 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">수강 / 결제 / 구독 상태</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="status-chip status-chip--success">수강중</span>
+                        <span class="status-chip status-chip--success">수료</span>
+                        <span class="status-chip status-chip--danger">미수료</span>
+                        <span class="status-chip status-chip--accent">수강취소</span>
+                        <span class="status-chip status-chip--neutral">기간만료</span>
+                        <span class="status-chip status-chip--success">수강완료</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="status-chip status-chip--success">결제완료</span>
+                        <span class="status-chip status-chip--neutral">카드사 취소</span>
+                        <span class="status-chip status-chip--warning">미결제</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--success">구독중</span>
+                        <span class="status-chip status-chip--danger">구독 취소</span>
+                    </div>
+                </div>
+
+                <!-- 환불 상태 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">환불 상태</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--info">환불요청</span>
+                        <span class="status-chip status-chip--success">환불완료</span>
+                        <span class="status-chip status-chip--danger">환불불가</span>
+                    </div>
+                </div>
+
+                <!-- 공개 / 회원 상태 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">공개 / 회원 상태</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="status-chip status-chip--success">공개</span>
+                        <span class="status-chip status-chip--neutral">비공개</span>
+                        <span class="status-chip status-chip--info">일부공개</span>
+                        <span class="status-chip status-chip--partial"><img src="../../images/ico-badge-piece.svg" alt="">일부공개</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--success">회원</span>
+                        <span class="status-chip status-chip--neutral">비회원</span>
+                    </div>
+                </div>
+
+                <!-- 발행 / 진행 / 쿠폰 상태 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">발행 / 진행 / 쿠폰 상태</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="status-chip status-chip--info">발행</span>
+                        <span class="status-chip status-chip--warning">수정</span>
+                        <span class="status-chip status-chip--neutral">미발행</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="status-chip status-chip--info">진행</span>
+                        <span class="status-chip status-chip--warning">대기</span>
+                        <span class="status-chip status-chip--neutral">임시</span>
+                        <span class="status-chip status-chip--neutral">종료</span>
+                        <span class="status-chip status-chip--danger">중지</span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--success">등록</span>
+                        <span class="status-chip status-chip--info">사용</span>
+                        <span class="status-chip status-chip--danger">회수</span>
+                    </div>
+                </div>
+
+                <!-- 발송 / 활성 상태 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">발송 / 시스템 상태</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--warning">발송실패</span>
+                        <span class="status-chip status-chip--success">발송완료</span>
+                        <span class="status-chip status-chip--success">활성</span>
+                        <span class="status-chip status-chip--neutral">비활성</span>
+                        <span class="status-chip status-chip--neutral">탈퇴</span>
+                        <span class="status-chip status-chip--accent">중복발송</span>
+                        <span class="status-chip status-chip--danger">취소</span>
+                        <span class="status-chip status-chip--success">LIVE</span>
+                        <span class="status-chip status-chip--info">예정</span>
+                    </div>
+                </div>
+
+                <!-- 인증 / 등급 -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">인증 / 등급</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="status-chip status-chip--accent">인증</span>
+                        <span class="status-chip status-chip--success">활성</span>
+                        <span class="status-chip status-chip--warning">골드</span>
+                        <span class="status-chip status-chip--neutral">계좌 인증 완료</span>
+                    </div>
+                </div>
+
+                <!-- 사용자 태그 (User Tag with avatar/role) -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">사용자 태그 (.user-tag)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">사용자/항목 선택 후 표시. 아바타+역할뱃지+이름+삭제 버튼. <code style="background:#F4F5F7; padding:2px 6px; border-radius:4px; font-size:11px;">--plain</code>은 보더/배경 없는 변형.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <span class="user-tag">
+                            <span class="c-avatar22 basic"></span>
+                            <span class="role-badge role-badge--instructor">강사</span>
+                            닉네임
+                            <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                        </span>
+                        <span class="user-tag">
+                            <span class="c-avatar22 manager"></span>
+                            <span class="role-badge role-badge--manager">관리자</span>
+                            alpha_user_kr
+                            <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                        </span>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="user-tag user-tag--plain">
+                            온라인 강의
+                            <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 사용자 셀 (테이블 행 작성자/담당자) -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">사용자 셀 (.user-cell)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">테이블 행의 사용자 표시. 아바타 + 이름. <code style="background:#F4F5F7; padding:2px 6px; border-radius:4px; font-size:11px;">--plain</code>은 보더/배경/패딩 없는 변형(예: 1:1 문의 작성자/담당자 컬럼).</p>
+                    <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:8px;">
+                        <div class="user-cell">
+                            <div class="c-avatar30 basic"></div>
+                            <div class="user-cell__info"><div class="user-cell__name">닉네임</div></div>
+                        </div>
+                        <div class="user-cell">
+                            <div class="c-avatar30 manager"></div>
+                            <div class="user-cell__info"><div class="user-cell__name">홍길동나가신다</div></div>
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+                        <div class="user-cell user-cell--plain">
+                            <div class="c-avatar30 basic"></div>
+                            <div class="user-cell__info"><div class="user-cell__name">닉네임</div></div>
+                        </div>
+                        <div class="user-cell user-cell--plain">
+                            <div class="c-avatar30 learner"></div>
+                            <div class="user-cell__info"><div class="user-cell__name">홍길동나가신다</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 상품 셀 (테이블 행 상품명) -->
+                <div style="margin-bottom:32px;">
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">상품 셀 (.product-cell)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">테이블 행의 상품 표시. 썸네일(64×36) + 상품명. 일반강의/디지털 상품 등 목록 컬럼에 사용.</p>
+                    <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+                        <div class="product-cell">
+                            <img class="product-cell__thumb" src="../../images/product-thumb.png" alt="">
+                            유튜브 채널 성장 마스터
+                        </div>
+                        <div class="product-cell">
+                            <img class="product-cell__thumb" src="../../images/product-thumb.png" alt="">
+                            Python 프로그래밍 기초
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 이메일 태그 -->
+                <div>
+                    <h4 style="margin:0 0 12px; font-size:14px; font-weight:600; color:#222;">이메일 태그 (.email-tag)</h4>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">강사 초대 입력에 들어가는 이메일 태그. 기본/에러 상태.</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                        <span class="email-tag">kim@example.com <button type="button" class="email-tag__remove" aria-label="삭제">×</button></span>
+                        <span class="email-tag email-tag--error">lee@company.co.kr <button type="button" class="email-tag__remove" aria-label="삭제">×</button></span>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- user-id (아바타 + 역할 뱃지 + 이름)         -->
+                <!-- ========================================== -->
+                <div style="margin-top:32px;">
+                    <h3 style="margin:0 0 8px; font-size:15px; font-weight:600; color:#222;">유저 식별자 (user-id)</h3>
+                    <p style="margin:0 0 12px; font-size:12px; color:var(--text-secondary);">아바타 + 역할 뱃지 + 닉네임 한 줄 표시. <code>.user-id</code> 컨테이너에 자유 조합.</p>
+                    <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+
+                        <!-- 학습자 (기본 아이콘) -->
+                        <div class="user-id">
+                            <div class="c-avatar30 basic"></div>
+                            <span class="role-badge role-badge--learner">학습자</span>
+                            <span class="user-id__name">닉네임</span>
+                        </div>
+
+                        <!-- 관리자 (사진 아바타) -->
+                        <div class="user-id">
+                            <div class="c-avatar30 manager"></div>
+                            <span class="role-badge role-badge--manager">관리자</span>
+                            <span class="user-id__name">홍길순</span>
+                        </div>
+
+                        <!-- 강사 (사진 아바타) -->
+                        <div class="user-id">
+                            <div class="c-avatar30 instructor"></div>
+                            <span class="role-badge role-badge--instructor">강사</span>
+                            <span class="user-id__name">김강사</span>
+                        </div>
+
+                        <!-- 서브강사 -->
+                        <div class="user-id">
+                            <div class="c-avatar30 sub-teacher"></div>
+                            <span class="role-badge role-badge--sub">서브강사</span>
+                            <span class="user-id__name">박튜터</span>
+                        </div>
+
+                        <!-- 뱃지 없음 -->
+                        <div class="user-id">
+                            <div class="c-avatar30 basic"></div>
+                            <span class="user-id__name">닉네임만</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>

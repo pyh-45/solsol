@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Guide - Data Table</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <main class="admin-content" style="padding:40px;">
+        <div class="admin-body" style="width:1200px; margin:0 auto;">
+
+            <h1 style="font-size:28px; font-weight:700; color:#222; margin:0 0 8px;">Style Guide - Data Table</h1>
+            <p style="font-size:14px; color:var(--text-secondary); margin:0 0 32px;">데이터 테이블 컴포넌트 가이드.</p>
+
+            <!-- ========================================== -->
+            <!-- 데이터 테이블 (Data Table)                     -->
+            <!-- ========================================== -->
+            <section class="list-panel">
+                <div class="list-panel__header">
+                    <span class="list-panel__title">데이터 테이블 (학습자 목록 예시)</span>
+                    <div class="c-dropdown c-dropdown--ghost">
+                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                            <span class="c-dropdown__label">정렬</span>
+                            <img src="../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                        </button>
+                        <div class="c-dropdown__panel" style="right:0; left:auto;">
+                            <button class="c-dropdown__item active" onclick="selectItem(this)">구매순</button>
+                            <button class="c-dropdown__item" onclick="selectItem(this)">등급순</button>
+                            <button class="c-dropdown__item" onclick="selectItem(this)">가입순</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-table-wrap">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th class="th-check"><input type="checkbox" class="table-check"></th>
+                                <th style="min-width:160px">학습자</th>
+                                <th style="min-width:180px">이메일</th>
+                                <th style="min-width:120px">연락처</th>
+                                <th style="min-width:120px">등급</th>
+                                <th style="min-width:90px">가입유형</th>
+                                <th style="min-width:70px">소셜유형</th>
+                                <th style="min-width:140px">가입일시</th>
+                                <th style="min-width:80px">구매수(개)</th>
+                                <th style="min-width:130px">평균 진도율</th>
+                                <th style="min-width:80px">상태</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0 5px;"><input type="checkbox" class="table-check"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="c-avatar30 manager"></div>
+                                        <div class="user-cell__info">
+                                            <div class="user-cell__name">
+                                                <span class="role-badge role-badge--manager">관리자</span>
+                                                alpha_user_kr
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="email-cell">
+                                        <span class="role-badge role-badge--first">최초</span>
+                                        minjun.kim@example.com25...
+                                    </div>
+                                </td>
+                                <td>010-1234-567</td>
+                                <td><span class="grade-tag">최대값글자수제한은열두다섯정도</span></td>
+                                <td>
+                                    <span class="join-tag join-tag--normal">
+                                        <img src="../../images/ico-badge-join.svg" width="12" height="12" alt="">
+                                        일반
+                                    </span>
+                                </td>
+                                <td><img src="../../images/ico-google.png" width="24" height="24" alt="Google"></td>
+                                <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
+                                <td>3</td>
+                                <td>
+                                    <div class="progress-cell">
+                                        <div class="progress-bar"><div class="progress-bar__fill" style="width:85%"></div></div>
+                                        <span class="progress-bar__text">85%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-chip status-chip--active">활성</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0 5px;"><input type="checkbox" class="table-check"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="c-avatar30 sub-teacher"></div>
+                                        <div class="user-cell__info">
+                                            <div class="user-cell__name">
+                                                <span class="role-badge role-badge--sub">서브강사</span>
+                                                vintage_auto
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>seoyeon.lee@example.com2...</td>
+                                <td>-</td>
+                                <td><span class="grade-tag">아이한잔</span></td>
+                                <td>
+                                    <span class="join-tag join-tag--shortlink">
+                                        <img src="../../images/ico-badge-shortlink.svg" width="12" height="12" alt="">
+                                        숏링크
+                                    </span>
+                                </td>
+                                <td><img src="../../images/ico-apple.png" width="24" height="24" alt="Apple"></td>
+                                <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
+                                <td>5</td>
+                                <td>
+                                    <div class="progress-cell">
+                                        <div class="progress-bar"><div class="progress-bar__fill" style="width:50%"></div></div>
+                                        <span class="progress-bar__text">50%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-chip status-chip--active">활성</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0 5px;"><input type="checkbox" class="table-check"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="c-avatar30 basic"></div>
+                                        <div class="user-cell__info">
+                                            <div class="user-cell__name">
+                                                <span class="role-badge role-badge--instructor">강사</span>
+                                                닉네임
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>jihoon.park@example.com</td>
+                                <td>010-1234-567</td>
+                                <td><span class="grade-tag">커피챗한번</span></td>
+                                <td>
+                                    <span class="join-tag join-tag--shortlink">
+                                        <img src="../../images/ico-badge-shortlink.svg" width="12" height="12" alt="">
+                                        숏링크
+                                    </span>
+                                </td>
+                                <td><img src="../../images/ico-kakao.png" width="24" height="24" alt="Kakao"></td>
+                                <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
+                                <td>2</td>
+                                <td>
+                                    <div class="progress-cell">
+                                        <div class="progress-bar"><div class="progress-bar__fill" style="width:90%"></div></div>
+                                        <span class="progress-bar__text">90%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-chip status-chip--left">탈퇴</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0 5px;"><input type="checkbox" class="table-check"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="c-avatar30 learner"></div>
+                                        <div class="user-cell__info">
+                                            <div class="user-cell__name">
+                                                <span class="role-badge role-badge--learner">학습자</span>
+                                                닉네임
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>example@example.com</td>
+                                <td>010-1234-567</td>
+                                <td>-</td>
+                                <td>
+                                    <span class="join-tag join-tag--normal">
+                                        <img src="../../images/ico-badge-join.svg" width="12" height="12" alt="">
+                                        일반
+                                    </span>
+                                </td>
+                                <td><img src="../../images/ico-naver.png" width="24" height="24" alt="Naver"></td>
+                                <td style="font-size:12px; color:var(--text-secondary)">2024-12-15<br>오전/오후 00:00</td>
+                                <td>1</td>
+                                <td>
+                                    <div class="progress-cell">
+                                        <div class="progress-bar"><div class="progress-bar__fill" style="width:25%"></div></div>
+                                        <span class="progress-bar__text">25%</span>
+                                    </div>
+                                </td>
+                                <td><span class="status-chip status-chip--inactive">비활성</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- 폴더 관리 테이블 (Folder Management)            -->
+            <!-- ========================================== -->
+            <section class="list-panel list-panel--p30" style="margin-bottom:24px;">
+                <span class="folder-mgmt-title">폴더 관리</span>
+                <p style="margin:0 0 16px; font-size:12px; color:var(--text-secondary);">div 기반 폴더 관리 리스트. 드래그 핸들 + 폴더명(입력/표시 토글) + 하위 추가 + 점 3개 메뉴. <code style="background:#F4F5F7; padding:2px 6px; border-radius:4px; font-size:11px;">.folder-mgmt-row--sub</code>로 하위 폴더 들여쓰기.</p>
+
+                <!-- 테이블 헤더 -->
+                <div class="folder-mgmt-header">
+                    <span style="width:36px; flex-shrink:0;"></span>
+                    <span class="folder-mgmt-header__name">폴더명</span>
+                    <span class="folder-mgmt-header__manage">관리</span>
+                </div>
+
+                <!-- Row 1: 새 폴더 입력 중 -->
+                <div class="folder-mgmt-row">
+                    <button class="folder-mgmt-row__drag">
+                        <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                    </button>
+                    <div class="folder-mgmt-row__name">
+                        <div class="input-with-counter">
+                            <input type="text" class="folder-mgmt-row__input" placeholder="폴더명을 입력해주세요.">
+                            <span class="input-with-counter__count"><strong>3</strong>/15</span>
+                        </div>
+                        <button class="btn nm border-primary">저장</button>
+                        <button class="btn nm border btn--icon"><span class="ico-mask ico-mask--plus-gray"></span>하위 추가</button>
+                    </div>
+                    <div class="folder-mgmt-row__actions">
+                        <div class="folder-dots">
+                            <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                <img src="../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                            </button>
+                            <div class="folder-dots__menu">
+                                <button class="folder-dots__item">수정</button>
+                                <button class="folder-dots__item">삭제</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: 프로그래밍 (일반) -->
+                <div class="folder-mgmt-row">
+                    <button class="folder-mgmt-row__drag">
+                        <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                    </button>
+                    <div class="folder-mgmt-row__name">
+                        <span class="folder-mgmt-row__text">프로그래밍</span>
+                        <button class="btn nm border btn--icon"><span class="ico-mask ico-mask--plus-gray"></span>하위 추가</button>
+                    </div>
+                    <div class="folder-mgmt-row__actions">
+                        <div class="folder-dots">
+                            <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                <img src="../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                            </button>
+                            <div class="folder-dots__menu">
+                                <button class="folder-dots__item">수정</button>
+                                <button class="folder-dots__item">삭제</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2-1: 웹 개발 (하위) -->
+                <div class="folder-mgmt-row folder-mgmt-row--sub">
+                    <button class="folder-mgmt-row__drag">
+                        <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                    </button>
+                    <div class="folder-mgmt-row__name">
+                        <span class="folder-mgmt-row__text">웹 개발</span>
+                    </div>
+                    <div class="folder-mgmt-row__actions">
+                        <div class="folder-dots">
+                            <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                <img src="../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                            </button>
+                            <div class="folder-dots__menu">
+                                <button class="folder-dots__item">수정</button>
+                                <button class="folder-dots__item">삭제</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2-2: 모바일 개발 (하위) -->
+                <div class="folder-mgmt-row folder-mgmt-row--sub">
+                    <button class="folder-mgmt-row__drag">
+                        <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                    </button>
+                    <div class="folder-mgmt-row__name">
+                        <span class="folder-mgmt-row__text">모바일 개발</span>
+                    </div>
+                    <div class="folder-mgmt-row__actions">
+                        <div class="folder-dots">
+                            <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                <img src="../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                            </button>
+                            <div class="folder-dots__menu">
+                                <button class="folder-dots__item">수정</button>
+                                <button class="folder-dots__item">삭제</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: 디자인 (수정 중) -->
+                <div class="folder-mgmt-row">
+                    <button class="folder-mgmt-row__drag">
+                        <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                    </button>
+                    <div class="folder-mgmt-row__name">
+                        <div class="input-with-counter">
+                            <input type="text" class="folder-mgmt-row__input" value="디자인">
+                            <span class="input-with-counter__count"><strong>3</strong>/15</span>
+                        </div>
+                        <button class="btn nm border-primary">수정</button>
+                        <button class="btn nm border btn--icon"><span class="ico-mask ico-mask--plus-gray"></span>하위 추가</button>
+                    </div>
+                    <div class="folder-mgmt-row__actions">
+                        <div class="folder-dots">
+                            <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                <img src="../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                            </button>
+                            <div class="folder-dots__menu">
+                                <button class="folder-dots__item">수정</button>
+                                <button class="folder-dots__item">삭제</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3-1: UI/UX Design (하위, 수정 중) -->
+                <div class="folder-mgmt-row folder-mgmt-row--sub">
+                    <button class="folder-mgmt-row__drag">
+                        <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                    </button>
+                    <div class="folder-mgmt-row__name">
+                        <div class="input-with-counter">
+                            <input type="text" class="folder-mgmt-row__input" value="UI/UX Design">
+                            <span class="input-with-counter__count"><strong>3</strong>/15</span>
+                        </div>
+                        <button class="btn nm border-primary">수정</button>
+                    </div>
+                    <div class="folder-mgmt-row__actions">
+                        <div class="folder-dots">
+                            <button class="folder-dots__btn" onclick="toggleDots(this)">
+                                <img src="../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                            </button>
+                            <div class="folder-dots__menu">
+                                <button class="folder-dots__item">수정</button>
+                                <button class="folder-dots__item">삭제</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- 설정 정보 테이블 (Setting Table)               -->
+            <!-- ========================================== -->
+            <section class="list-panel list-panel--flush" style="margin-bottom:24px;">
+                <h3 class="list-panel__title">설정 정보 테이블 (사이트 정보 예시)</h3>
+                <table class="setting-table">
+                    <tbody>
+                        <tr>
+                            <th>사이트명</th>
+                            <td>
+                                <span class="setting-table__text">DJ 테크트리</span>
+                                <span class="setting-table__desc">사이트 전반에 노출되는 이름입니다.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>사이트 URL</th>
+                            <td>
+                                <div class="setting-table__url-row">
+                                    <span class="setting-table__text">https://admin-creatorlms</span>
+                                    <button class="btn md border">도메인 설정</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>사이트 설명</th>
+                            <td>
+                                <div class="setting-table__textarea-wrap">
+                                    <textarea class="setting-table__textarea" placeholder="운영에 필요한 사이트 정보를 자유롭게 작성해 주세요."></textarea>
+                                    <span class="setting-table__counter"><strong>0</strong>/500</span>
+                                </div>
+                                <span class="setting-table__desc">사이트의 용도, 주요 대상, 운영 시 참고사항 등을 자유롭게 작성해 주세요.</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- 탭 메뉴 + tab-table (Detail Tab + Tab Table)  -->
+            <!-- ========================================== -->
+            <section style="margin-bottom:24px;">
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item">기본 정보</button>
+                    <button class="detail-tab__item">AI 튜터</button>
+                    <button class="detail-tab__item">AI 번역</button>
+                    <button class="detail-tab__item active">사용현황</button>
+                </nav>
+
+                <!-- 탭 콘텐츠: 사용현황 목록 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="tab-info-title">사용현황 목록</h3>
+
+                    <div class="admin-table-wrap">
+                        <table class="tab-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:200px;">상품종류</th>
+                                    <th>상품명</th>
+                                    <th style="width:200px;">종류</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>일반강의</td>
+                                    <td>기초부터 배우는 포토샵 디자인 클래스</td>
+                                    <td>커리큘럼</td>
+                                </tr>
+                                <tr>
+                                    <td>라이브강의</td>
+                                    <td>모던 JavaScript</td>
+                                    <td>자료실</td>
+                                </tr>
+                                <tr>
+                                    <td>화상강의</td>
+                                    <td>React 심화</td>
+                                    <td>커리큘럼</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- 탭 정보 테이블 (Tab Info Table)               -->
+            <!-- ========================================== -->
+            <section class="list-panel" style="margin-bottom:24px;">
+                <h3 class="tab-info-title">템플릿 정보</h3>
+
+                <table class="tab-info-table">
+                    <colgroup>
+                        <col style="width:200px;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>템플릿 유형</th>
+                            <td>
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <span class="setting-table__text">기본형 (1)</span>
+                                    <button class="btn sm border">템플릿 보기</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>활동 상태</th>
+                            <td>
+                                <label class="c-toggle-text">
+                                    <input type="checkbox" checked>
+                                    <span class="c-toggle-text__track">
+                                        <span class="c-toggle-text__pill c-toggle-text__pill--on">활성</span>
+                                        <span class="c-toggle-text__pill c-toggle-text__pill--off">비활성</span>
+                                    </span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>템플릿 제목<span class="setting-table__required">*</span></th>
+                            <td>
+                                <div class="setting-table__input-count-wrap">
+                                    <input type="text" class="setting-table__input" value="일반강의 수료 템플릿">
+                                    <span class="setting-table__count"><strong>0</strong>/20</span>
+                                </div>
+                                <span class="setting-table__desc">생성하시는 템플릿 제목을 입력해주세요. 예) 일반 강의용 수료증</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>수료 정보<span class="setting-table__required">*</span></th>
+                            <td>
+                                <div class="setting-check-row">
+                                    <label class="setting-check-label">
+                                        <input type="checkbox" class="c-check-setting" checked> 이름
+                                    </label>
+                                    <label class="setting-check-label">
+                                        <input type="checkbox" class="c-check-setting" checked> 상품명
+                                    </label>
+                                    <label class="setting-check-label">
+                                        <input type="checkbox" class="c-check-setting"> 시작일
+                                    </label>
+                                    <label class="setting-check-label">
+                                        <input type="checkbox" class="c-check-setting"> 수료일
+                                    </label>
+                                    <label class="setting-check-label">
+                                        <input type="checkbox" class="c-check-setting"> 수료번호
+                                    </label>
+                                </div>
+                                <span class="setting-table__desc">수료증에 노출하고 싶은 정보를 선택해 주세요.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>서명 또는 직인<span class="setting-table__required">*</span></th>
+                            <td>
+                                <button class="btn sm border">이미지 등록</button>
+                                <span class="setting-table__desc" style="margin-top:8px;">배경이 없는 PNG 이미지를 사용하면 수료증에 더욱 자연스럽게 적용됩니다.</span>
+                                <span class="setting-table__desc">업로드 가능 확장자 : JPG, PNG / 권장 사이즈 : 600px X 600px</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- 폼 헤더 + 액션 버튼 테이블 (Form Header Table)  -->
+            <!-- ========================================== -->
+            <section class="list-panel list-panel--flush" style="margin-bottom:24px;">
+                <div class="panel-form-header">
+                    <h3 class="list-panel__title list-panel__title--flat">수정하기</h3>
+                    <button class="btn md primary">수정</button>
+                </div>
+
+                <table class="setting-table">
+                    <tbody>
+                        <tr>
+                            <th>제목<span class="setting-table__required">*</span></th>
+                            <td>
+                                <div class="setting-table__input-count-wrap">
+                                    <input type="text" class="setting-table__input" value="상품 구성 확인 및 수정 요청" maxlength="40">
+                                    <span class="setting-table__count"><strong>0</strong>/40</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>고정글 설정</th>
+                            <td>
+                                <label class="c-toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="c-toggle__slider"></span>
+                                </label>
+                                <span class="setting-table__desc" style="display:block; margin-top:8px;">고정글 설정할 경우 공지 리스트 상단에 노출됩니다.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>중요도</th>
+                            <td>
+                                <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
+                                    <input type="checkbox" class="c-check-blue" checked>
+                                    중요 표시
+                                </label>
+                                <span class="setting-table__desc" style="display:block; margin-top:8px;">중요 표시를 선택할 경우 공지 리스트에서 중요 뱃지가 노출됩니다.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>노출대상<span class="setting-table__required">*</span></th>
+                            <td>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <div class="c-avatar30 manager"></div>
+                                    <span style="font-size:14px; color:var(--text-primary);">닉네임 외 3명</span>
+                                    <button class="btn sm border">리스트 보기</button>
+                                </div>
+                                <span class="setting-table__desc" style="display:block; margin-top:10px;">노출 대상은 공지 등록 시 설정되며, 이후에는 변경할 수 없습니다.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>내용<span class="setting-table__required">*</span></th>
+                            <td>
+                                <div class="setting-table__textarea-wrap">
+                                    <textarea class="setting-table__textarea" style="height:200px;" maxlength="500">등록된 상품 중 일부 구성 정보가 실제 제공 내용과 상이할 가능성이 확인되었습니다.</textarea>
+                                    <span class="setting-table__counter"><strong>0</strong>/500</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- 탭메뉴 + tab-table + 정렬 ghost 드롭다운       -->
+            <!-- ========================================== -->
+            <section style="margin-bottom:24px;">
+
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item active">멤버십 정보</button>
+                    <button class="detail-tab__item">구독자 정보</button>
+                </nav>
+
+                <!-- 목록 패널 -->
+                <div class="list-panel">
+
+                    <!-- 목록 헤더 (타이틀 + 우측 ghost 드롭다운) -->
+                    <div class="content-list-bar">
+                        <span class="content-list-bar__title">멤버십 목록</span>
+                        <div class="content-list-bar__right">
+                            <div class="c-dropdown c-dropdown--ghost">
+                                <button class="c-dropdown__trigger" style="gap:16px;" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">등록 최신순</span>
+                                    <img src="../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">등록 최신순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">등록 오래된순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">금액 높은순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">금액 낮은순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">학습자 많은순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">학습자 적은순</button>
+                                </div>
+                            </div>
+                            <div class="c-dropdown c-dropdown--ghost">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">30개씩</span>
+                                    <img src="../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">100개씩</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- tab-table -->
+                    <div class="admin-table-wrap">
+                        <table class="tab-table">
+                            <colgroup>
+                                <col style="width:48px;">
+                                <col style="width:40px;">
+                                <col style="min-width:200px;">
+                                <col style="width:170px;">
+                                <col style="width:110px;">
+                                <col style="width:140px;">
+                                <col style="width:80px;">
+                                <col style="width:90px;">
+                                <col style="width:90px;">
+                                <col style="width:160px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="th-check">
+                                        <input type="checkbox" class="table-check">
+                                    </th>
+                                    <th></th>
+                                    <th class="td-left">멤버십명</th>
+                                    <th>활성 구독자 / 누적 구독자</th>
+                                    <th>월 구독료</th>
+                                    <th>이용 카테고리</th>
+                                    <th>혜택</th>
+                                    <th>공개상태</th>
+                                    <th>판매상태</th>
+                                    <th>등록일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:0 5px;"><input type="checkbox" class="table-check" checked></td>
+                                    <td>
+                                        <button class="row-drag" aria-label="드래그">
+                                            <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                                        </button>
+                                    </td>
+                                    <td class="td-left">커피한잔 주세요</td>
+                                    <td>50 / 100</td>
+                                    <td>990원</td>
+                                    <td>일반강의 외 3개</td>
+                                    <td>1개</td>
+                                    <td><span class="status-chip status-chip--success">공개</span></td>
+                                    <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 5px;"><input type="checkbox" class="table-check" checked></td>
+                                    <td>
+                                        <button class="row-drag" aria-label="드래그">
+                                            <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                                        </button>
+                                    </td>
+                                    <td class="td-left">커피 두잔 주세요</td>
+                                    <td>2 / 80</td>
+                                    <td>1,990원</td>
+                                    <td>일반강의 외 2개</td>
+                                    <td>5개</td>
+                                    <td><span class="status-chip status-chip--success">공개</span></td>
+                                    <td><span class="sale-status-tag sale-status-tag--suspended">판매중지</span></td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 5px;"><input type="checkbox" class="table-check" checked></td>
+                                    <td>
+                                        <button class="row-drag" aria-label="드래그">
+                                            <img src="../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                                        </button>
+                                    </td>
+                                    <td class="td-left">커피 두잔 주세요</td>
+                                    <td>0 / 20</td>
+                                    <td>18,000원</td>
+                                    <td>일반강의 외 5개</td>
+                                    <td>5개</td>
+                                    <td><span class="status-chip status-chip--neutral">비공개</span></td>
+                                    <td><span class="sale-status-tag sale-status-tag--closed">판매마감</span></td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+<script>
+    function toggleDots(btn) {
+        const menu = btn.nextElementSibling;
+        const isOpen = menu.classList.contains('open');
+        document.querySelectorAll('.folder-dots__menu.open').forEach(m => m.classList.remove('open'));
+        if (!isOpen) menu.classList.add('open');
+    }
+
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+        if (!e.target.closest('.folder-dots')) {
+            document.querySelectorAll('.folder-dots__menu.open').forEach(m => m.classList.remove('open'));
+        }
+    });
+</script>
+
+</body>
+</html>
