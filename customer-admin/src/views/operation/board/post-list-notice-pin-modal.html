@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고정글 설정 변경</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center; gap:40px; align-items:flex-start;">
+
+    <!-- 고정글 설정 변경 (480) -->
+    <div class="c-modal completion-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">고정글 설정 변경</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="credit-detail__body completion-modal__body">
+            <table class="modal-info-table">
+                <tbody>
+                    <tr>
+                        <th>고정 설정</th>
+                        <td>
+                            <div class="c-radio-group">
+                                <label class="c-radio">
+                                    <input type="radio" name="pinStatus" checked>
+                                    <span>고정글</span>
+                                </label>
+                                <label class="c-radio">
+                                    <input type="radio" name="pinStatus">
+                                    <span>고정글 취소</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="credit-detail__footer">
+            <button type="button" class="btn lg primary">확인</button>
+        </div>
+
+    </div>
+
+    <!-- 우측: alert 4종 -->
+    <div style="display:flex; flex-direction:column; gap:30px;">
+
+        <!-- alert 1-a: 고정글 설정 확인 (취소/확인) -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">선택한 {n}개의 게시글을 고정글로 설정 하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border">취소</button>
+                <button type="button" class="btn lg primary">확인</button>
+            </div>
+        </div>
+
+        <!-- alert 1-b: 고정글 설정 완료 -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">{n}개 의 게시글을 고정글로 설정했습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg primary" style="width:100%;">확인</button>
+            </div>
+        </div>
+
+        <!-- alert 2-a: 고정글 설정 취소 확인 (취소/확인) -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">선택한 {n}개의 게시글을 고정글 설정을 취소하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border">취소</button>
+                <button type="button" class="btn lg primary">확인</button>
+            </div>
+        </div>
+
+        <!-- alert 2-b: 고정글 설정 취소 완료 -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">{n}개 의 게시글을 고정글 설정을 취소했습니다.</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg primary" style="width:100%;">확인</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

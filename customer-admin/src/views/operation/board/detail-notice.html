@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 게시판 생성</title>
+    <title>Admin - 게시판 상세</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -19,10 +19,7 @@
 
         <div class="admin-header__center">
             <div class="admin-header__nav">
-                <button class="admin-header__back">
-                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
-                </button>
-                <span class="admin-header__page-title">게시판 생성</span>
+                <span class="admin-header__page-title">게시판 상세페이지</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -251,50 +248,83 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 인포 박스 -->
-                <div class="admin-infotip">
-                    <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">게시판은 생성 즉시 사이트에 노출되지 않습니다. <strong>사이트 &gt; 메뉴</strong> 에서 활성화 후 노출할 수 있습니다.</span>
+                <!-- 게시판 공지 -->
+                <div class="dashboard-bar">
+                    <div class="dashboard-bar__main">
+                        <span class="dashboard-bar__label">공지사항</span>
+                        <div class="dashboard-bar__head">
+                            <span class="dashboard-bar__title dashboard-bar__title--ellipsis">게시판 제목 자릿수는 얼마나 될까요. 두줄일 경우가 있을까요. 최대한 한줄로 가는게 좋겠습니다. 75자정도에서...</span>
+                        </div>
+                        <div class="dashboard-bar__meta">
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/Ico-16px-board.svg" width="16" height="16" alt="">
+                                게시글 수 <span class="dashboard-bar__meta-value">10</span> 개
+                            </span>
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/ico-16px-edit.svg" width="16" height="16" alt="">
+                                글쓰기 권한 <span class="dashboard-bar__meta-value">관리자</span>
+                            </span>
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/ico-16px-book.svg" width="16" height="16" alt="">
+                                글 읽기 권한 <span class="dashboard-bar__meta-value">(모든 사용자)</span>
+                            </span>
+                            <span class="dashboard-bar__meta-item">2000.00.00 오전/오후 00:00</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-bar__actions">
+                        <label class="c-toggle-text">
+                            <input type="checkbox" checked>
+                            <span class="c-toggle-text__track">
+                                <span class="c-toggle-text__pill c-toggle-text__pill--on">공개</span>
+                                <span class="c-toggle-text__pill c-toggle-text__pill--off">비공개</span>
+                            </span>
+                        </label>
+                        <div class="dashboard-bar__btn-group">
+                            <button class="btn nm border">삭제</button>
+                            <button class="btn nm border btn--icon">
+                                <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
+                                미리보기
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 상단 액션바 -->
                 <div class="admin-action-bar">
-                    <button class="btn lg dark btn--icon">
-                        <img src="../../../images/ico-16px-plus03.svg" width="16" height="16" alt="">
-                        게시판 생성
-                    </button>
+                    <button class="btn lg dark">변경사항 저장</button>
                 </div>
 
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item active">게시판 정보</button>
+                    <button class="detail-tab__item">게시글 <span class="lnb-badge">3</span></button>
+                </nav>
+
                 <!-- 게시판 정보 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">게시판 정보</h3>
-                    <table class="setting-table">
+                <div class="list-panel list-panel--p30">
+                    <h3 class="tab-info-title">게시판 정보</h3>
+
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
                         <tbody>
                             <tr>
-                                <th>게시판 유형</th>
+                                <th>게시판 타입</th>
                                 <td>
-                                    <div class="c-dropdown" style="max-width:340px;">
-                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                            <span class="c-dropdown__label">공지사항</span>
-                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                        </button>
-                                        <div class="c-dropdown__panel">
-                                            <button class="c-dropdown__item active" onclick="selectItem(this)">공지사항</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">FAQ</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">자유게시판</button>
-                                        </div>
-                                    </div>
-                                    <span class="setting-table__desc">게시판 생성 후에는 타입을 변경할 수 없습니다. <a href="#" class="guide-link">가이드보기</a></span>
+                                    <p style="margin:0; font-size:14px; color:var(--text-primary); font-weight:500;">공지사항</p>
+                                    <p class="setting-table__desc">게시판 생성 후에는 타입을 변경할 수 없습니다. <a href="#" class="guide-link">가이드보기</a></p>
                                 </td>
                             </tr>
                             <tr>
                                 <th>게시판명</th>
                                 <td>
                                     <div class="setting-table__input-count-wrap">
-                                        <input type="text" class="setting-table__input" placeholder="게시판명을 입력해주세요." maxlength="20">
-                                        <span class="setting-table__count">[<strong>0</strong>/20]</span>
+                                        <input type="text" class="setting-table__input" value="게시판 제목" maxlength="20">
+                                        <span class="setting-table__count"><strong>0</strong>/20</span>
                                     </div>
-                                    <span class="setting-table__desc">동일한 게시판명은 사용할 수 없습니다. 예) 자유게시판, 공지사항</span>
+                                    <p class="setting-table__desc">동일한 게시판명은 사용할 수 없습니다. 예) 자유게시판, 공지사항</p>
                                 </td>
                             </tr>
                             <tr>
@@ -333,41 +363,7 @@
 
     </div>
 
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 게시판 생성 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-board-create-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">게시판을 생성하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-board-create-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-board-create-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
 <script>
-    function toggleProfileMenu(e) {
-        e.stopPropagation();
-        document.getElementById('headerUserMenu').classList.toggle('open');
-    }
-
-    function closeAllLnb() {
-        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
-    }
-
-    function toggleLnb(btn) {
-        const accordion = btn.closest('.lnb-accordion');
-        const isOpen = accordion.classList.contains('open');
-        closeAllLnb();
-        if (!isOpen) accordion.classList.add('open');
-    }
-
     function toggleDropdown(trigger) {
         const isOpen = trigger.classList.contains('open');
         document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
@@ -383,12 +379,55 @@
         trigger.classList.remove('open');
     }
 
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('#headerUserMenu')) {
-            document.getElementById('headerUserMenu').classList.remove('open');
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    function onRowCheck() {
+        const checks = document.querySelectorAll('.row-check');
+        const checked = [...checks].filter(c => c.checked);
+        const bulkBar = document.getElementById('bulkBar');
+        const bulkText = document.getElementById('bulkText');
+
+        if (checked.length > 0) {
+            bulkText.textContent = checked.length + '개 게시판 선택됨';
+            bulkBar.classList.remove('hidden');
+        } else {
+            bulkBar.classList.add('hidden');
         }
+
+        document.getElementById('checkAll').indeterminate = checked.length > 0 && checked.length < checks.length;
+        document.getElementById('checkAll').checked = checked.length === checks.length;
+    }
+
+    function toggleAll(checkbox) {
+        document.querySelectorAll('.row-check').forEach(c => c.checked = checkbox.checked);
+        onRowCheck();
+    }
+
+    function closeBulkBar() {
+        document.querySelectorAll('.row-check, #checkAll').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
+    }
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    document.addEventListener('click', function(e) {
         if (!e.target.closest('.c-dropdown')) {
             document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
         }
     });
 </script>

@@ -446,6 +446,24 @@ customer-admin/
 1. 같은 섹션의 비슷한 페이지를 카피한다.
 2. `<title>`, 페이지 타이틀, LNB `active` 위치를 변경한다.
 3. 컨텐츠 영역만 교체.
+4. **🔒 페이지 생성 직후 [sitemap.html](src/views/sitemap.html) 반드시 업데이트** — 누락 금지.
+
+### 15.1.1 사이트맵 업데이트 규칙
+
+**페이지(또는 모달)를 새로 만든 직후, 다음 작업이 다른 작업으로 넘어가기 전에 무조건 진행한다.**
+
+체크 항목:
+1. 해당 카테고리 섹션의 `<ul class="page-list">` 안에 `<li>` 추가
+2. **카테고리 내 항목 순서** = **생성 순서** (카피한 부모 페이지 다음에 배치)
+   - 예: `list.html` → `detail-notice.html` → `add.html` → `add-free.html` → `*-modal.html`
+   - 새로 만든 페이지는 같은 흐름의 기존 페이지 바로 옆에 끼워 넣음
+3. 모달 페이지(`*-modal.html`)는 제목 끝에 `<span class="modal-tag">MODAL</span>` 추가
+4. 섹션 헤더의 `<span class="count">N개</span>` 수치 갱신
+5. 페이지 상단 desc의 총 페이지 수 갱신:
+   `customer-admin 내 모든 페이지 목록 (총 <strong>N</strong>건)`
+6. 새로운 카테고리(폴더)인 경우:
+   - TOC `<nav class="toc">`에 `<a href="#xxx">`추가
+   - 새 `<section id="xxx">` 추가
 
 ### 15.2 알럿 모달 추가
 1. 페이지 끝 `</main>` 다음에 `<!-- 모달창 모음 -->` 블록 안에 추가.

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 게시판 생성</title>
+    <title>Admin - 게시글 글쓰기</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <button class="admin-header__back">
                     <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
                 </button>
-                <span class="admin-header__page-title">게시판 생성</span>
+                <span class="admin-header__page-title">상세페이지</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -47,7 +47,8 @@
             <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
                 <div class="c-avatar30 learner">A</div>
                 <span class="admin-header__username">홍길순</span>
-                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <img src="../../../images/chevron-down.svg" alt="" class="admin-header__user-arrow">
+
                 <div class="c-profile-tooltip">
                     <div class="c-profile-tooltip__top">
                         <div class="c-avatar40 learner">A</div>
@@ -86,8 +87,8 @@
                 <span class="lnb-badge">3</span>
             </a>
 
-
             <div class="lnb-divider"></div>
+
             <div class="lnb-section">
 
                 <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
@@ -251,79 +252,169 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 인포 박스 -->
-                <div class="admin-infotip">
-                    <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">게시판은 생성 즉시 사이트에 노출되지 않습니다. <strong>사이트 &gt; 메뉴</strong> 에서 활성화 후 노출할 수 있습니다.</span>
-                </div>
-
-                <!-- 상단 액션바 -->
-                <div class="admin-action-bar">
-                    <button class="btn lg dark btn--icon">
-                        <img src="../../../images/ico-16px-plus03.svg" width="16" height="16" alt="">
-                        게시판 생성
-                    </button>
-                </div>
-
-                <!-- 게시판 정보 패널 -->
+                <!-- 게시글 글쓰기 패널 -->
                 <div class="list-panel list-panel--flush">
-                    <h3 class="list-panel__title">게시판 정보</h3>
-                    <table class="setting-table">
+                    <div class="panel-form-header">
+                        <h3 class="list-panel__title list-panel__title--flat">게시글쓰기</h3>
+                        <button class="btn md primary">등록</button>
+                    </div>
+
+                    <table class="setting-table" style="table-layout:fixed;">
                         <tbody>
+
+                            <!-- 제목 -->
                             <tr>
-                                <th>게시판 유형</th>
-                                <td>
-                                    <div class="c-dropdown" style="max-width:340px;">
-                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                            <span class="c-dropdown__label">공지사항</span>
-                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                        </button>
-                                        <div class="c-dropdown__panel">
-                                            <button class="c-dropdown__item active" onclick="selectItem(this)">공지사항</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">FAQ</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">자유게시판</button>
-                                        </div>
-                                    </div>
-                                    <span class="setting-table__desc">게시판 생성 후에는 타입을 변경할 수 없습니다. <a href="#" class="guide-link">가이드보기</a></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>게시판명</th>
+                                <th>제목<span class="setting-table__required">*</span></th>
                                 <td>
                                     <div class="setting-table__input-count-wrap">
-                                        <input type="text" class="setting-table__input" placeholder="게시판명을 입력해주세요." maxlength="20">
-                                        <span class="setting-table__count">[<strong>0</strong>/20]</span>
+                                        <input type="text" class="setting-table__input" placeholder="게시글 제목을 입력해주세요." maxlength="40">
+                                        <span class="setting-table__count">[<strong>0</strong>/40]</span>
                                     </div>
-                                    <span class="setting-table__desc">동일한 게시판명은 사용할 수 없습니다. 예) 자유게시판, 공지사항</span>
                                 </td>
                             </tr>
+
+                            <!-- 고정글 설정 -->
                             <tr>
-                                <th>권한 설정</th>
+                                <th>고정글 설정</th>
                                 <td>
-                                    <div style="display:flex; align-items:center; gap:24px;">
-                                        <span style="font-size:14px; color:var(--color-textgray); min-width:48px;">글 쓰기</span>
-                                        <label class="c-radio">
-                                            <input type="radio" name="writePermission" checked>
-                                            <span>관리자</span>
-                                        </label>
-                                    </div>
-                                    <div style="display:flex; align-items:center; gap:24px; margin-top:16px;">
-                                        <span style="font-size:14px; color:var(--color-textgray); min-width:48px;">글 읽기</span>
-                                        <label class="c-radio">
-                                            <input type="radio" name="readPermission" checked>
-                                            <span>모든 사용자</span>
-                                        </label>
-                                        <label class="c-radio">
-                                            <input type="radio" name="readPermission">
-                                            <span>사이트 회원</span>
-                                        </label>
-                                        <label class="c-radio">
-                                            <input type="radio" name="readPermission">
-                                            <span>관리자</span>
-                                        </label>
+                                    <label class="c-toggle">
+                                        <input type="checkbox">
+                                        <span class="c-toggle__slider"></span>
+                                    </label>
+                                    <span class="setting-table__desc" style="display:block; margin-top:8px;">고정글 설정할 경우 게시판 리스트 상단에 노출됩니다.</span>
+                                </td>
+                            </tr>
+
+                            <!-- 내용 -->
+                            <tr>
+                                <th>내용<span class="setting-table__required">*</span></th>
+                                <td>
+                                    <div class="rt-editor">
+                                        <div class="rt-editor__toolbar">
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="굵게"><strong>B</strong></button>
+                                                <button type="button" class="rt-editor__btn" title="기울임"><em>I</em></button>
+                                                <button type="button" class="rt-editor__btn" title="밑줄"><u>U</u></button>
+                                                <button type="button" class="rt-editor__btn" title="취소선"><s>S</s></button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="순서없는 목록">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="2" cy="4" r="1" fill="#666"/><circle cx="2" cy="8" r="1" fill="#666"/><circle cx="2" cy="12" r="1" fill="#666"/><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="순서있는 목록">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="0" y="6" font-size="5" fill="#666">1</text><text x="0" y="10" font-size="5" fill="#666">2</text><text x="0" y="14" font-size="5" fill="#666">3</text><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="링크">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 10L10 6" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l1-1a2.5 2.5 0 113.5 3.5l-1 1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 12l-1 1a2.5 2.5 0 11-3.5-3.5l1-1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="이미지">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1" stroke="#666" stroke-width="1.5"/><circle cx="6" cy="7" r="1" fill="#666"/><path d="M3 11l3-3 4 4 2-2 2 2" stroke="#666" stroke-width="1.5" fill="none"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="왼쪽 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="8" x2="10" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="가운데 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="8" x2="12" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="오른쪽 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="서식 지우기">
+                                                    Tx
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="rt-editor__body" contenteditable="true" data-placeholder="게시글 내용을 입력해 주세요.">
+                                        </div>
+                                        <div class="rt-editor__footer">
+                                            <button type="button" class="btn md border-primary">미리보기</button>
+                                            <span class="rt-editor__usage">0MB 사용중 <span class="rt-editor__usage-total">/ 50MB</span></span>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
+
+                            <!-- 파일 업로드 -->
+                            <tr>
+                                <th>파일 업로드</th>
+                                <td>
+                                    <button type="button" class="btn md border">파일 업로드</button>
+
+                                    <div class="upload-list">
+                                        <div class="upload-list__head">
+                                            <h4 class="upload-list__title">업로드 리스트</h4>
+                                            <div class="upload-storage-info">
+                                                <span>콘텐츠 용량 80.0 GB <a href="#" class="upload-storage-info__used">중 79.4MB 사용중</a></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="admin-table-wrap">
+                                            <table class="upload-table">
+                                                <colgroup>
+                                                    <col style="width:50px;">
+                                                    <col>
+                                                    <col style="width:30%;">
+                                                    <col style="width:90px;">
+                                                </colgroup>
+                                                <thead>
+                                                    <tr>
+                                                        <th class="th-check"><input type="checkbox" class="table-check"></th>
+                                                        <th>원본 파일명</th>
+                                                        <th>노출 파일명</th>
+                                                        <th>용량</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="checkbox" class="table-check" checked></td>
+                                                        <td class="td-left">
+                                                            <span class="upload-list__file">
+                                                                <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                                                image.jpg
+                                                            </span>
+                                                        </td>
+                                                        <td class="td-left"><input type="text" class="setting-table__input" placeholder="image.jpg"></td>
+                                                        <td>5MB</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" class="table-check" checked></td>
+                                                        <td class="td-left">
+                                                            <span class="upload-list__file">
+                                                                <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                                                image(1).jpg
+                                                            </span>
+                                                        </td>
+                                                        <td class="td-left"><input type="text" class="setting-table__input" value="피그마 이미지 예시"></td>
+                                                        <td>5MB</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" class="table-check" checked></td>
+                                                        <td class="td-left">
+                                                            <span class="upload-list__file">
+                                                                <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                                                image(2).jpg
+                                                            </span>
+                                                        </td>
+                                                        <td class="td-left"><input type="text" class="setting-table__input" placeholder="image(2).jpg"></td>
+                                                        <td>5MB</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -331,24 +422,6 @@
             </div>
         </main>
 
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 게시판 생성 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-board-create-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">게시판을 생성하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-board-create-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-board-create-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>
@@ -368,27 +441,9 @@
         if (!isOpen) accordion.classList.add('open');
     }
 
-    function toggleDropdown(trigger) {
-        const isOpen = trigger.classList.contains('open');
-        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
-        if (!isOpen) trigger.classList.add('open');
-    }
-
-    function selectItem(item) {
-        const panel = item.closest('.c-dropdown__panel');
-        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        const trigger = panel.previousElementSibling;
-        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
-        trigger.classList.remove('open');
-    }
-
     document.addEventListener('click', function(e) {
         if (!e.target.closest('#headerUserMenu')) {
             document.getElementById('headerUserMenu').classList.remove('open');
-        }
-        if (!e.target.closest('.c-dropdown')) {
-            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
         }
     });
 </script>
