@@ -999,14 +999,6 @@ ul, ol { list-style: none; }
 }
 
 .btn:hover { opacity: 1; }
-.btn:disabled,
-.btn[disabled] {
-    background: #F2F2F2;
-    color: #BBBBBB;
-    border-color: transparent;
-    cursor: not-allowed;
-    opacity: 1;
-} 
 
 /* 크기 변형 */
 .btn.big  { min-width:360px; height: 52px; padding: 0 28px; font-size: 16px; font-weight:600; color:#fff;border-radius: 6px;background-color: var(--color-primary); }
@@ -1056,6 +1048,17 @@ ul, ol { list-style: none; }
 .btn.border-primary { background: #fff; border: 1px solid var(--color-primary); color: var(--color-blue); }
 .btn.border-primary:hover { background: #fff; border-color: var(--color-blue); color: var(--color-blue); }
 .btn.border-primary:active { background: #fff; border-color: var(--color-primary); color: var(--color-primary); }
+
+/* disabled — 사이즈/컬러 변형 뒤에 정의해 자동 오버라이드 */
+.btn:disabled,
+.btn[disabled] {
+    background: #F2F2F2;
+    color: #BBBBBB;
+    border-color: transparent;
+    cursor: not-allowed;
+    opacity: 1;
+    pointer-events: none;
+}
 
 
 /* 좌측 아이콘 버튼 (아이콘 + 텍스트) */
@@ -3632,6 +3635,15 @@ tr:has(.c-check:checked) {
 .notif-channel__label img { width:18px; height:18px; }
 .notif-channel .c-check-blue:checked ~ .notif-channel__label img { filter:brightness(0) saturate(100%) invert(60%) sepia(95%) saturate(2030%) hue-rotate(170deg) brightness(102%) contrast(96%); }
 .notif-channel .btn { margin-left:auto; }
+
+/* ==================== 등록 단계 스텝퍼 (Step Tabs) ==================== */
+.step-tabs { display:flex; align-items:center; padding:20px 30px; background:#fff; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.06); }
+.step-tabs__step { display:inline-flex; align-items:center; gap:8px; flex-shrink:0; }
+.step-tabs__circle { width:30px; height:30px; border-radius:50%; background:#BFBFBF; color:#fff; font-size:12px; font-weight:600; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.step-tabs__label { font-size:15px; color:#424242;font-weight:500; }
+.step-tabs__line { flex:1; height:1px; background:#E5E7EB; min-width:40px; margin:0 16px; }
+.step-tabs__step--active .step-tabs__circle { background:var(--color-primary); }
+.step-tabs__step--active .step-tabs__circle img { filter:brightness(0) invert(1); transform:translateY(2px); }
 
 /* ==================== 팝업 미리보기 프레임 (PC / Mobile) ==================== */
 .preview-frame { min-height:100vh; background:#4A4A52; display:flex; flex-direction:column; }

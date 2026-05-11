@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 상품 생성</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <button class="admin-header__back">
+                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">상품 생성</span>
+                <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn md border">내 정보</button>
+                        <button class="btn md border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+
+            <div class="lnb-divider"></div>
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item active">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 등록 단계 -->
+                <div class="step-tabs">
+                    <div class="step-tabs__step step-tabs__step--active">
+                        <span class="step-tabs__circle">
+                            <img src="../../../images/modal-check-selected.svg" width="18" height="18" alt="">
+                        </span>
+                        <span class="step-tabs__label">상품정보</span>
+                    </div>
+                    <span class="step-tabs__line"></span>
+                    <div class="step-tabs__step">
+                        <span class="step-tabs__circle">2</span>
+                        <span class="step-tabs__label">커리큘럼</span>
+                    </div>
+                    <span class="step-tabs__line"></span>
+                    <div class="step-tabs__step">
+                        <span class="step-tabs__circle">3</span>
+                        <span class="step-tabs__label">콘텐츠 등록</span>
+                    </div>
+                    <span class="step-tabs__line"></span>
+                    <div class="step-tabs__step">
+                        <span class="step-tabs__circle">4</span>
+                        <span class="step-tabs__label">결제설정</span>
+                    </div>
+                </div>
+
+                <!-- 1. 기본정보 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-section-title">기본정보</h3>
+                    <div class="detail-form__grid">
+
+                        <!-- 썸네일 -->
+                        <div class="detail-form__field detail-form__field--full">
+                            <span class="detail-form__label">썸네일 <span class="auth-required">*</span></span>
+                            <div style="display:flex; align-items:flex-start; gap:16px;">
+                                <img src="../../../images/product-thumb.png" alt="썸네일" style="width:195px; aspect-ratio:16/9; object-fit:cover; border-radius:6px; flex-shrink:0;">
+                                <button type="button" class="btn md border" style="align-self:flex-start;">썸네일 변경</button>
+                            </div>
+                            <p class="detail-form__hint" style="margin:8px 0 0;">이미지를 업로드하지 않을 경우 기본 썸네일이 자동으로 적용됩니다. (권장: 1280×720px / 16:9 비율, 최대 5MB)</p>
+                        </div>
+
+                        <!-- 상품명 -->
+                        <div class="detail-form__field detail-form__field--full">
+                            <span class="detail-form__label">상품명 <span class="auth-required">*</span></span>
+                            <div class="setting-table__input-count-wrap">
+                                <input type="text" class="detail-form__input" placeholder="상품명을 입력해 주세요." maxlength="40">
+                                <span class="setting-table__count">[<strong>0</strong>/40]</span>
+                            </div>
+                            <p class="detail-form__hint" style="margin:8px 0 0;">상품의 주제와 내용을 알 수 있는 상품명을 입력해 주세요. 예) 기초부터 배우는 포토샵, 실전 마케팅 전략 클래스</p>
+                        </div>
+
+                        <!-- 카테고리 -->
+                        <div class="detail-form__field detail-form__field--full">
+                            <span class="detail-form__label">카테고리 <span class="auth-required">*</span></span>
+                            <button type="button" class="btn md border" style="align-self:flex-start;">카테고리 선택</button>
+                            <p class="detail-form__hint" style="margin:8px 0 0;">카테고리 추가 및 수정은 <strong>카테고리 관리</strong>에서 설정해 주세요.</p>
+                        </div>
+
+                        <!-- 강사 -->
+                        <div class="detail-form__field detail-form__field--full">
+                            <span class="detail-form__label">강사 <span class="auth-required">*</span></span>
+                            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px;">
+                                <div style="display:inline-flex; align-items:center; gap:6px;">
+                                    <div class="c-avatar24 instructor"></div>
+                                    <span class="user-type-tag user-type-tag--sm user-type-tag--instructor">강사</span>
+                                    <span style="font-size:14px; color:var(--text-primary);">대표 강사 닉네임</span>
+                                    <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
+                                </div>
+                                <div style="display:inline-flex; align-items:center; gap:6px;">
+                                    <div class="c-avatar24 basic"></div>
+                                    <span style="font-size:14px; color:var(--text-primary);">강사 닉네임</span>
+                                    <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
+                                </div>
+                            </div>
+                            <div style="display:flex; gap:8px; margin-top:12px;">
+                                <button type="button" class="btn md border btn--icon">
+                                    <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
+                                    대표 강사 추가
+                                </button>
+                                <button type="button" class="btn md border btn--icon">
+                                    <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
+                                    강사 추가
+                                </button>
+                            </div>
+                            <p class="detail-form__hint" style="margin:8px 0 0;">강사 추가 및 수정은 <strong>사용자 &gt; 강사</strong>에서 설정해 주세요.<br>대표강사는 해당 강의를 관리할 수 있으며, 강사는 관리 권한이 제공되지 않습니다.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 2. 운영설정 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-section-title">운영설정</h3>
+                    <div class="detail-form__grid">
+
+                        <!-- 모집인원 -->
+                        <div class="detail-form__field detail-form__field--full">
+                            <span class="detail-form__label">모집인원 <span class="auth-required">*</span></span>
+                            <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+                                <label class="c-radio"><input type="radio" name="capacity" checked>무제한</label>
+                                <label class="c-radio"><input type="radio" name="capacity">직접 설정</label>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <input type="text" class="detail-form__input" style="width:160px;">
+                                    <span style="font-size:14px; color:var(--text-primary);">명</span>
+                                </div>
+                            </div>
+                            <p class="detail-form__hint" style="margin:8px 0 0;">모집 인원은 기본적으로 무제한으로 설정됩니다. 필요 시 인원을 직접 입력하여 제한할 수 있습니다.</p>
+                        </div>
+
+                        <!-- 모집일정 -->
+                        <div class="detail-form__field detail-form__field--full">
+                            <span class="detail-form__label">모집일정 <span class="auth-required">*</span></span>
+                            <div style="display:flex; flex-direction:column; gap:12px;">
+                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                    <label class="c-radio"><input type="radio" name="recruitSchedule" checked>무제한</label>
+                                    <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
+                                        <input type="checkbox" class="c-check-blue" checked>
+                                        시작일 지정
+                                    </label>
+                                    <div class="c-date-input" onclick="toggleCalendar(this)">
+                                        <input type="text" value="20.00.00" readonly>
+                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                    </div>
+                                    <div class="c-date-input">
+                                        <input type="text" value="00:00" readonly style="width:60px;">
+                                    </div>
+                                </div>
+                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                    <label class="c-radio"><input type="radio" name="recruitSchedule">직접설정</label>
+                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">시작일</span>
+                                    <div class="c-date-input" onclick="toggleCalendar(this)">
+                                        <input type="text" value="20.00.00" readonly>
+                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                    </div>
+                                    <div class="c-date-input">
+                                        <input type="text" value="00:00" readonly style="width:60px;">
+                                    </div>
+                                    <span style="font-size:14px; color:var(--text-primary);">~</span>
+                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">종료일</span>
+                                    <div class="c-date-input" onclick="toggleCalendar(this)">
+                                        <input type="text" value="20.00.00" readonly>
+                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                    </div>
+                                    <div class="c-date-input">
+                                        <input type="text" value="23:59" readonly style="width:60px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="detail-form__hint" style="margin:8px 0 0;">모집 일정은 기본적으로 무제한으로 설정됩니다. 필요 시 시작일과 종료일을 설정하여 모집 기간을 지정할 수 있습니다.</p>
+                        </div>
+
+                        <!-- 수강기간 -->
+                        <div class="detail-form__field detail-form__field--full">
+                            <span class="detail-form__label">수강기간 <span class="auth-required">*</span></span>
+                            <div style="display:flex; flex-direction:column; gap:12px;">
+                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                    <label class="c-radio"><input type="radio" name="coursePeriod" checked></label>
+                                    <div class="c-dropdown" style="width:160px;">
+                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">직접입력</span>
+                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button class="c-dropdown__item active" onclick="selectItem(this)">직접입력</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">제한 없음</button>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="detail-form__input" style="width:160px;">
+                                    <span style="font-size:14px; color:var(--text-primary);">일</span>
+                                </div>
+                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                    <label class="c-radio"><input type="radio" name="coursePeriod">직접 설정</label>
+                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">시작일</span>
+                                    <div class="c-date-input" onclick="toggleCalendar(this)">
+                                        <input type="text" value="20.00.00" readonly>
+                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                    </div>
+                                    <div class="c-date-input">
+                                        <input type="text" value="00:00" readonly style="width:60px;">
+                                    </div>
+                                    <span style="font-size:14px; color:var(--text-primary);">~</span>
+                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">종료일</span>
+                                    <div class="c-date-input" onclick="toggleCalendar(this)">
+                                        <input type="text" value="20.00.00" readonly>
+                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                    </div>
+                                    <div class="c-date-input">
+                                        <input type="text" value="23:59" readonly style="width:60px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="detail-form__hint" style="margin:8px 0 0;">수강 기간은 무제한, 일수 제한, 또는 시작일·종료일 지정 방식으로 설정할 수 있습니다.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 하단 액션바 -->
+                <div class="admin-action-bar" style="margin-top:24px;">
+                    <button class="btn lg primary">다음</button>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    function toggleCalendar(el) {
+        // 캘린더 토글 (구현 예정)
+    }
+
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강사 추가</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center; gap:40px; align-items:flex-start;">
+
+    <!-- ========= 모달 1: 초기 (입력 전, 등록 비활성) ========= -->
+    <div class="c-modal completion-modal">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">강사 추가</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+
+                <!-- Row 1: 추가 -->
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <div class="setting-table__input-count-wrap" style="flex:1;">
+                        <input type="text" class="detail-form__input" placeholder="강사명을 입력해 주세요." maxlength="10">
+                        <span class="setting-table__count">[<strong>0</strong>/10]</span>
+                    </div>
+                    <button type="button" class="qa-edit-btn" aria-label="추가">+</button>
+                </div>
+
+                <!-- Row 2: 삭제 -->
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <div class="setting-table__input-count-wrap" style="flex:1;">
+                        <input type="text" class="detail-form__input" placeholder="강사명을 입력해 주세요." maxlength="10">
+                        <span class="setting-table__count">[<strong>0</strong>/10]</span>
+                    </div>
+                    <button type="button" class="qa-edit-btn" aria-label="삭제">−</button>
+                </div>
+
+                <!-- Row 3: 삭제 -->
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <div class="setting-table__input-count-wrap" style="flex:1;">
+                        <input type="text" class="detail-form__input" placeholder="강사명을 입력해 주세요." maxlength="10">
+                        <span class="setting-table__count">[<strong>0</strong>/10]</span>
+                    </div>
+                    <button type="button" class="qa-edit-btn" aria-label="삭제">−</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn big" style="width:100%;" disabled>등록</button>
+        </div>
+    </div>
+
+    <!-- ========= 모달 2: 입력 후 (등록 활성) ========= -->
+    <div class="c-modal completion-modal">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">강사 추가</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+
+                <!-- Row 1: 추가 -->
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <div class="setting-table__input-count-wrap" style="flex:1;">
+                        <input type="text" class="detail-form__input" value="닉네임" maxlength="10">
+                        <span class="setting-table__count">[<strong>3</strong>/10]</span>
+                    </div>
+                    <button type="button" class="qa-edit-btn" aria-label="추가">+</button>
+                </div>
+
+                <!-- Row 2: 삭제 -->
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <div class="setting-table__input-count-wrap" style="flex:1;">
+                        <input type="text" class="detail-form__input" value="alpha_user_kr" maxlength="10">
+                        <span class="setting-table__count">[<strong>10</strong>/10]</span>
+                    </div>
+                    <button type="button" class="qa-edit-btn" aria-label="삭제">−</button>
+                </div>
+
+                <!-- Row 3: 삭제 -->
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <div class="setting-table__input-count-wrap" style="flex:1;">
+                        <input type="text" class="detail-form__input" value="닉네임" maxlength="10">
+                        <span class="setting-table__count">[<strong>3</strong>/10]</span>
+                    </div>
+                    <button type="button" class="qa-edit-btn" aria-label="삭제">−</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn big primary" style="width:100%;">등록</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

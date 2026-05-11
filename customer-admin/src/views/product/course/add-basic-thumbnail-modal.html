@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>썸네일 설정</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:120px 0;">
+
+<div style="display:flex; justify-content:center; gap:40px; align-items:center;">
+
+    <!-- 모달 1: 빈 상태 (파일 선택 전) -->
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">썸네일 설정</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="profile-modal__content completion-modal__body">
+            <div class="profile-modal__upload">
+                <button type="button" class="btn nm darkgray">파일 선택하기</button>
+            </div>
+        </div>
+
+        <div class="profile-modal__hints">
+            <p class="profile-modal__hint">권장 사이즈 1280×720px 이상 (16:9 비율) , 최대 5MB</p>
+            <p class="profile-modal__hint">이미지 영역을 드래그하여 완료 버튼을 클릭해 주세요.</p>
+        </div>
+
+        <div class="profile-modal__footer">
+            <button type="button" class="btn big gray">로그인</button>
+        </div>
+
+    </div>
+
+    <!-- 모달 2: 이미지 업로드 후 (크롭 영역) -->
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">썸네일 설정</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="profile-modal__content completion-modal__body">
+            <div class="profile-modal__crop">
+                <img class="profile-modal__crop-img" src="../../../images/product-thumb.png" alt="">
+                <div class="profile-modal__crop-box">
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--tl"></span>
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--t"></span>
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--tr"></span>
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--l"></span>
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--r"></span>
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--bl"></span>
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--b"></span>
+                    <span class="profile-modal__crop-handle profile-modal__crop-handle--br"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-modal__hints">
+            <p class="profile-modal__hint">권장 사이즈 1280×720px 이상 (16:9 비율) , 최대 5MB</p>
+            <p class="profile-modal__hint">이미지 영역을 드래그하여 완료 버튼을 클릭해 주세요.</p>
+        </div>
+
+        <div class="profile-modal__footer">
+            <button type="button" class="btn big primary">등록</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
