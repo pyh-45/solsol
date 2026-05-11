@@ -3169,8 +3169,10 @@ tr:has(.c-check:checked) {
 .setting-table__desc { font-size: 12px; color:#888; margin-top: 8px; display: block; }
 .setting-table__input { width: 100%; height: 40px; padding: 0 15px; border: 1px solid #DFE0E3; border-radius: 4px; font-size: 14px; font-family: inherit; color: #222; outline: none; box-sizing: border-box; }
 .setting-table__input-count-wrap { display: flex; align-items: center; border: 1px solid #DFE0E3; border-radius: 4px; overflow: hidden; }
-.setting-table__input-count-wrap .setting-table__input { border: none; border-radius: 0; flex: 1; }
-.setting-table__input-count-wrap .setting-table__input:focus { box-shadow: none; }
+.setting-table__input-count-wrap .setting-table__input,
+.setting-table__input-count-wrap .detail-form__input { border: none; border-radius: 0; flex: 1; }
+.setting-table__input-count-wrap .setting-table__input:focus,
+.setting-table__input-count-wrap .detail-form__input:focus { box-shadow: none; }
 .setting-table__count { font-size: 12px; color: var(--text-tertiary); padding: 0 12px; white-space: nowrap; flex-shrink: 0; }
 .setting-table__required { color: var(--color-red); margin-left: 3px; }
 .setting-table__input:focus { border-color: var(--color-primary); }
