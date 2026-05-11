@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - (FAQ) 게시글 글쓰기</title>
+    <title>Admin - 운영관리 - 팝업</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -19,10 +19,7 @@
 
         <div class="admin-header__center">
             <div class="admin-header__nav">
-                <button class="admin-header__back">
-                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
-                </button>
-                <span class="admin-header__page-title">상세페이지</span>
+                <span class="admin-header__page-title">팝업</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -47,8 +44,7 @@
             <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
                 <div class="c-avatar30 learner">A</div>
                 <span class="admin-header__username">홍길순</span>
-                <img src="../../../images/chevron-down.svg" alt="" class="admin-header__user-arrow">
-
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
                 <div class="c-profile-tooltip">
                     <div class="c-profile-tooltip__top">
                         <div class="c-avatar40 learner">A</div>
@@ -87,8 +83,8 @@
                 <span class="lnb-badge">3</span>
             </a>
 
-            <div class="lnb-divider"></div>
 
+            <div class="lnb-divider"></div>
             <div class="lnb-section">
 
                 <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
@@ -157,8 +153,8 @@
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item active">게시판</a>
-                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item active">팝업메뉴</a>
                     </div>
                 </div>
 
@@ -252,52 +248,214 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 게시글 글쓰기 패널 -->
-                <div class="list-panel list-panel--flush">
-                    <div class="panel-form-header">
-                        <h3 class="list-panel__title list-panel__title--flat">게시글 글쓰기</h3>
-                        <button class="btn md primary">등록</button>
+                <!-- 상단 액션바 -->
+                <div class="admin-action-bar">
+                    <button class="btn lg dark btn--icon">
+                        <img src="../../../images/ico-16px-plus03.svg" width="16" height="16" alt="">
+                        팝업 생성
+                    </button>
+                </div>
+
+                <!-- 목록 패널 -->
+                <div class="list-panel">
+
+                    <!-- 목록 헤더 -->
+                    <div class="list-panel__header">
+                        <h3 class="list-panel__title">팝업 목록</h3>
                     </div>
 
-                    <table class="setting-table" style="table-layout:fixed;">
-                        <tbody>
+                    <!-- 팝업 목록 테이블 -->
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <colgroup>
+                                <col style="width:48px;">
+                                <col style="min-width:240px;">
+                                <col style="width:140px;">
+                                <col>
+                                <col style="width:140px;">
+                                <col style="width:200px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="th-check">
+                                        <input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)">
+                                    </th>
+                                    <th class="td-left">팝업명</th>
+                                    <th>노출위치</th>
+                                    <th>게시기간</th>
+                                    <th>노출여부</th>
+                                    <th>등록일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:0 5px;">
+                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                    </td>
+                                    <td class="td-left">메인 이벤트 안내 팝업</td>
+                                    <td>메인페이지</td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00 부터<br>2000.00.00 오전/오후 00:00 까지</td>
+                                    <td>
+                                        <label class="c-toggle-text">
+                                            <input type="checkbox" checked>
+                                            <span class="c-toggle-text__track">
+                                                <span class="c-toggle-text__pill c-toggle-text__pill--on">노출</span>
+                                                <span class="c-toggle-text__pill c-toggle-text__pill--off">미노출</span>
+                                            </span>
+                                        </label>
+                                    </td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 5px;">
+                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                    </td>
+                                    <td class="td-left">서비스 이용 공지 팝업</td>
+                                    <td>특정페이지</td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00 부터<br>2000.00.00 오전/오후 00:00 까지</td>
+                                    <td>
+                                        <label class="c-toggle-text">
+                                            <input type="checkbox" checked>
+                                            <span class="c-toggle-text__track">
+                                                <span class="c-toggle-text__pill c-toggle-text__pill--on">노출</span>
+                                                <span class="c-toggle-text__pill c-toggle-text__pill--off">미노출</span>
+                                            </span>
+                                        </label>
+                                    </td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0 5px;">
+                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                    </td>
+                                    <td class="td-left">커피한잔 주세요</td>
+                                    <td>특정페이지</td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00 부터<br>2000.00.00 오전/오후 00:00 까지</td>
+                                    <td>
+                                        <label class="c-toggle-text">
+                                            <input type="checkbox" checked>
+                                            <span class="c-toggle-text__track">
+                                                <span class="c-toggle-text__pill c-toggle-text__pill--on">노출</span>
+                                                <span class="c-toggle-text__pill c-toggle-text__pill--off">미노출</span>
+                                            </span>
+                                        </label>
+                                    </td>
+                                    <td style="white-space:nowrap;">2000.00.00 오전/오후 00:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                            <!-- 제목 -->
-                            <tr>
-                                <th>제목<span class="setting-table__required">*</span></th>
-                                <td>
-                                    <div class="setting-table__input-count-wrap">
-                                        <input type="text" class="setting-table__input" placeholder="게시글 제목(질문)을 입력해 주세요." maxlength="40">
-                                        <span class="setting-table__count">[<strong>0</strong>/40]</span>
-                                    </div>
-                                    <span class="setting-table__desc">질문(Title)을 입력해 주세요. 예) 결제 취소는 어떻게 하나요?</span>
-                                </td>
-                            </tr>
+                    <!-- 페이지네이션 -->
+                    <div class="pagination" style="padding:20px 0 4px;">
+                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                        <button class="pagination__btn active">1</button>
+                        <button class="pagination__btn">2</button>
+                        <button class="pagination__btn">3</button>
+                        <button class="pagination__btn">4</button>
+                        <button class="pagination__btn">5</button>
+                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+                    </div>
 
-                            <!-- 내용 -->
-                            <tr>
-                                <th>내용<span class="setting-table__required">*</span></th>
-                                <td>
-                                    <div class="setting-table__textarea-wrap">
-                                        <textarea class="setting-table__textarea" style="height:380px;" placeholder="질문에 대한 답변을 입력해 주세요." maxlength="500"></textarea>
-                                        <span class="setting-table__counter">[<strong>0</strong>/500]</span>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
+                </div><!-- /list-panel -->
 
             </div>
         </main>
 
     </div>
 
+    <!-- 하단 일괄처리 바 -->
+    <div class="c-bulk-bar hidden" id="bulkBar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+            <span class="c-bulk-bar__text" id="bulkText">{n}개 팝업 선택됨</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-popup-copy-confirm').classList.remove('is-hidden')">복사</button>
+            <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-popup-delete-confirm').classList.remove('is-hidden')">삭제</button>
+        </div>
+    </div>
+
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 1. 팝업 복사 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-popup-copy-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">{n}개 팝업을 복사하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-popup-copy-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-popup-copy-confirm').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 팝업 삭제 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-popup-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">{n}개 팝업을 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-popup-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-popup-delete-confirm').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
 <script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
     function toggleProfileMenu(e) {
         e.stopPropagation();
         document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    function onRowCheck() {
+        const checks = document.querySelectorAll('.row-check');
+        const checked = [...checks].filter(c => c.checked);
+        const bulkBar = document.getElementById('bulkBar');
+        const bulkText = document.getElementById('bulkText');
+
+        if (checked.length > 0) {
+            bulkText.textContent = checked.length + '개 팝업 선택됨';
+            bulkBar.classList.remove('hidden');
+        } else {
+            bulkBar.classList.add('hidden');
+        }
+
+        document.getElementById('checkAll').indeterminate = checked.length > 0 && checked.length < checks.length;
+        document.getElementById('checkAll').checked = checked.length === checks.length;
+    }
+
+    function toggleAll(checkbox) {
+        document.querySelectorAll('.row-check').forEach(c => c.checked = checkbox.checked);
+        onRowCheck();
+    }
+
+    function closeBulkBar() {
+        document.querySelectorAll('.row-check, #checkAll').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
     }
 
     function closeAllLnb() {
@@ -312,6 +470,9 @@
     }
 
     document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
         if (!e.target.closest('#headerUserMenu')) {
             document.getElementById('headerUserMenu').classList.remove('open');
         }

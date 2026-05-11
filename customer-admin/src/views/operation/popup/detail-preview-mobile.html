@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 팝업 미리보기 (Mobile)</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="preview-frame">
+
+    <!-- 디바이스 토글 툴바 -->
+    <div class="preview-toolbar">
+        <a href="detail-preview-pc.html" class="preview-toolbar__btn" aria-label="PC 미리보기">
+            <img src="../../../images/ico-44px-pc.svg" width="44" height="44" alt="">
+        </a>
+        <a href="detail-preview-mobile.html" class="preview-toolbar__btn preview-toolbar__btn--active" aria-label="모바일 미리보기">
+            <img src="../../../images/ico-44px-mobile.svg" width="44" height="44" alt="">
+        </a>
+    </div>
+
+    <!-- 미리보기 스테이지 — 가상 모바일 디바이스 -->
+    <div class="preview-stage preview-stage--mobile">
+        <div class="device-frame">
+            <div class="popup-preview">
+                <img class="popup-preview__image" src="../../../images/product-thumb.png" alt="팝업 이미지">
+                <div class="popup-preview__footer">
+                    <button type="button" class="btn nm border-primary">오늘 보지 않기</button>
+                    <button type="button" class="btn nm primary">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

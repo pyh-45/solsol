@@ -3631,3 +3631,25 @@ tr:has(.c-check:checked) {
 .notif-channel .c-check-blue:checked ~ .notif-channel__label img { filter:brightness(0) saturate(100%) invert(60%) sepia(95%) saturate(2030%) hue-rotate(170deg) brightness(102%) contrast(96%); }
 .notif-channel .btn { margin-left:auto; }
 
+/* ==================== 팝업 미리보기 프레임 (PC / Mobile) ==================== */
+.preview-frame { min-height:100vh; background:#4A4A52; display:flex; flex-direction:column; }
+.preview-toolbar { display:flex; justify-content:center; align-items:center; gap:32px; padding:24px 0; }
+.preview-toolbar__btn { width:64px; height:64px; padding:0; background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; opacity:0.3; transition:opacity 0.15s; }
+.preview-toolbar__btn--active { opacity:1; }
+.preview-stage { flex:1; background:#A0A0A0; position:relative; padding:60px; }
+.preview-stage--mobile { display:flex; justify-content:center; align-items:center; padding:40px; }
+
+/* 팝업 카드 (공통) */
+.popup-preview { background:#fff; border-radius:4px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.15); width:320px; }
+.popup-preview__image { display:block; width:100%; height:auto; }
+.popup-preview__footer { display:flex; gap:6px; padding:12px; }
+.popup-preview__footer .btn { flex:1; }
+
+/* PC stage 보조 요소 */
+.preview-stage__page-label { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#FF0000; font-size:16px; font-weight:500; }
+.preview-stage__outside-btn { display:block; margin-top:16px; }
+
+/* 모바일 가상 디바이스 프레임 */
+.device-frame { width:380px; min-height:760px; background:#C5C9CE; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 30px; box-sizing:border-box; }
+.device-frame .popup-preview { width:100%; max-width:300px; }
+
