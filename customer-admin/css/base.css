@@ -3240,7 +3240,6 @@ tr:has(.c-check:checked) {
 /* ==================== Responsive: Tablet (≤1024px) ==================== */
 @media (max-width: 1024px) {
     :root {
-        --lnb-width:   180px;
         --content-gap: 20px;
     }
 
@@ -3253,7 +3252,8 @@ tr:has(.c-check:checked) {
     .admin-lnb { padding: 20px 0 16px; }
 
     /* 통계 카드: 4열 → 2열 */
-    .admin-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    .admin-grid--4,
+    .count-card-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
     /* 필터 패널 */
     .admin-filter { flex-wrap: wrap; gap: 8px; }
@@ -3270,9 +3270,9 @@ tr:has(.c-check:checked) {
         --content-gap: 16px;
     }
 
-    /* LNB 숨김 */
-    .admin-lnb { transform: translateX(-100%); transition: transform 0.2s; }
-    .admin-lnb.open { transform: translateX(0); }
+    /* LNB 숨김 + 햄버거 토글 (.admin-lnb--open 클래스로 슬라이드 인) */
+    .admin-lnb { transform: translateX(-100%); transition: transform 0.2s; z-index: 60; }
+    .admin-lnb--open { transform: translateX(0); }
 
     /* 콘텐츠 전체 너비 */
     .admin-content  { margin-left: 0; }
@@ -3666,4 +3666,87 @@ tr:has(.c-check:checked) {
 /* 모바일 가상 디바이스 프레임 */
 .device-frame { width:380px; min-height:760px; background:#C5C9CE; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 30px; box-sizing:border-box; }
 .device-frame .popup-preview { width:100%; max-width:300px; }
+
+/* ==================== 반응형 (Responsive) ====================
+   PC 우선 작성 + 모바일·태블릿 미디어 쿼리 보정
+   - 모바일: max-width: 768px
+   - 태블릿: max-width: 1024px
+   ============================================================ */
+
+/* LNB 햄버거 토글 버튼 (모바일에서만 노출) */
+.admin-header__menu-toggle { display:none; }
+
+/* LNB 백드롭 (모바일 LNB 오픈 시 본문 어둡게) */
+.admin-lnb__backdrop { display:none; }
+
+/* ──────────────── 태블릿 (max-width: 1024px) ──────────────── */
+@media (max-width: 1024px) {
+    /* 폼 — 2열 → 1열 */
+    .detail-form__grid { grid-template-columns: 1fr; }
+
+    /* 작업 영역 좌우 패딩 축소 */
+    .admin-body { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ──────────────── 모바일 (max-width: 768px) ──────────────── */
+@media (max-width: 768px) {
+
+    /* ───── 레이아웃: LNB 토글 (slide-in은 위 3268~3275 규칙에서 처리) ───── */
+    .admin-wrap { flex-direction: column; }
+    .admin-lnb__backdrop {
+        display: none; position: fixed; inset: 0;
+        background: rgba(0,0,0,0.4); z-index: 50;
+    }
+    .admin-lnb--open ~ .admin-lnb__backdrop,
+    .admin-lnb__backdrop--open { display: block; }
+    .admin-header__menu-toggle {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 40px; height: 40px; background: none; border: none; cursor: pointer;
+    }
+    .admin-content { width: 100%; margin-left: 0; }
+    .admin-body { padding: 16px; }
+
+    /* ───── 헤더: 검색창 축소 ───── */
+    .admin-header__search { display: none; }
+
+    /* ───── 테이블: 가로 스크롤 ───── */
+    .admin-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .admin-table, .tab-table { min-width: 720px; }
+
+    /* ───── 폼: 1열 + 라벨/입력 세로 스택 ───── */
+    .detail-form__grid { grid-template-columns: 1fr; gap: 16px; }
+    .detail-form__field { gap: 8px; }
+
+    /* ───── 모달: 화면 폭 100% ───── */
+    .c-modal { width: calc(100vw - 32px); max-width: 100%; }
+    .c-modal__footer .btn.big,
+    .c-modal__footer .btn.lg { min-width: 0; }
+    .completion-modal--lg { width: calc(100vw - 32px); }
+
+    /* ───── 액션바·벌크바: 줄바꿈 허용 ───── */
+    .admin-action-bar { flex-wrap: wrap; gap: 8px; }
+    .c-bulk-bar { flex-wrap: wrap; padding: 12px 16px; }
+    .c-bulk-bar__actions { flex-wrap: wrap; }
+
+    /* ───── 패널 패딩 축소 ───── */
+    .list-panel { padding: 16px; }
+    .list-panel--p30 { padding: 20px 16px; }
+    .list-panel--p24-30 { padding: 16px; }
+
+    /* ───── 대시보드바: 세로 스택 ───── */
+    .dashboard-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+    .dashboard-bar__actions { flex-wrap: wrap; }
+
+    /* ───── 스텝퍼: 줄바꿈 ───── */
+    .step-tabs { flex-wrap: wrap; gap: 12px 0; padding: 16px; }
+    .step-tabs__line { display: none; }
+
+    /* ───── 헤더 정보 영역 축소 ───── */
+    .admin-header__btns { display: none; }
+    .admin-header__username { display: none; }
+
+    /* ───── 통계 카드 그리드: 2열 ───── */
+    .count-card-grid,
+    [class*="stat-card"] { grid-template-columns: repeat(2, 1fr) !important; }
+}
 

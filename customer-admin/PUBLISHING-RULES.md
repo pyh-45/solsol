@@ -10,6 +10,7 @@
 - **HTML + CSS만 사용**. Vue, JavaScript 프레임워크, 빌드 도구 사용 금지.
 - 인터랙션이 필요한 부분만 인라인 `<script>` 또는 `onclick` 핸들러로 처리.
 - Pretendard 폰트 사용.
+- **CSS 프레임워크(Bootstrap 등) 사용 금지.** 반응형은 미디어 쿼리로만 구현.
 
 ### 1.2 CSS 작성 위치
 - 모든 커스텀 CSS는 **`customer-admin/css/base.css`** 한 곳에만 작성.
@@ -27,6 +28,14 @@
 .list-panel--flush { ... }
 .list-panel--filter { ... }
 ```
+
+### 1.4 반응형 (Responsive)
+- **PC 우선 설계 후 모바일·태블릿에 미디어 쿼리로 대응**한다.
+- 부트스트랩 등 CSS 프레임워크 도입 없이 `@media` 쿼리로만 처리.
+- 브레이크포인트 2단계 고정 (§16 참조):
+  - **모바일**: `max-width: 768px`
+  - **태블릿**: `max-width: 1024px`
+- 신규 컴포넌트 작성 시 PC 레이아웃 완료 후 반드시 모바일 동작도 확인.
 
 ---
 
@@ -103,11 +112,12 @@ customer-admin/
 새로운 페이지를 제작할 때 반드시 따른다. (모달은 별도 규격 — 5장 참조)
 
 ### 4.1 전체 레이아웃 원칙
-- **PC Admin 전용 적응형(Adaptive)**. 모바일 미지원.
+- **PC Admin 우선 + 모바일/태블릿 반응형 대응**.
 - 헤더(`.admin-header`) + 메뉴(`.admin-lnb`) + 작업 영역(`.admin-content`)으로 구성.
 - 헤더와 LNB는 **위치 고정(sticky)**, 작업 영역만 스크롤.
-- **최저 사이즈: 1,440px**. 1,440 이하에서는 가로 스크롤 발생.
+- PC 기준 최저 사이즈: **1,440px** (그 이하에서는 가로 스크롤 또는 반응형 전환).
 - 1,440 초과 시: 목록 조회 등 작업 영역이 가로 한도까지 자동으로 늘어남 (적응형).
+- 모바일(`max-width: 768px`)에서는 LNB가 햄버거 메뉴로 토글 (§16 참조).
 - 상세 페이지의 **액션 버튼은 기능 버튼 영역 상단에 플로팅으로 고정**한다.
 
 ### 4.2 작업 영역 좌우 여백
@@ -482,7 +492,118 @@ customer-admin/
 
 ---
 
-## 16. 금지 사항
+## 16. 반응형 (Responsive)
+
+PC Admin 우선으로 작성하되, 모바일·태블릿에서 깨지지 않도록 미디어 쿼리로 대응한다. **부트스트랩 사용 금지**, `@media` 쿼리만 사용.
+
+### 16.1 브레이크포인트
+
+| 디바이스 | 브레이크포인트 | 용도 |
+|---|---|---|
+| 모바일 | `max-width: 768px` | LNB 토글, 1열 전환, 모달 전체 폭 |
+| 태블릿 | `max-width: 1024px` | 컬럼 축소, 일부 폼 2열 → 1열 |
+| PC | `min-width: 1025px` | 기본 (Adaptive, 1,440px 최적) |
+
+### 16.2 6대 반응형 원칙
+
+#### ① 레이아웃 — LNB 햄버거 메뉴
+- `.admin-wrap`은 PC에서 `flex-direction: row` (LNB 좌, 콘텐츠 우)
+- 모바일에서 LNB를 **숨김 + 햄버거 버튼 토글**로 전환
+- `.admin-lnb`에 `--open` 모디파이어 추가 시 슬라이드 인
+
+```css
+@media (max-width: 768px) {
+    .admin-lnb { position: fixed; top: 0; left: -260px; height: 100vh; transition: left 0.25s; z-index: 50; }
+    .admin-lnb--open { left: 0; }
+    .admin-header__menu-toggle { display: inline-flex; } /* 햄버거 버튼 */
+}
+```
+
+#### ② 테이블 — 가로 스크롤 또는 카드 변환
+- `.admin-table-wrap`은 기본적으로 가로 스크롤로 대응 (`overflow-x: auto`).
+- 컬럼 수가 많거나 가독성이 떨어지는 경우 모바일에서 **카드 변환** 검토.
+
+```css
+@media (max-width: 768px) {
+    .admin-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .admin-table { min-width: 720px; }
+}
+```
+
+#### ③ 폼 — 1열 전환
+- `.detail-form__grid`는 PC에서 2열(`grid-template-columns: 1fr 1fr`), 모바일에서 1열로 전환.
+- 행 내부의 라벨 + 입력 인라인은 모바일에서 세로 스택으로.
+
+```css
+@media (max-width: 768px) {
+    .detail-form__grid { grid-template-columns: 1fr; gap: 16px; }
+}
+```
+
+#### ④ 모달 — 화면 폭에 맞춰 100% width
+- `.c-modal`은 PC에서 고정 너비(360 / 480 / 600 / 800 등), 모바일에서 화면 좌우 16px 마진 두고 100%.
+
+```css
+@media (max-width: 768px) {
+    .c-modal { width: calc(100vw - 32px); max-width: 100%; }
+    .c-modal__footer .btn.big,
+    .c-modal__footer .btn.lg { min-width: 0; }
+}
+```
+
+#### ⑤ 사이드바 — 토글 LNB + 백드롭
+- LNB 열림 시 어두운 백드롭으로 본문 클릭 방지.
+- 백드롭 클릭 시 LNB 닫힘.
+
+```css
+.admin-lnb__backdrop { display: none; }
+
+@media (max-width: 768px) {
+    .admin-lnb__backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 40; }
+    .admin-lnb--open + .admin-lnb__backdrop { display: block; }
+}
+```
+
+#### ⑥ 카드 그리드 — 4열 → 2열 (태블릿)
+- 통계 카드/요약 카드 등 **4개 컬럼으로 나열된 그리드**는 태블릿(1024px 이하)에서 **2열**로 전환.
+- 모바일(768px 이하)에서도 2열을 유지하거나 1열로 전환 (콘텐츠에 따라 선택).
+- 대상 패턴: `.admin-grid--4`, `.count-card-grid`, `.stat-card` 4개 그리드 등.
+
+```css
+@media (max-width: 1024px) {
+    .admin-grid--4,
+    .count-card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    /* 필요 시 1열로 추가 축소 */
+    .admin-grid--4,
+    .count-card-grid { grid-template-columns: 1fr; }
+}
+```
+
+### 16.3 작업 체크리스트 (모바일 확인)
+
+새 페이지/컴포넌트 작업 시 PC 완료 후 다음을 확인한다.
+
+- ☐ 768px 이하에서 가로 스크롤이 발생하지 않는가 (테이블 제외)
+- ☐ LNB가 햄버거 메뉴로 토글되고 백드롭이 동작하는가
+- ☐ 폼(`.detail-form__grid`)이 1열로 자연스럽게 전환되는가
+- ☐ 4열 카드 그리드(`.admin-grid--4`, `.count-card-grid` 등)가 태블릿에서 2열로 전환되는가
+- ☐ 모달이 화면 폭에 맞춰 표시되고 footer 버튼이 깨지지 않는가
+- ☐ 액션바/벌크바의 버튼이 줄바꿈되어도 사용 가능한가
+- ☐ 텍스트가 끊기거나 영역 밖으로 흐르지 않는가 (`word-break`, `flex-wrap`)
+- ☐ 터치 타깃이 최소 44×44px 이상인가 (버튼·링크)
+
+### 16.4 작성 순서 권장
+1. PC 레이아웃 완료
+2. `@media (max-width: 1024px)`로 태블릿 레이아웃 보정 (필요 시)
+3. `@media (max-width: 768px)`로 모바일 레이아웃 완성
+4. 모바일 → 태블릿 → PC 순으로 확인하며 깨짐 수정
+
+---
+
+## 17. 금지 사항
 
 - ❌ HTML 파일에 `<style>` 태그 (스타일가이드 제외)
 - ❌ Vue/React 등 프레임워크 마크업
@@ -491,3 +612,5 @@ customer-admin/
 - ❌ jQuery 등 라이브러리 추가
 - ❌ admin-filter-panel (구식, list-panel--filter로 대체)
 - ❌ 절대 경로 (모든 자원은 상대 경로로)
+- ❌ **Bootstrap/Tailwind 등 CSS 프레임워크 도입** (반응형은 `@media` 쿼리만)
+- ❌ **반응형 미적용 페이지 배포** (모바일 768px 이하에서 깨짐 금지)
