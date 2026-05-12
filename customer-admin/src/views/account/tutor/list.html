@@ -562,37 +562,40 @@
                 </div>
                 <p class="c-modal__desc">선택한 강사를 탈퇴시키시겠습니까?</p>
             </div>
-            <div class="c-modal__footer">
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-confirm-withdraw').classList.add('is-hidden')">취소</button>
                 <button class="btn lg" onclick="document.getElementById('modal-confirm-withdraw').classList.add('is-hidden')">확인</button>
             </div>
         </div>
     </div>
 
-    <!-- 4. 활성화 확인 (error) -->
+    <!-- 4. 활성화 확인 (notice) -->
     <div class="c-modal-overlay is-hidden" id="modal-confirm-activate">
         <div class="c-modal">
             <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
                 </div>
                 <p class="c-modal__desc">선택한 강사를 활성화 하시겠습니까?</p>
             </div>
-            <div class="c-modal__footer">
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-confirm-activate').classList.add('is-hidden')">취소</button>
                 <button class="btn lg" onclick="document.getElementById('modal-confirm-activate').classList.add('is-hidden')">확인</button>
             </div>
         </div>
     </div>
 
-    <!-- 5. 중지 확인 (error) -->
+    <!-- 5. 중지 확인 (notice) -->
     <div class="c-modal-overlay is-hidden" id="modal-confirm-stop">
         <div class="c-modal">
             <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
                 </div>
                 <p class="c-modal__desc">선택한 강사를 중지하시겠습니까?</p>
             </div>
-            <div class="c-modal__footer">
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-confirm-stop').classList.add('is-hidden')">취소</button>
                 <button class="btn lg" onclick="document.getElementById('modal-confirm-stop').classList.add('is-hidden')">확인</button>
             </div>
         </div>

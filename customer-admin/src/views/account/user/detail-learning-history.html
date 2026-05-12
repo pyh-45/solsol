@@ -618,31 +618,33 @@
         </div>
     </div>
 
-    <!-- 2. 주문 취소 가능 안내 (error) -->
+    <!-- 2. 주문 취소 가능 안내 (notice) -->
     <div class="c-modal-overlay is-hidden" id="modal-order-cancel">
         <div class="c-modal">
             <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
                 </div>
                 <p class="c-modal__desc">주문 취소가 가능합니다.<br>주문 취소 페이지로 이동하시겠습니까?</p>
             </div>
-            <div class="c-modal__footer">
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-order-cancel').classList.add('is-hidden')">취소</button>
                 <button class="btn lg" onclick="document.getElementById('modal-order-cancel').classList.add('is-hidden')">확인</button>
             </div>
         </div>
     </div>
 
-    <!-- 3. 환불 접수 가능 안내 (error) -->
+    <!-- 3. 환불 접수 가능 안내 (notice) -->
     <div class="c-modal-overlay is-hidden" id="modal-refund-request">
         <div class="c-modal">
             <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
                 </div>
                 <p class="c-modal__desc">환불 접수가 가능합니다.<br>환불 접수 페이지로 이동하시겠습니까?</p>
             </div>
-            <div class="c-modal__footer">
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-refund-request').classList.add('is-hidden')">취소</button>
                 <button class="btn lg" onclick="document.getElementById('modal-refund-request').classList.add('is-hidden')">확인</button>
             </div>
         </div>

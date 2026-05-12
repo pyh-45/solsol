@@ -259,7 +259,7 @@
             <div class="admin-body">
 
                 <!-- 상단 안내 -->
-                <div class="admin-infotip" style="margin-bottom:16px;">
+                <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
                     이 페이지는 '일반강의', '라이브강의', '화상강의' 상품 정보만 노출됩니다.
                 </div>
@@ -468,12 +468,13 @@
     <div class="c-modal-overlay is-hidden" id="modal-save-confirm">
         <div class="c-modal">
             <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
                 </div>
                 <p class="c-modal__desc">변경사항을 저장하시겠습니까?</p>
             </div>
-            <div class="c-modal__footer">
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-save-confirm').classList.add('is-hidden')">취소</button>
                 <button class="btn lg" onclick="document.getElementById('modal-save-confirm').classList.add('is-hidden')">확인</button>
             </div>
         </div>

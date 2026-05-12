@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 기본 정보</title>
+    <title>Admin - 상품 생성 - 커리큘럼</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -26,7 +26,7 @@
                 <button class="admin-header__back">
                     <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
                 </button>
-                <span class="admin-header__page-title">상세페이지</span>
+                <span class="admin-header__page-title">상품 생성</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             </div>
             <div class="admin-header__search">
@@ -65,8 +65,8 @@
                     </div>
                     <hr class="c-profile-tooltip__divider">
                     <div class="c-profile-tooltip__actions">
-                        <button class="btn nm border">내 정보</button>
-                        <button class="btn nm border">로그아웃</button>
+                        <button class="btn md border">내 정보</button>
+                        <button class="btn md border">로그아웃</button>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     대시보드
                 </a>
 
-                <div class="lnb-accordion open">
+                <div class="lnb-accordion">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
                         <span class="lnb-accordion__label">사용자</span>
@@ -107,19 +107,19 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">학습자</a>
-                        <a href="#" class="lnb-sub-item active">강사</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
                         <a href="#" class="lnb-sub-item">관리자</a>
                     </div>
                 </div>
 
-                <div class="lnb-accordion">
+                <div class="lnb-accordion open">
                     <button class="lnb-accordion__header" onclick="toggleLnb(this)">
                         <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
                         <span class="lnb-accordion__label">상품 관리</span>
                         <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
                     </button>
                     <div class="lnb-accordion__body">
-                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item active">일반강의</a>
                         <a href="#" class="lnb-sub-item">라이브강의</a>
                         <a href="#" class="lnb-sub-item">화상강의</a>
                         <a href="#" class="lnb-sub-item">디지털 상품</a>
@@ -258,196 +258,170 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 상단 안내 -->
-                <div class="admin-infotip">
-                    <span class="admin-infotip__icon">i</span>
-                    이 페이지는 '일반강의', '라이브강의', '화상강의' 상품 정보만 노출됩니다.
+                <!-- 섹션 추가 액션바 -->
+                <div class="admin-action-bar">
+                    <button type="button" class="btn lg dark btn--icon">
+                        <img src="../../../images/ico-16px-plus03.svg" width="16" height="16" alt="">
+                        섹션 추가
+                    </button>
                 </div>
 
-                <!-- 프로필 박스 -->
-                <div class="detail-profile">
-                    <div class="detail-profile__top">
-                        <div class="c-avatar80 learner"></div>
-                        <div class="detail-profile__body">
-                            <div class="detail-profile__name-row">
-                                <span class="detail-profile__name">Shine_Masters(홍길동)</span>
-                                <span class="profile-badge profile-badge--verify">인증</span>
-                                <span class="profile-badge profile-badge--active">활성</span>
-                            </div>
-                            <p class="detail-profile__email">minjun.kim@example.com</p>
-                            <div class="detail-profile__meta">
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-user.svg" width="16" height="16" alt="">
-                                    가입일 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-logininfo.svg" width="16" height="16" alt="">
-                                    마지막 로그인 <span class="detail-profile__meta-value">2000.00.00 오전/오후 00:00</span>
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-teacher.svg" width="16" height="16" alt="">
-                                    개설 강좌 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 개
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-people.svg" width="16" height="16" alt="">
-                                    수강자수 <span class="detail-profile__meta-value" style="color:var(--color-red)">5</span> 명
-                                </span>
-                                <span class="detail-profile__meta-item">
-                                    <img src="../../../images/profile-ico-star.svg" width="16" height="16" alt="">
-                                    평균 별점 <span class="detail-profile__meta-value" style="color:var(--color-red)">4.5</span>점
-                                </span>
-                            </div>
-                        </div>
+                <!-- 등록 단계 -->
+                <div class="step-tabs">
+                    <div class="step-tabs__step">
+                        <span class="step-tabs__circle">1</span>
+                        <span class="step-tabs__label">상품정보</span>
+                    </div>
+                    <span class="step-tabs__line"></span>
+                    <div class="step-tabs__step step-tabs__step--active">
+                        <span class="step-tabs__circle">2</span>
+                        <span class="step-tabs__label">커리큘럼</span>
+                    </div>
+                    <span class="step-tabs__line"></span>
+                    <div class="step-tabs__step">
+                        <span class="step-tabs__circle">3</span>
+                        <span class="step-tabs__label">콘텐츠 등록</span>
+                    </div>
+                    <span class="step-tabs__line"></span>
+                    <div class="step-tabs__step">
+                        <span class="step-tabs__circle">4</span>
+                        <span class="step-tabs__label">결제설정</span>
                     </div>
                 </div>
 
-                <!-- 변경사항 저장 버튼 -->
-                <div class="setting-action-bar">
-                    <button class="btn lg border">권한설정</button>
-                    <button class="btn lg dark">변경사항 저장</button>
-                </div>
-
-                <!-- 탭 메뉴 -->
-                <nav class="detail-tab">
-                    <button class="detail-tab__item active">기본 정보</button>
-                    <button class="detail-tab__item">강사 정보</button>
-                    <button class="detail-tab__item">정산 정보</button>
-                    <button class="detail-tab__item">강의 이력</button>
-                    <button class="detail-tab__item">활동 로그</button>
-                </nav>
-
-                <!-- 기본 정보 폼 -->
+                <!-- 섹션 1 -->
                 <div class="list-panel">
-
-                    <!-- 개인 정보 -->
-                    <div class="detail-form__section">
-                        <h3 class="detail-form__section-title">개인 정보</h3>
-                        <div class="detail-form__grid">
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">닉네임</span>
-                                <input type="text" class="detail-form__input" value="민준쌤">
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">이름</span>
-                                <input type="text" class="detail-form__input" value="김민준">
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">연락처</span>
-                                <input type="text" class="detail-form__input" value="010-0000-0000">
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">이메일</span>
-                                <div class="detail-form__email-row">
-                                    <span class="detail-form__email-addr">minjun.kim@example.com</span>
-                                    <button class="btn sm border">비밀번호 재설정</button>
-                                </div>
-                            </div>
-
-                            <div class="detail-form__field detail-form__field--full">
-                                <span class="detail-form__label">가입일</span>
-                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
-                            </div>
-
+                    <!-- 섹션 헤더 행: 섹션 1 (트래시 없음 → 차시 추가가 col4 위치로 정렬) -->
+                    <div class="curriculum-row curriculum-row--section">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <span class="curriculum-row__label">섹션 1</span>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" value="(예시) 기초 역량 강화 과정" maxlength="40">
+                            <span class="setting-table__count">[<strong>16</strong>/40]</span>
                         </div>
+                        <button type="button" class="curriculum-row__add curriculum-row__add--span">
+                            <span class="qa-edit-btn">+</span>
+                            차시 추가
+                        </button>
                     </div>
 
-                    <!-- 계정 정보 -->
-                    <div class="detail-form__section">
-                        <h3 class="detail-form__section-title">계정 정보</h3>
-                        <div class="detail-form__grid">
-
-                            <div class="detail-form__field detail-form__field--full">
-                                <span class="detail-form__label">상태</span>
-                                <span class="detail-form__text">
-                                    <span class="status-chip status-chip--active">활성</span>
-                                </span>
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">마지막 로그인</span>
-                                <span class="detail-form__text">2000.00.00 오전/오후 00:00</span>
-                            </div>
-
-                            <div class="detail-form__field">
-                                <span class="detail-form__label">로그인 횟수</span>
-                                <span class="detail-form__text">42회</span>
-                            </div>
-
+                    <!-- 차시 행: (empty) | drag | input | 트래시 | (empty) -->
+                    <div class="curriculum-row curriculum-row--lesson">
+                        <span></span>
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" value="1. 과정 안내 및 학습 목표 소개" maxlength="40">
+                            <span class="setting-table__count">[<strong>16</strong>/40]</span>
                         </div>
+                        <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                            <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                        </button>
+                        <span></span>
                     </div>
-
-                    <!-- 권한 -->
-                    <div class="detail-form__section">
-                        <h3 class="detail-form__section-title">권한</h3>
-                        <div class="detail-form__grid">
-                            <div class="detail-form__field detail-form__field--full">
-                                <ul class="detail-form__permission-list">
-                                    <li>· 사용자관리 &gt; 학습자</li>
-                                    <li>· 사용자관리 &gt; 강사</li>
-                                    <li>· 강좌관리 &gt; 강좌 목록</li>
-                                </ul>
-                            </div>
+                    <div class="curriculum-row curriculum-row--lesson">
+                        <span></span>
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" value="2. 기본 개념 이해 및 핵심 내용 학습" maxlength="40">
+                            <span class="setting-table__count">[<strong>16</strong>/40]</span>
                         </div>
+                        <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                            <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                        </button>
+                        <span></span>
                     </div>
-
+                    <div class="curriculum-row curriculum-row--lesson">
+                        <span></span>
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" value="3. 실습 예제 및 학습 내용 정리" maxlength="40">
+                            <span class="setting-table__count">[<strong>16</strong>/40]</span>
+                        </div>
+                        <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                            <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                        </button>
+                        <span></span>
+                    </div>
                 </div>
 
-                <!-- 하단 버튼 -->
-                <div class="panel-action-bar">
-                    <button class="btn lg border-primary">권한설정</button>
-                    <button class="btn lg">변경사항 저장</button>
+                <!-- 섹션 2 -->
+                <div class="list-panel">
+                    <!-- 섹션 헤더 행: drag | 섹션 라벨 | input | 트래시 | 차시 추가 -->
+                    <div class="curriculum-row curriculum-row--section">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <span class="curriculum-row__label">섹션 2</span>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" placeholder="섹션명을 입력해주세요." maxlength="40">
+                            <span class="setting-table__count">[<strong>0</strong>/40]</span>
+                        </div>
+                        <button type="button" class="curriculum-row__delete" aria-label="섹션 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                            <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                        </button>
+                        <button type="button" class="curriculum-row__add">
+                            <span class="qa-edit-btn">+</span>
+                            차시 추가
+                        </button>
+                    </div>
+
+                    <!-- 차시 행 -->
+                    <div class="curriculum-row curriculum-row--lesson">
+                        <span></span>
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" value="4." maxlength="40">
+                            <span class="setting-table__count">[<strong>0</strong>/40]</span>
+                        </div>
+                        <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                            <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                        </button>
+                        <span></span>
+                    </div>
+                </div>
+
+                <!-- 하단 액션바 -->
+                <div class="admin-action-bar" style="margin-top:15px;">
+                    <button type="button" class="btn lg border">이전</button>
+                    <button type="button" class="btn lg border-primary" onclick="document.getElementById('modal-temp-save-confirm').classList.remove('is-hidden')">임시저장</button>
+                    <button type="button" class="btn lg primary">다음</button>
                 </div>
 
             </div>
         </main>
 
-        <!-- 고정 메모 버튼 -->
-        <button class="c-fab">
-            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
-            <span class="c-fab__text">메모</span>
-        </button>
-
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1. 저장하지 않은 내용 안내 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-unsaved">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">저장하지 않은 내용이 있습니다.</p>
-                <p class="c-modal__desc-sub"><span style="color:var(--color-primary);">저장</span>을 눌러 작업하신 내용을 보관하세요.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-unsaved').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 변경사항 저장 확인 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-save-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">변경사항을 저장하시겠습니까?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-save-confirm').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-save-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    function toggleCalendar(el) {
+        // 캘린더 토글 (구현 예정)
+    }
+
     function toggleProfileMenu(e) {
         e.stopPropagation();
         document.getElementById('headerUserMenu').classList.toggle('open');
@@ -473,11 +447,78 @@
     }
 
     document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
         if (!e.target.closest('#headerUserMenu')) {
             document.getElementById('headerUserMenu').classList.remove('open');
         }
     });
 </script>
+
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 1-a. 삭제 확인 (error + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">콘텐츠가 연결되어 있습니다<br>삭제 시 연결된 콘텐츠도 함께 삭제됩니다<br><br>정말로 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-delete-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-b. 삭제 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-delete-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">삭제가 완료되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-delete-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3-a. 임시저장 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-temp-save-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">입력한 내용을 임시 저장하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-temp-save-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-temp-save-confirm').classList.add('is-hidden'); document.getElementById('modal-temp-save-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3-b. 임시저장 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-temp-save-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">임시 저장이 완료되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-temp-save-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

@@ -259,7 +259,7 @@
             <div class="admin-body">
 
                 <!-- 상단 안내 -->
-                <div class="admin-infotip" style="margin-bottom:16px;">
+                <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
                     해당 강사에 해당하는 정산 정보를 기재합니다. 시스템에 영향을 미치지 않습니다.
                 </div>
@@ -524,7 +524,8 @@
                 </div>
                 <p class="c-modal__desc">변경사항을 저장하시겠습니까?</p>
             </div>
-            <div class="c-modal__footer">
+            <div class="c-modal__footer c-modal__footer--split">
+                <button class="btn lg border" onclick="document.getElementById('modal-save-confirm').classList.add('is-hidden')">취소</button>
                 <button class="btn lg" onclick="document.getElementById('modal-save-confirm').classList.add('is-hidden')">확인</button>
             </div>
         </div>
