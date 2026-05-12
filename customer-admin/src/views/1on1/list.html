@@ -11,6 +11,10 @@
     <!-- ===== HEADER ===== -->
     <header class="admin-header">
 
+        <button class="admin-header__menu-toggle" onclick="toggleSideNav()" aria-label="메뉴 열기">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
         <div class="admin-header__logo">
             <img src="../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
             <span class="admin-header__logo-name">맑은소프트</span>
@@ -241,6 +245,9 @@
             </div>
 
         </aside>
+
+        <!-- LNB 백드롭 (모바일 LNB 오픈 시) -->
+        <div class="admin-lnb__backdrop" onclick="toggleSideNav()"></div>
 
         <!-- ===== 콘텐츠 영역 ===== -->
         <main class="admin-content">
@@ -669,6 +676,14 @@
     function toggleProfileMenu(e) {
         e.stopPropagation();
         document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    /* 모바일 LNB 토글 (햄버거 메뉴) */
+    function toggleSideNav() {
+        const lnb = document.querySelector('.admin-lnb');
+        const backdrop = document.querySelector('.admin-lnb__backdrop');
+        lnb.classList.toggle('admin-lnb--open');
+        backdrop.classList.toggle('admin-lnb__backdrop--open');
     }
 
     document.addEventListener('click', function(e) {
