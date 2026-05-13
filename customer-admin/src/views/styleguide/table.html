@@ -512,6 +512,111 @@
             </section>
 
             <!-- ========================================== -->
+            <!-- 결제 설정 패널 (Payment Setting Panel)         -->
+            <!-- ========================================== -->
+            <section class="list-panel" style="margin-bottom:24px;">
+                <h3 class="tab-info-title">결제 설정</h3>
+
+                <table class="tab-info-table">
+                    <colgroup>
+                        <col style="width:200px;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <!-- 결제 유형 -->
+                        <tr>
+                            <th>결제 유형</th>
+                            <td>
+                                <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+                                    <label class="c-radio"><input type="radio" name="sg-pay-type">무료</label>
+                                    <label class="c-radio"><input type="radio" name="sg-pay-type" checked>유료</label>
+                                </div>
+                                <p class="detail-form__hint" style="margin:8px 0 0;">유료 설정 시 할인 및 가격 표시 방법을 설정할 수 있습니다.</p>
+                            </td>
+                        </tr>
+
+                        <!-- 정가 -->
+                        <tr>
+                            <th>정가</th>
+                            <td>
+                                <div class="input-unit-box input-unit-box--w200">
+                                    <input type="text" style="flex:1;">
+                                    <span class="input-unit-box__unit">원</span>
+                                </div>
+                                <p class="detail-form__hint" style="margin:8px 0 0;">상품의 기본 판매 가격을 입력해 주세요.</p>
+                            </td>
+                        </tr>
+
+                        <!-- 할인 -->
+                        <tr>
+                            <th>할인</th>
+                            <td>
+                                <div style="display:flex; flex-direction:column; gap:8px;">
+                                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                        <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
+                                            <input type="checkbox" class="c-check-blue" checked>
+                                            할인적용
+                                        </label>
+                                        <label class="c-radio"><input type="radio" name="sg-discount-type" checked></label>
+                                        <div class="c-dropdown" style="width:200px;">
+                                            <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">10%</span>
+                                                <img src="../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">5%</button>
+                                                <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">10%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">15%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">20%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">30%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">50%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">100%</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                        <label class="c-radio"><input type="radio" name="sg-discount-type">직접 설정</label>
+                                        <div class="input-unit-box input-unit-box--w200">
+                                            <input type="text" style="flex:1;">
+                                            <span class="input-unit-box__unit">원</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="detail-form__hint" style="margin:8px 0 0;">결제 시 쿠폰을 통해 추가 할인 적용이 가능합니다. 쿠폰은 <strong>주문관리 &gt; 쿠폰</strong> 메뉴에서 생성해 주세요.</p>
+                            </td>
+                        </tr>
+
+                        <!-- 가격 표시 방법 -->
+                        <tr>
+                            <th>가격 표시 방법</th>
+                            <td>
+                                <div style="display:flex; flex-direction:column; gap:12px;">
+                                    <label class="c-radio"><input type="radio" name="sg-price-display" checked>전체 금액 표시</label>
+                                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                        <label class="c-radio"><input type="radio" name="sg-price-display">월 할부 금액 표시</label>
+                                        <div class="c-dropdown" style="width:200px;">
+                                            <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">2개월</span>
+                                                <img src="../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">2개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">3개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">4개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">6개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">12개월</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="detail-form__hint" style="margin:8px 0 0;">상품 상세페이지에 노출될 가격 표시 종류를 선택해 주세요.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========================================== -->
             <!-- 폼 헤더 + 액션 버튼 테이블 (Form Header Table)  -->
             <!-- ========================================== -->
             <section class="list-panel list-panel--flush" style="margin-bottom:24px;">

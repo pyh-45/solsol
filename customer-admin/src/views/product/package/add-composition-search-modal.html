@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콘텐츠 선택</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center;">
+
+    <!-- ===== 콘텐츠 선택 모달 (W600) ===== -->
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">콘텐츠 선택</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <!-- 본문 -->
+        <div class="c-modal__content completion-modal__body">
+
+            <!-- 인포팁 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>폴더는 <strong>콘텐츠 관리 &gt; 콘텐츠 라이브러리</strong>에서 설정해 주세요.</span>
+            </div>
+
+            <!-- 검색 + 필터 -->
+            <div class="content-select__filter">
+                <div class="content-select__search">
+                    <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                    <input type="text" placeholder="검색" value="프로그래밍">
+                </div>
+                <div class="c-dropdown" style="width:160px; flex-shrink:0;">
+                    <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                        <span class="c-dropdown__label">전체 콘텐츠 유형</span>
+                        <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                    </button>
+                    <div class="c-dropdown__panel">
+                        <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">전체 콘텐츠 유형</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">동영상</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">PDF</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">이미지</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">유튜브 링크</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 검색결과 리스트 -->
+            <div class="content-select__list">
+                <div class="content-select__list-head">
+                    <span class="content-select__list-title">검사결과 5개</span>
+                    <button type="button" class="content-select__list-clear" aria-label="닫기">×</button>
+                </div>
+                <ul class="content-select__items">
+
+                    <!-- PDF (paperclip) -->
+                    <li class="content-select__item">
+                        <img src="../../../images/Ico_20px_paperclip.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                        <span class="content-select__item__name">프로그래밍 섹션 1-1 강의.pdf</span>
+                    </li>
+
+                    <!-- 영상 (active) -->
+                    <li class="content-select__item content-select__item--active">
+                        <img src="../../../images/Ico_20px_video02.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                        <span class="content-select__item__name">UX/UI 섹션 1-1 강의.mp4</span>
+                        <span class="content-select__item__badges">
+                            <span class="cate-tag cate-tag--ai-tutor">AI 튜터</span>
+                            <span class="cate-tag cate-tag--ai-subtitle">AI 자막</span>
+                        </span>
+                    </li>
+
+                    <!-- 이미지 (gallery) -->
+                    <li class="content-select__item">
+                        <img src="../../../images/Ico_20px_gallery.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                        <span class="content-select__item__name">프로그래밍 섹션 1-3 강의.jpg</span>
+                    </li>
+
+                    <!-- 링크 -->
+                    <li class="content-select__item">
+                        <img src="../../../images/Icon_20px_link02.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                        <span class="content-select__item__name">https://music.youtube.com/</span>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big primary" style="width:100%;">확인</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 상품 상세</title>
+    <title>Admin - 수료 및 수료증</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -330,19 +330,18 @@
 
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
-                    <button class="detail-tab__item active">상품정보</button>
+                    <button class="detail-tab__item">상품정보</button>
                     <button class="detail-tab__item">커리큘럼 및 콘텐츠</button>
-                    <button class="detail-tab__item">AI 튜터 및 수료</button>
+                    <button class="detail-tab__item active">수료 및 수료증</button>
                     <button class="detail-tab__item">결제설정</button>
                     <button class="detail-tab__item">학습자</button>
                     <button class="detail-tab__item">상품후기 <span class="lnb-badge" style="margin-left:6px;">3</span></button>
                 </nav>
 
-                <!-- 상품정보 패널 -->
+                <!-- 수료 및 수료증 패널 -->
                 <div class="list-panel list-panel--p30">
 
-                    <!-- 기본정보 -->
-                    <h3 class="tab-info-title">기본정보</h3>
+                    <h3 class="tab-info-title">수료 및 수료증 설정</h3>
                     <table class="tab-info-table">
                         <colgroup>
                             <col style="width:200px;">
@@ -350,220 +349,73 @@
                         </colgroup>
                         <tbody>
 
-                            <!-- 썸네일 -->
+                            <!-- 수료 최소 진도율 -->
                             <tr>
-                                <th>썸네일 <span style="color:#F22;">*</span></th>
+                                <th>수료 최소 진도율</th>
                                 <td>
-                                    <div style="display:flex; align-items:flex-start; gap:16px;">
-                                        <img src="../../../images/product-thumb.png" alt="썸네일" style="width:195px; aspect-ratio:16/9; object-fit:cover; border-radius:6px; flex-shrink:0;">
-                                        <button type="button" class="btn md border" style="align-self:flex-start;">썸네일 변경</button>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">이미지를 업로드하지 않을 경우 기본 썸네일이 자동으로 적용됩니다. (권장: 1280×720px / 16:9 비율, 최대 5MB)</p>
-                                </td>
-                            </tr>
-
-                            <!-- 상품명 -->
-                            <tr>
-                                <th>상품명 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div class="setting-table__input-count-wrap">
-                                        <input type="text" class="detail-form__input" value="Python 프로그래밍 기초" maxlength="40">
-                                        <span class="setting-table__count">[<strong>0</strong>/40]</span>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">상품의 주제와 내용을 알 수 있는 상품명을 입력해 주세요. 예) 기초부터 배우는 포토샵, 실전 마케팅 전략 클래스</p>
-                                </td>
-                            </tr>
-
-                            <!-- 카테고리 -->
-                            <tr>
-                                <th>카테고리 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-                                        <button type="button" class="btn md border">카테고리 선택</button>
-                                        <span style="font-size:13px; color:var(--color-blue); font-weight:500;">개발</span>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">카테고리 추가 및 수정은 <strong>카테고리 관리</strong> 페이지에서 설정해주세요.</p>
-                                </td>
-                            </tr>
-
-                            <!-- 강사 -->
-                            <tr>
-                                <th>강사 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px;">
-                                        <div style="display:inline-flex; align-items:center; gap:6px;">
-                                            <div class="c-avatar24 instructor"></div>
-                                            <span class="user-type-tag user-type-tag--sm user-type-tag--instructor">강사</span>
-                                            <span style="font-size:14px; color:var(--text-primary);">대표 강사 닉네임</span>
-                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
-                                        </div>
-                                        <div style="display:inline-flex; align-items:center; gap:6px;">
-                                            <div class="c-avatar24 basic"></div>
-                                            <span style="font-size:14px; color:var(--text-primary);">강사 닉네임</span>
-                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
-                                        </div>
-                                    </div>
-                                    <div style="display:flex; gap:8px; margin-top:12px;">
-                                        <button type="button" class="btn md border btn--icon">
-                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
-                                            대표 강사 추가
+                                    <div class="c-dropdown" style="width:200px;">
+                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                            <span class="c-dropdown__label">80%</span>
+                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
                                         </button>
-                                        <button type="button" class="btn md border btn--icon">
-                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
-                                            강사 추가
-                                        </button>
+                                        <div class="c-dropdown__panel">
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">10%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">20%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">30%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">40%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">50%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">60%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">70%</button>
+                                            <button class="c-dropdown__item active" onclick="selectItem(this)">80%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">90%</button>
+                                            <button class="c-dropdown__item" onclick="selectItem(this)">100%</button>
+                                        </div>
                                     </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">대표강사는 해당 강의를 관리할 수 있으며, 서브강사는 관리 권한이 제공되지 않습니다.</p>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">학습자가 이 진도율 이상 학습해야 수료처리 됩니다.</p>
                                 </td>
                             </tr>
 
-                        </tbody>
-                    </table>
-
-                    <!-- 운영설정 -->
-                    <h3 class="tab-info-title">운영설정</h3>
-                    <table class="tab-info-table">
-                        <colgroup>
-                            <col style="width:200px;">
-                            <col>
-                        </colgroup>
-                        <tbody>
-
-                            <!-- 모집인원 -->
+                            <!-- 수료증 사용여부 -->
                             <tr>
-                                <th>모집인원 <span style="color:#F22;">*</span></th>
+                                <th>수료증 사용여부</th>
                                 <td>
-                                    <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
-                                        <label class="c-radio"><input type="radio" name="capacity" checked>무제한</label>
-                                        <label class="c-radio"><input type="radio" name="capacity">직접 설정</label>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 인원은 기본적으로 무제한으로 설정됩니다. 필요 시 인원을 직접 입력하여 제한할 수 있습니다.</p>
+                                    <label class="c-toggle">
+                                        <input type="checkbox" checked>
+                                        <span class="c-toggle__slider"></span>
+                                    </label>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">수료 조건을 충족한 학습자에게 자동으로 수료증을 발급합니다</p>
                                 </td>
                             </tr>
 
-                            <!-- 모집일정 -->
+                            <!-- 수료증 템플릿 -->
                             <tr>
-                                <th>모집일정 <span style="color:#F22;">*</span></th>
+                                <th>수료증 템플릿</th>
                                 <td>
-                                    <div style="display:flex; flex-direction:column; gap:12px;">
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="recruitSchedule" checked>무제한</label>
-                                            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
-                                                <input type="checkbox" class="c-check-blue" checked>
-                                                시작일 지정
-                                            </label>
-                                            <div class="c-date-input" onclick="toggleCalendar(this)">
-                                                <input type="text" value="26.03.12" readonly>
-                                                <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                            </div>
-                                            <div class="c-date-input">
-                                                <input type="text" value="14:00" readonly style="width:60px;">
-                                            </div>
-                                        </div>
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="recruitSchedule">직접 설정</label>
-                                        </div>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 일정은 기본적으로 무제한으로 설정됩니다. 필요 시 시작일과 종료일을 설정하여 모집 기간을 지정할 수 있습니다.</p>
-                                </td>
-                            </tr>
-
-                            <!-- 수강기간 -->
-                            <tr>
-                                <th>수강기간 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; flex-direction:column; gap:12px;">
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="coursePeriod" checked></label>
-                                            <div class="c-dropdown" style="width:200px;">
-                                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                                    <span class="c-dropdown__label">30일</span>
-                                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                                </button>
-                                                <div class="c-dropdown__panel">
-                                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30일</button>
-                                                    <button class="c-dropdown__item" onclick="selectItem(this)">60일</button>
-                                                    <button class="c-dropdown__item" onclick="selectItem(this)">90일</button>
-                                                    <button class="c-dropdown__item" onclick="selectItem(this)">제한 없음</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="coursePeriod">직접 설정</label>
-                                        </div>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">수강 기간은 무제한, 일수 제한, 또는 시작일·종료일 지정 방식으로 설정할 수 있습니다.</p>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <!-- 상품소개 -->
-                    <h3 class="tab-info-title">상품소개</h3>
-                    <table class="tab-info-table">
-                        <colgroup>
-                            <col style="width:200px;">
-                            <col>
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th>소개 내용</th>
-                                <td>
-                                    <div class="rt-editor">
-                                        <div class="rt-editor__toolbar">
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="굵게"><strong>B</strong></button>
-                                                <button type="button" class="rt-editor__btn" title="기울임"><em>I</em></button>
-                                                <button type="button" class="rt-editor__btn" title="밑줄"><u>U</u></button>
-                                                <button type="button" class="rt-editor__btn" title="취소선"><s>S</s></button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="순서없는 목록">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="2" cy="4" r="1" fill="#666"/><circle cx="2" cy="8" r="1" fill="#666"/><circle cx="2" cy="12" r="1" fill="#666"/><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="순서있는 목록">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="0" y="6" font-size="5" fill="#666">1</text><text x="0" y="10" font-size="5" fill="#666">2</text><text x="0" y="14" font-size="5" fill="#666">3</text><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="링크">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 10L10 6" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l1-1a2.5 2.5 0 113.5 3.5l-1 1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 12l-1 1a2.5 2.5 0 11-3.5-3.5l1-1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="이미지">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1" stroke="#666" stroke-width="1.5"/><circle cx="6" cy="7" r="1" fill="#666"/><path d="M3 11l3-3 4 4 2-2 2 2" stroke="#666" stroke-width="1.5" fill="none"/></svg>
-                                                </button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="왼쪽 정렬">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="8" x2="10" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="가운데 정렬">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="8" x2="12" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="오른쪽 정렬">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="서식 지우기">Tx</button>
-                                            </div>
-                                        </div>
-                                        <div class="rt-editor__body" contenteditable="true" data-placeholder="상품 소개 내용을 입력해 주세요."></div>
-                                        <div class="rt-editor__footer">
-                                            <button type="button" class="btn md border btn--icon">
-                                                <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
-                                                미리보기
+                                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                                        <div class="c-dropdown" style="width:200px;">
+                                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">기본형 (1)</span>
+                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
                                             </button>
-                                            <span class="rt-editor__usage">0MB 사용중 <span class="rt-editor__usage-total">/ 50MB</span></span>
+                                            <div class="c-dropdown__panel">
+                                                <button class="c-dropdown__item active" onclick="selectItem(this)">기본형 (1)</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">기본형 (2)</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">세로형 (1)</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">세로형 (2)</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">세로형 (3)</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">영문형 (1)</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">영문형 (2)</button>
+                                            </div>
                                         </div>
+                                        <button type="button" class="btn md border btn--icon">
+                                            <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
+                                            미리보기
+                                        </button>
                                     </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">수료증 템플릿은 <strong>설정 &gt; 수료증 템플릿 관리</strong>에서 설정해 주세요.</p>
                                 </td>
                             </tr>
+
                         </tbody>
                     </table>
 

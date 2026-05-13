@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 상품 생성</title>
+    <title>Admin - 상품 생성 - 결제 설정</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -260,10 +260,8 @@
 
                 <!-- 등록 단계 -->
                 <div class="step-tabs">
-                    <div class="step-tabs__step step-tabs__step--active">
-                        <span class="step-tabs__circle">
-                            <img src="../../../images/modal-check-selected.svg" width="18" height="18" alt="">
-                        </span>
+                    <div class="step-tabs__step">
+                        <span class="step-tabs__circle">1</span>
                         <span class="step-tabs__label">상품정보</span>
                     </div>
                     <span class="step-tabs__line"></span>
@@ -277,186 +275,146 @@
                         <span class="step-tabs__label">콘텐츠 등록</span>
                     </div>
                     <span class="step-tabs__line"></span>
-                    <div class="step-tabs__step">
-                        <span class="step-tabs__circle">4</span>
+                    <div class="step-tabs__step step-tabs__step--active">
+                        <span class="step-tabs__circle">
+                            <img src="../../../images/modal-check-selected.svg" width="18" height="18" alt="">
+                        </span>
                         <span class="step-tabs__label">결제설정</span>
                     </div>
                 </div>
 
-                <!-- 1. 기본정보 -->
-                <div class="list-panel list-panel--p30">
-                    <h3 class="detail-form__section-title ">기본정보</h3>
-                    <div class="detail-form__grid">
+                <!-- 2단 레이아웃: 결제 설정 + 결제 금액 -->
+                <div class="two-col-layout">
 
-                        <!-- 썸네일 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">썸네일 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:flex-start; gap:16px;">
-                                <img src="../../../images/product-thumb.png" alt="썸네일" style="width:195px; aspect-ratio:16/9; object-fit:cover; border-radius:6px; flex-shrink:0;">
-                                <button type="button" class="btn md border" style="align-self:flex-start;">썸네일 변경</button>
-                            </div>
-                            <p class="detail-form__hint" style="margin:8px 0 0;">이미지를 업로드하지 않을 경우 기본 썸네일이 자동으로 적용됩니다. (권장: 1280×720px / 16:9 비율, 최대 5MB)</p>
-                        </div>
+                    <!-- 좌측: 결제 설정 -->
+                    <div class="two-col-layout__col">
+                        <div class="list-panel">
+                            <h2 class="panel-title">결제 설정</h2>
+                            <div class="detail-form__grid detail-form__grid--1col">
 
-                        <!-- 상품명 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">상품명 <span class="auth-required">*</span></span>
-                            <div class="setting-table__input-count-wrap">
-                                <input type="text" class="detail-form__input" placeholder="상품명을 입력해 주세요." maxlength="40">
-                                <span class="setting-table__count">[<strong>0</strong>/40]</span>
-                            </div>
-                            <p class="detail-form__hint" style="margin:8px 0 0;">상품의 주제와 내용을 알 수 있는 상품명을 입력해 주세요. 예) 기초부터 배우는 포토샵, 실전 마케팅 전략 클래스</p>
-                        </div>
-
-                        <!-- 카테고리 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">카테고리 <span class="auth-required">*</span></span>
-                            <button type="button" class="btn md border" style="align-self:flex-start;">카테고리 선택</button>
-                            <p class="detail-form__hint" style="margin:8px 0 0;">카테고리 추가 및 수정은 <strong>카테고리 관리</strong>에서 설정해 주세요.</p>
-                        </div>
-
-                        <!-- 강사 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">강사 <span class="auth-required">*</span></span>
-                            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px;">
-                                <div style="display:inline-flex; align-items:center; gap:6px;">
-                                    <div class="c-avatar24 instructor"></div>
-                                    <span class="user-type-tag user-type-tag--sm user-type-tag--instructor">강사</span>
-                                    <span style="font-size:14px; color:var(--text-primary);">대표 강사 닉네임</span>
-                                    <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
+                            <!-- 결제 유형 -->
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">결제 유형</span>
+                                <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+                                    <label class="c-radio"><input type="radio" name="pay-type">무료</label>
+                                    <label class="c-radio"><input type="radio" name="pay-type" checked>유료</label>
                                 </div>
-                                <div style="display:inline-flex; align-items:center; gap:6px;">
-                                    <div class="c-avatar24 basic"></div>
-                                    <span style="font-size:14px; color:var(--text-primary);">강사 닉네임</span>
-                                    <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
-                                </div>
+                                <p class="detail-form__hint">유료 설정 시 할인 및 가격 표시 방법을 설정할 수 있습니다.</p>
                             </div>
-                            <div style="display:flex; gap:8px; margin-top:12px;">
-                                <button type="button" class="btn md border btn--icon">
-                                    <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
-                                    대표 강사 추가
-                                </button>
-                                <button type="button" class="btn md border btn--icon">
-                                    <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
-                                    강사 추가
-                                </button>
-                            </div>
-                            <p class="detail-form__hint" style="margin:8px 0 0;">강사 추가 및 수정은 <strong>사용자 &gt; 강사</strong>에서 설정해 주세요.<br>대표강사는 해당 강의를 관리할 수 있으며, 강사는 관리 권한이 제공되지 않습니다.</p>
-                        </div>
 
-                    </div>
-                </div>
-
-                <!-- 2. 운영설정 -->
-                <div class="list-panel list-panel--p30">
-                    <h3 class="detail-form__section-title ">운영설정</h3>
-                    <div class="detail-form__grid">
-
-                        <!-- 모집인원 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">모집인원 <span class="auth-required">*</span></span>
-                            <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
-                                <label class="c-radio"><input type="radio" name="capacity" checked>무제한</label>
-                                <label class="c-radio"><input type="radio" name="capacity">직접 설정</label>
-                                <div style="display:flex; align-items:center; gap:8px;">
-                                    <input type="text" class="detail-form__input" style="width:160px;">
-                                    <span style="font-size:14px; color:var(--text-primary);">명</span>
+                            <!-- 정가 -->
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">정가</span>
+                                <div class="input-unit-box input-unit-box--w200">
+                                    <input type="text" style="flex:1;">
+                                    <span class="input-unit-box__unit">원</span>
                                 </div>
+                                <p class="detail-form__hint" style="margin:8px 0 0;">상품의 기본 판매 가격을 입력해 주세요.</p>
                             </div>
-                            <p class="detail-form__hint" style="margin:8px 0 0;">모집 인원은 기본적으로 무제한으로 설정됩니다. 필요 시 인원을 직접 입력하여 제한할 수 있습니다.</p>
-                        </div>
 
-                        <!-- 모집일정 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">모집일정 <span class="auth-required">*</span></span>
-                            <div style="display:flex; flex-direction:column; gap:12px;">
-                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                    <label class="c-radio"><input type="radio" name="recruitSchedule" checked>무제한</label>
-                                    <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
-                                        <input type="checkbox" class="c-check-blue" checked>
-                                        시작일 지정
-                                    </label>
-                                    <div class="c-date-input" onclick="toggleCalendar(this)">
-                                        <input type="text" value="20.00.00" readonly>
-                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                    </div>
-                                    <div class="c-date-input">
-                                        <input type="text" value="00:00" readonly style="width:60px;">
-                                    </div>
-                                </div>
-                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                    <label class="c-radio"><input type="radio" name="recruitSchedule">직접설정</label>
-                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">시작일</span>
-                                    <div class="c-date-input" onclick="toggleCalendar(this)">
-                                        <input type="text" value="20.00.00" readonly>
-                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                    </div>
-                                    <div class="c-date-input">
-                                        <input type="text" value="00:00" readonly style="width:60px;">
-                                    </div>
-                                    <span style="font-size:14px; color:var(--text-primary);">~</span>
-                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">종료일</span>
-                                    <div class="c-date-input" onclick="toggleCalendar(this)">
-                                        <input type="text" value="20.00.00" readonly>
-                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                    </div>
-                                    <div class="c-date-input">
-                                        <input type="text" value="23:59" readonly style="width:60px;">
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="detail-form__hint" style="margin:8px 0 0;">모집 일정은 기본적으로 무제한으로 설정됩니다. 필요 시 시작일과 종료일을 설정하여 모집 기간을 지정할 수 있습니다.</p>
-                        </div>
-
-                        <!-- 수강기간 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">수강기간 <span class="auth-required">*</span></span>
-                            <div style="display:flex; flex-direction:column; gap:12px;">
-                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                    <label class="c-radio"><input type="radio" name="coursePeriod" checked></label>
-                                    <div class="c-dropdown" style="width:160px;">
-                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                            <span class="c-dropdown__label">직접입력</span>
-                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                        </button>
-                                        <div class="c-dropdown__panel">
-                                            <button class="c-dropdown__item active" onclick="selectItem(this)">직접입력</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">제한 없음</button>
+                            <!-- 할인 -->
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">할인</span>
+                                <div style="display:flex; flex-direction:column; gap:8px;">
+                                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                        <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
+                                            <input type="checkbox" class="c-check-blue" checked>
+                                            할인적용
+                                        </label>
+                                        <label class="c-radio"><input type="radio" name="discount-type" checked></label>
+                                        <div class="c-dropdown" style="width:200px;">
+                                            <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">10%</span>
+                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">5%</button>
+                                                <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">10%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">15%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">20%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">30%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">50%</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">100%</button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <input type="text" class="detail-form__input" style="width:160px;">
-                                    <span style="font-size:14px; color:var(--text-primary);">일</span>
+                                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                        <label class="c-radio"><input type="radio" name="discount-type">직접 설정</label>
+                                        <div class="input-unit-box input-unit-box--w200">
+                                            <input type="text" style="flex:1;">
+                                            <span class="input-unit-box__unit">원</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                    <label class="c-radio"><input type="radio" name="coursePeriod">직접 설정</label>
-                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">시작일</span>
-                                    <div class="c-date-input" onclick="toggleCalendar(this)">
-                                        <input type="text" value="20.00.00" readonly>
-                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                <p class="detail-form__hint" style="margin:8px 0 0;">결제 시 쿠폰을 통해 추가 할인 적용이 가능합니다. 쿠폰은 <strong>주문관리 &gt; 쿠폰</strong> 메뉴에서 생성해 주세요.</p>
+                            </div>
+
+                            <!-- 가격 표시 방법 -->
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">가격 표시 방법</span>
+                                <div style="display:flex; flex-direction:column; gap:8px;">
+                                    <label class="c-radio"><input type="radio" name="price-display" checked>전체 금액 표시</label>
+                                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                        <label class="c-radio"><input type="radio" name="price-display">월 할부 금액 표시</label>
+                                        <div class="c-dropdown" style="width:200px;">
+                                            <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">2개월</span>
+                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">2개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">3개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">4개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">6개월</button>
+                                                <button type="button" class="c-dropdown__item" onclick="selectItem(this)">12개월</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="c-date-input">
-                                        <input type="text" value="00:00" readonly style="width:60px;">
-                                    </div>
-                                    <span style="font-size:14px; color:var(--text-primary);">~</span>
-                                    <span style="min-width:40px; color:var(--color-textgray); font-size:14px;">종료일</span>
-                                    <div class="c-date-input" onclick="toggleCalendar(this)">
-                                        <input type="text" value="20.00.00" readonly>
-                                        <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                    </div>
-                                    <div class="c-date-input">
-                                        <input type="text" value="23:59" readonly style="width:60px;">
-                                    </div>
+                                </div>
+                                <p class="detail-form__hint" style="margin:8px 0 0;">상품 상세페이지에 노출될 가격 표시 종류를 선택해 주세요.</p>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 우측: 결제 금액 사이드바 -->
+                    <div class="two-col-layout__col">
+                        <div class="list-panel">
+                            <h2 class="panel-title">결제 금액</h2>
+                            <div class="payment-summary">
+                                <div class="payment-summary__row">
+                                    <span class="payment-summary__row-label">정가</span>
+                                    <span class="payment-summary__row-value">100,000<span class="payment-summary__row-unit">원</span></span>
+                                </div>
+                                <div class="payment-summary__row">
+                                    <span class="payment-summary__row-label">할인 금액</span>
+                                    <span class="payment-summary__row-value">- 10,000<span class="payment-summary__row-unit">원</span></span>
+                                </div>
+                                <div class="payment-summary__total">
+                                    <span class="payment-summary__total-badge">10%</span>
+                                    <span class="payment-summary__total-amount">90,000<span class="payment-summary__total-amount-unit">원</span></span>
+                                </div>
+                                <div class="payment-summary__total">
+                                    <span class="payment-summary__total-badge">10%</span>
+                                    <span class="payment-summary__total-amount payment-summary__total-amount--free">무료</span>
+                                </div>
+                                <div class="payment-summary__total">
+                                    <span class="payment-summary__total-badge">10%</span>
+                                    <span class="payment-summary__total-amount">90,000<span class="payment-summary__total-amount-unit">원</span></span>
+                                    <span class="payment-summary__total-note">3개월 할부시</span>
                                 </div>
                             </div>
-                            <p class="detail-form__hint" style="margin:8px 0 0;">수강 기간은 무제한, 일수 제한, 또는 시작일·종료일 지정 방식으로 설정할 수 있습니다.</p>
                         </div>
 
+                        <!-- 하단 액션 버튼 -->
+                        <div class="payment-actions">
+                            <button type="button" class="btn lg border">이전</button>
+                            <button type="button" class="btn lg border-primary">임시 저장</button>
+                            <button type="button" class="btn lg primary">상품 생성</button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- 하단 액션바 -->
-                <div class="admin-action-bar" style="margin-top:15px;">
-                    <button class="btn lg primary">다음</button>
                 </div>
 
             </div>

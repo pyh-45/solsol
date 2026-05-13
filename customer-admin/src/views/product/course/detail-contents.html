@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 상품 상세</title>
+    <title>Admin - 상품 상세 - 커리큘럼 및 콘텐츠</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -258,6 +258,13 @@
         <main class="admin-content">
             <div class="admin-body">
 
+                <!-- 인포박스 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text"><strong>콘텐츠 &gt; 콘텐츠 라이브러리</strong> 내 동영상 및 유튜브 강의 링크만 업로드할 수 있습니다. 맛보기 설정 시 누구나 무료로 시청 가능합니다.</span>
+                    <a href="#" class="admin-infotip__link">가이드보기</a>
+                </div>
+
                 <!-- 상품 상세 카드 -->
                 <div class="dashboard-bar">
                     <div class="dashboard-bar__thumb dashboard-bar__thumb--lg">대비는 구글 채마니이 완전 점복 입문부터 전문가까지 쓰는 영의도달 율인된 대비는 구글 채마니이 완전.</div>
@@ -323,250 +330,314 @@
                     </div>
                 </div>
 
-                <!-- 변경사항 저장 -->
+                <!-- 상단 액션바: 섹션 추가 -->
                 <div class="setting-action-bar">
-                    <button type="button" class="btn lg dark" onclick="document.getElementById('modal-save-done').classList.remove('is-hidden')">변경사항 저장</button>
+                    <button type="button" class="btn lg dark btn--icon">
+                        <img src="../../../images/ico-16px-plus03.svg" width="16" height="16" alt="">
+                        섹션 추가
+                    </button>
                 </div>
 
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
-                    <button class="detail-tab__item active">상품정보</button>
-                    <button class="detail-tab__item">커리큘럼 및 콘텐츠</button>
+                    <button class="detail-tab__item">상품정보</button>
+                    <button class="detail-tab__item active">커리큘럼 및 콘텐츠</button>
                     <button class="detail-tab__item">AI 튜터 및 수료</button>
                     <button class="detail-tab__item">결제설정</button>
                     <button class="detail-tab__item">학습자</button>
                     <button class="detail-tab__item">상품후기 <span class="lnb-badge" style="margin-left:6px;">3</span></button>
                 </nav>
 
-                <!-- 상품정보 패널 -->
+                <!-- 커리큘럼 및 콘텐츠 패널 -->
+                <div class="list-panel">
+                    <h3 class="tab-info-title">커리큘럼 및 콘텐츠 <span style="color:#F22;">*</span></h3>
+
+                    <!-- 섹션 1 -->
+                    <div class="curriculum-row curriculum-row--section curriculum-row--boxed">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <span class="curriculum-row__label">섹션 1.</span>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" value="Python 프로그래밍 기초" maxlength="40">
+                            <span class="setting-table__count">[<strong>16</strong>/40]</span>
+                        </div>
+                        <button type="button" class="curriculum-row__add curriculum-row__add--span">
+                            <span class="qa-edit-btn">+</span>
+                            차시 추가
+                        </button>
+                    </div>
+
+                    <!-- 1. 콘텐츠 있음, 이용중지 ON -->
+                    <div class="content-lesson content-lesson--editable">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="content-lesson__body">
+                            <div class="content-lesson__title-row">
+                                <div class="setting-table__input-count-wrap">
+                                    <input type="text" class="detail-form__input" value="1. Python 프로그래밍 기초" maxlength="40">
+                                </div>
+                                <label class="content-lesson__toggle-area">
+                                    <span>이용중지</span>
+                                    <span class="c-toggle">
+                                        <input type="checkbox" checked>
+                                        <span class="c-toggle__slider"></span>
+                                    </span>
+                                </label>
+                                <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                                    <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                                </button>
+                            </div>
+                            <div class="content-lesson__row">
+                                <button type="button" class="btn sm border">콘텐츠 선택</button>
+                                <label class="content-lesson__check">
+                                    <input type="checkbox" class="c-check" checked>
+                                    맛보기 설정
+                                </label>
+                                <label class="content-lesson__check">
+                                    <input type="checkbox" class="c-check" checked>
+                                    AI 튜터 설정
+                                </label>
+                                <label class="content-lesson__check">
+                                    <input type="checkbox" class="c-check" checked>
+                                    AI 자막 설정
+                                </label>
+                            </div>
+                            <div class="content-lesson__file">
+                                <img src="../../../images/ico-20px-video.svg" width="20" height="20" alt="">
+                                <span class="content-lesson__filename">20251230_143959603.mp4</span>
+                                <span class="cate-tag cate-tag--ai-tutor">AI 튜터</span>
+                                <span class="cate-tag cate-tag--ai-translate">AI 번역</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 콘텐츠 미등록, 이용중지 OFF -->
+                    <div class="content-lesson content-lesson--editable">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="content-lesson__body">
+                            <div class="content-lesson__title-row">
+                                <div class="setting-table__input-count-wrap">
+                                    <input type="text" class="detail-form__input" value="2. Python 프로그래밍 기초" maxlength="40">
+                                </div>
+                                <label class="content-lesson__toggle-area">
+                                    <span>이용중지</span>
+                                    <span class="c-toggle">
+                                        <input type="checkbox">
+                                        <span class="c-toggle__slider"></span>
+                                    </span>
+                                </label>
+                                <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                                    <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                                </button>
+                            </div>
+                            <div class="content-lesson__row">
+                                <button type="button" class="btn sm border">콘텐츠 선택</button>
+                            </div>
+                            <p class="content-lesson__empty">콘텐츠를 등록해주세요.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. 콘텐츠 미등록, 이용중지 OFF -->
+                    <div class="content-lesson content-lesson--editable">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="content-lesson__body">
+                            <div class="content-lesson__title-row">
+                                <div class="setting-table__input-count-wrap">
+                                    <input type="text" class="detail-form__input" value="3. Python 프로그래밍 기초" maxlength="40">
+                                </div>
+                                <label class="content-lesson__toggle-area">
+                                    <span>이용중지</span>
+                                    <span class="c-toggle">
+                                        <input type="checkbox">
+                                        <span class="c-toggle__slider"></span>
+                                    </span>
+                                </label>
+                                <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                                    <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                                </button>
+                            </div>
+                            <div class="content-lesson__row">
+                                <button type="button" class="btn sm border">콘텐츠 선택</button>
+                            </div>
+                            <p class="content-lesson__empty">콘텐츠를 등록해주세요.</p>
+                        </div>
+                    </div>
+
+                    <!-- 섹션 2 -->
+                    <div class="curriculum-row curriculum-row--section curriculum-row--boxed">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <span class="curriculum-row__label">섹션 2.</span>
+                        <div class="setting-table__input-count-wrap">
+                            <input type="text" class="detail-form__input" value="Python 프로그래밍 기초" maxlength="40">
+                            <span class="setting-table__count">[<strong>16</strong>/40]</span>
+                        </div>
+                        <button type="button" class="curriculum-row__add curriculum-row__add--span">
+                            <span class="qa-edit-btn">+</span>
+                            차시 추가
+                        </button>
+                    </div>
+
+                    <!-- 4. 콘텐츠 있음, 이용중지 OFF -->
+                    <div class="content-lesson content-lesson--editable">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="content-lesson__body">
+                            <div class="content-lesson__title-row">
+                                <div class="setting-table__input-count-wrap">
+                                    <input type="text" class="detail-form__input" value="4. Python 프로그래밍 기초" maxlength="40">
+                                </div>
+                                <label class="content-lesson__toggle-area">
+                                    <span>이용중지</span>
+                                    <span class="c-toggle">
+                                        <input type="checkbox">
+                                        <span class="c-toggle__slider"></span>
+                                    </span>
+                                </label>
+                                <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                                    <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                                </button>
+                            </div>
+                            <div class="content-lesson__row">
+                                <button type="button" class="btn sm border">콘텐츠 선택</button>
+                                <label class="content-lesson__check">
+                                    <input type="checkbox" class="c-check" checked>
+                                    맛보기 설정
+                                </label>
+                                <label class="content-lesson__check">
+                                    <input type="checkbox" class="c-check" checked>
+                                    AI 튜터 설정
+                                </label>
+                                <label class="content-lesson__check">
+                                    <input type="checkbox" class="c-check" checked>
+                                    AI 자막 설정
+                                </label>
+                            </div>
+                            <div class="content-lesson__file">
+                                <img src="../../../images/ico-20px-video.svg" width="20" height="20" alt="">
+                                <span class="content-lesson__filename">20251230_143959603.mp4</span>
+                                <span class="cate-tag cate-tag--ai-tutor">AI 튜터</span>
+                                <span class="cate-tag cate-tag--ai-translate">AI 번역</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. 콘텐츠 미등록, 이용중지 OFF -->
+                    <div class="content-lesson content-lesson--editable">
+                        <button type="button" class="row-drag" aria-label="순서 변경">
+                            <img src="../../../images/Ico-20px-drag.svg" width="20" height="20" alt="">
+                        </button>
+                        <div class="content-lesson__body">
+                            <div class="content-lesson__title-row">
+                                <div class="setting-table__input-count-wrap">
+                                    <input type="text" class="detail-form__input" value="5. Python 프로그래밍 기초" maxlength="40">
+                                </div>
+                                <label class="content-lesson__toggle-area">
+                                    <span>이용중지</span>
+                                    <span class="c-toggle">
+                                        <input type="checkbox">
+                                        <span class="c-toggle__slider"></span>
+                                    </span>
+                                </label>
+                                <button type="button" class="curriculum-row__delete" aria-label="차시 삭제" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">
+                                    <img src="../../../images/ico-24px-trash.svg" width="24" height="24" alt="">
+                                </button>
+                            </div>
+                            <div class="content-lesson__row">
+                                <button type="button" class="btn sm border">콘텐츠 선택</button>
+                            </div>
+                            <p class="content-lesson__empty">콘텐츠를 등록해주세요.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 영상 설정 -->
                 <div class="list-panel list-panel--p30">
+                    <h3 class="detail-form__section-title ">영상 설정</h3>
+                    <div class="c-form-row c-form-row--col">
+                        <span class="c-form-row__label">재생설정</span>
+                        <div class="c-form-row__body">
+                            <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+                                <label class="c-radio"><input type="radio" name="play-setting" checked>자유롭게 시청하기</label>
+                                <label class="c-radio"><input type="radio" name="play-setting">순서대로 강의 진행</label>
+                            </div>
+                            <p class="c-form-row__hint">순서대로 강의 진행 선택 시 학습자는 커리큘럼 일부를 생략하지 못하고 설정된 순서대로만 수강할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- 기본정보 -->
-                    <h3 class="tab-info-title">기본정보</h3>
-                    <table class="tab-info-table">
-                        <colgroup>
-                            <col style="width:200px;">
-                            <col>
-                        </colgroup>
-                        <tbody>
+                <!-- 자료실 -->
+                <div class="list-panel list-panel--p30">
+                    <h3 class="panel-subhead">
+                        <span>자료실</span>
+                        <span class="panel-subhead__actions">
+                            <span class="upload-storage-info">
+                                <span>콘텐츠 용량 80.0 GB <a href="#" class="upload-storage-info__used">중 79.4MB 사용중</a></span>
+                            </span>
+                            <button type="button" class="btn md border">파일 업로드</button>
+                        </span>
+                    </h3>
 
-                            <!-- 썸네일 -->
+                    <table class="subtitle-table">
+                        <thead>
                             <tr>
-                                <th>썸네일 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; align-items:flex-start; gap:16px;">
-                                        <img src="../../../images/product-thumb.png" alt="썸네일" style="width:195px; aspect-ratio:16/9; object-fit:cover; border-radius:6px; flex-shrink:0;">
-                                        <button type="button" class="btn md border" style="align-self:flex-start;">썸네일 변경</button>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">이미지를 업로드하지 않을 경우 기본 썸네일이 자동으로 적용됩니다. (권장: 1280×720px / 16:9 비율, 최대 5MB)</p>
-                                </td>
+                                <th><input type="checkbox" class="table-check"></th>
+                                <th>원본 파일명</th>
+                                <th style="width:30%;">노출 파일명</th>
+                                <th>용량</th>
                             </tr>
-
-                            <!-- 상품명 -->
-                            <tr>
-                                <th>상품명 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div class="setting-table__input-count-wrap">
-                                        <input type="text" class="detail-form__input" value="Python 프로그래밍 기초" maxlength="40">
-                                        <span class="setting-table__count">[<strong>0</strong>/40]</span>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">상품의 주제와 내용을 알 수 있는 상품명을 입력해 주세요. 예) 기초부터 배우는 포토샵, 실전 마케팅 전략 클래스</p>
-                                </td>
-                            </tr>
-
-                            <!-- 카테고리 -->
-                            <tr>
-                                <th>카테고리 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-                                        <button type="button" class="btn md border">카테고리 선택</button>
-                                        <span style="font-size:13px; color:var(--color-blue); font-weight:500;">개발</span>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">카테고리 추가 및 수정은 <strong>카테고리 관리</strong> 페이지에서 설정해주세요.</p>
-                                </td>
-                            </tr>
-
-                            <!-- 강사 -->
-                            <tr>
-                                <th>강사 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px;">
-                                        <div style="display:inline-flex; align-items:center; gap:6px;">
-                                            <div class="c-avatar24 instructor"></div>
-                                            <span class="user-type-tag user-type-tag--sm user-type-tag--instructor">강사</span>
-                                            <span style="font-size:14px; color:var(--text-primary);">대표 강사 닉네임</span>
-                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
-                                        </div>
-                                        <div style="display:inline-flex; align-items:center; gap:6px;">
-                                            <div class="c-avatar24 basic"></div>
-                                            <span style="font-size:14px; color:var(--text-primary);">강사 닉네임</span>
-                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
-                                        </div>
-                                    </div>
-                                    <div style="display:flex; gap:8px; margin-top:12px;">
-                                        <button type="button" class="btn md border btn--icon">
-                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
-                                            대표 강사 추가
-                                        </button>
-                                        <button type="button" class="btn md border btn--icon">
-                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
-                                            강사 추가
-                                        </button>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">대표강사는 해당 강의를 관리할 수 있으며, 서브강사는 관리 권한이 제공되지 않습니다.</p>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <!-- 운영설정 -->
-                    <h3 class="tab-info-title">운영설정</h3>
-                    <table class="tab-info-table">
-                        <colgroup>
-                            <col style="width:200px;">
-                            <col>
-                        </colgroup>
-                        <tbody>
-
-                            <!-- 모집인원 -->
-                            <tr>
-                                <th>모집인원 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
-                                        <label class="c-radio"><input type="radio" name="capacity" checked>무제한</label>
-                                        <label class="c-radio"><input type="radio" name="capacity">직접 설정</label>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 인원은 기본적으로 무제한으로 설정됩니다. 필요 시 인원을 직접 입력하여 제한할 수 있습니다.</p>
-                                </td>
-                            </tr>
-
-                            <!-- 모집일정 -->
-                            <tr>
-                                <th>모집일정 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; flex-direction:column; gap:12px;">
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="recruitSchedule" checked>무제한</label>
-                                            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
-                                                <input type="checkbox" class="c-check-blue" checked>
-                                                시작일 지정
-                                            </label>
-                                            <div class="c-date-input" onclick="toggleCalendar(this)">
-                                                <input type="text" value="26.03.12" readonly>
-                                                <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
-                                            </div>
-                                            <div class="c-date-input">
-                                                <input type="text" value="14:00" readonly style="width:60px;">
-                                            </div>
-                                        </div>
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="recruitSchedule">직접 설정</label>
-                                        </div>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 일정은 기본적으로 무제한으로 설정됩니다. 필요 시 시작일과 종료일을 설정하여 모집 기간을 지정할 수 있습니다.</p>
-                                </td>
-                            </tr>
-
-                            <!-- 수강기간 -->
-                            <tr>
-                                <th>수강기간 <span style="color:#F22;">*</span></th>
-                                <td>
-                                    <div style="display:flex; flex-direction:column; gap:12px;">
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="coursePeriod" checked></label>
-                                            <div class="c-dropdown" style="width:200px;">
-                                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                                    <span class="c-dropdown__label">30일</span>
-                                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                                </button>
-                                                <div class="c-dropdown__panel">
-                                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30일</button>
-                                                    <button class="c-dropdown__item" onclick="selectItem(this)">60일</button>
-                                                    <button class="c-dropdown__item" onclick="selectItem(this)">90일</button>
-                                                    <button class="c-dropdown__item" onclick="selectItem(this)">제한 없음</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                            <label class="c-radio"><input type="radio" name="coursePeriod">직접 설정</label>
-                                        </div>
-                                    </div>
-                                    <p class="detail-form__hint" style="margin:8px 0 0;">수강 기간은 무제한, 일수 제한, 또는 시작일·종료일 지정 방식으로 설정할 수 있습니다.</p>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <!-- 상품소개 -->
-                    <h3 class="tab-info-title">상품소개</h3>
-                    <table class="tab-info-table">
-                        <colgroup>
-                            <col style="width:200px;">
-                            <col>
-                        </colgroup>
+                        </thead>
                         <tbody>
                             <tr>
-                                <th>소개 내용</th>
+                                <td><input type="checkbox" class="table-check" checked></td>
                                 <td>
-                                    <div class="rt-editor">
-                                        <div class="rt-editor__toolbar">
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="굵게"><strong>B</strong></button>
-                                                <button type="button" class="rt-editor__btn" title="기울임"><em>I</em></button>
-                                                <button type="button" class="rt-editor__btn" title="밑줄"><u>U</u></button>
-                                                <button type="button" class="rt-editor__btn" title="취소선"><s>S</s></button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="순서없는 목록">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="2" cy="4" r="1" fill="#666"/><circle cx="2" cy="8" r="1" fill="#666"/><circle cx="2" cy="12" r="1" fill="#666"/><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="순서있는 목록">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="0" y="6" font-size="5" fill="#666">1</text><text x="0" y="10" font-size="5" fill="#666">2</text><text x="0" y="14" font-size="5" fill="#666">3</text><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="링크">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 10L10 6" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l1-1a2.5 2.5 0 113.5 3.5l-1 1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 12l-1 1a2.5 2.5 0 11-3.5-3.5l1-1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="이미지">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1" stroke="#666" stroke-width="1.5"/><circle cx="6" cy="7" r="1" fill="#666"/><path d="M3 11l3-3 4 4 2-2 2 2" stroke="#666" stroke-width="1.5" fill="none"/></svg>
-                                                </button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="왼쪽 정렬">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="8" x2="10" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="가운데 정렬">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="8" x2="12" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                                <button type="button" class="rt-editor__btn" title="오른쪽 정렬">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
-                                                </button>
-                                            </div>
-                                            <div class="rt-editor__divider"></div>
-                                            <div class="rt-editor__group">
-                                                <button type="button" class="rt-editor__btn" title="서식 지우기">Tx</button>
-                                            </div>
-                                        </div>
-                                        <div class="rt-editor__body" contenteditable="true" data-placeholder="상품 소개 내용을 입력해 주세요."></div>
-                                        <div class="rt-editor__footer">
-                                            <button type="button" class="btn md border btn--icon">
-                                                <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
-                                                미리보기
-                                            </button>
-                                            <span class="rt-editor__usage">0MB 사용중 <span class="rt-editor__usage-total">/ 50MB</span></span>
-                                        </div>
-                                    </div>
+                                    <span class="subtitle-table__filename">
+                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                        image.jpg
+                                    </span>
                                 </td>
+                                <td><input type="text" class="setting-table__input" placeholder="image.jpg"></td>
+                                <td>5MB</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="table-check"></td>
+                                <td>
+                                    <span class="subtitle-table__filename">
+                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                        image(1).jpg
+                                    </span>
+                                </td>
+                                <td><input type="text" class="setting-table__input" value="피그마 이미지 예시"></td>
+                                <td>5MB</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="table-check"></td>
+                                <td>
+                                    <span class="subtitle-table__filename">
+                                        <img src="../../../images/ico-16px-paperclip.svg" width="16" height="16" alt="">
+                                        image(2).jpg
+                                    </span>
+                                </td>
+                                <td><input type="text" class="setting-table__input" placeholder="image(2).jpg"></td>
+                                <td>5MB</td>
                             </tr>
                         </tbody>
                     </table>
 
+                    <p class="detail-form__hint" style="margin:12px 0 0;">수강에 필요한 자료 파일을 등록할 수 있습니다. 등록된 파일은 학습자 일반강의 강의실 &gt; 자료실 탭에서 확인 및 다운로드할 수 있습니다.</p>
+                </div>
+
+                <!-- 하단 액션바: 변경사항 저장 -->
+                <div class="admin-action-bar" style="margin-top:15px;">
+                    <button type="button" class="btn lg primary" onclick="document.getElementById('modal-save-done').classList.remove('is-hidden')">변경사항 저장</button>
                 </div>
 
             </div>
@@ -614,6 +685,11 @@
         if (!isOpen) accordion.classList.add('open');
     }
 
+    function closeBulkBar() {
+        document.querySelectorAll('.table-check').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
+    }
+
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.c-dropdown')) {
             document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
@@ -623,6 +699,17 @@
         }
     });
 </script>
+
+    <!-- ===== 플로팅 벌크바 (체크박스 선택 시 노출) ===== -->
+    <div class="c-bulk-bar" id="bulkBar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+            <span class="c-bulk-bar__text" id="bulkText">(n)개 파일 선택됨</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">삭제</button>
+        </div>
+    </div>
 
     <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
 

@@ -735,7 +735,7 @@ ul, ol { list-style: none; }
 .list-panel {
     background: var(--bg-white);
     border-radius: 8px;
-    padding: 24px;
+    padding: 24px 30px 30px 30px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
 
@@ -1986,6 +1986,9 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 /* ==================== Detail Basic Form ==================== */
 .detail-form__section { margin-bottom: 30px; }
 .detail-form__section-title { font-size: 17px; font-weight: 700; color: #222; padding-bottom: 10px; border-bottom: 1px solid #EFEFEF; margin-bottom:15px; }
+/* 자료실 등 — 우측에 액션이 함께 들어가는 섹션 헤더 (밑줄·하단마진 없음) */
+.panel-subhead { display:flex; justify-content:space-between; align-items:center; gap:16px; margin:0; padding:0 0 5px; border:0; border-bottom:1px solid #EFEFEF; font-size:17px; font-weight:700; color:#222; }
+.panel-subhead__actions { display:flex; align-items:center; gap:16px; font-size:13px; font-weight:400; }
 .detail-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 30px; margin-top: 20px; }
 .detail-form__grid--1col { grid-template-columns: 1fr; }
 .detail-form__grid--3col { grid-template-columns: 1fr 1fr 1fr; }
@@ -2085,6 +2088,10 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .user-type-tag--learner { color: #F55F02; border-color: #F55F02; }
 .user-type-tag--sm { padding: 4px 10px; font-size: 11px; font-weight: 600; }
 .detail-form__hint { font-size: 12px; color: var(--color-textgray);line-height:1.5; margin: 0 0 10px; }
+/* 적용된 쿠폰 리스트 (할인 필드 하위) */
+.applied-coupon { display:flex; align-items:center; gap:16px; margin-top:16px; }
+.applied-coupon__label { font-size:14px; color:var(--text-tertiary); flex-shrink:0; }
+.applied-coupon__value { font-size:14px; color:var(--text-primary); }
 .detail-form__textarea { width: 100%; min-height: 120px; padding: 15px 30px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px; color: var(--text-dark); font-family: inherit; resize: vertical; outline: none; box-sizing: border-box; line-height: 1.6; }
 .detail-form__textarea:focus { border-color: var(--color-primary); }
 .detail-form__textarea::placeholder { color: var(--text-placeholder); }
@@ -2176,6 +2183,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .input-suffix-wrap { display:inline-flex; align-items:center; gap:6px; }
 .input-suffix { font-size:14px; color:var(--text-secondary); white-space:nowrap; }
 .input-unit-box { display:inline-flex; align-items:stretch; border:1px solid var(--border-color); border-radius:6px; overflow:hidden; background:#fff; }
+.input-unit-box--w200 { width:200px; align-self:flex-start; }  /* 원 단위 등 가격 입력 표준 폭. align-self로 column flex에서 늘어남 방지 */
 .input-unit-box input { border:none; outline:none; padding:0 12px; height:40px; font-size:14px; color:var(--text-primary); background:transparent; min-width:0; }
 .input-unit-box__unit { display:flex; align-items:center; padding:0 12px; border-left:1px solid var(--border-color); font-size:14px; color:var(--text-secondary); background:#f1f1f1; white-space:nowrap; }
 .input-unit-box:focus-within { border-color:var(--color-primary); }
@@ -2877,13 +2885,18 @@ tr:has(.c-check:checked) {
 /* 수료여부 변경 모달 */
 .completion-modal { width: 480px; padding: 0; gap: 0; }
 .completion-modal--lg { width: 600px; }
-.completion-modal.completion-modal--lg .c-modal__content { padding-bottom: 40px; }
+.completion-modal.completion-modal--lg .c-modal__content { padding-bottom: 20px; }
 .completion-modal__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; padding: 0 18px 0 30px; border-bottom: 1px solid #EAEAEA; }
 .completion-modal__heading { margin: 0; font-size: 20px; font-weight: 700; color: var(--text-primary); }
+/* 모달 헤더 텍스트 변형 — 리스트형/드릴인형 등 보조 모달용 */
+.completion-modal__heading--sm { font-size: 14px; font-weight: 600; }
+.completion-modal__heading--md { font-size: 16px; font-weight: 600; }
 .completion-modal__close { width: 24px; height: 24px; padding: 0; border: none; background: none; cursor: pointer; line-height: 0; flex-shrink: 0; }
-.completion-modal .c-modal__content { padding: 24px 30px 0; gap: 16px; align-items: stretch; text-align: left; }
+.completion-modal .c-modal__content { padding: 24px 30px; gap: 16px; align-items: stretch; text-align: left; }
 .completion-modal .c-modal__content.c-modal__content--pb10 { padding-bottom: 10px; margin-bottom: 10px; }
-.completion-modal .c-modal__footer { padding: 24px 30px; }
+/* 푸터 버튼 없는 모달 body — 검색결과/드릴인 모달 같이 헤더+리스트만 있을 때 */
+.completion-modal .c-modal__content.completion-modal__body--no-footer { padding-bottom: 30px; }
+.completion-modal .c-modal__footer { padding: 0 30px 24px; }
 
 /* 수료증 템플릿 유형 미리보기 모달 (max 1280, min 600) */
 .template-type-modal { width: calc(100vw - 80px); min-width: 600px; max-width: 1280px; }
@@ -3092,7 +3105,7 @@ tr:has(.c-check:checked) {
 
 /* 폴더 이동 모달 */
 .folder-move-modal { width: 600px; }
-.folder-move-modal .c-modal__footer { padding: 20px 30px 30px; }
+.folder-move-modal .c-modal__footer { padding: 0 30px 30px; }
 .folder-move__hint { margin: 0; font-size: 13px; color:#A0A0A0; }
 .folder-move__list { padding: 20px; border: 1px solid var(--border-color); border-radius: 8px; background: #FAFAFA; max-height: 400px; overflow-y: auto; }
 .folder-tree { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
@@ -3172,7 +3185,7 @@ tr:has(.c-check:checked) {
 .setting-table__text { font-size: 14px; color: #222; }
 .setting-table__desc { font-size: 12px; color:#888; margin-top: 8px; display: block; }
 .setting-table__input { width: 100%; height: 40px; padding: 0 15px; border: 1px solid #DFE0E3; border-radius: 4px; font-size: 14px; font-family: inherit; color: #222; outline: none; box-sizing: border-box; }
-.setting-table__input-count-wrap { display: flex; align-items: center; border: 1px solid #DFE0E3; border-radius: 4px; overflow: hidden; }
+.setting-table__input-count-wrap { display: flex; align-items: center; background:#fff; border: 1px solid #DFE0E3; border-radius: 4px; overflow: hidden; }
 .setting-table__input-count-wrap .setting-table__input,
 .setting-table__input-count-wrap .detail-form__input { border: none; border-radius: 0; flex: 1; }
 .setting-table__input-count-wrap .setting-table__input:focus,
@@ -3326,7 +3339,7 @@ tr:has(.c-check:checked) {
 /* ==================== 크레딧 충전 ==================== */
 .two-col-layout { display:flex; gap:16px; align-items:flex-start; }
 .two-col-layout__col { flex:1; min-width:0; }
-.panel-title { font-size:20px; font-weight:700; color:var(--text-primary); margin: 0 -24px 20px; padding: 0 24px 16px; border-bottom:1px solid #E0E0E0; }
+.panel-title { font-size:20px; font-weight:700; color:var(--text-primary); margin: 0 -30px 20px; padding: 0 24px 16px; border-bottom:1px solid #E0E0E0; }
 
 .credit-charge__balance { display:flex; align-items:center; justify-content:space-between; padding:24px 30px; background:#F5F6FA; border-radius:8px; margin-bottom:16px; }
 .credit-charge__balance-label { font-size:14px; color:var(--text-dark); }
@@ -3639,11 +3652,11 @@ tr:has(.c-check:checked) {
 .notif-channel .btn { margin-left:auto; }
 
 /* ==================== 등록 단계 스텝퍼 (Step Tabs) ==================== */
-.step-tabs { display:flex; align-items:center; padding:20px 30px; background:#fff; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.06); }
+.step-tabs { display:flex; align-items:center; justify-content:center; padding:12px 0; background:transparent; }
 .step-tabs__step { display:inline-flex; align-items:center; gap:8px; flex-shrink:0; }
 .step-tabs__circle { width:30px; height:30px; border-radius:50%; background:#BFBFBF; color:#fff; font-size:12px; font-weight:600; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
 .step-tabs__label { font-size:15px; color:#424242;font-weight:500; }
-.step-tabs__line { flex:1; height:1px; background:#E5E7EB; min-width:40px; margin:0 16px; }
+.step-tabs__line { width:92px; height:1px; background:#E5E7EB; margin:0 12px; flex-shrink:0; }
 .step-tabs__step--active .step-tabs__circle { background:var(--color-primary); }
 .step-tabs__step--active .step-tabs__circle img { filter:brightness(0) invert(1); transform:translateY(2px); }
 
@@ -3654,6 +3667,8 @@ tr:has(.c-check:checked) {
    ====================================================================== */
 .curriculum-row { display:grid; grid-template-columns:20px 50px 1fr 24px 110px; gap:12px; align-items:center; }
 .curriculum-row--section { padding-bottom:4px; }
+.curriculum-row--boxed { background:#F4F5F7; padding:8px 15px; border-radius:6px; }
+.curriculum-row--boxed ~ .curriculum-row--lesson { padding-left:15px; padding-right:15px; }
 .curriculum-row--lesson { padding:4px 0; border-top:1px solid var(--border-color); }
 .curriculum-row .row-drag { justify-self:start; }
 .curriculum-row__label { font-weight:700; font-size:14px; color:var(--text-primary); }
@@ -3668,8 +3683,9 @@ tr:has(.c-check:checked) {
    - __file  : [아이콘] [파일명/URL] [AI 뱃지] [× 삭제]
    - __empty : "콘텐츠를 등록해 주세요" 안내 (콘텐츠 미선택 상태)
    ============================================================================ */
-.content-lesson { padding:20px 0; }
+.content-lesson { padding:20px 16px; }
 .content-lesson:last-child  { padding-bottom:0; }
+.content-lesson + .content-lesson { border-top:1px solid var(--border-color); }
 .content-lesson__head { display:flex; align-items:center; gap:16px; }
 .content-lesson__num   { font-size:14px; font-weight:600; color:var(--text-primary); min-width:18px; }
 .content-lesson__title { font-size:14px; color:var(--text-secondary); }
@@ -3679,11 +3695,54 @@ tr:has(.c-check:checked) {
 .content-lesson__filename { font-size:13px; color:var(--text-primary); margin-right:4px; }
 .content-lesson__delete { width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:18px; line-height:1; }
 .content-lesson__empty  { font-size:13px; color:var(--text-tertiary); padding-left:34px; margin:12px 0 0; }
+/* 편집형 차시 (커리큘럼 + 콘텐츠 통합) */
+.content-lesson--editable { display:flex; align-items:flex-start; gap:12px; padding:14px 15px; }
+.content-lesson--editable .row-drag { align-self:center; flex-shrink:0; }
+.content-lesson__body { flex:1; min-width:0; padding-left:62px; display:flex; flex-direction:column; gap:12px; }
+.content-lesson__title-row { display:flex; align-items:center; gap:12px; }
+.content-lesson__title-row .setting-table__input-count-wrap { flex:1; min-width:0; }
+.content-lesson__toggle-area { display:inline-flex; align-items:center; justify-content:flex-end; gap:8px; width:110px; flex-shrink:0; font-size:13px; color:var(--text-secondary); cursor:pointer; }
+.content-lesson--editable .content-lesson__row,
+.content-lesson--editable .content-lesson__file,
+.content-lesson--editable .content-lesson__empty { padding-left:0; margin-top:0; }
 
-/* 패널 내부 섹션 소제목 (h4) — h3(.panel-section-title) 보다 한 단계 작음.
-   border-bottom 은 좌우 패널 패딩(30px) 만큼 안쪽으로 들어와 라인이 좌우 여백을 가짐 */
-.panel-section-subtitle { font-size:16px; font-weight:700; color:var(--text-primary); margin:24px 0 0; padding:0 0 12px; border-bottom:1px solid #EFEFEF; }
+/* 패널 내부 섹션 소제목 (h4) — 회색 타이틀바, 패널 좌우 30px 안쪽으로 들어옴, 6px 라운드 */
+.panel-section-subtitle { font-size:15px; font-weight:600; color:var(--text-primary); margin:24px 0 0; padding:15px; background:#F4F5F7; border:none; border-radius:6px; }
 .panel-section-title + .panel-section-subtitle { margin-top:16px; }
+
+/* ==================== 콘텐츠 선택 모달 (Content Select) ====================
+   검색 + 필터 + 결과 리스트 (회색 배경 + 라운드)
+   ========================================================================== */
+.content-select__filter { display:flex; align-items:center; gap:4px;}
+.content-select__search { flex:1; display:flex; align-items:center; gap:8px; height:40px; padding:0 14px; border:1px solid #DDDDDD; border-radius:6px; background:#fff; }
+.content-select__search input { flex:1; border:none; outline:none; background:none; font-size:14px; color:var(--text-primary); font-family:inherit; }
+.content-select__search input::placeholder { color:var(--text-placeholder); }
+.content-select__list { padding:14px; background:#F4F5F7; border-radius:8px; }
+.content-select__list-head { display:flex; align-items:center; justify-content:space-between; padding:8px 4px 10px; }
+.content-select__list-title { font-size:13px; font-weight:600; color:var(--text-primary); }
+.content-select__list-clear { width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px; line-height:1; }
+.content-select__items { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:2px; }
+.content-select__item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:6px; cursor:pointer; }
+.content-select__item:hover { background:#fff; }
+.content-select__item--active { background:#EBF3FF; }
+.content-select__item__name { font-size:14px; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.content-select__item__badges { display:inline-flex; align-items:center; gap:4px; }
+
+/* ==================== 상품 생성 - 결제 설정 (Payment) ====================
+   좌측 폼 패널 + 우측 결제 금액 사이드바 (.two-col-layout 사용)
+   ========================================================================== */
+.payment-summary { display:flex; flex-direction:column; gap:14px; }
+.payment-summary__row { display:flex; justify-content:space-between; align-items:center; font-size:14px; }
+.payment-summary__row-label { font-size:16px;font-weight:600; color:var(--text-dark); }
+.payment-summary__row-value { font-size:18px; font-weight:700; color:var(--text-primary); }
+.payment-summary__row-unit { font-size:14px; color:#A0A0A0; font-weight:500; margin-left:2px; }
+.payment-summary__total { display:flex; justify-content:flex-end; align-items:baseline; gap:8px; padding-top:18px; border-top:1px solid var(--border-color); }
+.payment-summary__total-badge { font-size:17px; font-weight:700; color:#FF0000; }
+.payment-summary__total-amount { font-size:36px; font-weight:700; color:var(--text-primary); letter-spacing:-0.02em; }
+.payment-summary__total-amount-unit { font-size:17px; font-weight:500; margin-left:2px; color:var(--text-primary); }
+.payment-summary__total-amount--free { color:#2BACF4; line-height:1.2; }
+.payment-summary__total-note { font-size:13px; color:var(--color-blue); margin-left:7px; }
+.payment-actions { display:flex; justify-content:flex-end; gap:4px; margin-top:15px; }
 
 /* ==================== 팝업 미리보기 프레임 (PC / Mobile) ==================== */
 .preview-frame { min-height:100vh; background:#4A4A52; display:flex; flex-direction:column; }
