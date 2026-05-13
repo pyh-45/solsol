@@ -3318,6 +3318,7 @@ tr:has(.c-check:checked) {
 .c-date-input:focus-within { border-color:var(--color-primary); }
 .c-date-input input { border:none; outline:none; font-family:inherit; font-size:13px; color:var(--text-primary); background:transparent; width:80px; cursor:pointer; padding:0; }
 .c-date-input__ico { flex-shrink:0; display:flex; align-items:center; pointer-events:none; width:20px; height:20px; }
+.c-datetime-group { display:inline-flex; align-items:center; gap:4px; }
 
 /* ==================== 크레딧 정보 패널 ==================== */
 .credit-info { display:flex; align-items:center; gap:40px; }
