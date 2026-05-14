@@ -299,9 +299,9 @@
                                 <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
                             </button>
                             <div class="c-dropdown__panel">
-                                <button class="c-dropdown__item active" onclick="selectItem(this)" style="color:var(--color-blue); font-weight:600;">LIVE</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">대기</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">종료</button>
+                                <button class="c-dropdown__item active" onclick="document.getElementById('modal-live-on-confirm').classList.remove('is-hidden')" style="color:var(--color-blue); font-weight:600;">LIVE</button>
+                                <button class="c-dropdown__item" onclick="document.getElementById('modal-live-state-blocked').classList.remove('is-hidden')">대기</button>
+                                <button class="c-dropdown__item" onclick="document.getElementById('modal-live-off-confirm').classList.remove('is-hidden')">종료</button>
                             </div>
                         </div>
                         <!-- 공개상태 -->
@@ -627,6 +627,83 @@
 </script>
 
     <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 0-a-1. 라이브상태 → LIVE 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-on-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브 상태를 LIVE로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-live-on-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-live-on-confirm').classList.add('is-hidden'); document.getElementById('modal-live-on-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-a-2. 라이브상태 → 종료 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-off-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브 상태를 종료로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-live-off-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-live-off-confirm').classList.add('is-hidden'); document.getElementById('modal-live-off-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-b-1. 라이브상태 LIVE 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-on-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브상태가 LIVE로 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-live-on-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-b-2. 라이브상태 종료 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-off-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브상태가 종료로 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-live-off-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-c. 라이브상태 → 예정(대기) 변경 불가 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-state-blocked">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">진행중인 라이브는 예정 상태로 변경할 수 없습니다<br>수강일시를 변경해 주세요</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-live-state-blocked').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
 
     <!-- 1-a-1. 공개상태 → 공개 변경 확인 (notice + split) -->
     <div class="c-modal-overlay is-hidden" id="modal-visibility-public-confirm">
