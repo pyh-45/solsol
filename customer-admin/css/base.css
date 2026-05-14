@@ -2096,6 +2096,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .user-type-tag--learner { color: #F55F02; border-color: #F55F02; }
 .user-type-tag--sm { padding: 4px 10px; font-size: 11px; font-weight: 600; }
 .detail-form__hint { font-size: 12px; color: var(--color-textgray);line-height:1.5; margin: 0 0 10px; }
+.detail-form__amount { font-size: 16px; font-weight: 600; color: var(--text-primary); }
 /* 적용된 쿠폰 리스트 (할인 필드 하위) */
 .applied-coupon { display:flex; align-items:center; gap:16px; margin-top:16px; }
 .applied-coupon__label { font-size:14px; color:var(--text-tertiary); flex-shrink:0; }
