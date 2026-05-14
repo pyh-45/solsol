@@ -261,7 +261,7 @@
                 <!-- 인포박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">상품은 등록 시 비공개 상태로 업로드되며, 공개 또는 일부 공개로 직접 설정해주세요. 상품 취소는 <strong>판매관리 &gt; 주문</strong> 에서 진행해주세요.</span>
+                    <span class="admin-infotip__text">상품은 등록 시 비공개 상태로 업로드되며, 공개 또는 일부 공개로 직접 설정해주세요.<br>상품 취소는 <strong>판매관리 &gt; 주문</strong> 에서 진행해주세요.</span>
                 </div>
 
                 <!-- 상품 상세 카드 -->
@@ -410,9 +410,6 @@
                         <table class="tab-table">
                             <thead>
                                 <tr>
-                                    <th style="width:44px; text-align:center; padding:0 5px;">
-                                        <input type="checkbox" class="table-check" id="checkAll">
-                                    </th>
                                     <th style="text-align:left;">학습자 정보</th>
                                     <th style="min-width:200px">신청일시</th>
                                     <th style="min-width:160px">다운로드 실행여부</th>
@@ -423,9 +420,6 @@
 
                                 <!-- Row 1: 수료 -->
                                 <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
                                     <td>
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
@@ -447,9 +441,6 @@
 
                                 <!-- Row 2: 미 다운로드 -->
                                 <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
                                     <td>
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
@@ -466,9 +457,6 @@
 
                                 <!-- Row 3: 미 다운로드, 수강취소 -->
                                 <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
                                     <td>
                                         <div class="user-cell">
                                             <div class="c-avatar30 learner"></div>
@@ -548,11 +536,6 @@
         if (!isOpen) accordion.classList.add('open');
     }
 
-    function closeBulkBar() {
-        document.querySelectorAll('.table-check').forEach(c => c.checked = false);
-        document.getElementById('bulkBar').classList.add('hidden');
-    }
-
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.c-dropdown')) {
             document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
@@ -562,15 +545,6 @@
         }
     });
 </script>
-
-    <!-- ===== 플로팅 벌크바 (체크박스 선택 시 노출) ===== -->
-    <div class="c-bulk-bar" id="bulkBar">
-        <div class="c-bulk-bar__left">
-            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
-            <span class="c-bulk-bar__text" id="bulkText">{n}개 학습자 선택됨</span>
-        </div>
-        <div class="c-bulk-bar__actions"></div>
-    </div>
 
     <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
 
