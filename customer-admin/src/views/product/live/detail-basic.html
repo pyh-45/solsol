@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 상품 상세</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <button class="admin-header__menu-toggle" onclick="toggleSideNav()" aria-label="메뉴 열기">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <button class="admin-header__back">
+                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">상품 상세</span>
+                <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn md border">내 정보</button>
+                        <button class="btn md border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+
+            <div class="lnb-divider"></div>
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item active">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- LNB 백드롭 (모바일 LNB 오픈 시) -->
+        <div class="admin-lnb__backdrop" onclick="toggleSideNav()"></div>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 상품 상세 카드 -->
+                <div class="dashboard-bar">
+                    <div class="dashboard-bar__thumb dashboard-bar__thumb--lg">대비는 구글 채마니이 완전 점복 입문부터 전문가까지 쓰는 영의도달 율인된 대비는 구글 채마니이 완전.</div>
+                    <div class="dashboard-bar__main">
+                        <span class="dashboard-bar__label">개발</span>
+                        <div class="dashboard-bar__head">
+                            <span class="dashboard-bar__title">Python 프로그래밍 기초, 제목이 아주 길어진다면 두줄일까요.</span>
+                        </div>
+                        <div class="dashboard-bar__meta">
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/Ico_16px_money.svg" width="16" height="16" alt="">
+                                <span class="dashboard-bar__meta-label">금액</span>
+                                <span style="display:inline-flex; align-items:center; gap:3px;">
+                                    <span class="dashboard-bar__meta-value">100,000</span>
+                                    <span>원</span>
+                                </span>
+                            </span>
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/Ico_16px_teacher_02.svg" width="16" height="16" alt="">
+                                <span class="dashboard-bar__meta-label">학습자/모집인원</span> <span class="dashboard-bar__meta-value">528</span> / 무제한
+                            </span>
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/Ico_16px_message_02.svg" width="16" height="16" alt="">
+                                <span class="dashboard-bar__meta-label">상품후기</span>
+                                <span style="display:inline-flex; align-items:center; gap:3px;">
+                                    <img src="../../../images/ico-star.svg" width="13" height="13" alt="">
+                                    <span class="dashboard-bar__meta-value" style="color:#FF0000; font-weight:600;">44.8</span>
+                                    <span>(124)</span>
+                                </span>
+                            </span>
+                            <span class="dashboard-bar__meta-item">2000.00.00 오전/오후 00:00</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-bar__actions">
+                        <!-- 라이브상태 -->
+                        <div class="c-dropdown" style="flex-shrink:0; width:140px;">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label" style="color:var(--color-blue); font-weight:600;">LIVE</span>
+                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel">
+                                <button class="c-dropdown__item active" onclick="selectItem(this)" style="color:var(--color-blue); font-weight:600;">LIVE</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">대기</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">종료</button>
+                            </div>
+                        </div>
+                        <!-- 공개상태 -->
+                        <div class="c-dropdown" style="flex-shrink:0; width:140px;">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label" style="display:flex; align-items:center; gap:4px; color:#F52A02; white-space:nowrap; flex-shrink:0;">
+                                    <img src="../../../images/Ico_16px_piece.svg" width="16" height="16" alt="" style="flex-shrink:0;">
+                                    <span>일부공개</span>
+                                </span>
+                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel">
+                                <button class="c-dropdown__item active" onclick="selectItem(this)" style="color:#F52A02; white-space:nowrap; display:flex; align-items:center; gap:4px;">
+                                    <img src="../../../images/Ico_16px_piece.svg" width="16" height="16" alt="" style="flex-shrink:0;">
+                                    <span>일부공개</span>
+                                </button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">공개</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">비공개</button>
+                            </div>
+                        </div>
+                        <!-- 판매상태 -->
+                        <button class="toggle-pill">판매중</button>
+                        <!-- 삭제 / 미리보기 -->
+                        <div class="dashboard-bar__btn-group">
+                            <button type="button" class="btn md border" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">삭제</button>
+                            <button type="button" class="btn md border btn--icon">
+                                <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
+                                미리보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 변경사항 저장 -->
+                <div class="setting-action-bar">
+                    <button type="button" class="btn lg dark" onclick="document.getElementById('modal-save-done').classList.remove('is-hidden')">변경사항 저장</button>
+                </div>
+
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item active">상품정보</button>
+                    <button class="detail-tab__item">콘텐츠 및 자료실</button>
+                    <button class="detail-tab__item">수료</button>
+                    <button class="detail-tab__item">결제설정</button>
+                    <button class="detail-tab__item">학습자</button>
+                    <button class="detail-tab__item">상품후기 <span class="lnb-badge" style="margin-left:6px;">3</span></button>
+                </nav>
+
+                <!-- 상품정보 패널 -->
+                <div class="list-panel list-panel--p30">
+
+                    <!-- 기본정보 -->
+                    <h3 class="tab-info-title">기본정보</h3>
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+
+                            <!-- 썸네일 -->
+                            <tr>
+                                <th>썸네일 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; align-items:flex-start; gap:16px;">
+                                        <img src="../../../images/product-thumb.png" alt="썸네일" style="width:195px; aspect-ratio:16/9; object-fit:cover; border-radius:6px; flex-shrink:0;">
+                                        <button type="button" class="btn md border" style="align-self:flex-start;">썸네일 변경</button>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">이미지를 업로드하지 않을 경우 기본 썸네일이 자동으로 적용됩니다. (권장: 1280×720px / 16:9 비율, 최대 5MB)</p>
+                                </td>
+                            </tr>
+
+                            <!-- 상품명 -->
+                            <tr>
+                                <th>상품명 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div class="setting-table__input-count-wrap">
+                                        <input type="text" class="detail-form__input" value="Python 프로그래밍 기초" maxlength="40">
+                                        <span class="setting-table__count">[<strong>0</strong>/40]</span>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">상품의 주제와 내용을 알 수 있는 상품명을 입력해 주세요. 예) 기초부터 배우는 포토샵, 실전 마케팅 전략 클래스</p>
+                                </td>
+                            </tr>
+
+                            <!-- 카테고리 -->
+                            <tr>
+                                <th>카테고리 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                                        <button type="button" class="btn md border">카테고리 선택</button>
+                                        <span style="font-size:13px; color:var(--color-blue); font-weight:500;">개발</span>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">카테고리 추가 및 수정은 <strong>카테고리 관리</strong> 페이지에서 설정해주세요.</p>
+                                </td>
+                            </tr>
+
+                            <!-- 강사 -->
+                            <tr>
+                                <th>강사 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px;">
+                                        <div style="display:inline-flex; align-items:center; gap:6px;">
+                                            <div class="c-avatar24 instructor"></div>
+                                            <span class="user-type-tag user-type-tag--sm user-type-tag--instructor">강사</span>
+                                            <span style="font-size:14px; color:var(--text-primary);">대표 강사 닉네임</span>
+                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
+                                        </div>
+                                        <div style="display:inline-flex; align-items:center; gap:6px;">
+                                            <div class="c-avatar24 basic"></div>
+                                            <span style="font-size:14px; color:var(--text-primary);">강사 닉네임</span>
+                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
+                                        </div>
+                                    </div>
+                                    <div style="display:flex; gap:8px; margin-top:12px;">
+                                        <button type="button" class="btn md border btn--icon">
+                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
+                                            대표 강사 추가
+                                        </button>
+                                        <button type="button" class="btn md border btn--icon">
+                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
+                                            강사 추가
+                                        </button>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">대표강사는 해당 강의를 관리할 수 있으며, 서브강사는 관리 권한이 제공되지 않습니다.</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <!-- 운영설정 -->
+                    <h3 class="tab-info-title">운영설정</h3>
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+
+                            <!-- 모집인원 -->
+                            <tr>
+                                <th>모집인원 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+                                        <label class="c-radio"><input type="radio" name="capacity" checked>무제한</label>
+                                        <label class="c-radio"><input type="radio" name="capacity">직접 설정</label>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 인원은 기본적으로 무제한으로 설정됩니다. 필요 시 인원을 직접 입력하여 제한할 수 있습니다.</p>
+                                </td>
+                            </tr>
+
+                            <!-- 모집일정 -->
+                            <tr>
+                                <th>모집일정 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; flex-direction:column; gap:12px;">
+                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                            <label class="c-radio"><input type="radio" name="recruitSchedule" checked>무제한</label>
+                                            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
+                                                <input type="checkbox" class="c-check-blue" checked>
+                                                시작일 지정
+                                            </label>
+                                            <div class="c-date-input" onclick="toggleCalendar(this)">
+                                                <input type="text" value="26.03.12" readonly>
+                                                <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                            </div>
+                                            <div class="c-date-input">
+                                                <input type="text" value="14:00" readonly style="width:60px;">
+                                            </div>
+                                        </div>
+                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                            <label class="c-radio"><input type="radio" name="recruitSchedule">직접 설정</label>
+                                        </div>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 일정은 기본적으로 무제한으로 설정됩니다. 필요 시 시작일과 종료일을 설정하여 모집 기간을 지정할 수 있습니다.</p>
+                                </td>
+                            </tr>
+
+                            <!-- 수강일시 -->
+                            <tr>
+                                <th>수강일시 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div class="c-datetime-group">
+                                        <div class="c-date-input" onclick="toggleCalendar(this)">
+                                            <input type="text" value="20.00.00" readonly>
+                                            <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                        </div>
+                                        <div class="c-date-input">
+                                            <input type="text" value="00:00" readonly style="width:60px;">
+                                            <img class="c-date-input__ico" src="../../../images/ico-input-clock.svg" width="20" height="20" alt="">
+                                        </div>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">라이브가 시작되는 수강일시를 설정해 주세요. 종료시간은 자동으로 처리되지 않으며 <strong>라이브강의 &gt; 상세페이지</strong>에서 직접 종료 처리해 주세요.</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <!-- 상품소개 -->
+                    <h3 class="tab-info-title">상품소개</h3>
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>소개 내용</th>
+                                <td>
+                                    <div class="rt-editor">
+                                        <div class="rt-editor__toolbar">
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="굵게"><strong>B</strong></button>
+                                                <button type="button" class="rt-editor__btn" title="기울임"><em>I</em></button>
+                                                <button type="button" class="rt-editor__btn" title="밑줄"><u>U</u></button>
+                                                <button type="button" class="rt-editor__btn" title="취소선"><s>S</s></button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="순서없는 목록">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="2" cy="4" r="1" fill="#666"/><circle cx="2" cy="8" r="1" fill="#666"/><circle cx="2" cy="12" r="1" fill="#666"/><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="순서있는 목록">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="0" y="6" font-size="5" fill="#666">1</text><text x="0" y="10" font-size="5" fill="#666">2</text><text x="0" y="14" font-size="5" fill="#666">3</text><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="링크">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 10L10 6" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l1-1a2.5 2.5 0 113.5 3.5l-1 1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 12l-1 1a2.5 2.5 0 11-3.5-3.5l1-1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="이미지">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1" stroke="#666" stroke-width="1.5"/><circle cx="6" cy="7" r="1" fill="#666"/><path d="M3 11l3-3 4 4 2-2 2 2" stroke="#666" stroke-width="1.5" fill="none"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="왼쪽 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="8" x2="10" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="가운데 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="8" x2="12" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="오른쪽 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="서식 지우기">Tx</button>
+                                            </div>
+                                        </div>
+                                        <div class="rt-editor__body" contenteditable="true" data-placeholder="상품 소개 내용을 입력해 주세요."></div>
+                                        <div class="rt-editor__footer">
+                                            <button type="button" class="btn md border btn--icon">
+                                                <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
+                                                미리보기
+                                            </button>
+                                            <span class="rt-editor__usage">0MB 사용중 <span class="rt-editor__usage-total">/ 50MB</span></span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    /* 모바일 LNB 토글 (햄버거 메뉴) */
+    function toggleSideNav() {
+        const lnb = document.querySelector('.admin-lnb');
+        const backdrop = document.querySelector('.admin-lnb__backdrop');
+        lnb.classList.toggle('admin-lnb--open');
+        backdrop.classList.toggle('admin-lnb__backdrop--open');
+    }
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+</script>
+
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 1-a-1. 공개상태 → 공개 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-public-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태를 공개로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-visibility-public-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-visibility-public-confirm').classList.add('is-hidden'); document.getElementById('modal-visibility-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-a-2. 공개상태 → 일부공개 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-limited-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태를 일부공개로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-visibility-limited-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-visibility-limited-confirm').classList.add('is-hidden'); document.getElementById('modal-visibility-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-a-3. 공개상태 → 비공개 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-private-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태를 비공개로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-visibility-private-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-visibility-private-confirm').classList.add('is-hidden'); document.getElementById('modal-visibility-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-b. 공개상태 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태가 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-visibility-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-c. 최고 관리자만 설정 가능 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-admin-only">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">최고 관리자만 설정할 수 있습니다<br>최고관리자에게 문의해 주세요</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-admin-only').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-d-1. 판매상태 → 판매중 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-sale-on-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 판매상태를 판매중으로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-sale-on-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-sale-on-confirm').classList.add('is-hidden'); document.getElementById('modal-sale-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-d-2. 판매상태 → 판매마감 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-sale-off-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 판매상태를 판매마감으로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-sale-off-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-sale-off-confirm').classList.add('is-hidden'); document.getElementById('modal-sale-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-e. 판매상태 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-sale-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 판매상태가 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-sale-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-f. 판매상태 변경 불가 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-sale-blocked">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">판매상태를 변경할 수 없습니다<br>모집일정 또는 수강기간이 종료되었거나 모집인원이 마감되었는지 확인해 주세요</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-sale-blocked').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-g. 상품 삭제 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">해당 상품을 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-delete-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-h. 상품 삭제 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-delete-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품이 삭제되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-delete-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-i. 상품 삭제 제한 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-delete-blocked">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">수강신청이 시작되었거나 학습자가 있는 경우에는<br>삭제가 제한됩니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-delete-blocked').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-a. 모집인원 < 현재 신청자 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-capacity-error">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">현재 신청된 학습자 보다 모집인원을<br>적게 설정할 수 없습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-capacity-error').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-b. 모집일정 변경 불가 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-schedule-blocked">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">모집일정을 변경할 수 없습니다<br>이미 지난 날짜로 설정되었거나 현재 모집이 진행중인 일정인지 확인해 주세요</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-schedule-blocked').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3-a. 파일 용량 초과 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-file-size-error">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">파일 용량이 업로드 가능한 최대 용량을 초과했습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-file-size-error').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4-a. 변경사항 저장 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-save-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">변경사항이 저장되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-save-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
