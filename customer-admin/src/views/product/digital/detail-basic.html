@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 상품 상세 - 학습자</title>
+    <title>Admin - 상품 상세</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -120,9 +120,9 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">일반강의</a>
-                        <a href="#" class="lnb-sub-item active">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
                         <a href="#" class="lnb-sub-item">화상강의</a>
-                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item active">디지털 상품</a>
                         <a href="#" class="lnb-sub-item">패키지 상품</a>
                         <a href="#" class="lnb-sub-item">멤버십</a>
                         <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
@@ -258,19 +258,13 @@
         <main class="admin-content">
             <div class="admin-body">
 
-                <!-- 인포박스 -->
-                <div class="admin-infotip">
-                    <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">상품은 등록 시 비공개 상태로 업로드되며, 공개 또는 일부 공개로 직접 설정해주세요. 상품 취소는 <strong>판매관리 &gt; 주문</strong> 에서 진행해주세요.</span>
-                </div>
-
                 <!-- 상품 상세 카드 -->
                 <div class="dashboard-bar">
                     <div class="dashboard-bar__thumb dashboard-bar__thumb--lg">대비는 구글 채마니이 완전 점복 입문부터 전문가까지 쓰는 영의도달 율인된 대비는 구글 채마니이 완전.</div>
                     <div class="dashboard-bar__main">
-                        <span class="dashboard-bar__label">개발</span>
+                        <span class="dashboard-bar__label">크리에이터</span>
                         <div class="dashboard-bar__head">
-                            <span class="dashboard-bar__title">Python 프로그래밍 기초, 제목이 아주 길어진다면 두줄일까요.</span>
+                            <span class="dashboard-bar__title">유튜브 채널 운영 가이드</span>
                         </div>
                         <div class="dashboard-bar__meta">
                             <span class="dashboard-bar__meta-item">
@@ -298,18 +292,6 @@
                         </div>
                     </div>
                     <div class="dashboard-bar__actions">
-                        <!-- 라이브상태 -->
-                        <div class="c-dropdown" style="flex-shrink:0; width:140px;">
-                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                <span class="c-dropdown__label" style="color:var(--color-blue); font-weight:600;">LIVE</span>
-                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                            </button>
-                            <div class="c-dropdown__panel">
-                                <button class="c-dropdown__item active" onclick="selectItem(this)" style="color:var(--color-blue); font-weight:600;">LIVE</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">대기</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">종료</button>
-                            </div>
-                        </div>
                         <!-- 공개상태 -->
                         <div class="c-dropdown" style="flex-shrink:0; width:140px;">
                             <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
@@ -341,188 +323,221 @@
                     </div>
                 </div>
 
-                <!-- 학습자 통계 -->
-                <div class="count-card-grid count-card-grid--3">
-                    <div class="count-card">
-                        <span class="count-card__label">총 학습자</span>
-                        <span class="count-card__value">200</span>
-                    </div>
-                    <div class="count-card">
-                        <span class="count-card__label">수료</span>
-                        <span class="count-card__value">160</span>
-                    </div>
-                    <div class="count-card">
-                        <span class="count-card__label">미수료</span>
-                        <span class="count-card__value">29</span>
-                    </div>
-                </div>
-
-                <!-- 검색 필터 -->
-                <div class="list-panel list-panel--filter">
-                    <div class="admin-filter">
-                        <div class="admin-filter__search">
-                            <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
-                            <input type="text" class="admin-filter__search-input" placeholder="닉네임으로 검색">
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">전체 학습상태</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체 학습상태</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수료</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강중</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강전</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">전체 수강상태</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체 수강상태</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">기간만료</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강취소</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- 변경사항 저장 -->
+                <div class="setting-action-bar">
+                    <button type="button" class="btn lg dark" onclick="document.getElementById('modal-save-done').classList.remove('is-hidden')">변경사항 저장</button>
                 </div>
 
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
-                    <button class="detail-tab__item">상품정보</button>
-                    <button class="detail-tab__item">콘텐츠 및 자료실</button>
-                    <button class="detail-tab__item">수료</button>
+                    <button class="detail-tab__item active">상품정보</button>
+                    <button class="detail-tab__item">콘텐츠</button>
                     <button class="detail-tab__item">결제설정</button>
-                    <button class="detail-tab__item active">학습자</button>
+                    <button class="detail-tab__item">학습자</button>
                     <button class="detail-tab__item">상품후기 <span class="lnb-badge" style="margin-left:6px;">3</span></button>
                 </nav>
 
-                <!-- 학습자 목록 -->
-                <div class="list-panel">
-                    <div class="list-panel__header">
-                        <span class="list-panel__title">학습자 목록</span>
-                        <div class="list-panel__header-right">
-                            <div class="c-dropdown c-dropdown--ghost">
-                                <button class="c-dropdown__trigger" style="gap:16px;" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">신청일 최신순</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">신청일 최신순</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">신청일 오래된순</button>
-                                </div>
-                            </div>
-                            <div class="c-dropdown c-dropdown--ghost">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">30개씩</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">100개씩</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- 상품정보 패널 -->
+                <div class="list-panel list-panel--p30">
 
-                    <div class="admin-table-wrap">
-                        <table class="tab-table">
-                            <thead>
-                                <tr>
-                                    <th style="width:44px; text-align:center; padding:0 5px;">
-                                        <input type="checkbox" class="table-check" id="checkAll">
-                                    </th>
-                                    <th style="text-align:left;">학습자 정보</th>
-                                    <th style="min-width:200px">신청일시</th>
-                                    <th style="min-width:120px">학습상태</th>
-                                    <th style="min-width:120px">수강상태</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <!-- 기본정보 -->
+                    <h3 class="tab-info-title">기본정보</h3>
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
 
-                                <!-- Row 1: 수료 -->
-                                <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <div class="user-cell__name">
-                                                <span class="role-badge role-badge--learner">학습자</span>
-                                                닉네임
+                            <!-- 썸네일 -->
+                            <tr>
+                                <th>썸네일 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; align-items:flex-start; gap:16px;">
+                                        <img src="../../../images/product-thumb.png" alt="썸네일" style="width:195px; aspect-ratio:16/9; object-fit:cover; border-radius:6px; flex-shrink:0;">
+                                        <button type="button" class="btn md border" style="align-self:flex-start;">썸네일 변경</button>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">이미지를 업로드하지 않을 경우 기본 썸네일이 자동으로 적용됩니다. (권장: 1280×720px / 16:9 비율, 최대 5MB)</p>
+                                </td>
+                            </tr>
+
+                            <!-- 상품명 -->
+                            <tr>
+                                <th>상품명 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div class="setting-table__input-count-wrap">
+                                        <input type="text" class="detail-form__input" value="Python 프로그래밍 기초" maxlength="40">
+                                        <span class="setting-table__count">[<strong>0</strong>/40]</span>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">상품의 주제와 내용을 알 수 있는 상품명을 입력해 주세요. 예) 기초부터 배우는 포토샵, 실전 마케팅 전략 클래스</p>
+                                </td>
+                            </tr>
+
+                            <!-- 카테고리 -->
+                            <tr>
+                                <th>카테고리 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                                        <button type="button" class="btn md border">카테고리 선택</button>
+                                        <span style="font-size:13px; color:var(--color-blue); font-weight:500;">개발</span>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">카테고리 추가 및 수정은 <strong>카테고리 관리</strong> 페이지에서 설정해주세요.</p>
+                                </td>
+                            </tr>
+
+                            <!-- 강사 -->
+                            <tr>
+                                <th>강사 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:16px;">
+                                        <div style="display:inline-flex; align-items:center; gap:6px;">
+                                            <div class="c-avatar24 instructor"></div>
+                                            <span class="user-type-tag user-type-tag--sm user-type-tag--instructor">강사</span>
+                                            <span style="font-size:14px; color:var(--text-primary);">대표 강사 닉네임</span>
+                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
+                                        </div>
+                                        <div style="display:inline-flex; align-items:center; gap:6px;">
+                                            <div class="c-avatar24 basic"></div>
+                                            <span style="font-size:14px; color:var(--text-primary);">강사 닉네임</span>
+                                            <button type="button" aria-label="삭제" style="width:20px; height:20px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px;">×</button>
+                                        </div>
+                                    </div>
+                                    <div style="display:flex; gap:8px; margin-top:12px;">
+                                        <button type="button" class="btn md border btn--icon">
+                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
+                                            대표 강사 추가
+                                        </button>
+                                        <button type="button" class="btn md border btn--icon">
+                                            <img src="../../../images/ico-btn-plus.svg" width="16" height="16" alt="">
+                                            강사 추가
+                                        </button>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">대표강사는 해당 강의를 관리할 수 있으며, 서브강사는 관리 권한이 제공되지 않습니다.</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <!-- 운영설정 -->
+                    <h3 class="tab-info-title">운영설정</h3>
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+
+                            <!-- 모집인원 -->
+                            <tr>
+                                <th>모집인원 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+                                        <label class="c-radio"><input type="radio" name="capacity" checked>무제한</label>
+                                        <label class="c-radio"><input type="radio" name="capacity">직접 설정</label>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 인원은 기본적으로 무제한으로 설정됩니다. 필요 시 인원을 직접 입력하여 제한할 수 있습니다.</p>
+                                </td>
+                            </tr>
+
+                            <!-- 모집일정 -->
+                            <tr>
+                                <th>모집일정 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; flex-direction:column; gap:12px;">
+                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                            <label class="c-radio"><input type="radio" name="recruitSchedule" checked>무제한</label>
+                                            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
+                                                <input type="checkbox" class="c-check-blue" checked>
+                                                시작일 지정
+                                            </label>
+                                            <div class="c-date-input" onclick="toggleCalendar(this)">
+                                                <input type="text" value="26.03.12" readonly>
+                                                <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                            </div>
+                                            <div class="c-date-input">
+                                                <input type="text" value="14:00" readonly style="width:60px;">
                                             </div>
                                         </div>
-                                    </td>
-                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수료</td>
-                                    <td style="text-align:center;"></td>
-                                </tr>
+                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                            <label class="c-radio"><input type="radio" name="recruitSchedule">직접 설정</label>
+                                        </div>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">모집 일정은 기본적으로 무제한으로 설정됩니다. 필요 시 시작일과 종료일을 설정하여 모집 기간을 지정할 수 있습니다.</p>
+                                </td>
+                            </tr>
 
-                                <!-- Row 2: 수강전 -->
-                                <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <div class="user-cell__name">
-                                                <span class="role-badge role-badge--learner">학습자</span>
-                                                닉네임
+                        </tbody>
+                    </table>
+
+                    <!-- 상품소개 -->
+                    <h3 class="tab-info-title">상품소개</h3>
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>소개 내용</th>
+                                <td>
+                                    <div class="rt-editor">
+                                        <div class="rt-editor__toolbar">
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="굵게"><strong>B</strong></button>
+                                                <button type="button" class="rt-editor__btn" title="기울임"><em>I</em></button>
+                                                <button type="button" class="rt-editor__btn" title="밑줄"><u>U</u></button>
+                                                <button type="button" class="rt-editor__btn" title="취소선"><s>S</s></button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="순서없는 목록">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="2" cy="4" r="1" fill="#666"/><circle cx="2" cy="8" r="1" fill="#666"/><circle cx="2" cy="12" r="1" fill="#666"/><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="순서있는 목록">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="0" y="6" font-size="5" fill="#666">1</text><text x="0" y="10" font-size="5" fill="#666">2</text><text x="0" y="14" font-size="5" fill="#666">3</text><line x1="6" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="링크">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 10L10 6" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><path d="M9 4l1-1a2.5 2.5 0 113.5 3.5l-1 1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 12l-1 1a2.5 2.5 0 11-3.5-3.5l1-1" stroke="#666" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="이미지">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1" stroke="#666" stroke-width="1.5"/><circle cx="6" cy="7" r="1" fill="#666"/><path d="M3 11l3-3 4 4 2-2 2 2" stroke="#666" stroke-width="1.5" fill="none"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="왼쪽 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="8" x2="10" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="가운데 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="4" y1="8" x2="12" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                                <button type="button" class="rt-editor__btn" title="오른쪽 정렬">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><line x1="2" y1="4" x2="14" y2="4" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="8" x2="14" y2="8" stroke="#666" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="14" y2="12" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="rt-editor__divider"></div>
+                                            <div class="rt-editor__group">
+                                                <button type="button" class="rt-editor__btn" title="서식 지우기">Tx</button>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수강전</td>
-                                    <td style="text-align:center;"></td>
-                                </tr>
-
-                                <!-- Row 3: 수강전, 수강취소 -->
-                                <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <div class="user-cell__name">
-                                                <span class="role-badge role-badge--learner">학습자</span>
-                                                닉네임
-                                            </div>
+                                        <div class="rt-editor__body" contenteditable="true" data-placeholder="상품 소개 내용을 입력해 주세요."></div>
+                                        <div class="rt-editor__footer">
+                                            <button type="button" class="btn md border btn--icon">
+                                                <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
+                                                미리보기
+                                            </button>
+                                            <span class="rt-editor__usage">0MB 사용중 <span class="rt-editor__usage-total">/ 50MB</span></span>
                                         </div>
-                                    </td>
-                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수강전</td>
-                                    <td style="text-align:center;">
-                                        <span class="enroll-badge enroll-badge--cancel">수강취소</span>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 페이지네이션 -->
-                    <div class="pagination" style="padding: 20px 0 4px;">
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
-                        <button class="pagination__btn active">1</button>
-                        <button class="pagination__btn">2</button>
-                        <button class="pagination__btn">3</button>
-                        <button class="pagination__btn">4</button>
-                        <button class="pagination__btn">5</button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
-                    </div>
                 </div>
 
             </div>
@@ -570,11 +585,6 @@
         if (!isOpen) accordion.classList.add('open');
     }
 
-    function closeBulkBar() {
-        document.querySelectorAll('.table-check').forEach(c => c.checked = false);
-        document.getElementById('bulkBar').classList.add('hidden');
-    }
-
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.c-dropdown')) {
             document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
@@ -584,17 +594,6 @@
         }
     });
 </script>
-
-    <!-- ===== 플로팅 벌크바 (체크박스 선택 시 노출) ===== -->
-    <div class="c-bulk-bar" id="bulkBar">
-        <div class="c-bulk-bar__left">
-            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
-            <span class="c-bulk-bar__text" id="bulkText">{n}개 학습자 선택됨</span>
-        </div>
-        <div class="c-bulk-bar__actions">
-            <button class="c-bulk-bar__btn">수료처리</button>
-        </div>
-    </div>
 
     <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
 

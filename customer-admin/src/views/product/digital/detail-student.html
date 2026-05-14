@@ -120,9 +120,9 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">일반강의</a>
-                        <a href="#" class="lnb-sub-item active">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
                         <a href="#" class="lnb-sub-item">화상강의</a>
-                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item active">디지털 상품</a>
                         <a href="#" class="lnb-sub-item">패키지 상품</a>
                         <a href="#" class="lnb-sub-item">멤버십</a>
                         <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
@@ -268,9 +268,9 @@
                 <div class="dashboard-bar">
                     <div class="dashboard-bar__thumb dashboard-bar__thumb--lg">대비는 구글 채마니이 완전 점복 입문부터 전문가까지 쓰는 영의도달 율인된 대비는 구글 채마니이 완전.</div>
                     <div class="dashboard-bar__main">
-                        <span class="dashboard-bar__label">개발</span>
+                        <span class="dashboard-bar__label">크리에이터</span>
                         <div class="dashboard-bar__head">
-                            <span class="dashboard-bar__title">Python 프로그래밍 기초, 제목이 아주 길어진다면 두줄일까요.</span>
+                            <span class="dashboard-bar__title">유튜브 채널 운영 가이드</span>
                         </div>
                         <div class="dashboard-bar__meta">
                             <span class="dashboard-bar__meta-item">
@@ -298,18 +298,6 @@
                         </div>
                     </div>
                     <div class="dashboard-bar__actions">
-                        <!-- 라이브상태 -->
-                        <div class="c-dropdown" style="flex-shrink:0; width:140px;">
-                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                <span class="c-dropdown__label" style="color:var(--color-blue); font-weight:600;">LIVE</span>
-                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                            </button>
-                            <div class="c-dropdown__panel">
-                                <button class="c-dropdown__item active" onclick="selectItem(this)" style="color:var(--color-blue); font-weight:600;">LIVE</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">대기</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">종료</button>
-                            </div>
-                        </div>
                         <!-- 공개상태 -->
                         <div class="c-dropdown" style="flex-shrink:0; width:140px;">
                             <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
@@ -348,11 +336,11 @@
                         <span class="count-card__value">200</span>
                     </div>
                     <div class="count-card">
-                        <span class="count-card__label">수료</span>
+                        <span class="count-card__label">다운로드</span>
                         <span class="count-card__value">160</span>
                     </div>
                     <div class="count-card">
-                        <span class="count-card__label">미수료</span>
+                        <span class="count-card__label">미 다운로드</span>
                         <span class="count-card__value">29</span>
                     </div>
                 </div>
@@ -363,20 +351,6 @@
                         <div class="admin-filter__search">
                             <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
                             <input type="text" class="admin-filter__search-input" placeholder="닉네임으로 검색">
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">전체 학습상태</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체 학습상태</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수료</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강중</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강전</button>
-                                </div>
-                            </div>
                         </div>
                         <div class="admin-filter__selects">
                             <div class="c-dropdown">
@@ -397,8 +371,7 @@
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
                     <button class="detail-tab__item">상품정보</button>
-                    <button class="detail-tab__item">콘텐츠 및 자료실</button>
-                    <button class="detail-tab__item">수료</button>
+                    <button class="detail-tab__item">콘텐츠</button>
                     <button class="detail-tab__item">결제설정</button>
                     <button class="detail-tab__item active">학습자</button>
                     <button class="detail-tab__item">상품후기 <span class="lnb-badge" style="margin-left:6px;">3</span></button>
@@ -442,7 +415,7 @@
                                     </th>
                                     <th style="text-align:left;">학습자 정보</th>
                                     <th style="min-width:200px">신청일시</th>
-                                    <th style="min-width:120px">학습상태</th>
+                                    <th style="min-width:160px">다운로드 실행여부</th>
                                     <th style="min-width:120px">수강상태</th>
                                 </tr>
                             </thead>
@@ -463,11 +436,16 @@
                                         </div>
                                     </td>
                                     <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수료</td>
+                                    <td style="text-align:center;">
+                                        <div style="display:inline-flex; align-items:center; gap:8px; justify-content:center;">
+                                            <span>다운로드</span>
+                                            <button type="button" class="btn sm border">상세보기</button>
+                                        </div>
+                                    </td>
                                     <td style="text-align:center;"></td>
                                 </tr>
 
-                                <!-- Row 2: 수강전 -->
+                                <!-- Row 2: 미 다운로드 -->
                                 <tr>
                                     <td style="padding:0 5px;">
                                         <input type="checkbox" class="table-check row-check" checked>
@@ -482,11 +460,11 @@
                                         </div>
                                     </td>
                                     <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수강전</td>
+                                    <td style="text-align:center;">미 다운로드</td>
                                     <td style="text-align:center;"></td>
                                 </tr>
 
-                                <!-- Row 3: 수강전, 수강취소 -->
+                                <!-- Row 3: 미 다운로드, 수강취소 -->
                                 <tr>
                                     <td style="padding:0 5px;">
                                         <input type="checkbox" class="table-check row-check" checked>
@@ -501,7 +479,7 @@
                                         </div>
                                     </td>
                                     <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수강전</td>
+                                    <td style="text-align:center;">미 다운로드</td>
                                     <td style="text-align:center;">
                                         <span class="enroll-badge enroll-badge--cancel">수강취소</span>
                                     </td>
@@ -591,9 +569,7 @@
             <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
             <span class="c-bulk-bar__text" id="bulkText">{n}개 학습자 선택됨</span>
         </div>
-        <div class="c-bulk-bar__actions">
-            <button class="c-bulk-bar__btn">수료처리</button>
-        </div>
+        <div class="c-bulk-bar__actions"></div>
     </div>
 
     <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 상품 상세 - 학습자</title>
+    <title>Admin - 상품 상세 - 결제설정</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -120,9 +120,9 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">일반강의</a>
-                        <a href="#" class="lnb-sub-item active">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
                         <a href="#" class="lnb-sub-item">화상강의</a>
-                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item active">디지털 상품</a>
                         <a href="#" class="lnb-sub-item">패키지 상품</a>
                         <a href="#" class="lnb-sub-item">멤버십</a>
                         <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
@@ -261,16 +261,16 @@
                 <!-- 인포박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">상품은 등록 시 비공개 상태로 업로드되며, 공개 또는 일부 공개로 직접 설정해주세요. 상품 취소는 <strong>판매관리 &gt; 주문</strong> 에서 진행해주세요.</span>
+                    <span class="admin-infotip__text">상품은 등록 시 비공개 상태로 업로드되며, 공개 또는 일부 공개로 직접 설정해주세요.</span>
                 </div>
 
                 <!-- 상품 상세 카드 -->
                 <div class="dashboard-bar">
                     <div class="dashboard-bar__thumb dashboard-bar__thumb--lg">대비는 구글 채마니이 완전 점복 입문부터 전문가까지 쓰는 영의도달 율인된 대비는 구글 채마니이 완전.</div>
                     <div class="dashboard-bar__main">
-                        <span class="dashboard-bar__label">개발</span>
+                        <span class="dashboard-bar__label">크리에이터</span>
                         <div class="dashboard-bar__head">
-                            <span class="dashboard-bar__title">Python 프로그래밍 기초, 제목이 아주 길어진다면 두줄일까요.</span>
+                            <span class="dashboard-bar__title">유튜브 채널 운영 가이드</span>
                         </div>
                         <div class="dashboard-bar__meta">
                             <span class="dashboard-bar__meta-item">
@@ -298,18 +298,6 @@
                         </div>
                     </div>
                     <div class="dashboard-bar__actions">
-                        <!-- 라이브상태 -->
-                        <div class="c-dropdown" style="flex-shrink:0; width:140px;">
-                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                <span class="c-dropdown__label" style="color:var(--color-blue); font-weight:600;">LIVE</span>
-                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                            </button>
-                            <div class="c-dropdown__panel">
-                                <button class="c-dropdown__item active" onclick="selectItem(this)" style="color:var(--color-blue); font-weight:600;">LIVE</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">대기</button>
-                                <button class="c-dropdown__item" onclick="selectItem(this)">종료</button>
-                            </div>
-                        </div>
                         <!-- 공개상태 -->
                         <div class="c-dropdown" style="flex-shrink:0; width:140px;">
                             <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
@@ -341,188 +329,110 @@
                     </div>
                 </div>
 
-                <!-- 학습자 통계 -->
-                <div class="count-card-grid count-card-grid--3">
-                    <div class="count-card">
-                        <span class="count-card__label">총 학습자</span>
-                        <span class="count-card__value">200</span>
-                    </div>
-                    <div class="count-card">
-                        <span class="count-card__label">수료</span>
-                        <span class="count-card__value">160</span>
-                    </div>
-                    <div class="count-card">
-                        <span class="count-card__label">미수료</span>
-                        <span class="count-card__value">29</span>
-                    </div>
-                </div>
-
-                <!-- 검색 필터 -->
-                <div class="list-panel list-panel--filter">
-                    <div class="admin-filter">
-                        <div class="admin-filter__search">
-                            <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
-                            <input type="text" class="admin-filter__search-input" placeholder="닉네임으로 검색">
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">전체 학습상태</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체 학습상태</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수료</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강중</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강전</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="admin-filter__selects">
-                            <div class="c-dropdown">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">전체 수강상태</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">전체 수강상태</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">기간만료</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">수강취소</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- 상단 액션바: 변경사항 저장 -->
+                <div class="setting-action-bar">
+                    <button type="button" class="btn lg dark" onclick="document.getElementById('modal-save-done').classList.remove('is-hidden')">변경사항 저장</button>
                 </div>
 
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
                     <button class="detail-tab__item">상품정보</button>
-                    <button class="detail-tab__item">콘텐츠 및 자료실</button>
-                    <button class="detail-tab__item">수료</button>
-                    <button class="detail-tab__item">결제설정</button>
-                    <button class="detail-tab__item active">학습자</button>
+                    <button class="detail-tab__item">콘텐츠</button>
+                    <button class="detail-tab__item active">결제설정</button>
+                    <button class="detail-tab__item">학습자</button>
                     <button class="detail-tab__item">상품후기 <span class="lnb-badge" style="margin-left:6px;">3</span></button>
                 </nav>
 
-                <!-- 학습자 목록 -->
-                <div class="list-panel">
-                    <div class="list-panel__header">
-                        <span class="list-panel__title">학습자 목록</span>
-                        <div class="list-panel__header-right">
-                            <div class="c-dropdown c-dropdown--ghost">
-                                <button class="c-dropdown__trigger" style="gap:16px;" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">신청일 최신순</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">신청일 최신순</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">신청일 오래된순</button>
-                                </div>
-                            </div>
-                            <div class="c-dropdown c-dropdown--ghost">
-                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">30개씩</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel" style="right:0; left:auto;">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">100개씩</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- 결제 설정 패널 -->
+                <div class="list-panel list-panel--p30">
 
-                    <div class="admin-table-wrap">
-                        <table class="tab-table">
-                            <thead>
-                                <tr>
-                                    <th style="width:44px; text-align:center; padding:0 5px;">
-                                        <input type="checkbox" class="table-check" id="checkAll">
-                                    </th>
-                                    <th style="text-align:left;">학습자 정보</th>
-                                    <th style="min-width:200px">신청일시</th>
-                                    <th style="min-width:120px">학습상태</th>
-                                    <th style="min-width:120px">수강상태</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <h3 class="tab-info-title">결제 설정</h3>
+                    <table class="tab-info-table">
+                        <colgroup>
+                            <col style="width:200px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
 
-                                <!-- Row 1: 수료 -->
-                                <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <div class="user-cell__name">
-                                                <span class="role-badge role-badge--learner">학습자</span>
-                                                닉네임
+                            <!-- 결제 유형 -->
+                            <tr>
+                                <th>결제 유형 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; align-items:center; gap:32px; flex-wrap:wrap;">
+                                        <label class="c-radio"><input type="radio" name="pay-type">무료</label>
+                                        <label class="c-radio"><input type="radio" name="pay-type" checked>유료</label>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">유료 설정 시 할인 및 가격 표시 방법을 설정할 수 있습니다.</p>
+                                </td>
+                            </tr>
+
+                            <!-- 정가 -->
+                            <tr>
+                                <th>정가 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div class="input-unit-box input-unit-box--w200">
+                                        <input type="text" value="100,000" style="flex:1;">
+                                        <span class="input-unit-box__unit">KRW</span>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">상품의 기본 판매 가격을 입력합니다</p>
+                                </td>
+                            </tr>
+
+                            <!-- 할인 -->
+                            <tr>
+                                <th>할인</th>
+                                <td>
+                                    <div style="display:flex; flex-direction:column; gap:8px;">
+                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                            <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-size:14px;">
+                                                <input type="checkbox" class="c-check-blue" checked>
+                                                할인적용
+                                            </label>
+                                            <label class="c-radio"><input type="radio" name="discount-type" checked></label>
+                                            <div class="c-dropdown" style="width:200px;">
+                                                <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                    <span class="c-dropdown__label">10%</span>
+                                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                                </button>
+                                                <div class="c-dropdown__panel">
+                                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">5%</button>
+                                                    <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">10%</button>
+                                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">15%</button>
+                                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">20%</button>
+                                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">30%</button>
+                                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">50%</button>
+                                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">100%</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수료</td>
-                                    <td style="text-align:center;"></td>
-                                </tr>
-
-                                <!-- Row 2: 수강전 -->
-                                <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <div class="user-cell__name">
-                                                <span class="role-badge role-badge--learner">학습자</span>
-                                                닉네임
-                                            </div>
+                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                            <label class="c-radio"><input type="radio" name="discount-type">직접 설정</label>
                                         </div>
-                                    </td>
-                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수강전</td>
-                                    <td style="text-align:center;"></td>
-                                </tr>
+                                    </div>
+                                    <!-- 적용된 쿠폰리스트 -->
+                                    <div class="applied-coupon">
+                                        <span class="applied-coupon__label">적용된 쿠폰리스트</span>
+                                        <span class="applied-coupon__value">Python 프로그래밍 기초 10%할인 쿠폰</span>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">쿠폰은 <strong>주문관리 &gt; 쿠폰</strong> 에서 생성해 주세요.<br>이 영역에는 해당 상품에 지정된 쿠폰만 노출되며, 전체 쿠폰은 공통으로 적용됩니다.</p>
+                                </td>
+                            </tr>
 
-                                <!-- Row 3: 수강전, 수강취소 -->
-                                <tr>
-                                    <td style="padding:0 5px;">
-                                        <input type="checkbox" class="table-check row-check" checked>
-                                    </td>
-                                    <td>
-                                        <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
-                                            <div class="user-cell__name">
-                                                <span class="role-badge role-badge--learner">학습자</span>
-                                                닉네임
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td style="text-align:center;">2000.00.00 오전/오후 00:00</td>
-                                    <td style="text-align:center;">수강전</td>
-                                    <td style="text-align:center;">
-                                        <span class="enroll-badge enroll-badge--cancel">수강취소</span>
-                                    </td>
-                                </tr>
+                            <!-- 가격 표시 방법 -->
+                            <tr>
+                                <th>가격 표시 방법 <span style="color:#F22;">*</span></th>
+                                <td>
+                                    <div style="display:flex; flex-direction:column; gap:8px;">
+                                        <label class="c-radio"><input type="radio" name="price-display" checked>전체 금액 표시</label>
+                                        <label class="c-radio"><input type="radio" name="price-display">월 할부 금액 표시</label>
+                                    </div>
+                                    <p class="detail-form__hint" style="margin:8px 0 0;">상품 상세페이지에 노출될 가격 표시 종류를 선택해 주세요.</p>
+                                </td>
+                            </tr>
 
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
 
-                    <!-- 페이지네이션 -->
-                    <div class="pagination" style="padding: 20px 0 4px;">
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
-                        <button class="pagination__btn active">1</button>
-                        <button class="pagination__btn">2</button>
-                        <button class="pagination__btn">3</button>
-                        <button class="pagination__btn">4</button>
-                        <button class="pagination__btn">5</button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
-                    </div>
                 </div>
 
             </div>
@@ -570,11 +480,6 @@
         if (!isOpen) accordion.classList.add('open');
     }
 
-    function closeBulkBar() {
-        document.querySelectorAll('.table-check').forEach(c => c.checked = false);
-        document.getElementById('bulkBar').classList.add('hidden');
-    }
-
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.c-dropdown')) {
             document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
@@ -584,17 +489,6 @@
         }
     });
 </script>
-
-    <!-- ===== 플로팅 벌크바 (체크박스 선택 시 노출) ===== -->
-    <div class="c-bulk-bar" id="bulkBar">
-        <div class="c-bulk-bar__left">
-            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
-            <span class="c-bulk-bar__text" id="bulkText">{n}개 학습자 선택됨</span>
-        </div>
-        <div class="c-bulk-bar__actions">
-            <button class="c-bulk-bar__btn">수료처리</button>
-        </div>
-    </div>
 
     <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
 
