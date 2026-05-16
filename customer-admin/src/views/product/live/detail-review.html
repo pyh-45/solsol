@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 상품후기</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <button class="admin-header__menu-toggle" onclick="toggleSideNav()" aria-label="메뉴 열기">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <button class="admin-header__back">
+                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">상품 상세</span>
+                <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn md border">내 정보</button>
+                        <button class="btn md border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+
+            <div class="lnb-divider"></div>
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item active">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료 및 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- LNB 백드롭 (모바일 LNB 오픈 시) -->
+        <div class="admin-lnb__backdrop" onclick="toggleSideNav()"></div>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 인포박스 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">상품은 등록 시 비공개 상태로 업로드되며, 공개 또는 일부 공개로 직접 설정해주세요.</span>
+                </div>
+
+                <!-- 상품 상세 카드 -->
+                <div class="dashboard-bar">
+                    <div class="dashboard-bar__thumb dashboard-bar__thumb--lg">대비는 구글 채마니이 완전 점복 입문부터 전문가까지 쓰는 영의도달 율인된 대비는 구글 채마니이 완전.</div>
+                    <div class="dashboard-bar__main">
+                        <span class="dashboard-bar__label">개발</span>
+                        <div class="dashboard-bar__head">
+                            <span class="dashboard-bar__title">Python 프로그래밍 기초, 제목이 아주 길어진다면 두줄일까요.</span>
+                        </div>
+                        <div class="dashboard-bar__meta">
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/Ico_16px_money.svg" width="16" height="16" alt="">
+                                <span class="dashboard-bar__meta-label">금액</span>
+                                <span style="display:inline-flex; align-items:center; gap:3px;">
+                                    <span class="dashboard-bar__meta-value">100,000</span>
+                                    <span>원</span>
+                                </span>
+                            </span>
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/Ico_16px_teacher_02.svg" width="16" height="16" alt="">
+                                <span class="dashboard-bar__meta-label">학습자/모집인원</span> <span class="dashboard-bar__meta-value">528</span> / 무제한
+                            </span>
+                            <span class="dashboard-bar__meta-item">
+                                <img src="../../../images/Ico_16px_message_02.svg" width="16" height="16" alt="">
+                                <span class="dashboard-bar__meta-label">상품후기</span>
+                                <span style="display:inline-flex; align-items:center; gap:3px;">
+                                    <img src="../../../images/ico-star.svg" width="13" height="13" alt="">
+                                    <span class="dashboard-bar__meta-value" style="color:#FF0000; font-weight:600;">44.8</span>
+                                    <span>(124)</span>
+                                </span>
+                            </span>
+                            <span class="dashboard-bar__meta-item">2000.00.00 오전/오후 00:00</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-bar__actions">
+                        <!-- 라이브상태 -->
+                        <div class="c-dropdown" style="flex-shrink:0; width:140px;">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label" style="color:var(--color-blue); font-weight:600;">LIVE</span>
+                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel">
+                                <button class="c-dropdown__item active" onclick="document.getElementById('modal-live-on-confirm').classList.remove('is-hidden')" style="color:var(--color-blue); font-weight:600;">LIVE</button>
+                                <button class="c-dropdown__item" onclick="document.getElementById('modal-live-state-blocked').classList.remove('is-hidden')">대기</button>
+                                <button class="c-dropdown__item" onclick="document.getElementById('modal-live-off-confirm').classList.remove('is-hidden')">종료</button>
+                            </div>
+                        </div>
+                        <!-- 공개상태 -->
+                        <div class="c-dropdown" style="flex-shrink:0; width:140px;">
+                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                <span class="c-dropdown__label" style="display:flex; align-items:center; gap:4px; color:#F52A02; white-space:nowrap; flex-shrink:0;">
+                                    <img src="../../../images/Ico_16px_piece.svg" width="16" height="16" alt="" style="flex-shrink:0;">
+                                    <span>일부공개</span>
+                                </span>
+                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                            </button>
+                            <div class="c-dropdown__panel">
+                                <button class="c-dropdown__item active" onclick="selectItem(this)" style="color:#F52A02; white-space:nowrap; display:flex; align-items:center; gap:4px;">
+                                    <img src="../../../images/Ico_16px_piece.svg" width="16" height="16" alt="" style="flex-shrink:0;">
+                                    <span>일부공개</span>
+                                </button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">공개</button>
+                                <button class="c-dropdown__item" onclick="selectItem(this)">비공개</button>
+                            </div>
+                        </div>
+                        <!-- 판매상태 (토글: 판매중/판매마감) -->
+                        <label class="c-toggle-text">
+                            <input type="checkbox" checked>
+                            <span class="c-toggle-text__track">
+                                <span class="c-toggle-text__pill c-toggle-text__pill--on">판매중</span>
+                                <span class="c-toggle-text__pill c-toggle-text__pill--off">판매마감</span>
+                            </span>
+                        </label>
+                        <!-- 삭제 / 미리보기 -->
+                        <div class="dashboard-bar__btn-group">
+                            <button type="button" class="btn md border" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">삭제</button>
+                            <button type="button" class="btn md border btn--icon">
+                                <img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">
+                                미리보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item">상품정보</button>
+                    <button class="detail-tab__item">콘텐츠 및 자료실</button>
+                    <button class="detail-tab__item">수료</button>
+                    <button class="detail-tab__item">결제설정</button>
+                    <button class="detail-tab__item">학습자</button>
+                    <button class="detail-tab__item active">상품후기 <span class="lnb-badge" style="margin-left:6px;">3</span></button>
+                </nav>
+
+                <!-- 상품후기 평점 요약 -->
+                <div class="review-summary">
+                    <div class="review-summary__overall">
+                        <span class="review-summary__score">4.7</span>
+                        <span class="review-summary__stars">
+                            <img src="../../../images/ico-star.svg" width="18" height="18" alt="">
+                            <img src="../../../images/ico-star.svg" width="18" height="18" alt="">
+                            <img src="../../../images/ico-star.svg" width="18" height="18" alt="">
+                            <img src="../../../images/ico-star.svg" width="18" height="18" alt="">
+                            <img src="../../../images/ico-star.svg" width="18" height="18" alt="" style="filter:grayscale(1) opacity(0.35);">
+                        </span>
+                        <span class="review-summary__total">전체 <strong>271</strong>건</span>
+                    </div>
+                    <div class="review-summary__bars">
+                        <div class="review-rating-row">
+                            <span class="review-rating-row__label">5점</span>
+                            <div class="review-rating-row__bar"><span class="review-rating-row__fill" style="width:95%;"></span></div>
+                            <span class="review-rating-row__count"><strong>95</strong>개</span>
+                        </div>
+                        <div class="review-rating-row">
+                            <span class="review-rating-row__label">4점</span>
+                            <div class="review-rating-row__bar"><span class="review-rating-row__fill" style="width:22%;"></span></div>
+                            <span class="review-rating-row__count"><strong>95</strong>개</span>
+                        </div>
+                        <div class="review-rating-row">
+                            <span class="review-rating-row__label">3점</span>
+                            <div class="review-rating-row__bar"><span class="review-rating-row__fill" style="width:58%;"></span></div>
+                            <span class="review-rating-row__count"><strong>95</strong>개</span>
+                        </div>
+                        <div class="review-rating-row">
+                            <span class="review-rating-row__label">2점</span>
+                            <div class="review-rating-row__bar"><span class="review-rating-row__fill" style="width:28%;"></span></div>
+                            <span class="review-rating-row__count"><strong>95</strong>개</span>
+                        </div>
+                        <div class="review-rating-row">
+                            <span class="review-rating-row__label">1점</span>
+                            <div class="review-rating-row__bar"><span class="review-rating-row__fill" style="width:75%;"></span></div>
+                            <span class="review-rating-row__count"><strong>95</strong>개</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 후기 목록 -->
+                <div class="list-panel">
+                    <div class="list-panel__header">
+                        <span class="list-panel__title">상품후기</span>
+                        <div class="list-panel__header-right">
+                            <div class="c-dropdown c-dropdown--ghost">
+                                <button class="c-dropdown__trigger" style="gap:16px;" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">작성일 최신순</span>
+                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">작성일 최신순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">작성일 오래된순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">별점 높은 순</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">별점 낮은 순</button>
+                                </div>
+                            </div>
+                            <div class="c-dropdown c-dropdown--ghost">
+                                <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                    <span class="c-dropdown__label">30개씩</span>
+                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                </button>
+                                <div class="c-dropdown__panel" style="right:0; left:auto;">
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">30개씩</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">50개씩</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">100개씩</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="comment-list comment-list--flush comment-list--boxed">
+
+                        <!-- 1) 학습자 후기 (답글 닫힘) -->
+                        <li class="comment-item comment-item--checkable comment-item--lg">
+                            <input type="checkbox" class="table-check">
+                            <div class="comment-item__content">
+                                <div class="comment-item__head">
+                                    <div class="comment-item__user">
+                                        <div class="c-avatar40 learner"></div>
+                                        <div class="review-item__user-info">
+                                            <div class="review-item__name-row">
+                                                <span class="role-badge role-badge--learner">학습자</span>
+                                                <span class="comment-item__name">닉네임</span>
+                                                <span class="comment-item__time">방금 전</span>
+                                            </div>
+                                            <span class="review-item__rating">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="" style="filter:grayscale(1) opacity(0.35);">
+                                                <span class="review-item__rating-score">4.1</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-item__actions">
+                                        <button type="button" class="comment-item__reply">답글</button>
+                                        <div class="folder-dots">
+                                            <button type="button" class="comment-item__more" aria-label="더보기" onclick="toggleDots(this)">
+                                                <img src="../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                            </button>
+                                            <div class="folder-dots__menu">
+                                                <button type="button" class="folder-dots__item">수정</button>
+                                                <button type="button" class="folder-dots__item">삭제</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="comment-item__body">
+                                    해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.<br>
+                                    다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다. 기초부터 정리하고 싶은 분들께 특히 추천드립니다.
+                                </p>
+                                <button type="button" class="comment-replies-toggle" onclick="toggleReplies(this)">
+                                    답글 3개 <img src="../../../images/chevron-down.svg" width="16" height="16" alt="">
+                                </button>
+                                <ul class="review-replies">
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 basic"></div>
+                                            <span class="role-badge role-badge--instructor">강사</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다. 기초부터 정리하고 싶은 분들께 특히 추천드립니다.</p>
+                                    </li>
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 manager"></div>
+                                            <span class="role-badge role-badge--manager">관리자</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.</p>
+                                    </li>
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 manager"></div>
+                                            <span class="role-badge role-badge--manager">관리자</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 2) 학습자 후기 (답글 열림 + 더보기 + 입력 폼) -->
+                        <li class="comment-item comment-item--checkable comment-item--lg">
+                            <input type="checkbox" class="table-check">
+                            <div class="comment-item__content">
+                                <div class="comment-item__head">
+                                    <div class="comment-item__user">
+                                        <div class="c-avatar40 learner"></div>
+                                        <div class="review-item__user-info">
+                                            <div class="review-item__name-row">
+                                                <span class="role-badge role-badge--learner">학습자</span>
+                                                <span class="comment-item__name">닉네임</span>
+                                                <span class="comment-item__time">방금 전</span>
+                                            </div>
+                                            <span class="review-item__rating">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="" style="filter:grayscale(1) opacity(0.35);">
+                                                <span class="review-item__rating-score">4.1</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-item__actions">
+                                        <button type="button" class="comment-item__reply">답글</button>
+                                        <div class="folder-dots">
+                                            <button type="button" class="comment-item__more" aria-label="더보기" onclick="toggleDots(this)">
+                                                <img src="../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                            </button>
+                                            <div class="folder-dots__menu">
+                                                <button type="button" class="folder-dots__item">수정</button>
+                                                <button type="button" class="folder-dots__item">삭제</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="comment-item__body">
+                                    해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.<br>
+                                    다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다. 기초부터 정리하고 싶은 분들께 특히 추천드립니다.
+                                </p>
+                                <button type="button" class="comment-replies-toggle is-open" onclick="toggleReplies(this)">
+                                    답글 6개 <img src="../../../images/chevron-down.svg" width="16" height="16" alt="">
+                                </button>
+                                <ul class="review-replies is-open">
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 basic"></div>
+                                            <span class="role-badge role-badge--instructor">강사</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다. 기초부터 정리하고 싶은 분들께 특히 추천드립니다.</p>
+                                    </li>
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 basic"></div>
+                                            <span class="role-badge role-badge--instructor">강사</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다. 기초부터 정리하고 싶은 분들께 특히 추천드립니다.</p>
+                                    </li>
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 manager"></div>
+                                            <span class="role-badge role-badge--manager">관리자</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.</p>
+                                    </li>
+                                </ul>
+                                <!-- 답글 더보기 토글 -->
+                                <div class="comment-replies-pager">
+                                    <button type="button" class="comment-replies-pager__btn" onclick="toggleMoreReplies(this)">
+                                        <span>답글 더보기</span> <img src="../../../images/chevron-down.svg" width="16" height="16" alt="">
+                                    </button>
+                                </div>
+                                <ul class="review-replies review-replies--more">
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 basic"></div>
+                                            <span class="role-badge role-badge--instructor">강사</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.</p>
+                                    </li>
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 manager"></div>
+                                            <span class="role-badge role-badge--manager">관리자</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.</p>
+                                    </li>
+                                    <li class="review-reply">
+                                        <div class="review-reply__author">
+                                            <div class="c-avatar24 manager"></div>
+                                            <span class="role-badge role-badge--manager">관리자</span>
+                                            <span class="comment-item__name">닉네임</span>
+                                        </div>
+                                        <p class="review-reply__body">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.</p>
+                                    </li>
+                                </ul>
+                                <!-- 답글 입력 폼 -->
+                                <div class="comment-item__reply-form">
+                                    <div class="review-reply__author">
+                                        <div class="c-avatar24 manager"></div>
+                                        <span class="role-badge role-badge--manager">관리자</span>
+                                        <span class="comment-item__name">닉네임</span>
+                                    </div>
+                                    <textarea class="comment-item__reply-input" placeholder="답글 내용을 입력해 주세요."></textarea>
+                                    <div class="comment-item__reply-actions">
+                                        <div class="comment-form__btn-group">
+                                            <button type="button" class="btn sm border">취소</button>
+                                            <button type="button" class="btn sm primary">수정</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 3) 학습자 후기 수정 모드 -->
+                        <li class="comment-item comment-item--checkable comment-item--lg">
+                            <input type="checkbox" class="table-check">
+                            <div class="comment-item__content">
+                                <div class="comment-item__head">
+                                    <div class="comment-item__user">
+                                        <div class="c-avatar40 learner"></div>
+                                        <div class="review-item__user-info">
+                                            <div class="review-item__name-row">
+                                                <span class="role-badge role-badge--learner">학습자</span>
+                                                <span class="comment-item__name">닉네임</span>
+                                                <span class="comment-item__time">방금 전</span>
+                                            </div>
+                                            <span class="review-item__rating">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="" style="filter:grayscale(1) opacity(0.35);">
+                                                <span class="review-item__rating-score">4.1</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-item__actions">
+                                        <button type="button" class="comment-item__reply">답글</button>
+                                        <div class="folder-dots">
+                                            <button type="button" class="comment-item__more" aria-label="더보기" onclick="toggleDots(this)">
+                                                <img src="../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                            </button>
+                                            <div class="folder-dots__menu">
+                                                <button type="button" class="folder-dots__item">수정</button>
+                                                <button type="button" class="folder-dots__item">삭제</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <textarea class="comment-form__input" rows="4">해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.
+다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다. 기초부터 정리하고 싶은 분들께 특히 추천드립니다.</textarea>
+                                <div class="comment-form__footer">
+                                    <div class="comment-form__btn-group">
+                                        <button type="button" class="btn sm border">취소</button>
+                                        <button type="button" class="btn sm primary">등록</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 4) 대댓글(후기에 대한 댓글) 수정 모드 — 후기 기준 24px 들여쓰기 -->
+                        <li class="comment-item comment-item--checkable comment-item--lg comment-item--reply-edit">
+                            <input type="checkbox" class="table-check">
+                            <div class="comment-item__content">
+                                <div class="comment-item__head">
+                                    <div class="comment-item__user">
+                                        <div class="c-avatar40 learner"></div>
+                                        <div class="review-item__user-info">
+                                            <div class="review-item__name-row">
+                                                <span class="role-badge role-badge--learner">학습자</span>
+                                                <span class="comment-item__name">닉네임</span>
+                                                <span class="comment-item__time">방금 전</span>
+                                            </div>
+                                            <span class="review-item__rating">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="">
+                                                <img src="../../../images/ico-star.svg" width="12" height="12" alt="" style="filter:grayscale(1) opacity(0.35);">
+                                                <span class="review-item__rating-score">4.1</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-item__actions">
+                                        <button type="button" class="comment-item__reply">답글</button>
+                                        <div class="folder-dots">
+                                            <button type="button" class="comment-item__more" aria-label="더보기" onclick="toggleDots(this)">
+                                                <img src="../../../images/Ico-24px-dots.svg" width="24" height="24" alt="">
+                                            </button>
+                                            <div class="folder-dots__menu">
+                                                <button type="button" class="folder-dots__item">수정</button>
+                                                <button type="button" class="folder-dots__item">삭제</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <textarea class="comment-form__input" rows="4">상품후기에 대한 댓글 수정영역입니다. </textarea>
+                                <div class="comment-form__footer">
+                                    <div class="comment-form__btn-group">
+                                        <button type="button" class="btn sm border">취소</button>
+                                        <button type="button" class="btn sm primary">등록</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div><!-- /.list-panel (후기 목록) -->
+
+            </div>
+        </main>
+
+    </div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    /* 모바일 LNB 토글 (햄버거 메뉴) */
+    function toggleSideNav() {
+        const lnb = document.querySelector('.admin-lnb');
+        const backdrop = document.querySelector('.admin-lnb__backdrop');
+        lnb.classList.toggle('admin-lnb--open');
+        backdrop.classList.toggle('admin-lnb__backdrop--open');
+    }
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    function toggleDots(btn) {
+        const menu = btn.nextElementSibling;
+        const isOpen = menu.classList.contains('open');
+        document.querySelectorAll('.folder-dots__menu.open').forEach(m => m.classList.remove('open'));
+        if (!isOpen) menu.classList.add('open');
+    }
+
+    /* 답글 N개 토글: 버튼 다음 형제(.review-replies)를 열고 닫음 */
+    function toggleReplies(btn) {
+        btn.classList.toggle('is-open');
+        const list = btn.nextElementSibling;
+        if (list && list.classList.contains('review-replies')) {
+            list.classList.toggle('is-open');
+        }
+    }
+
+    /* 벌크바 닫기 + 모든 체크박스 해제 */
+    function closeBulkBar() {
+        document.querySelectorAll('.table-check').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
+    }
+
+    /* 답글 더보기/숨기기: 버튼 라벨 토글 + 다음 .review-replies--more 열고 닫음 */
+    function toggleMoreReplies(btn) {
+        btn.classList.toggle('is-open');
+        const isOpen = btn.classList.contains('is-open');
+        const moreList = btn.closest('.comment-replies-pager').nextElementSibling;
+        if (moreList && moreList.classList.contains('review-replies--more')) {
+            moreList.classList.toggle('is-open');
+        }
+        const label = btn.querySelector('span');
+        if (label) label.textContent = isOpen ? '답글 숨기기' : '답글 더보기';
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+</script>
+
+    <!-- ===== 하단 플로팅 벌크 바 ===== -->
+    <div class="c-bulk-bar" id="bulkBar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+            <span class="c-bulk-bar__text" id="bulkText">{n}개 상품후기 또는 답글 선택됨</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-bulk-delete-confirm').classList.remove('is-hidden')">삭제</button>
+        </div>
+    </div>
+
+    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
+
+    <!-- 0-a-1. 라이브상태 → LIVE 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-on-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브 상태를 LIVE로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-live-on-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-live-on-confirm').classList.add('is-hidden'); document.getElementById('modal-live-on-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-a-2. 라이브상태 → 종료 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-off-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브 상태를 종료로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-live-off-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-live-off-confirm').classList.add('is-hidden'); document.getElementById('modal-live-off-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-b-1. 라이브상태 LIVE 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-on-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브상태가 LIVE로 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-live-on-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-b-2. 라이브상태 종료 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-off-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">라이브상태가 종료로 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-live-off-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 0-c. 라이브상태 → 예정(대기) 변경 불가 (error) -->
+    <div class="c-modal-overlay is-hidden" id="modal-live-state-blocked">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                </div>
+                <p class="c-modal__desc">진행중인 라이브는 예정 상태로 변경할 수 없습니다<br>수강일시를 변경해 주세요</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-live-state-blocked').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-a-1. 공개상태 → 공개 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-public-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태를 공개로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-visibility-public-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-visibility-public-confirm').classList.add('is-hidden'); document.getElementById('modal-visibility-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-a-2. 공개상태 → 일부공개 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-limited-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태를 일부공개로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-visibility-limited-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-visibility-limited-confirm').classList.add('is-hidden'); document.getElementById('modal-visibility-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-a-3. 공개상태 → 비공개 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-private-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태를 비공개로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-visibility-private-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-visibility-private-confirm').classList.add('is-hidden'); document.getElementById('modal-visibility-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-b. 공개상태 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-visibility-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 공개상태가 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-visibility-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-d-1. 판매상태 → 판매중 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-sale-on-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 판매상태를 판매중으로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-sale-on-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-sale-on-confirm').classList.add('is-hidden'); document.getElementById('modal-sale-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-d-2. 판매상태 → 판매마감 변경 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-sale-off-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 판매상태를 판매마감으로 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-sale-off-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-sale-off-confirm').classList.add('is-hidden'); document.getElementById('modal-sale-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-e. 판매상태 변경 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-sale-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품의 판매상태가 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-sale-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-g. 상품 삭제 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">해당 상품을 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-delete-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-h. 상품 삭제 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-delete-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품이 삭제되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-delete-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-a-1. 상품 후기 삭제 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-review-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품 후기를 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-review-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-review-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-review-delete-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-a-2. 답글 삭제 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-reply-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">답글을 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-reply-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-reply-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-reply-delete-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-b-1. 상품 후기 삭제 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-review-delete-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품후기가 삭제되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-review-delete-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-b-2. 답글 삭제 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-reply-delete-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">답글이 삭제되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-reply-delete-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3-a. 답글 등록 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-reply-add-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">답글이 등록되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-reply-add-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5-a. 상품후기 수정 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-review-edit-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">상품후기가 수정되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-review-edit-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6-a. 답글 수정 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-reply-edit-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">답글이 수정되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-reply-edit-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9-a. 후기/답글 일괄 삭제 확인 (notice + split) -->
+    <div class="c-modal-overlay is-hidden" id="modal-bulk-delete-confirm">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">{n}개의 상품후기 또는 답글을 삭제하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border" onclick="document.getElementById('modal-bulk-delete-confirm').classList.add('is-hidden')">취소</button>
+                <button type="button" class="btn lg" onclick="document.getElementById('modal-bulk-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-bulk-delete-done').classList.remove('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9-b. 후기/답글 일괄 삭제 완료 (success) -->
+    <div class="c-modal-overlay is-hidden" id="modal-bulk-delete-done">
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">선택하신 상품후기 또는 답글이 삭제되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-bulk-delete-done').classList.add('is-hidden')">확인</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

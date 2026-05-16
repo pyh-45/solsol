@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학습기간 설정</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">학습기간 설정</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content c-modal__content--pb10 completion-modal__body">
+
+            <!-- 안내 인포박스 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span class="admin-infotip__text">수강기간이 무제한인 경우, 수강 종료 날짜 지정 방식만 가능합니다.</span>
+            </div>
+            <div>
+                <!-- 학습자 선택 타이틀 -->
+                <h4 class="tutor-pick-list__title">{n}개 학습자 선택됨</h4>
+                <!-- 수정 방법 테이블 -->
+                <table class="modal-info-table">
+                    <tbody>
+                        <tr>
+                            <th>수정 방법</th>
+                            <td>
+                                <div style="display:flex; flex-direction:column;gap: 20px;">
+
+                                    <!-- 1-1. 입력한 기간으로 추가 연장 -->
+                                    <div>
+                                        <label class="c-radio">
+                                            <input type="radio" name="periodMethod" checked>
+                                            <span>입력한 기간으로 추가 연장</span>
+                                        </label>
+                                        <div class="input-with-unit" style="margin-top:8px;">
+                                            <input type="text" class="detail-form__input" placeholder="연장할 기간을 입력해 주세요.">
+                                            <span class="input-with-unit__suffix">일</span>
+                                        </div>
+                                        <p class="modal-info-table__hint">최대 365일까지 입력 가능하며, 기존 수강 종료일로부터 입력한 일자 만큼 수강 종료 기간이 연장됩니다.</p>
+                                    </div>
+
+                                    <!-- 1-2. 수강 종료 날짜 지정 -->
+                                    <div>
+                                        <label class="c-radio">
+                                            <input type="radio" name="periodMethod">
+                                            <span>수강 종료 날짜 지정</span>
+                                        </label>
+                                        <div style="margin-top:8px;">
+                                            <div class="c-date-input" onclick="toggleCalendar(this)">
+                                                <input type="text" value="26. 03. 12" readonly>
+                                                <img class="c-date-input__ico" src="../../../images/ico-form-calendar.svg" width="20" height="20" alt="">
+                                            </div>
+                                        </div>
+                                        <p class="modal-info-table__hint">지정된 날짜로 수강 종료기간이 변경됩니다.</p>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big" style="width:100%;">확인</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function toggleCalendar(el) {
+        /* date picker placeholder */
+    }
+</script>
+
+</body>
+</html>
