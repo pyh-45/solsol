@@ -447,6 +447,40 @@
                     </div>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">변경 시 신규 구매자부터 적용되며,<br>기존 구매자는 구매 시점 기준으로 유지됩니다.<br>정보를 수정하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button type="button" class="btn lg border">취소</button>
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">정보가 수정되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
@@ -515,39 +549,6 @@
         </div>
         <div class="c-bulk-bar__actions">
             <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-composition-update-confirm').classList.remove('is-hidden')">삭제</button>
-        </div>
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 2-a. 상품 구성 정보 수정 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-composition-update-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">변경 시 신규 구매자부터 적용되며,<br>기존 구매자는 구매 시점 기준으로 유지됩니다.<br>정보를 수정하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-composition-update-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-composition-update-confirm').classList.add('is-hidden'); document.getElementById('modal-composition-update-done').classList.remove('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2-b. 상품 구성 정보 수정 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-composition-update-done">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">정보가 수정되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-composition-update-done').classList.add('is-hidden')">확인</button>
-            </div>
         </div>
     </div>
 

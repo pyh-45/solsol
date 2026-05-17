@@ -485,6 +485,54 @@
                     </div>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">선택한 {n}개의 게시글을 삭제하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button type="button" class="btn lg border">취소</button>
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">{n}개 의 게시글이 삭제되었습니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                            <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">검색어는 2자 이상 입력해 주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
@@ -577,54 +625,6 @@
         <div class="c-bulk-bar__actions">
             <button class="c-bulk-bar__btn">고정글 설정</button>
             <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-post-delete-confirm').classList.remove('is-hidden')">삭제</button>
-        </div>
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 4-a. 게시글 삭제 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-post-delete-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">선택한 {n}개의 게시글을 삭제하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-post-delete-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-post-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-post-delete-done').classList.remove('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4-b. 게시글 삭제 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-post-delete-done">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">{n}개 의 게시글이 삭제되었습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-post-delete-done').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2-a. 검색어 최소 글자수 안내 (error) -->
-    <div class="c-modal-overlay is-hidden" id="modal-search-min-length">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
-                </div>
-                <p class="c-modal__desc">검색어는 2자 이상 입력해 주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-search-min-length').classList.add('is-hidden')">확인</button>
-            </div>
         </div>
     </div>
 

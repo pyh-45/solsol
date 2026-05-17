@@ -501,6 +501,40 @@
                     </div>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">구독을 취소 할 경우 이용기간 종료일까지는 계속 이용할 수 있으며, 이후 추가 결제는 진행되지 않습니다.<br>{n}개 구독자의 구독상태를 구독취소로 일괄 변경하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button type="button" class="btn lg border">취소</button>
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">{n}개 구독자의 구독상태를 구독취소로 변경했습니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
@@ -592,39 +626,6 @@
         </div>
         <div class="c-bulk-bar__actions">
             <button class="c-bulk-bar__btn" onclick="document.getElementById('modal-subscribe-cancel-confirm').classList.remove('is-hidden')">구독 취소</button>
-        </div>
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 3-a. 구독 취소 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-subscribe-cancel-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">구독을 취소 할 경우 이용기간 종료일까지는 계속 이용할 수 있으며, 이후 추가 결제는 진행되지 않습니다.<br>{n}개 구독자의 구독상태를 구독취소로 일괄 변경하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-subscribe-cancel-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-subscribe-cancel-confirm').classList.add('is-hidden'); document.getElementById('modal-subscribe-cancel-done').classList.remove('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3-b. 구독 취소 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-subscribe-cancel-done">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">{n}개 구독자의 구독상태를 구독취소로 변경했습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-subscribe-cancel-done').classList.add('is-hidden')">확인</button>
-            </div>
         </div>
     </div>
 

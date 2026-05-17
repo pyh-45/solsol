@@ -414,73 +414,72 @@
                     </button>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">AI 번역을 생성하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">자막을 1개 이상 선택해 주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">번역할 언어를 1개이상 선택해 주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">크레딧이 부족합니다<br>충전하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1. AI 번역 생성 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-translation-create-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">AI 번역을 생성하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-translation-create-confirm').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-translation-create-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 자막 1개 이상 선택 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-subtitle-required">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">자막을 1개 이상 선택해 주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-subtitle-required').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. 언어 1개 이상 선택 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-language-required">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">번역할 언어를 1개이상 선택해 주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-language-required').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. 크레딧 부족 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-credit-insufficient">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">크레딧이 부족합니다<br>충전하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-credit-insufficient').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-credit-insufficient').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>

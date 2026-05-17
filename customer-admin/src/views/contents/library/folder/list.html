@@ -472,6 +472,97 @@
 
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">폴더명이 수정되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                            <img src="../../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">폴더를 삭제하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">폴더가 삭제되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">폴더 내 콘텐츠 또는 하위 폴더가 있는 경우<br>삭제할 수 없습니다</p>
+                                        <p class="c-modal__desc-sub">콘텐츠를 이동하거나 하위 폴더를 정리한 후 삭제해 주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">폴더가 저장되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">폴더 순서가 변경되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
@@ -485,100 +576,6 @@
         </div>
         <div class="c-bulk-bar__actions">
             <button class="c-bulk-bar__btn">저장</button>
-        </div>
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1. 폴더명 수정 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-folder-renamed">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">폴더명이 수정되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-folder-renamed').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 폴더 삭제 확인 (error + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-folder-delete-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../../images/ico-modal-error.svg" width="36" height="33" alt="">
-                </div>
-                <p class="c-modal__desc">폴더를 삭제하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-folder-delete-confirm').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-folder-delete-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. 폴더 삭제 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-folder-deleted">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">폴더가 삭제되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-folder-deleted').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. 폴더 삭제 불가 (success + sub) -->
-    <div class="c-modal-overlay is-hidden" id="modal-folder-delete-blocked">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">폴더 내 콘텐츠 또는 하위 폴더가 있는 경우<br>삭제할 수 없습니다</p>
-                <p class="c-modal__desc-sub">콘텐츠를 이동하거나 하위 폴더를 정리한 후 삭제해 주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-folder-delete-blocked').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5. 폴더 저장 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-folder-saved">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">폴더가 저장되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-folder-saved').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6. 폴더 순서 변경 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-folder-reordered">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">폴더 순서가 변경되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-folder-reordered').classList.add('is-hidden')">확인</button>
-            </div>
         </div>
     </div>
 

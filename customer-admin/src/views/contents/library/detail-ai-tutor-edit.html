@@ -497,106 +497,103 @@
                     </div>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">상품 등록 시 해당 콘텐츠를 선택할 수 없습니다<br>콘텐츠를 비활성화하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">인코딩 완료 후 활성화할 수 있습니다</p>
+                                        <p class="c-modal__desc-sub">인코딩 상태를 확인해 주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">상품에 사용 중인 콘텐츠는 비활성화할 수 없습니다</p>
+                                        <p class="c-modal__desc-sub">사용현황 탭에서 사용 여부를 확인한 후 다시 시도해 주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">콘텐츠를 삭제하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">콘텐츠가 삭제되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">상품에 사용 중인 콘텐츠는 삭제 대상에서 제외됩니다</p>
+                                        <p class="c-modal__desc-sub">사용현황 탭에서 사용 여부를 확인한 후 다시 시도해 주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1. 콘텐츠 비활성화 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-content-deactivate-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">상품 등록 시 해당 콘텐츠를 선택할 수 없습니다<br>콘텐츠를 비활성화하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-content-deactivate-confirm').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-content-deactivate-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 인코딩 진행 중 활성화 불가 (notice + sub) -->
-    <div class="c-modal-overlay is-hidden" id="modal-encoding-incomplete">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">인코딩 완료 후 활성화할 수 있습니다</p>
-                <p class="c-modal__desc-sub">인코딩 상태를 확인해 주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-encoding-incomplete').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. 사용 중인 콘텐츠 비활성화 불가 (notice + sub) -->
-    <div class="c-modal-overlay is-hidden" id="modal-content-in-use-deactivate">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">상품에 사용 중인 콘텐츠는 비활성화할 수 없습니다</p>
-                <p class="c-modal__desc-sub">사용현황 탭에서 사용 여부를 확인한 후 다시 시도해 주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-content-in-use-deactivate').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. 콘텐츠 삭제 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-content-delete-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">콘텐츠를 삭제하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-content-delete-confirm').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-content-delete-confirm').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5. 콘텐츠 삭제 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-content-deleted">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">콘텐츠가 삭제되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-content-deleted').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6. 사용 중인 콘텐츠 삭제 제외 (notice + sub) -->
-    <div class="c-modal-overlay is-hidden" id="modal-content-in-use-delete">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">상품에 사용 중인 콘텐츠는 삭제 대상에서 제외됩니다</p>
-                <p class="c-modal__desc-sub">사용현황 탭에서 사용 여부를 확인한 후 다시 시도해 주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-content-in-use-delete').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>

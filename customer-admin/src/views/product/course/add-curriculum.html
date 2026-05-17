@@ -397,6 +397,69 @@
                     <button type="button" class="btn lg primary">다음</button>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                            <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">콘텐츠가 연결되어 있습니다<br>삭제 시 연결된 콘텐츠도 함께 삭제됩니다<br><br>정말로 삭제하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button type="button" class="btn lg border">취소</button>
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">삭제가 완료되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">입력한 내용을 임시 저장하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button type="button" class="btn lg border">취소</button>
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">임시 저장이 완료되었습니다</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
@@ -455,70 +518,6 @@
         }
     });
 </script>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1-a. 삭제 확인 (error + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-delete-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
-                </div>
-                <p class="c-modal__desc">콘텐츠가 연결되어 있습니다<br>삭제 시 연결된 콘텐츠도 함께 삭제됩니다<br><br>정말로 삭제하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-delete-confirm').classList.add('is-hidden'); document.getElementById('modal-delete-done').classList.remove('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 1-b. 삭제 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-delete-done">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">삭제가 완료되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-delete-done').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3-a. 임시저장 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-temp-save-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">입력한 내용을 임시 저장하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-temp-save-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-temp-save-confirm').classList.add('is-hidden'); document.getElementById('modal-temp-save-done').classList.remove('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3-b. 임시저장 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-temp-save-done">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">임시 저장이 완료되었습니다</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-temp-save-done').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>

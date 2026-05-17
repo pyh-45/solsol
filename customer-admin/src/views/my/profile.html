@@ -322,25 +322,29 @@
                     </div>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal" style="padding:30px;">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../images/ico-modal-success.svg" width="28" height="28" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">변경사항이 저장되었습니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button type="button" class="btn lg border">취소</button>
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
-    </div>
-
-    <!-- ===== 변경사항 저장 완료 모달 (E_Modal_안내) ===== -->
-    <div class="c-modal-overlay is-hidden" id="saveCompleteModal">
-        <div class="c-modal" style="padding:30px;">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../images/ico-modal-success.svg" width="28" height="28" alt="">
-                </div>
-                <p class="c-modal__desc">변경사항이 저장되었습니다.</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('saveCompleteModal').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('saveCompleteModal').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>

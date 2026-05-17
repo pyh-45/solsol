@@ -596,73 +596,72 @@
                     </div>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">이미 학습이 시작되었습니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">주문 취소가 가능합니다.<br>주문 취소 페이지로 이동하시겠습니까?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">환불 접수가 가능합니다.<br>환불 접수 페이지로 이동하시겠습니까?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">한 번에 한 개씩 삭제할 수 있습니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1. 이미 학습 시작됨 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-learning-started">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">이미 학습이 시작되었습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-learning-started').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 주문 취소 가능 안내 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-order-cancel">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">주문 취소가 가능합니다.<br>주문 취소 페이지로 이동하시겠습니까?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-order-cancel').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-order-cancel').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. 환불 접수 가능 안내 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-refund-request">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">환불 접수가 가능합니다.<br>환불 접수 페이지로 이동하시겠습니까?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-refund-request').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-refund-request').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. 삭제 인원 제한 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-delete-limit">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">한 번에 한 개씩 삭제할 수 있습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-delete-limit').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>

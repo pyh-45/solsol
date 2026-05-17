@@ -3,98 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>콘텐츠 선택</title>
+    <title>상품검색</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body style="background:#888; padding:60px 0;">
 
-<div style="display:flex; justify-content:center;">
+<div style="display:flex; gap:40px; justify-content:center; align-items:flex-start; padding:0 60px;">
 
-    <!-- ===== 콘텐츠 선택 모달 (W600) ===== -->
-    <div class="c-modal completion-modal completion-modal--lg">
+    <div class="c-modal completion-modal completion-modal--xl">
 
         <!-- 헤더 -->
         <div class="completion-modal__header">
-            <h3 class="completion-modal__heading">콘텐츠 선택</h3>
+            <h3 class="completion-modal__heading">상품검색</h3>
             <button type="button" class="completion-modal__close" aria-label="닫기">
                 <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
             </button>
         </div>
 
-        <!-- 본문 -->
-        <div class="c-modal__content completion-modal__body">
+        <div class="c-modal__content c-modal__content--pb10 completion-modal__body">
 
             <!-- 인포팁 -->
             <div class="admin-infotip">
                 <span class="admin-infotip__icon">i</span>
-                <span>폴더는 <strong>콘텐츠 관리 &gt; 콘텐츠 라이브러리</strong>에서 설정해 주세요.</span>
+                <span>공개 상태가 '공개', 판매상태가 '판매중'인 상품만 검색 가능하며, 프리미엄 커뮤니티 상품은 구매 시 월 자동 결제되는 상품입니다.</span>
             </div>
 
             <!-- 검색 + 필터 -->
             <div class="content-select__filter">
                 <div class="content-select__search">
                     <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
-                    <input type="text" placeholder="검색" value="프로그래밍">
+                    <input type="text" placeholder="상품명 검색">
                 </div>
                 <div class="c-dropdown" style="width:160px; flex-shrink:0;">
                     <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                        <span class="c-dropdown__label">전체 콘텐츠 유형</span>
+                        <span class="c-dropdown__label">전체 상품유형</span>
                         <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
                     </button>
                     <div class="c-dropdown__panel">
-                        <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">전체 콘텐츠 유형</button>
-                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">동영상</button>
-                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">PDF</button>
-                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">이미지</button>
-                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">유튜브 링크</button>
+                        <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">전체 상품유형</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">일반강의</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">라이브강의</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">화상강의</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">디지털 상품</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">프리미엄 커뮤니티</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 검색결과 리스트 -->
-            <div class="content-select__list">
-                <div class="content-select__list-head">
-                    <span class="content-select__list-title">검사결과 5개</span>
-                    <button type="button" class="content-select__list-clear" aria-label="닫기">×</button>
-                </div>
-                <ul class="content-select__items">
+            <div>
+            <p class="search-result-count">검색결과 <strong>0</strong>개</p>
 
-                    <!-- PDF (paperclip) -->
-                    <li class="content-select__item">
-                        <img src="../../../images/Ico_20px_paperclip.svg" width="20" height="20" alt="" style="flex-shrink:0;">
-                        <span class="content-select__item__name">프로그래밍 섹션 1-1 강의.pdf</span>
+            <!-- 상품 목록 -->
+            <div class="modal-table-wrap" style="min-height:0; max-height:none; overflow-x:auto; overflow-y:visible;">
+            <table class="modal-table" style="min-width:720px;">
+                <colgroup>
+                    <col>
+                    <col style="width:90px;">
+                    <col style="width:90px;">
+                    <col style="width:90px;">
+                    <col style="width:80px;">
+                    <col style="width:80px;">
+                    <col style="width:80px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>상품명</th>
+                        <th>상품유형</th>
+                        <th>카테고리</th>
+                        <th>금액</th>
+                        <th>공개상태</th>
+                        <th>판매상태</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>UX/UI 기초 과정</span>
+                            </div>
+                        </td>
+                        <td><strong>일반강의</strong></td>
+                        <td><a href="#" style="color:var(--color-blue); text-decoration:none;">디자인</a></td>
+                        <td>99,000원</td>
+                        <td><span class="status-chip status-chip--success">공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                        <td>
+                            <button type="button" class="tutor-pick-add tutor-pick-add--selected">
+                                <span class="tutor-pick-add__icon">✓</span> 추가
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>크리에이터 성장 커뮤니티 멤버십</span>
+                            </div>
+                        </td>
+                        <td><strong>화상강의</strong></td>
+                        <td><a href="#" style="color:var(--color-blue); text-decoration:none;">크리에이터</a></td>
+                        <td>49,000원</td>
+                        <td><span class="status-chip status-chip--success">공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                        <td>
+                            <button type="button" class="tutor-pick-add tutor-pick-add--selected">
+                                <span class="tutor-pick-add__icon">✓</span> 추가
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-left">
+                            <div class="product-cell">
+                                <img class="product-cell__thumb" src="../../../images/product-thumb.png" alt="">
+                                <span>베이직 멤버십 (1개월권)</span>
+                            </div>
+                        </td>
+                        <td><strong>프리미엄 커뮤니티</strong></td>
+                        <td><a href="#" style="color:var(--color-blue); text-decoration:none;">디자인</a></td>
+                        <td>월 990원</td>
+                        <td><span class="status-chip status-chip--success">공개</span></td>
+                        <td><span class="sale-status-tag sale-status-tag--selling">판매중</span></td>
+                        <td>
+                            <button type="button" class="tutor-pick-add">
+                                <span class="tutor-pick-add__icon">+</span> 추가
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="modal-pagination" style="margin-top:16px;">
+                <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
+                <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                <button class="pagination__btn active">1</button>
+                <button class="pagination__btn">2</button>
+                <button class="pagination__btn">3</button>
+                <button class="pagination__btn">4</button>
+                <button class="pagination__btn">5</button>
+                <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+                <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
+            </div>
+            </div>
+
+            <!-- 선택된 상품 -->
+            <div class="tutor-selected">
+                <h4 class="tutor-selected__title">선택된 상품 {n}</h4>
+                <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; counter-reset:item;">
+                    <li style="counter-increment:item; display:flex; align-items:center; gap:12px; font-size:14px; color:var(--text-primary);">
+                        <span style="flex-shrink:0; color:var(--text-secondary);">1.</span>
+                        <span>[일반강의] UX/UI 기초 과정</span>
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
                     </li>
-
-                    <!-- 영상 (active) -->
-                    <li class="content-select__item content-select__item--active">
-                        <img src="../../../images/Ico_20px_video02.svg" width="20" height="20" alt="" style="flex-shrink:0;">
-                        <span class="content-select__item__name">UX/UI 섹션 1-1 강의.mp4</span>
-                        <span class="content-select__item__badges">
-                            <span class="cate-tag cate-tag--ai-tutor">AI 튜터</span>
-                            <span class="cate-tag cate-tag--ai-subtitle">AI 자막</span>
-                        </span>
+                    <li style="counter-increment:item; display:flex; align-items:center; gap:12px; font-size:14px; color:var(--text-primary);">
+                        <span style="flex-shrink:0; color:var(--text-secondary);">2.</span>
+                        <span>[화상강의] 인스타그램 콘텐츠 기획 템플릿 세트</span>
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
                     </li>
-
-                    <!-- 이미지 (gallery) -->
-                    <li class="content-select__item">
-                        <img src="../../../images/Ico_20px_gallery.svg" width="20" height="20" alt="" style="flex-shrink:0;">
-                        <span class="content-select__item__name">프로그래밍 섹션 1-3 강의.jpg</span>
+                    <li style="counter-increment:item; display:flex; align-items:center; gap:12px; font-size:14px; color:var(--text-primary);">
+                        <span style="flex-shrink:0; color:var(--text-secondary);">3.</span>
+                        <span>[프리미엄커뮤니티] 베이직 멤버십 (1개월권)</span>
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
                     </li>
-
-                    <!-- 링크 -->
-                    <li class="content-select__item">
-                        <img src="../../../images/Icon_20px_link02.svg" width="20" height="20" alt="" style="flex-shrink:0;">
-                        <span class="content-select__item__name">https://music.youtube.com/</span>
-                    </li>
-
-                </ul>
+                </ol>
             </div>
 
         </div>
 
         <!-- 푸터 -->
         <div class="c-modal__footer">
-            <button type="button" class="btn big primary" style="width:100%;">확인</button>
+            <button type="button" class="btn big">등록</button>
+        </div>
+
+    </div>
+
+    <!-- 우측: 알럿 2개 세로 정렬 -->
+    <div style="display:flex; flex-direction:column; gap:24px;">
+
+        <!-- 1-a. 검색어 최소 글자수 안내 (error) -->
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            <div class="c-modal">
+                <div class="c-modal__content">
+                    <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                        <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                    </div>
+                    <p class="c-modal__desc">검색어는 2자 이상 입력해 주세요</p>
+                </div>
+                <div class="c-modal__footer">
+                    <button type="button" class="btn lg">확인</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2-a. 상품 최대 등록 개수 초과 (error) -->
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            <div class="c-modal">
+                <div class="c-modal__content">
+                    <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                        <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                    </div>
+                    <p class="c-modal__desc">상품은 최대 10개까지만 등록 가능합니다.</p>
+                </div>
+                <div class="c-modal__footer">
+                    <button type="button" class="btn lg">확인</button>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -107,6 +223,7 @@
         document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
         if (!isOpen) trigger.classList.add('open');
     }
+
     function selectItem(item) {
         const panel = item.closest('.c-dropdown__panel');
         panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
@@ -115,11 +232,6 @@
         trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
         trigger.classList.remove('open');
     }
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.c-dropdown')) {
-            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
-        }
-    });
 </script>
 
 </body>

@@ -783,6 +783,9 @@ ul, ol { list-style: none; }
 .modal-info-table td { padding: 10px 12px; font-size: 14px; color: var(--text-dark); border-bottom: 1px solid #EFEFEF; vertical-align: middle; }
 
 .modal-info-table__highlight { color: var(--color-blue); font-weight: 500; }
+/* 검색결과 N개 카운트 캡션 (테이블 위 등에 사용) */
+.search-result-count { margin: 0 0 8px; font-size: 13px; color: var(--text-secondary); }
+.search-result-count strong { color: #222; font-weight: 500; }
 .modal-info-table__cancel { color: var(--color-red); font-weight: 500; margin-left: 16px; }
 .modal-info-table__hint { margin: 6px 0 0; font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
 
@@ -858,6 +861,10 @@ ul, ol { list-style: none; }
 .comment-form__user { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
 .comment-form__name { font-size:14px; font-weight:600; color:var(--text-primary); }
 .comment-form__input { width:100%; min-height:100px; padding:20px; border:1px solid var(--border-color); border-radius:8px; font-size:13px; line-height:1.6; color:var(--text-primary); font-family:inherit; resize:vertical; outline:none; box-sizing:border-box; }
+/* 멘션 칩 오버레이 입력 (textarea 위에 @닉네임 등 chip을 absolute로 띄워 합쳐보이게 함) */
+.mention-input { position:relative; }
+.mention-input__chip { position:absolute; top:20px; left:20px; font-weight:400; color:var(--color-blue); font-size:13px; line-height:1.6; pointer-events:none; z-index:1; white-space:nowrap; }
+.mention-input .comment-form__input { padding-left:75px; }
 .comment-form__input:focus { border-color:var(--color-primary); }
 .comment-form__input::placeholder { color:var(--text-placeholder); }
 .comment-form__input:disabled { color: var(--text-disabled); background: #F2F2F2; cursor: not-allowed; }
@@ -2946,13 +2953,17 @@ tr:has(.c-check:checked) {
 .c-modal__desc-sub { width: 100%; text-align: left;font-size: 13px; color: #424242; line-height: 1.5; }
 .c-modal__footer { display: flex; justify-content: center; gap: 6px; }
 .c-modal__footer--split .btn { flex: 1; }
+/* 단일 버튼 푸터(--split 아님): 버튼 풀폭 자동 적용 */
+.c-modal__footer:not(.c-modal__footer--split) > .btn { width: 100%; }
 .c-modal__footer .auth-submit { margin: 0; }
 .c-modal--gap20 { gap: 20px; }
 
 /* 수료여부 변경 모달 */
 .completion-modal { width: 480px; padding: 0; gap: 0; }
 .completion-modal--lg { width: 600px; }
-.completion-modal.completion-modal--lg .c-modal__content { padding-bottom: 20px; }
+.completion-modal--xl { width: 800px; }
+.completion-modal.completion-modal--lg .c-modal__content,
+.completion-modal.completion-modal--xl .c-modal__content { padding-bottom: 20px; }
 .completion-modal__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; padding: 0 18px 0 30px; border-bottom: 1px solid #EAEAEA; }
 .completion-modal__heading { margin: 0; font-size: 20px; font-weight: 700; color: var(--text-primary); }
 /* 모달 헤더 텍스트 변형 — 리스트형/드릴인형 등 보조 모달용 */
@@ -3139,7 +3150,7 @@ tr:has(.c-check:checked) {
 .tutor-pick-add { display:inline-flex; align-items:center; gap:6px; padding:0; border:none; background:none; cursor:pointer; font-size:13px; color:var(--text-secondary); }
 .tutor-pick-add__icon { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:#E5E7EB; color:#fff; font-size:11px; font-weight:600; line-height:1; }
 .tutor-pick-add--selected { color:var(--text-primary); }
-.tutor-pick-add--selected .tutor-pick-add__icon { background:var(--color-blue); color:#fff; }
+.tutor-pick-add--selected .tutor-pick-add__icon { background:var(--color-primary); color:#fff; }
 
 /* 선택된 대상 */
 .tutor-selected__title { margin:0 0 12px; font-size:14px; font-weight:700; color:var(--text-primary); }
@@ -3732,6 +3743,71 @@ tr:has(.c-check:checked) {
 .step-tabs__step--active .step-tabs__circle { background:var(--color-primary); }
 .step-tabs__step--active .step-tabs__circle img { filter:brightness(0) invert(1); transform:translateY(2px); }
 
+/* ==================== 멤버십 등급 카드 (Plan Card) ==================== */
+/* 멤버십 개수 선택 행 (라벨 + 드롭다운) */
+.plan-count-row { display:flex; align-items:center; gap:24px; margin-bottom:20px; }
+.plan-count-row__label { font-size:14px; font-weight:500; color:var(--text-primary); min-width:120px; }
+.plan-count-row .c-dropdown { width:240px; }
+.plan-card-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+.plan-card { border:1px solid #E5E7EB; border-radius:8px; padding:30px; background:#fff; display:flex; flex-direction:column; gap:10px; }
+.plan-card__body { display:flex; flex-direction:column; gap:16px; }
+.plan-card__section { display:flex; flex-direction:column; gap:8px; }
+.plan-card__title { margin:0; padding:0; font-size:16px; font-weight:700; color:var(--text-primary); text-align:center; }
+.plan-card__price { display:flex; align-items:baseline; justify-content:space-between; gap:8px; padding:10px 20px; background:#F4F5F7; border-radius:8px; }
+.plan-card__price-label { font-size:20px; font-weight:600; color:var(--text-primary); }
+.plan-card__price-amount { display:inline-flex; align-items:baseline; gap:4px; }
+.plan-card__price-value { font-size:28px; font-weight:700; color:#6756ED; letter-spacing:-0.02em; }
+.plan-card__price-suffix { font-size:13px; font-weight:500; color:var(--text-tertiary); }
+.plan-card__section-title { margin:0;padding:8px 0;font-size:16px; font-weight:500; color:var(--text-tertiary); }
+.plan-card__list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+.plan-card__list li { display:flex; align-items:center; gap:9px; font-size:15px; color:var(--text-dark); }
+.plan-card__list li img { flex-shrink:0; }
+
+/* ==================== 멤버십 세부 정보 수정 (Plan Detail / setting-step2) ====================
+   2-컬럼 레이아웃: 좌측 세로 탭 메뉴(320px 고정, 하나의 패널) + 우측 세부 정보 패널들(1fr)
+   ============================================================================== */
+.plan-detail-layout { display:grid; grid-template-columns:320px 1fr; gap:16px; align-items:start; }
+.plan-detail-side { display:flex; flex-direction:column; gap:16px; }
+
+/* 좌측 세로 탭 메뉴: 하나의 list-panel 안에 탭이 구분선으로 나뉨, 좌우 패딩 0으로 구분선이 양끝까지 */
+.plan-tab-list { display:flex; flex-direction:column; padding:0; }
+.plan-tab-item { padding:20px; cursor:pointer; display:flex; flex-direction:column; gap:12px; text-decoration:none; color:inherit; }
+.plan-tab-item:hover { background:#FAFBFD; }
+.plan-tab-item + .plan-tab-item { border-top:1px solid var(--border-color); }
+.plan-tab-item--active { background:#FAFBFD; cursor:default; }
+.plan-tab-item--active:hover { background:#FAFBFD; }
+.plan-tab-item__title { margin:0; padding:0; font-size:14px; font-weight:600; color:var(--text-primary); }
+.plan-tab-item__price { margin:0; padding:0; font-size:13px; color:var(--color-textgray); }
+.plan-tab-item__price strong { font-size:13px; font-weight:600; color:var(--color-blue); margin-right:2px; }
+
+/* 활성 탭: 인풋 + 우하단 글자수 카운트 */
+.plan-tab-item__name-wrap { position:relative; }
+.plan-tab-item__name { width:100%; height:74px; padding:15px 60px 15px 15px; border:1px solid #E5E7EB; border-radius:6px; font-size:14px; font-weight:500; line-height:1.4; color:var(--text-primary); background:#fff; box-sizing:border-box; font-family:inherit; resize:none; display:block; }
+.plan-tab-item__name:focus { outline:none; border-color:var(--color-primary); }
+.plan-tab-item__count { position:absolute; right:12px; bottom:8px; font-size:12px; color:var(--text-tertiary); pointer-events:none; }
+
+/* 혜택 리스트 (다이아몬드 아이콘 + 텍스트, 줄간격 12px) */
+.plan-benefit-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+.plan-benefit-list li { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--text-primary); }
+.plan-benefit-list li img { flex-shrink:0; }
+
+/* 월 구독료 - 읽기 전용 가격 표시 (₩ + 금액 + / 월) */
+.plan-price-readonly { display:flex; align-items:center; gap:12px; }
+.plan-price-readonly__currency { font-size:16px; font-weight:600; color:var(--text-primary); }
+.plan-price-readonly__value { font-size:18px; font-weight:700; color:var(--text-dark); }
+.plan-price-readonly__suffix { font-size:14px; color:var(--text-secondary); }
+
+/* 우측 카테고리 태그 (선택된 카테고리 표시) */
+.plan-category-tag-list { display:flex; flex-direction:column; gap:8px; margin-top:16px; }
+.plan-category-tag { display:inline-flex; align-items:center; gap:8px; border-radius:6px; font-size:13px; line-height:1; color:var(--text-primary); width:fit-content; }
+.plan-category-tag__remove { width:18px; height:18px; padding:0; margin-left:4px; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px; line-height:1; display:inline-flex; align-items:center; justify-content:center; font-family:Arial, sans-serif; }
+.plan-category-tag__remove:hover { color:var(--text-primary); }
+
+/* 모바일/태블릿: 1-컬럼으로 전환 */
+@media (max-width: 1024px) {
+    .plan-detail-layout { grid-template-columns:1fr; }
+}
+
 /* ==================== 커리큘럼 빌더 (Curriculum Builder) ====================
    5-column grid: drag(20) | label/drag(50) | input(1fr) | trash(24) | add-btn(110)
    - 섹션 헤더 행(--section): 트래시 없는 경우 add-btn이 col4부터 span 처리
@@ -3889,11 +3965,12 @@ tr:has(.c-check:checked) {
     .detail-form__grid { grid-template-columns: 1fr; gap: 16px; }
     .detail-form__field { gap: 8px; }
 
-    /* ───── 모달: 화면 폭 100% ───── */
-    .c-modal { width: calc(100vw - 32px); max-width: 100%; }
+    /* ───── 모달: 화면 폭 100% (오버레이 모드일 때만) ───── */
+    .c-modal-overlay .c-modal { width: calc(100vw - 32px); max-width: 100%; }
     .c-modal__footer .btn.big,
     .c-modal__footer .btn.lg { min-width: 0; }
-    .completion-modal--lg { width: calc(100vw - 32px); }
+    .c-modal-overlay .completion-modal--lg,
+    .c-modal-overlay .completion-modal--xl { width: calc(100vw - 32px); }
 
     /* ───── 액션바·벌크바: 줄바꿈 허용 ───── */
     .admin-action-bar { flex-wrap: wrap; gap: 8px; }

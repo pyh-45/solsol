@@ -501,6 +501,113 @@
 
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">이미 활성화 된 강사입니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">이미 중지된 강사입니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">선택한 강사를 탈퇴시키시겠습니까?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">선택한 강사를 활성화 하시겠습니까?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">선택한 강사를 중지하시겠습니까?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button class="btn lg border">취소</button>
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                            <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">선택한 강사의 활성화된 강좌가 있습니다.</p>
+                                        <p class="c-modal__desc-sub">강좌를 먼저 비활성화 한 후 강사를 삭제해주세요</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
+                                            <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">한 번에 한 사람씩 탈퇴시킬 수 있습니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
 
         </main>
@@ -518,117 +625,6 @@
             <button class="c-bulk-bar__btn">중지</button>
             <button class="c-bulk-bar__btn">권한설정</button>
             <button class="c-bulk-bar__btn">탈퇴</button>
-        </div>
-    </div>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 1. 이미 활성화 된 강사 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-already-active">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">이미 활성화 된 강사입니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-already-active').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 이미 중지된 강사 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-already-stopped">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">이미 중지된 강사입니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-already-stopped').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 3. 탈퇴 확인 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-confirm-withdraw">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">선택한 강사를 탈퇴시키시겠습니까?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-confirm-withdraw').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-confirm-withdraw').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 4. 활성화 확인 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-confirm-activate">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">선택한 강사를 활성화 하시겠습니까?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-confirm-activate').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-confirm-activate').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 5. 중지 확인 (notice) -->
-    <div class="c-modal-overlay is-hidden" id="modal-confirm-stop">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">선택한 강사를 중지하시겠습니까?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button class="btn lg border" onclick="document.getElementById('modal-confirm-stop').classList.add('is-hidden')">취소</button>
-                <button class="btn lg" onclick="document.getElementById('modal-confirm-stop').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 6. 활성화된 강좌 있음 (error + sub) -->
-    <div class="c-modal-overlay is-hidden" id="modal-active-courses">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
-                </div>
-                <p class="c-modal__desc">선택한 강사의 활성화된 강좌가 있습니다.</p>
-                <p class="c-modal__desc-sub">강좌를 먼저 비활성화 한 후 강사를 삭제해주세요</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-active-courses').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 7. 탈퇴 인원 제한 (error) -->
-    <div class="c-modal-overlay is-hidden" id="modal-withdraw-limit">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--error">
-                    <img src="../../../images/ico-modal-error.svg" width="36" height="33" alt="">
-                </div>
-                <p class="c-modal__desc">한 번에 한 사람씩 탈퇴시킬 수 있습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button class="btn lg" onclick="document.getElementById('modal-withdraw-limit').classList.add('is-hidden')">확인</button>
-            </div>
         </div>
     </div>
 

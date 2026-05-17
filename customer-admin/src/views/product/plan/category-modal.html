@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카테고리 선택</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal folder-move-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">카테고리 선택</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+
+            <p class="folder-move__hint">카테고리를 선택하면 해당 카테고리의 상품만 표시됩니다.</p>
+
+            <div class="folder-move__list">
+                <ul class="folder-tree">
+                    <li>
+                        <label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>개발 (20개)</span></label>
+                        <ul class="folder-tree__sub">
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>프론트엔드 (5개)</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>백엔드 (2개)</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>모바일 / 앱 (5개)</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>데이터 / AI (5개)</span></label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label class="c-checkbox"><input type="checkbox" class="c-check"><span>디자인 (55개)</span></label>
+                        <ul class="folder-tree__sub">
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check"><span>UI/UX (5개)</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>그래픽 디자인 (5개)</span></label></li>
+                            <li><label class="c-checkbox"><input type="checkbox" class="c-check"><span>영상 / 모션 (5개)</span></label></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big">적용</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

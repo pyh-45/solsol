@@ -398,6 +398,40 @@
                     <button type="button" class="btn lg primary" onclick="document.getElementById('modal-benefit-save-confirm').classList.remove('is-hidden')">변경사항 저장</button>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                            <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">기존 구독자는 현재 이용 중인 요금이 유지되며,<br>변경된 요금은 신규 구독자부터 적용됩니다.<br>변경사항을 저장하시겠어요?</p>
+                                    </div>
+                                    <div class="c-modal__footer c-modal__footer--split">
+                                        <button type="button" class="btn lg border">취소</button>
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                                    <div class="c-modal__content">
+                                        <div class="c-modal__icon-wrap">
+                                            <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                        </div>
+                                        <p class="c-modal__desc">변경사항이 저장되었습니다.</p>
+                                    </div>
+                                    <div class="c-modal__footer">
+                                        <button type="button" class="btn lg">확인</button>
+                                    </div>
+                                </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
@@ -475,39 +509,6 @@
         }
     });
 </script>
-
-    <!-- ===== 모달창 모음 (is-hidden 상태) ===== -->
-
-    <!-- 2-a. 구독정보 변경사항 저장 확인 (notice + split) -->
-    <div class="c-modal-overlay is-hidden" id="modal-benefit-save-confirm">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">기존 구독자는 현재 이용 중인 요금이 유지되며,<br>변경된 요금은 신규 구독자부터 적용됩니다.<br>변경사항을 저장하시겠어요?</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border" onclick="document.getElementById('modal-benefit-save-confirm').classList.add('is-hidden')">취소</button>
-                <button type="button" class="btn lg" onclick="document.getElementById('modal-benefit-save-confirm').classList.add('is-hidden'); document.getElementById('modal-benefit-save-done').classList.remove('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2-b. 구독정보 변경사항 저장 완료 (success) -->
-    <div class="c-modal-overlay is-hidden" id="modal-benefit-save-done">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">변경사항이 저장되었습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg" style="width:100%;" onclick="document.getElementById('modal-benefit-save-done').classList.add('is-hidden')">확인</button>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>
