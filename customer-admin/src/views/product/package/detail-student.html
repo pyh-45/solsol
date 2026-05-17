@@ -316,8 +316,14 @@
                                 <button class="c-dropdown__item" onclick="selectItem(this)">비공개</button>
                             </div>
                         </div>
-                        <!-- 판매상태 -->
-                        <button class="toggle-pill">판매중</button>
+                        <!-- 판매상태 (토글: 판매중/판매마감) -->
+                        <label class="c-toggle-text">
+                            <input type="checkbox" checked>
+                            <span class="c-toggle-text__track">
+                                <span class="c-toggle-text__pill c-toggle-text__pill--on">판매중</span>
+                                <span class="c-toggle-text__pill c-toggle-text__pill--off">판매마감</span>
+                            </span>
+                        </label>
                         <!-- 삭제 / 미리보기 -->
                         <div class="dashboard-bar__btn-group">
                             <button type="button" class="btn md border" onclick="document.getElementById('modal-delete-confirm').classList.remove('is-hidden')">삭제</button>
