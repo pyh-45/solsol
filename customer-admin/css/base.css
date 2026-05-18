@@ -760,6 +760,7 @@ ul, ol { list-style: none; }
 
 .list-panel--p30 { padding: 30px 30px 24px 30px ; }
 .list-panel--p24-30 { padding: 24px 30px 30px ; }
+.list-panel--p28 { padding: 28px 30px ; }
 
 /* 검색 필터 패널 (검색창 + 드롭다운 필터) */
 .list-panel--filter { padding: 20px; }
@@ -1906,6 +1907,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .status-chip--active   { background: #E2FFF3; color: #089253; }
 .status-chip--inactive { background: #EBEBEB; color: #424242; }
 .status-chip--left     { background: #f5f5f5; color: #808080; }
+.status-chip--closed   { background: #f5f5f5; color: #808080; }
 .status-chip--sent     { background: #E2F9FF; color: #027CFA; }
 
 /* ==================== Learn Status Badge ==================== */
@@ -2952,7 +2954,7 @@ tr:has(.c-check:checked) {
 .c-modal__desc strong { color: var(--text-primary); font-weight: 500; }
 .c-modal__desc-sub { width: 100%; text-align: left;font-size: 13px; color: #424242; line-height: 1.5; }
 .c-modal__footer { display: flex; justify-content: center; gap: 6px; }
-.c-modal__footer--split .btn { flex: 1; }
+.c-modal__footer--split .btn { flex: 1; min-width: 0; }
 /* 단일 버튼 푸터(--split 아님): 버튼 풀폭 자동 적용 */
 .c-modal__footer:not(.c-modal__footer--split) > .btn { width: 100%; }
 .c-modal__footer .auth-submit { margin: 0; }
@@ -2974,6 +2976,8 @@ tr:has(.c-check:checked) {
 .completion-modal .c-modal__content.c-modal__content--pb10 { padding-bottom: 10px; margin-bottom: 10px; }
 /* 푸터 버튼 없는 모달 body — 검색결과/드릴인 모달 같이 헤더+리스트만 있을 때 */
 .completion-modal .c-modal__content.completion-modal__body--no-footer { padding-bottom: 30px; }
+/* 알럿 형식 480 모달 body — 아이콘 중앙 정렬 + 텍스트는 좌측 유지 */
+.completion-modal .c-modal__content.completion-modal__body--alert { align-items: center; padding-top: 30px; gap: 8px; }
 .completion-modal .c-modal__footer { padding: 0 30px 24px; }
 
 /* 수료증 템플릿 유형 미리보기 모달 (max 1280, min 600) */
@@ -3790,6 +3794,137 @@ tr:has(.c-check:checked) {
 .plan-benefit-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
 .plan-benefit-list li { display:flex; align-items:center; gap:8px; font-size:14px; color:var(--text-primary); }
 .plan-benefit-list li img { flex-shrink:0; }
+
+/* ==================== Tag Pill (선택 가능한 알약형 태그 버튼) ====================
+   사용처: 캠페인 상세의 발송 목적 선택, 기타 선택 가능한 카테고리 셀
+   ============================================================================ */
+.c-tag-pill-group { display:flex; flex-wrap:wrap; gap:4px; }
+.c-tag-pill { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; border:1px solid var(--border-color); border-radius:100px; background:#fff; font-size:13px; color:var(--text-primary); cursor:pointer; line-height:1.5; }
+.c-tag-pill:hover { border-color:var(--color-primary); }
+.c-tag-pill--active { background:var(--color-primary); color:#fff; border-color:var(--color-primary); }
+.c-tag-pill--add { border-color:#707070; }
+.c-tag-pill--add:hover { color:var(--color-primary); border-color:var(--color-primary); }
+
+/* ==================== Inline Hint (i 아이콘 + 텍스트) ====================
+   페이지/패널 안에서 한 줄짜리 보조 안내. 큰 admin-infotip 박스의 인라인 버전.
+   - --warn: 빨간 (경고·과금 차감 등)
+   - --info: 파란 (정보 안내)
+   사용 예: <span class="c-hint c-hint--warn">메시지 발송 시 크레딧이 차감됩니다.</span>
+   ====================================================================== */
+.c-hint { display:inline-flex; align-items:center; gap:4px; font-size:12px; }
+.c-hint::before { content:'i'; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; color:#fff; font-size:9px; font-weight:700; font-style:normal; line-height:1; }
+.c-hint--warn          { color:#F52A02; }
+.c-hint--warn::before  { background:#F52A02; }
+.c-hint--info          { color:var(--color-blue); }
+.c-hint--info::before  { background:var(--color-blue); }
+
+/* 섹션 헤더: 좌측 타이틀 + 우측 보조 텍스트 (예: "복수 선택 가능") */
+.section-head-row { display:flex; align-items:baseline; justify-content:space-between; padding-bottom:10px; margin-bottom:16px; border-bottom:1px solid #EFEFEF; }
+.section-head-row .detail-form__section-title { margin:0; padding:0; border:0; }
+.section-head-row__info { font-size:13px; color:var(--text-secondary); }
+
+/* 패널 하단 푸른 점 안내 텍스트 */
+.panel-bottom-hint { display:flex; align-items:center; gap:6px; margin-top:16px; font-size:13px; color:var(--text-secondary); }
+.panel-bottom-hint::before { content:''; flex-shrink:0; width:8px; height:8px; border-radius:50%; background:var(--color-blue); }
+
+/* 수신자 그룹 선택 (체크박스 리스트) */
+.recipient-group-list { display:flex; flex-direction:column; gap:4px; margin-top:16px; }
+.recipient-group-item { display:flex; align-items:center; gap:12px; padding:12px 15px; background:#FFF; border-radius:8px; border:1px solid var(--border-color); cursor:pointer; }
+.recipient-group-item:hover { border-color:var(--color-primary); }
+.recipient-group-item__name { flex:1; font-size:14px; color:var(--text-primary); }
+.recipient-group-item__count { font-size:13px; color:var(--text-secondary); }
+.recipient-group-item--active { background:#fff; border-color:var(--color-primary); }
+.recipient-group-item--active .recipient-group-item__name { font-weight:600; }
+
+/* 패널 내부 검색 박스 (회색 배경, 풀폭) */
+.panel-search { display:flex; align-items:center; gap:8px; height:40px; padding:0 16px; background:#F7F7F7; border-radius:6px; }
+.panel-search__input { flex:1; border:none; outline:none; background:transparent; font-family:inherit; font-size:13px; color:var(--text-primary); }
+.panel-search__input::placeholder { color:var(--text-placeholder); }
+
+/* 알약 태그 — 파랑 outline 변형 (예: 선택된 설문폼) */
+.c-tag-pill--outline-info { font-size:13px; line-height:1.2;border-color:var(--color-primary); color:var(--color-dark); }
+.c-tag-pill--outline-info:hover { border-color:var(--color-blue); }
+.c-tag-pill__remove { width:14px; height:14px; color:var(--color-primary);padding:0; margin-left:2px; background:none; border:none; cursor:pointer; font-size:14px; line-height:1.2; display:inline-flex; align-items:center; justify-content:center; font-family:Arial, sans-serif; }
+
+/* ==================== 메시지 본문 컴포저 + 미리보기 ==================== */
+/* 변수 칩 ({{이름}}, {{닉네임}} 등 — 메시지에 삽입 가능한 변수) */
+.msg-var-chip { display:inline-flex; align-items:center; padding:8px 10px; border:1px solid var(--color-primary); border-radius:4px; background:#fff; font-size:12px; color:var(--color-blue); cursor:pointer; font-family:inherit; line-height:1.4; }
+
+/* 메시지 본문 컴포저 (변수 칩 + textarea + 카운트) */
+.msg-composer { position:relative; border:1px solid var(--border-color); border-radius:6px; background:#fff; }
+.msg-composer__vars { display:flex; gap:6px; padding:10px 12px;background:#F5F5F5; }
+.msg-composer__textarea { display:block; width:100%; min-height:80px; padding:14px 14px 28px 14px; border:none; outline:none; resize:vertical; font-family:inherit; font-size:13px; color:var(--text-primary); background:transparent; box-sizing:border-box; }
+.msg-composer__textarea::placeholder { color:var(--text-placeholder); }
+.msg-composer__count { position:absolute; bottom:8px; right:14px; font-size:12px; color:var(--text-tertiary); }
+
+/* 메시지 미리보기 패널 (이메일/SMS/알림톡 공통) */
+.msg-preview { width:360px; background:#FFF;border:1px solid var(--border-color); border-radius:12px 12px 30px 30px; padding:20px; }
+.msg-preview__header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;border-bottom:1px solid var(--border-color); padding:8px 0; }
+.msg-preview__label { font-size:14px; font-weight:600; color:var(--text-primary); }
+.msg-preview__type { font-size:12px; color:var(--text-secondary); }
+.msg-preview__count { margin-top:12px; text-align:center; font-size:12px; color:var(--text-secondary); }
+
+/* 이메일 미리보기 */
+.msg-preview__email-from { font-size:11px; color:var(--text-primary); margin-bottom:6px; }
+.msg-preview__email-subject { font-size:14px; color:var(--text-dark);font-weight:500; padding-bottom:12px; }
+.msg-preview__email-body { font-size:13px; color:var(--text-dark); min-height:80px; padding:12px 0 16px; }
+.msg-preview__email-footer { padding-top:12px; border-top:1px solid var(--border-color); text-align:center; font-size:11px; color:var(--text-tertiary); }
+
+/* 이메일 미리보기 바디 — 3 그룹 래퍼 (header / body / footer) */
+.msg-preview__body-email { border:1px solid var(--border-color); border-radius:20px; overflow:hidden; background:#fff; }
+.msg-preview__body-email .header { background:#f5f5f5; padding:14px 16px; }
+.msg-preview__body-email .header .msg-preview__email-from { margin-bottom:4px; }
+.msg-preview__body-email .header .msg-preview__email-subject { padding-bottom:0; }
+.msg-preview__body-email .msg-preview__email-body { height:105px;padding:8px 15px; }
+.msg-preview__body-email .msg-preview__email-footer { background:#f5f5f5; padding:8px 16px; border-top:0; }
+
+/* SMS 미리보기 — 휴대폰 외곽 + 발신자 라벨 + 흰 말풍선 */
+.msg-preview__sms-phone { min-height:200px;border:6px solid #1F2024; border-radius:24px; background:#E8EFFD; padding:20px 18px; }
+.msg-preview__sms-brand { display:block; font-size:12px; color:var(--text-secondary); margin-bottom:14px; }
+.msg-preview__sms-bubble { display:inline-block; background:#fff; border-radius:12px 12px 12px 0; padding:14px 16px; font-size:14px; color:var(--text-dark); box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+.msg-preview__sms-bubble p { margin:0; }
+
+/* 알림톡 미리보기 (카카오톡 스타일) — primary 박스 + 발신자 라벨 + 흰 카드 */
+.msg-preview__talk-bubble { min-height:200px; background:var(--color-primary); padding:18px 16px; border-radius:20px; }
+.msg-preview__talk-brand-label { display:block; font-size:13px; color:var(--text-primary); margin-bottom:14px; }
+.msg-preview__talk-card {display:inline-block;background:#fff; padding:14px 20px; border-radius:12px 12px 12px 0; }
+.msg-preview__talk-card-header { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.msg-preview__talk-logo { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:6px; background:#6756ED; color:#fff; font-size:14px; font-weight:700; flex-shrink:0; }
+.msg-preview__talk-card-header strong { font-size:13px; font-weight:600; color:#6756ED; }
+.msg-preview__talk-card p {:0; font-size:13px; color:var(--text-dark); line-height:1.4; }
+
+/* 세그먼트 탭 (segmented control: 2-3개 옵션 중 1개 선택) */
+.c-segment-tab { display:flex; gap:8px; padding:0; background:#F7F7F7; border-radius:8px; }
+.c-segment-tab__item { flex:1; padding:14px; background:transparent; border:none; border-radius:6px; font-size:14px; font-weight:500; color:var(--text-secondary); cursor:pointer; font-family:inherit; }
+.c-segment-tab__item--active { background:var(--color-primary); color:#fff; font-weight:600; }
+
+/* 발송 시뮬레이션 — 상단 3컬럼 정보 + 비용 요약 박스 */
+.simulation-info { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-bottom:16px; }
+.simulation-info__label { display:block; font-size:13px; color:var(--text-secondary); margin-bottom:8px; }
+.simulation-info__value { font-size:14px; color:var(--text-primary); }
+.simulation-info__value--primary { color:var(--color-blue); font-weight:700; }
+
+.cost-box { display:grid; grid-template-columns:auto auto auto 1fr; padding:20px 24px; background:#F7F7F7; border-radius:8px; }
+.cost-box__item { display:flex; flex-direction:column; gap:8px; position:relative; }
+.cost-box__item:nth-child(1) { padding-right:40px; }
+.cost-box__item:nth-child(2) { padding-left:40px; padding-right:40px; }
+.cost-box__item:nth-child(3) { padding-left:40px; padding-right:24px; }
+.cost-box__item:nth-child(2)::before,
+.cost-box__item:nth-child(3)::before { content:''; position:absolute; left:0; top:6px; bottom:6px; width:1px; background:#DDDDDD; }
+.cost-box__item--right { text-align:right; }
+.cost-box__value-sub-item { display:inline-flex; align-items:center; gap:4px; }
+.cost-box__label { font-size:12px; color:var(--text-secondary); }
+.cost-box__value { display:inline-flex; align-items:center; gap:5px; font-size:18px; font-weight:700; color:#6756ED; }
+.cost-box__item--right .cost-box__value { justify-content:flex-end; }
+.cost-box__value--primary { color:#6756ED; }
+.cost-box__value-sub { display:inline-flex; align-items:center; gap:16px; font-size:14px; color:var(--text-primary); flex-wrap:wrap; }
+.cost-box__value-sub strong { font-size:17px;font-weight:700;color:#6756ED }
+
+/* 캠페인 복사 행 (라벨 + 드롭다운 + 불러오기 버튼) */
+.campaign-copy-row { display:flex; align-items:center; gap:4px; }
+.campaign-copy-row__label { font-size:14px; font-weight:600; color:var(--text-primary); flex-shrink:0;margin-right:8px; }
+.campaign-copy-row .c-dropdown { flex:1; min-width:0; display:block; }
+.campaign-copy-row .c-dropdown__trigger { width:100%; max-width:none; }
 
 /* 월 구독료 - 읽기 전용 가격 표시 (₩ + 금액 + / 월) */
 .plan-price-readonly { display:flex; align-items:center; gap:12px; }
