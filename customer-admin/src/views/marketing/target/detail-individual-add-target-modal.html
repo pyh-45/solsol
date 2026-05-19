@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수신자 추가</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay" style="gap:30px; align-items:flex-start; padding:60px 0;">
+
+    <!-- ========= 수신자 추가 모달 ========= -->
+    <div class="c-modal completion-modal">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">수신자 추가</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>수신자 그룹에 추가될 학습자를 선택하실 수 있습니다</span>
+            </div>
+
+            <!-- 검색 -->
+            <div class="tutor-search">
+                <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                <input type="text" class="tutor-search__input" placeholder="닉네임, 이름 또는 이메일 검색">
+            </div>
+
+            <!-- 수신자 목록 -->
+            <div class="tutor-pick-list">
+                <h4 class="tutor-pick-list__title">선택한 수신자 목록</h4>
+                <div class="tutor-pick-list__scroll">
+                <table class="modal-table tutor-pick-table">
+                    <colgroup>
+                        <col>
+                        <col style="width:90px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>정보</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 learner"></span>
+                                    <span class="role-badge role-badge--learner">학습자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add tutor-pick-add--selected">
+                                    <span class="tutor-pick-add__icon">✓</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 learner"></span>
+                                    <span class="role-badge role-badge--learner">학습자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 learner"></span>
+                                    <span class="role-badge role-badge--learner">학습자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 learner"></span>
+                                    <span class="role-badge role-badge--learner">학습자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 learner"></span>
+                                    <span class="role-badge role-badge--learner">학습자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="tutor-pick-info">
+                                    <span class="c-avatar22 learner"></span>
+                                    <span class="role-badge role-badge--learner">학습자</span>
+                                    <span class="tutor-pick-info__name">닉네임</span>
+                                    <span class="tutor-pick-info__email">example@example.com</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="tutor-pick-add">
+                                    <span class="tutor-pick-add__icon">+</span> 추가
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <!-- 선택된 수신자 -->
+            <div class="tutor-selected">
+                <h4 class="tutor-selected__title">선택된 수신자 {n}</h4>
+                <div class="tutor-selected__tags">
+                    <span class="user-tag">
+                        <span class="c-avatar22 learner"></span>
+                        <span class="role-badge role-badge--learner">학습자</span>
+                        닉네임
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                    <span class="user-tag">
+                        <span class="c-avatar22 learner"></span>
+                        <span class="role-badge role-badge--learner">학습자</span>
+                        닉네임
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn big">저장</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

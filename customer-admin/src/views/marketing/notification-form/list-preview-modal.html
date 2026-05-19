@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메시지 템플릿 미리보기</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center; gap:30px; align-items:flex-start; padding:0 30px;">
+
+    <!-- ========= Modal 1: 이메일 미리보기 ========= -->
+    <div class="c-modal completion-modal completion-modal--lg">
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">미리보기</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+            <div class="msg-preview">
+                <div class="msg-preview__header">
+                    <span class="msg-preview__label">이메일</span>
+                </div>
+                <div class="msg-preview__body-email">
+                    <div class="msg-preview__email-from header">
+                        <div class="msg-preview__email-from">보낸사람: 맑은 AI LMS &lt;no-reply@malgeun.ai&gt;</div>
+                        <div class="msg-preview__email-subject">제목: —</div>
+                    </div>
+                    <div class="msg-preview__email-body">
+                        {{닉네임}} 님, 안녕하세요.<br><br>
+                        새학기를 맞아 {{사이트명}}에서 다양한 할인 혜택을 오픈했어요. 놓치지 마세요!
+                    </div>
+                    <div class="msg-preview__email-footer">수신거부 &nbsp;|&nbsp; 개인정보처리방침</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg">확인</button>
+        </div>
+    </div>
+
+    <!-- ========= Modal 2: 문자 미리보기 ========= -->
+    <div class="c-modal completion-modal">
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">미리보기</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+            <div class="msg-preview">
+                <div class="msg-preview__header">
+                    <span class="msg-preview__label">문자</span>
+                    <span class="msg-preview__type"><strong style="color:var(--color-blue);">SMS</strong> 00자</span>
+                </div>
+                <div class="msg-preview__sms-phone">
+                    <span class="msg-preview__sms-brand">[맑은 AI LMS]</span>
+                    <div class="msg-preview__sms-bubble">
+                        <p>{{닉네임}} 님, 안녕하세요.<br>새학기를 맞아 {{사이트명}}에서 다양한 할인 혜택을 오픈했어요.<br>놓치지 마세요!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg">확인</button>
+        </div>
+    </div>
+
+    <!-- ========= Modal 3: 알림톡 미리보기 ========= -->
+    <div class="c-modal completion-modal">
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">미리보기</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+            <div class="msg-preview">
+                <div class="msg-preview__header">
+                    <span class="msg-preview__label">알림톡</span>
+                    <span class="msg-preview__type">승인요청중</span>
+                </div>
+                <div class="msg-preview__talk-bubble">
+                    <div class="msg-preview__talk-card">
+                        <div class="msg-preview__talk-card-header">
+                            <span class="msg-preview__talk-logo">맑</span>
+                            <strong>맑은 AI LMS</strong>
+                        </div>
+                        <p>{{닉네임}} 님, 안녕하세요.<br>새학기를 맞아 {{사이트명}}에서 다양한 할인 혜택을 오픈했어요. 놓치지 마세요!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn lg">확인</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

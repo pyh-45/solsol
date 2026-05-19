@@ -1020,8 +1020,8 @@ ul, ol { list-style: none; }
 .btn.xs   { height: 26px; padding: 0 10px; font-size: 11px; border-radius: 4px; }
 .btn.xxs { height: 21px; padding: 0 5px; font-size: 11px; border-radius: 4px; }
 
-/* 아이콘 들어간 버튼 - 좌측 패딩 축소 (아이콘과 보더 사이 12px) */
-.btn.btn--icon { padding-left: 12px; }
+/* 아이콘 들어간 버튼 - 좌측 패딩 축소 (아이콘과 보더 사이 10px) */
+.btn.btn--icon { padding-left: 10px; }
 
 /* 마스크 아이콘 - SVG 형태를 임의 색상으로 표시 */
 .ico-mask { display:inline-block; width:16px; height:16px; flex-shrink:0; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; -webkit-mask-size:contain; mask-size:contain; }
@@ -3846,6 +3846,94 @@ tr:has(.c-check:checked) {
 .c-tag-pill--outline-info:hover { border-color:var(--color-blue); }
 .c-tag-pill__remove { width:14px; height:14px; color:var(--color-primary);padding:0; margin-left:2px; background:none; border:none; cursor:pointer; font-size:14px; line-height:1.2; display:inline-flex; align-items:center; justify-content:center; font-family:Arial, sans-serif; }
 
+/* stat-card 아이콘 wrap — 흰 배경 + 회색 라운드 보더 (채널 통계 카드 등) */
+.stat-card__icon-wrap--neutral { width:48px; height:48px; border-radius:50%; background:#fff; border:1px solid var(--border-color); }
+
+/* 그룹 명/설명 2줄 셀 (수신자 그룹 목록 등) */
+.group-name-cell { display:flex; flex-direction:column; gap:4px; }
+.group-name-cell__name { font-size:14px; font-weight:500; color:var(--text-primary); }
+.group-name-cell__desc { font-size:12px; color:var(--color-blue); }
+
+/* ==================== 수신자 그룹 조건별 추출 ==================== */
+/* 회색 박스 — 안내·조건 행 등을 감싸는 개별 박스 (3개씩 세로 스택) */
+.target-andor-box { padding:12px 16px; background:#F7F7F7; border-radius:6px; }
+.target-andor-box__head { font-size:14px; color:var(--text-primary); }
+.target-andor-stack { display:flex; flex-direction:column; gap:10px;margin-top:16px; }
+
+/* AND/OR mini 세그먼트 토글 (인라인 문장 안) */
+.target-andor-toggle { display:inline-flex; gap:4px;background:#fff; border:1px solid var(--border-color); border-radius:6px; vertical-align:middle; margin:0 4px; }
+.target-andor-toggle__btn { padding:8px 12px; background:transparent; border:none; border-radius:4px; font-size:13px; color:var(--text-secondary); cursor:pointer; font-family:inherit;line-height: 1.5; }
+.target-andor-toggle__btn--active { background:var(--color-blue); color:#fff; font-weight:600; }
+
+/* 조건 행 (드롭다운/인풋 + 예상 배지 + 삭제) */
+.target-condition-row { display:flex; align-items:center; gap:4px; }
+.target-condition-row .c-dropdown__trigger { min-width:0; max-width:none; width:100%; }
+.target-condition-row__delete { width:28px; height:28px; padding:0; background:#FFF5F5; border:1px solid #FFCDD2; border-radius:4px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.target-condition-row__delete:hover { border-color:#F52A02; }
+.target-condition-row__delete img { display:block; }
+
+/* 예상 인원수 배지 (people icon + 텍스트) */
+.target-estimate-badge { display:inline-flex; align-items:center; gap:4px; padding:6px 12px; background:#E1FBFF; border-radius:100px; font-size:13px; color:var(--color-blue); white-space:nowrap; flex-shrink:0; }
+.target-estimate-badge strong { font-weight:700; }
+
+/* 총 수신자 수 요약 박스 (조건 추가 아래) */
+.target-total-estimate { display:flex; align-items:center; gap:8px; padding:14px 20px; background:#EAF3FF; border-radius:8px; font-size:14px; color:var(--color-blue); }
+
+/* 업데이트 방식 — 라디오 카드 2개 grid */
+.update-method-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.update-method-card { display:flex; align-items:flex-start; gap:12px; padding:16px 20px; background:#fff; border:1px solid var(--border-color); border-radius:8px; cursor:pointer; }
+.update-method-card--selected { border-color:var(--color-primary); background:#F4F9FF; }
+.update-method-card__radio { margin-top:2px; flex-shrink:0; }
+.update-method-card__body { display:flex; flex-direction:column; gap:6px; }
+.update-method-card__title { font-size:14px; font-weight:600; color:var(--text-primary); }
+.update-method-card__desc { font-size:12px; color:var(--text-primary); line-height:1.5; }
+
+/* 상세보기 링크 (테이블 셀 안 텍스트+아이콘) */
+.detail-link-btn { display:inline-flex; align-items:center; gap:4px; padding:6px 10px; background:#fff; border:1px solid var(--border-color); border-radius:6px; font-size:12px; color:var(--text-primary); cursor:pointer; text-decoration:none; }
+.detail-link-btn:hover { border-color:var(--color-primary); color:var(--color-primary); }
+
+/* 채널 칩 — send-type-chip 색상 변형 (이메일/문자/알림톡) */
+.send-type-chip--email { background:#E1FBFF; color:#337EFE; border-color:transparent; }
+.send-type-chip--sms   { background:#F1F1F1; color:#424242; border-color:transparent; }
+.send-type-chip--talk  { background:#FFF4BC; color:#FF7700; border-color:transparent; }
+
+/* 완료 토스트 모달 (W480) — 헤더 닫기만 + 중앙 토스트 아이콘 + 본문 + 풀폭 푸터 */
+.alimtalk-toast__icon { width:64px; height:64px; background:rgba(33, 182, 132, 0.1); border-radius:16px; display:inline-flex; align-items:center; justify-content:center; }
+.completion-modal__header--close-only { height:54px; justify-content:flex-end; border-bottom:0; }
+.completion-modal .c-modal__content.completion-modal__body--toast { align-items:center; text-align:center; gap:0; padding-top:0; }
+.completion-modal__body--toast .toast-msg { margin:30px 0; display:flex; flex-direction:column; gap:20px; }
+.completion-modal__body--toast .toast-msg p { margin:0; }
+.completion-modal__body--toast .toast-msg__primary { font-size:16px; font-weight:600; color:#222; }
+.completion-modal__body--toast .toast-msg__primary strong { color:#21B684; font-weight:700; }
+.completion-modal__body--toast .toast-msg__sub { font-size:15px; color:#424242; }
+.completion-modal__body--toast .toast-msg p.toast-msg__desc { font-size:14px; color:#666; margin-top:-12px; }
+.completion-modal__footer--flush { padding-top:0; }
+/* 토스트 모달 안 키-값 정보 박스 (회색 라운드) */
+.toast-info-box { background:#F7F8FA; border-radius:8px; padding:14px 20px; display:flex; flex-direction:column; gap:6px; align-self:center; min-width:240px; text-align:left; }
+.toast-info-box__row { display:flex; gap:24px; text-align:left; }
+.toast-info-box__label { flex-shrink:0; min-width:80px; font-size:13px; color:var(--text-tertiary); }
+.toast-info-box__value { font-size:14px; color:var(--text-primary); }
+
+/* ==================== 발송내역 — 캠페인 정보 카드 ==================== */
+.dispatch-info-title { margin:0 0 16px; padding:0; border:0; font-size:20px; font-weight:700; color:var(--text-primary); line-height:1.3; }
+.dispatch-info-bar { display:grid; grid-template-columns:auto auto auto auto 1fr; padding:20px 24px; background:#F7F7F7; border-radius:8px; align-items:center; }
+.dispatch-info-bar__item { display:flex; flex-direction:column; gap:6px; position:relative; }
+.dispatch-info-bar__item:nth-child(1) { padding-right:40px; }
+.dispatch-info-bar__item:nth-child(2) { padding-left:40px; padding-right:40px; }
+.dispatch-info-bar__item:nth-child(3) { padding-left:40px; padding-right:40px; }
+.dispatch-info-bar__item:nth-child(4) { padding-left:40px; padding-right:24px; }
+.dispatch-info-bar__item:nth-child(2)::before,
+.dispatch-info-bar__item:nth-child(3)::before,
+.dispatch-info-bar__item:nth-child(4)::before { content:''; position:absolute; left:0; top:6px; bottom:6px; width:1px; background:#DDDDDD; }
+.dispatch-info-bar__item--right { justify-self:end; text-align:right; }
+.dispatch-info-bar__label { font-size:12px; color:var(--color-textgray); }
+.dispatch-info-bar__value { font-size:14px;font-weight:500; color:var(--text-dark); }
+.dispatch-info-bar__value--primary { color:var(--color-blue); font-weight:600; }
+
+/* 발송내역 — 새로고침 버튼 (panel header 우측) */
+.dispatch-refresh-btn { width:32px; height:32px; padding:0; background:#fff; border:1px solid var(--border-color); border-radius:50%; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:var(--text-secondary); }
+.dispatch-refresh-btn:hover { color:var(--color-primary); border-color:var(--color-primary); }
+
 /* ==================== 메시지 본문 컴포저 + 미리보기 ==================== */
 /* 변수 칩 ({{이름}}, {{닉네임}} 등 — 메시지에 삽입 가능한 변수) */
 .msg-var-chip { display:inline-flex; align-items:center; padding:8px 10px; border:1px solid var(--color-primary); border-radius:4px; background:#fff; font-size:12px; color:var(--color-blue); cursor:pointer; font-family:inherit; line-height:1.4; }
@@ -3859,6 +3947,8 @@ tr:has(.c-check:checked) {
 
 /* 메시지 미리보기 패널 (이메일/SMS/알림톡 공통) */
 .msg-preview { width:360px; background:#FFF;border:1px solid var(--border-color); border-radius:12px 12px 30px 30px; padding:20px; }
+/* 미리보기 모달 내부에 들어갈 때는 모달 폭에 맞춰 풀폭 */
+.completion-modal .msg-preview { width:100%; }
 .msg-preview__header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;border-bottom:1px solid var(--border-color); padding:8px 0; }
 .msg-preview__label { font-size:14px; font-weight:600; color:var(--text-primary); }
 .msg-preview__type { font-size:12px; color:var(--text-secondary); }

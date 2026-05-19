@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림톡 연결 해제</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; flex-direction:column; align-items:center; gap:40px;">
+
+    <!-- I_W480: 알림톡 연결 상태 안내 -->
+    <div class="c-modal completion-modal">
+        <div class="completion-modal__header completion-modal__header--close-only">
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+        <div class="c-modal__content completion-modal__body completion-modal__body--toast">
+            <span class="alimtalk-toast__icon">
+                <img src="../../../images/ico-modal-link2.svg" width="36" height="36" alt="">
+            </span>
+            <div class="toast-msg">
+                <p class="toast-msg__primary"><strong>카카오 알림톡</strong>이 연결되어 있습니다.</p>
+                <p class="toast-msg__sub">@(아이디)</p>
+            </div>
+        </div>
+        <div class="c-modal__footer completion-modal__footer--flush">
+            <button type="button" class="btn lg">확인</button>
+        </div>
+    </div>
+
+    <!-- I_W480: 알림톡 연결 해제 확인 -->
+    <div class="c-modal completion-modal">
+        <div class="completion-modal__header completion-modal__header--close-only">
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+        <div class="c-modal__content completion-modal__body completion-modal__body--toast">
+            <div class="toast-msg">
+                <p class="toast-msg__primary">알림톡 연결을 해제하시겠습니까?</p>
+                <p class="toast-msg__desc">해제 시 현재 승인된 모든 템플릿의 자동 발송이 즉시 중단되며,<br>재연결 시 템플릿 정보를 다시 불러와야 할 수 있습니다.</p>
+                <p class="toast-msg__sub">@{아이디}</p>
+            </div>
+            <label class="c-checkbox" style="align-self:flex-start;">
+                <input type="checkbox" class="c-check">
+                <span class="detail-form__label">위 내용을 확인하였으며, 발송 중단에 동의합니다.</span>
+            </label>
+        </div>
+        <div class="c-modal__footer c-modal__footer--split completion-modal__footer--flush">
+            <button type="button" class="btn big border">취소</button>
+            <button type="button" class="btn big">확인</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
