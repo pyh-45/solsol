@@ -3828,8 +3828,8 @@ tr:has(.c-check:checked) {
    - --info: 파란 (정보 안내)
    사용 예: <span class="c-hint c-hint--warn">메시지 발송 시 크레딧이 차감됩니다.</span>
    ====================================================================== */
-.c-hint { display:inline-flex; align-items:center; gap:4px; font-size:12px; }
-.c-hint::before { content:'i'; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; border-radius:50%; color:#fff; font-size:9px; font-weight:700; font-style:normal; line-height:1; }
+.c-hint { display:inline-flex; align-items:flex-start; gap:4px; font-size:12px; line-height:1.5; }
+.c-hint::before { content:'i'; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:12px; height:12px; margin-top:3px; border-radius:50%; color:#fff; font-size:9px; font-weight:700; font-style:normal; line-height:1; }
 .c-hint--warn          { color:#F52A02; }
 .c-hint--warn::before  { background:#F52A02; }
 .c-hint--info          { color:var(--color-blue); }
