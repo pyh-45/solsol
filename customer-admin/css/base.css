@@ -4004,7 +4004,7 @@ tr:has(.c-check:checked) {
 .preview-form__desc { margin:0; font-size:12px; color:var(--text-secondary); }
 .preview-form__options { display:flex; flex-direction:column; gap:8px; }
 .preview-form__hint { font-size:12px; color:var(--text-tertiary); }
-.preview-form__divider { border:none; border-top:1px solid var(--border-color); margin:24px 0; }
+.preview-form__divider { border:none; border-top:1px solid var(--border-color); margin:0; }
 .preview-form__consents { display:flex; flex-direction:column; gap:14px; }
 .consent-item .c-checkbox { align-items:flex-start; }
 .consent-item__link { color:var(--color-primary-light); text-decoration:underline; }
