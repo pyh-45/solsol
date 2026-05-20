@@ -3983,12 +3983,30 @@ tr:has(.c-check:checked) {
 .question-block__handle { width:20px; height:20px; padding:0; background:none; border:none; cursor:grab; display:inline-flex; align-items:center; justify-content:center; }
 .question-block__type-name { font-size:14px; font-weight:600; color:var(--text-primary); }
 .question-block__type-tag { font-size:13px; color:var(--text-secondary); }
-.question-block__delete { margin-left:auto; width:24px; height:24px; padding:0; background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
+.question-block__delete { margin-left:auto; width:24px; height:24px; padding:0; background:#F52A02; border:none; border-radius:50%; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
+.question-block__delete:hover { background:#D62300; }
 .question-block .list-panel { border-radius:0 0 8px 8px; border-top:none; }
 .question-block__subtitle-row { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:14px; margin-bottom:18px; border-bottom:1px solid var(--border-color); }
 .question-block__subtitle { font-size:15px; font-weight:600; color:var(--text-primary); }
 .question-block__actions { display:inline-flex; align-items:center; gap:16px; }
 .question-block__option-row { display:flex; align-items:center; gap:8px; }
+
+/* 설문 작성 패널 안의 질문 블록 (헤더 + 본문 결합형) */
+.survey-question { border:1px solid var(--border-color); border-radius:8px; overflow:hidden; margin-top:16px; }
+.survey-question__head { display:flex; align-items:center; gap:10px; height:48px; padding:0 16px; background:#F5F5F5; }
+.survey-question__handle { width:20px; height:20px; padding:0; background:none; border:none; cursor:grab; display:inline-flex; align-items:center; justify-content:center; }
+.survey-question__type-name { font-size:14px; font-weight:600; color:var(--text-primary); }
+.survey-question__type-tag { font-size:13px; color:var(--text-secondary); }
+.survey-question__delete { margin-left:auto; width:20px; height:20px; padding:0; background:#F52A02; border:none; border-radius:50%; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
+.survey-question__delete:hover { background:#D62300; }
+.survey-question__body { padding:24px; background:#fff; }
+.survey-question__subtitle-row { display:flex; align-items:center; justify-content:space-between; gap:16px;}
+.survey-question__subtitle { font-size:15px; font-weight:600; color:var(--text-primary); }
+.survey-question__actions { display:inline-flex; align-items:center; gap:16px; }
+/* 설문 작성 패널 안의 동의 섹션 (개인정보 수집/광고성 정보수신) */
+.survey-agreement { margin-top:24px; }
+.survey-agreement__head { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+.survey-agreement__title { font-size:15px; font-weight:700; color:var(--text-primary); }
 
 /* input 우측에 아이콘 버튼 (복사 등) */
 .input-with-icon-btn { position:relative; }
