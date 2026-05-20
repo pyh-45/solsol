@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>답변 보기</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center; padding:0 30px;">
+
+    <!-- ========= 답변 보기 모달 (W480) ========= -->
+    <div class="c-modal completion-modal">
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">답변 보기</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+
+            <!-- 사이트명 -->
+            <div class="auth-logo preview-form__logo">DJ테크트리</div>
+
+            <!-- 제목 -->
+            <h3 class="preview-form__title">{제목}</h3>
+
+            <!-- 질문 필드 스택 -->
+            <div class="preview-form__fields">
+
+                <!-- 이메일 -->
+                <section class="completion-section">
+                    <h4 class="completion-section__title">{이메일 제목}</h4>
+                    <p class="preview-form__desc">{이메일 설명}</p>
+                    <input type="email" class="detail-form__input detail-form__input--answer" value="{응답자 답변}" readonly>
+                </section>
+
+                <!-- 전화번호 -->
+                <section class="completion-section">
+                    <h4 class="completion-section__title">{전화번호 제목}</h4>
+                    <p class="preview-form__desc">{전화번호 설명}</p>
+                    <input type="text" class="detail-form__input detail-form__input--answer" value="{응답자 답변}" readonly>
+                </section>
+
+                <!-- 텍스트 단답형 -->
+                <section class="completion-section">
+                    <h4 class="completion-section__title">{텍스트(단답형) 제목}</h4>
+                    <p class="preview-form__desc">{텍스트(단답형) 설명}</p>
+                    <input type="text" class="detail-form__input detail-form__input--answer" value="{응답자 답변}" readonly>
+                </section>
+
+                <!-- 텍스트 장문형 -->
+                <section class="completion-section">
+                    <h4 class="completion-section__title">{텍스트(장문형) 제목}</h4>
+                    <p class="preview-form__desc">{텍스트(장문형) 설명}</p>
+                    <textarea class="detail-form__textarea detail-form__textarea--answer" readonly>{응답자 답변}</textarea>
+                    <span class="preview-form__hint">최대 000자까지 입력</span>
+                </section>
+
+                <!-- 단일 선택 -->
+                <section class="completion-section">
+                    <h4 class="completion-section__title">{단일 선택 제목}</h4>
+                    <p class="preview-form__desc">{단일 선택 설명}</p>
+                    <div class="preview-form__options">
+                        <label class="c-radio"><input type="radio" name="singleChoice" checked><span>단일 선택 옵션 1</span></label>
+                        <label class="c-radio"><input type="radio" name="singleChoice"><span>단일 선택 옵션 2</span></label>
+                    </div>
+                </section>
+
+                <!-- 다중 선택 -->
+                <section class="completion-section">
+                    <h4 class="completion-section__title">{다중 선택 제목}</h4>
+                    <p class="preview-form__desc">{다중 선택 설명}</p>
+                    <div class="preview-form__options">
+                        <label class="c-checkbox"><input type="checkbox" class="c-check" checked><span>다중 선택 옵션 1</span></label>
+                        <label class="c-checkbox"><input type="checkbox" class="c-check"><span>다중 선택 옵션 2</span></label>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 구분선 -->
+            <hr class="preview-form__divider">
+
+            <!-- 정보 동의 -->
+            <section class="answer-info">
+                <h4 class="answer-info__title">정보 동의</h4>
+                <p class="answer-info__text">
+                    개인정보보호동의 - <span class="answer-info__accent">동의</span> ,  광고성 정보 수신 동의 - <span class="answer-info__accent">동의</span>
+                </p>
+            </section>
+
+            <!-- 응답 일시 -->
+            <section class="answer-info">
+                <h4 class="answer-info__title">응답 일시</h4>
+                <p class="answer-info__text">
+                    제출 일시 : 2000.00.00 오전/오후 00:00 &nbsp;&nbsp;&nbsp;&nbsp; IP 주소 : 121.XXX.XXX.82
+                </p>
+            </section>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big">확인</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

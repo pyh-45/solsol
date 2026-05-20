@@ -4003,6 +4003,22 @@ tr:has(.c-check:checked) {
 .survey-question__subtitle-row { display:flex; align-items:center; justify-content:space-between; gap:16px;}
 .survey-question__subtitle { font-size:15px; font-weight:600; color:var(--text-primary); }
 .survey-question__actions { display:inline-flex; align-items:center; gap:16px; }
+/* 답변 보기 모달 — 응답자 답변 표시 (readonly + 보조색) */
+.detail-form__input--answer,
+.detail-form__textarea--answer { color:var(--text-secondary); background:#fff; cursor:default; }
+
+/* 답변 보기 모달 — 정보 동의 / 응답 일시 섹션 */
+.answer-info { margin-top:20px; }
+.answer-info__title { margin:0 0 8px; font-size:14px; font-weight:700; color:var(--text-primary); }
+.answer-info__text { margin:0; font-size:13px; color:var(--text-secondary); line-height:1.6; }
+.answer-info__accent { color:var(--color-blue); }
+
+/* 설문 참여 독려 모달 — 이미지 영역 + 설문 정보 */
+.encourage-image { height:200px; background:#F5F5F5; display:flex; align-items:center; justify-content:center; }
+.encourage-image__placeholder { color:#BBB; font-size:18px; }
+.encourage-info { margin:16px 0 0; font-size:14px; color:var(--text-primary); line-height:1.8; }
+.encourage-info__value { color:var(--color-blue); font-weight:500; }
+
 /* 설문 작성 패널 안의 동의 섹션 (개인정보 수집/광고성 정보수신) */
 .survey-agreement { margin-top:24px; }
 .survey-agreement__head { display:flex; align-items:center; gap:8px; margin-bottom:12px; }

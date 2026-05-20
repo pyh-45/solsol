@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림톡 발송 번호 선택</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center;">
+
+    <!-- ========= 알림톡 발송 번호 선택 모달 (W600) ========= -->
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">알림톡 발송 번호 선택</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body">
+
+            <!-- 안내 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span class="admin-infotip__text">알림톡을 보낼 전화번호 필드를 하나 선택해주세요.</span>
+            </div>
+
+            <!-- 전화번호 필드 선택 테이블 -->
+            <table class="modal-table">
+                <colgroup>
+                    <col style="width:30%;">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>유형</th>
+                        <th>입력항목 질문</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="is-selected">
+                        <td>전화번호</td>
+                        <td>{질문명}</td>
+                        <td>{설명}</td>
+                    </tr>
+                    <tr>
+                        <td>전화번호</td>
+                        <td>{질문명}</td>
+                        <td>{설명}</td>
+                    </tr>
+                    <tr>
+                        <td>전화번호</td>
+                        <td>{질문명}</td>
+                        <td>{설명}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn big" style="width:100%;">확인</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
