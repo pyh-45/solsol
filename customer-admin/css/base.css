@@ -1904,6 +1904,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 }
 
 .status-chip--sm { height:18px; padding:0 6px; font-size:9px; }
+.status-chip--xs { height:auto; padding:4px 8px; font-size:11px; }
 .status-chip--active   { background: #E2FFF3; color: #089253; }
 .status-chip--inactive { background: #EBEBEB; color: #424242; }
 .status-chip--left     { background: #f5f5f5; color: #808080; }
@@ -3519,9 +3520,16 @@ tr:has(.c-check:checked) {
 .content-storage__legend-dot--other  { background:var(--color-blue); }
 .count-card-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
 .count-card-grid--3 { grid-template-columns:repeat(3,1fr); }
+.count-card-grid--2 { grid-template-columns:repeat(2,1fr); }
 .count-card { padding:20px 30px; background:#fff; border:1px solid var(--border-color); border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .count-card__label { font-size:13px; color:var(--text-secondary); }
 .count-card__value { font-size:26px; font-weight:700; color:#222; letter-spacing:-0.5px; line-height:1; }
+/* 채널별 누적 발송 통계 카드 (상단 라벨/값 + 하단 채널 브레이크다운) */
+.count-card--with-breakdown { flex-direction:column; align-items:stretch; gap:14px; padding:18px 22px; }
+.count-card__top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.count-card__breakdown { display:flex; gap:8px; padding:10px 14px; background:#F5F5F5; border-radius:6px; }
+.count-card__breakdown-item { flex:1; font-size:12px; color:var(--text-secondary); display:inline-flex; align-items:center; gap:4px; }
+.count-card__breakdown-value { color:var(--color-blue); font-weight:600; }
 
 /* 테이블 셀 내 서브 텍스트 (메인 값 아래 보조 정보) */
 .cell-sub-text { font-size:12px; color:#888; margin-top:4px; }
@@ -3547,6 +3555,11 @@ tr:has(.c-check:checked) {
 .sale-status-tag--subscribed { color:#027CFA; border-color:#027CFA; }
 .sale-status-tag--membership { color:#6756ED; border-color:#6756ED; }
 .sale-status-tag--sm { height:18px; padding:0 6px; font-size:9px; }
+
+/* 응답자 유형 태그 (회원만 등) */
+.respondent-tag { display:inline-flex; align-items:center; justify-content:center; padding:8px 10px; border-radius:100px; border:1px solid; font-size:11px; font-weight:600; line-height:1.2; white-space:nowrap; }
+.respondent-tag--anyone { color:#2C2C2C; border-color:#909090; }
+.respondent-tag--member { color:#337EFE; border-color:#1FB6FF; }
 
 /* 주문 상세 - 정보 행 (4:4:2 비율) */
 .order-info-row { display:flex; align-items:center; gap:0; }
@@ -3695,6 +3708,10 @@ tr:has(.c-check:checked) {
 .c-form-row__selected { font-size:14px; color:var(--color-blue); font-weight:500; }
 .c-form-row__hint { font-size:12px; color:var(--text-secondary); margin:8px 0 0; line-height:1.7; }
 .c-form-row__link { color:var(--text-primary); font-weight:600; text-decoration:underline; }
+
+/* 공용 텍스트 링크 (파란색 + 밑줄) */
+.c-text-link { color:var(--color-blue); text-decoration:underline; cursor:pointer; }
+.c-text-link:hover { text-decoration:underline; }
 
 /* ==================== Upload ==================== */
 .upload-storage-info { display:flex; justify-content:flex-end; font-size:13px; color:var(--text-secondary); padding:16px 0 8px; }
@@ -3945,10 +3962,60 @@ tr:has(.c-check:checked) {
 .msg-composer__textarea::placeholder { color:var(--text-placeholder); }
 .msg-composer__count { position:absolute; bottom:8px; right:14px; font-size:12px; color:var(--text-tertiary); }
 
+/* 설문폼 상세 — 타이틀바 공개여부 토글 그룹 */
+.dashboard-bar__toggle-group { display:inline-flex; align-items:center; gap:8px; }
+.dashboard-bar__toggle-label { font-size:14px; color:var(--text-secondary); }
+
+/* textarea + 글자수 카운트 (우측 하단 배치) */
+.textarea-count-wrap { position:relative; }
+.textarea-count-wrap .detail-form__textarea { padding-bottom:32px; }
+.textarea-count-wrap__count { position:absolute; bottom:10px; right:14px; font-size:12px; color:var(--text-tertiary); }
+
+/* 폼 필드 한 줄 묶음 (input + button, 날짜 범위 등) */
+.detail-form__field-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.detail-form__sub-label { font-size:14px; color:var(--text-secondary); flex-shrink:0; }
+.detail-form__field-remove { width:36px; height:36px; padding:0; display:inline-flex; align-items:center; justify-content:center; background:#fff; border:1px solid var(--border-color); border-radius:6px; cursor:pointer; flex-shrink:0; }
+.detail-form__field-remove:hover { background:#F7F7F7; }
+
+/* 설문폼 화면 설정 — 질문 블록 (드래그 헤더 + 패널) */
+.question-block { display:flex; flex-direction:column; }
+.question-block__head { display:flex; align-items:center; gap:10px; padding:8px 16px; background:#F5F5F5; border:1px solid var(--border-color); border-bottom:none; border-radius:8px 8px 0 0; }
+.question-block__handle { width:20px; height:20px; padding:0; background:none; border:none; cursor:grab; display:inline-flex; align-items:center; justify-content:center; }
+.question-block__type-name { font-size:14px; font-weight:600; color:var(--text-primary); }
+.question-block__type-tag { font-size:13px; color:var(--text-secondary); }
+.question-block__delete { margin-left:auto; width:24px; height:24px; padding:0; background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
+.question-block .list-panel { border-radius:0 0 8px 8px; border-top:none; }
+.question-block__subtitle-row { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:14px; margin-bottom:18px; border-bottom:1px solid var(--border-color); }
+.question-block__subtitle { font-size:15px; font-weight:600; color:var(--text-primary); }
+.question-block__actions { display:inline-flex; align-items:center; gap:16px; }
+.question-block__option-row { display:flex; align-items:center; gap:8px; }
+
+/* input 우측에 아이콘 버튼 (복사 등) */
+.input-with-icon-btn { position:relative; }
+.input-with-icon-btn .detail-form__input { padding-right:44px; }
+.input-with-icon-btn__btn { position:absolute; top:50%; right:6px; transform:translateY(-50%); width:32px; height:32px; padding:0; display:inline-flex; align-items:center; justify-content:center; background:transparent; border:none; border-radius:4px; cursor:pointer; }
+.input-with-icon-btn__btn:hover { background:#F7F7F7; }
+
+/* 설문폼 미리보기 모달 */
+.preview-form__logo { padding:0; height:80px; display:flex; align-items:center; justify-content:center; }
+.preview-form__title { text-align:center; font-size:20px; font-weight:700; color:var(--text-primary); margin:0 0 12px; }
+.preview-form__intro { min-height:120px; background:#F9F9F9; border-radius:6px; padding:20px; color:var(--text-secondary); margin-bottom:20px; }
+.preview-form__fields { display:flex; flex-direction:column; gap:20px; }
+.preview-form__desc { margin:0; font-size:12px; color:var(--text-secondary); }
+.preview-form__options { display:flex; flex-direction:column; gap:8px; }
+.preview-form__hint { font-size:12px; color:var(--text-tertiary); }
+.preview-form__divider { border:none; border-top:1px solid var(--border-color); margin:24px 0; }
+.preview-form__consents { display:flex; flex-direction:column; gap:14px; }
+.consent-item .c-checkbox { align-items:flex-start; }
+.consent-item__link { color:var(--color-primary-light); text-decoration:underline; }
+.consent-item__desc { display:none; margin:8px 0 0 26px; font-size:13px; color:var(--text-secondary); line-height:1.6; }
+.consent-item.open .consent-item__desc { display:block; }
+
 /* 메시지 미리보기 패널 (이메일/SMS/알림톡 공통) */
 .msg-preview { width:360px; background:#FFF;border:1px solid var(--border-color); border-radius:12px 12px 30px 30px; padding:20px; }
-/* 미리보기 모달 내부에 들어갈 때는 모달 폭에 맞춰 풀폭 */
-.completion-modal .msg-preview { width:100%; }
+/* 미리보기 모달/패널 내부에 들어갈 때는 컨테이너 폭에 맞춰 풀폭 */
+.completion-modal .msg-preview,
+.list-panel .msg-preview { width:100%; }
 .msg-preview__header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;border-bottom:1px solid var(--border-color); padding:8px 0; }
 .msg-preview__label { font-size:14px; font-weight:600; color:var(--text-primary); }
 .msg-preview__type { font-size:12px; color:var(--text-secondary); }

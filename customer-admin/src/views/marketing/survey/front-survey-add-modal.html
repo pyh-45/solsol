@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문 추가</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center;">
+
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">설문 추가</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content c-modal__content--pb10 completion-modal__body">
+
+            <!-- 인포팁 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>폼은 복수 선택할 수 있으며, 메세지에 URL 형태로 추가됩니다.<br>폼은 <strong>폼 관리</strong> 메뉴에서 신규 생성 및 수정이 가능합니다.</span>
+            </div>
+
+            <!-- 검색 + 필터 -->
+            <div class="content-select__filter">
+                <div class="content-select__search">
+                    <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                    <input type="text" placeholder="설문폼명 검색">
+                </div>
+                <div class="c-dropdown" style="width:140px; flex-shrink:0;">
+                    <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                        <span class="c-dropdown__label">최신순</span>
+                        <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                    </button>
+                    <div class="c-dropdown__panel">
+                        <button type="button" class="c-dropdown__item active" onclick="selectItem(this)">최신순</button>
+                        <button type="button" class="c-dropdown__item" onclick="selectItem(this)">가나다순</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 설문폼 리스트 -->
+            <div class="recipient-group-list">
+                <label class="recipient-group-item">
+                    <input type="checkbox" class="table-check">
+                    <span class="recipient-group-item__name">가장 기대하는 강의 설문조사</span>
+                    <span class="recipient-group-item__count">00명</span>
+                </label>
+                <label class="recipient-group-item">
+                    <input type="checkbox" class="table-check">
+                    <span class="recipient-group-item__name">특강 신청자 명단 수집</span>
+                    <span class="recipient-group-item__count">00명</span>
+                </label>
+                <label class="recipient-group-item">
+                    <input type="checkbox" class="table-check">
+                    <span class="recipient-group-item__name">3월 만족도 조사</span>
+                    <span class="recipient-group-item__count">00명</span>
+                </label>
+                <label class="recipient-group-item">
+                    <input type="checkbox" class="table-check">
+                    <span class="recipient-group-item__name">강사 인기도 조사 (2026년 3월)</span>
+                    <span class="recipient-group-item__count">00명</span>
+                </label>
+                <label class="recipient-group-item">
+                    <input type="checkbox" class="table-check">
+                    <span class="recipient-group-item__name">깜짝 1:1 코칭 신청</span>
+                    <span class="recipient-group-item__count">00명</span>
+                </label>
+                <label class="recipient-group-item">
+                    <input type="checkbox" class="table-check">
+                    <span class="recipient-group-item__name">이벤트 - 자기자랑</span>
+                    <span class="recipient-group-item__count">00명</span>
+                </label>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="modal-pagination" style="margin-top:16px;">
+                <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
+                <button class="pagination__btn active">1</button>
+                <button class="pagination__btn">2</button>
+                <button class="pagination__btn">3</button>
+                <button class="pagination__btn">4</button>
+                <button class="pagination__btn">5</button>
+                <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
+            </div>
+
+            <!-- 선택된 설문폼 -->
+            <div class="tutor-selected">
+                <h4 class="tutor-selected__title" style="color:var(--color-blue);">선택된 설문폼 {n}</h4>
+                <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; counter-reset:item;">
+                    <li style="counter-increment:item; display:flex; align-items:center; gap:12px; font-size:14px; color:var(--text-primary);">
+                        <span style="flex-shrink:0; color:var(--text-secondary);">1.</span>
+                        <span>{설문폼명}</span>
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </li>
+                    <li style="counter-increment:item; display:flex; align-items:center; gap:12px; font-size:14px; color:var(--text-primary);">
+                        <span style="flex-shrink:0; color:var(--text-secondary);">2.</span>
+                        <span>강사 인기도 조사 (2026년 3월)</span>
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big">확인</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+</script>
+
+</body>
+</html>

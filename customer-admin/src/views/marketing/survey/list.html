@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 발송내역 상세</title>
+    <title>Admin - 설문폼 관리</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,13 +22,8 @@
         </div>
 
         <div class="admin-header__center">
-            <div class="admin-header__nav">
-                <button class="admin-header__back">
-                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
-                </button>
-                <span class="admin-header__page-title">상세페이지</span>
-                <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
-            </div>
+            <span class="admin-header__page-title">설문폼 관리</span>
+            <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
             <div class="admin-header__search">
                 <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
                 <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
@@ -48,10 +43,12 @@
                     <span class="admin-header__bell-badge">6</span>
                 </button>
             </div>
-            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+             <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
                 <div class="c-avatar30 learner">A</div>
                 <span class="admin-header__username">홍길순</span>
                 <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+
+                <!-- 프로필 툴팁 -->
                 <div class="c-profile-tooltip">
                     <div class="c-profile-tooltip__top">
                         <div class="c-avatar40 learner">A</div>
@@ -174,11 +171,12 @@
                     </button>
                     <div class="lnb-accordion__body">
                         <a href="#" class="lnb-sub-item">캠페인</a>
-                        <a href="#" class="lnb-sub-item active">발송내역</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
                         <a href="#" class="lnb-sub-item">수신자 그룹</a>
                         <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item active">설문폼 관리</a>
                         <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
-                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                        <a href="#" class="lnb-sub-item">가입 랜딩페이지</a>
                     </div>
                 </div>
 
@@ -257,87 +255,15 @@
 
         <!-- ===== 콘텐츠 영역 ===== -->
         <main class="admin-content">
+
+            <!-- 메인 작업 영역 -->
             <div class="admin-body">
+
 
                 <!-- 인포박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">수신자 그룹은 <strong>수신자 그룹 관리</strong> 메뉴에서 그룹을 추가·편집할 수 있습니다. 수신자에게 보이는 메시지 템플릿은 <strong>메시지 템플릿</strong> 메뉴에서, 수신자로부터 정보를 받을 수 있는 폼은 <strong>폼 관리</strong> 메뉴에서 설정할 수 있습니다.</span>
-                </div>
-
-                <!-- 캠페인 정보 카드 -->
-                <section class="list-panel list-panel--p30">
-                    <h3 class="dispatch-info-title">{캠페인명}</h3>
-                    <div class="dispatch-info-bar">
-                        <div class="dispatch-info-bar__item">
-                            <span class="dispatch-info-bar__label">발송 채널</span>
-                            <span class="dispatch-info-bar__value">이메일, SMS, 알림톡</span>
-                        </div>
-                        <div class="dispatch-info-bar__item">
-                            <span class="dispatch-info-bar__label">발송 일시</span>
-                            <span class="dispatch-info-bar__value">2000.00.00 오전/오후 00:00</span>
-                        </div>
-                        <div class="dispatch-info-bar__item">
-                            <span class="dispatch-info-bar__label">발송 목적</span>
-                            <span class="dispatch-info-bar__value">{발송 목적}</span>
-                        </div>
-                        <div class="dispatch-info-bar__item">
-                            <span class="dispatch-info-bar__label">제목</span>
-                            <span class="dispatch-info-bar__value">{캠페인 제목}</span>
-                        </div>
-                        <div class="dispatch-info-bar__item dispatch-info-bar__item--right">
-                            <span class="dispatch-info-bar__label">발송 상태</span>
-                            <span class="dispatch-info-bar__value dispatch-info-bar__value--primary">{발송 상태}</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 통계 카드 -->
-                <div class="count-card-grid">
-                    <div class="count-card count-card--with-breakdown">
-                        <div class="count-card__top">
-                            <span class="count-card__label">총 발송수</span>
-                            <span class="count-card__value">1,247</span>
-                        </div>
-                        <div class="count-card__breakdown">
-                            <span class="count-card__breakdown-item">이메일 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">문자 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">알림톡 <span class="count-card__breakdown-value">000</span></span>
-                        </div>
-                    </div>
-                    <div class="count-card count-card--with-breakdown">
-                        <div class="count-card__top">
-                            <span class="count-card__label">발송 성공수</span>
-                            <span class="count-card__value">57,000</span>
-                        </div>
-                        <div class="count-card__breakdown">
-                            <span class="count-card__breakdown-item">이메일 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">문자 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">알림톡 <span class="count-card__breakdown-value">000</span></span>
-                        </div>
-                    </div>
-                    <div class="count-card count-card--with-breakdown">
-                        <div class="count-card__top">
-                            <span class="count-card__label">발송 실패수</span>
-                            <span class="count-card__value">16,000</span>
-                        </div>
-                        <div class="count-card__breakdown">
-                            <span class="count-card__breakdown-item">이메일 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">문자 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">알림톡 <span class="count-card__breakdown-value">000</span></span>
-                        </div>
-                    </div>
-                    <div class="count-card count-card--with-breakdown">
-                        <div class="count-card__top">
-                            <span class="count-card__label">전환율</span>
-                            <span class="count-card__value">5.8<span style="font-size:18px; margin-left:2px;">%</span></span>
-                        </div>
-                        <div class="count-card__breakdown">
-                            <span class="count-card__breakdown-item">이메일 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">문자 <span class="count-card__breakdown-value">000</span></span>
-                            <span class="count-card__breakdown-item">알림톡 <span class="count-card__breakdown-value">000</span></span>
-                        </div>
-                    </div>
+                    <span class="admin-infotip__text">다양한 질문을 활용하여 설문을 만들고 관리할 수 있습니다.</span>
                 </div>
 
                 <!-- 검색 필터 -->
@@ -345,36 +271,34 @@
                     <div class="admin-filter">
                         <div class="admin-filter__search">
                             <img src="../../../images/Ico-search.svg" alt="" width="18" height="18">
-                            <input type="text" class="admin-filter__search-input" placeholder="닉네임, 이름, 이메일, 전화번호 검색">
+                            <input type="text" class="admin-filter__search-input" placeholder="설문폼명, 설명으로 검색">
                         </div>
                         <div class="admin-filter__selects">
                             <div class="c-dropdown">
                                 <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                    <span class="c-dropdown__label">성공여부 전체</span>
+                                    <span class="c-dropdown__label">발행 상태 전체</span>
                                     <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
                                 </button>
                                 <div class="c-dropdown__panel">
-                                    <button class="c-dropdown__item active" onclick="selectItem(this)">성공여부 전체</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">발송완료</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">중복발송</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">발송실패</button>
-                                    <button class="c-dropdown__item" onclick="selectItem(this)">취소</button>
+                                    <button class="c-dropdown__item active" onclick="selectItem(this)">발행 상태 전체</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">발행</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">미발행</button>
+                                    <button class="c-dropdown__item" onclick="selectItem(this)">수정</button>
                                 </div>
                             </div>
                         </div>
+                        <button type="button" class="btn nm primary icon-left">
+                            <img src="../../../images/ico-16px-btn-plus.svg" width="16" height="16" alt="">
+                            새 설문폼 등록
+                        </button>
                     </div>
                 </div>
 
-                <!-- 전체 수신자 목록 -->
+                <!-- 설문폼 목록 -->
                 <div class="list-panel">
 
                     <div class="list-panel__header">
-                        <span class="list-panel__title">전체 수신자 목록</span>
-                        <button type="button" class="dispatch-refresh-btn" aria-label="새로고침">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 12a9 9 0 11-9-9c2.5 0 4.7 1 6.3 2.7L21 8M21 3v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
+                        <span class="list-panel__title">설문폼 목록</span>
                     </div>
 
                     <div class="admin-table-wrap">
@@ -384,109 +308,180 @@
                                     <th class="th-check">
                                         <input type="checkbox" class="table-check" id="checkAll" onchange="toggleAll(this)">
                                     </th>
-                                    <th style="min-width:200px">수신자명</th>
-                                    <th style="min-width:120px">채널</th>
-                                    <th style="min-width:200px">수신자 이메일</th>
-                                    <th style="min-width:140px">수신자 전화번호</th>
-                                    <th style="min-width:100px">성공여부</th>
+                                    <th style="min-width:280px">설문폼명</th>
+                                    <th style="min-width:110px">응답자 유형</th>
+                                    <th style="min-width:100px">발행 상태</th>
+                                    <th style="min-width:100px">공개여부</th>
+                                    <th style="min-width:170px">최종 발행일</th>
+                                    <th style="min-width:170px">최종 응답일</th>
+                                    <th style="min-width:80px">응답수</th>
+                                    <th style="min-width:160px">최종 수정자</th>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()" checked>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()" checked></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:8px;">
+                                            <span>봄맞이 만족도 조사</span>
+                                            <button type="button" class="btn sm border btn--icon"><img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">미리보기</button>
+                                            <button type="button" class="btn sm border">URL 복사</button>
+                                        </div>
                                     </td>
-                                    <td>-</td>
-                                    <td><span class="send-type-chip"><img src="../../../images/Ico_16px_table_sns.svg" width="14" height="14" alt="">SNS</span></td>
-                                    <td>{학습자 이메일 주소}</td>
-                                    <td>010-0000-0000</td>
-                                    <td><span class="status-chip status-chip--sent">발송완료</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
+                                    <td>누구나</td>
+                                    <td><span class="status-chip status-chip--info">발행</span></td>
+                                    <td><span class="status-chip status-chip--success">공개</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>00</td>
                                     <td>
                                         <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
+                                            <div class="c-avatar30 manager"></div>
                                             <div class="user-cell__info">
                                                 <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--learner">학습자</span>
-                                                    alpha_user_kr
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td><span class="send-type-chip"><img src="../../../images/Ico_16px_table_talk.svg" width="14" height="14" alt="">알림톡</span></td>
-                                    <td>{학습자 이메일 주소}{학습자 이메일 주소}{학습자 이메일 주소}{학습자 이메일 주소}</td>
-                                    <td>010-0000-0000</td>
-                                    <td><span class="status-chip status-chip--accent">중복발송</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()" checked></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:8px;">
+                                            <span>회원 대상 수료 후기</span>
+                                            <button type="button" class="btn sm border btn--icon"><img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">미리보기</button>
+                                            <button type="button" class="btn sm border">URL 복사</button>
+                                        </div>
                                     </td>
-                                    <td>-</td>
-                                    <td><span class="send-type-chip"><img src="../../../images/Ico_16px_table_talk.svg" width="14" height="14" alt="">알림톡</span></td>
-                                    <td>{학습자 이메일 주소}</td>
-                                    <td>010-0000-0000</td>
-                                    <td><span class="status-chip status-chip--warning">발송실패</span></td>
-                                </tr>
-
-                                <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
-                                    </td>
+                                    <td>회원만</td>
+                                    <td><span class="status-chip status-chip--info">발행</span></td>
+                                    <td><span class="status-chip status-chip--success">공개</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>00</td>
                                     <td>
                                         <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
+                                            <div class="c-avatar30 manager"></div>
                                             <div class="user-cell__info">
                                                 <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--learner">학습자</span>
-                                                    vintage_auto
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td><span class="send-type-chip"><img src="../../../images/Ico_16px_table_mail.svg" width="14" height="14" alt="">이메일</span></td>
-                                    <td>{학습자 이메일 주소}</td>
-                                    <td>010-0000-0000</td>
-                                    <td><span class="status-chip status-chip--danger">취소</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()" checked></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:8px;">
+                                            <span>신규 강좌 사전 설문</span>
+                                            <button type="button" class="btn sm border btn--icon"><img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">미리보기</button>
+                                            <button type="button" class="btn sm border">URL 복사</button>
+                                        </div>
                                     </td>
+                                    <td>누구나</td>
+                                    <td><span class="status-chip status-chip--info">발행</span></td>
+                                    <td><span class="status-chip status-chip--success">공개</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>00</td>
                                     <td>
                                         <div class="user-cell">
-                                            <div class="c-avatar30 learner"></div>
+                                            <div class="c-avatar30 manager"></div>
                                             <div class="user-cell__info">
                                                 <div class="user-cell__name">
-                                                    <span class="role-badge role-badge--learner">학습자</span>
-                                                    alpha_user_kr
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td><span class="send-type-chip"><img src="../../../images/Ico_16px_table_talk.svg" width="14" height="14" alt="">알림톡</span></td>
-                                    <td>{학습자 이메일 주소}</td>
-                                    <td>010-0000-0000</td>
-                                    <td><span class="status-chip status-chip--sent">발송완료</span></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="padding: 0 5px;">
-                                        <input type="checkbox" class="table-check row-check" onchange="onRowCheck()">
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()" checked></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:8px;">
+                                            <span>VIP 등급 혜택 의견 조사</span>
+                                        </div>
                                     </td>
-                                    <td>-</td>
-                                    <td><span class="send-type-chip"><img src="../../../images/Ico_16px_table_mail.svg" width="14" height="14" alt="">이메일</span></td>
-                                    <td>{학습자 이메일 주소}</td>
-                                    <td>010-0000-0000</td>
-                                    <td><span class="status-chip status-chip--sent">발송완료</span></td>
+                                    <td>회원만</td>
+                                    <td><span class="status-chip status-chip--left">미발행</span></td>
+                                    <td><span class="status-chip status-chip--neutral">비공개</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 manager"></div>
+                                            <div class="user-cell__info">
+                                                <div class="user-cell__name">
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()" checked></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:8px;">
+                                            <span>강사 매칭 사전 인터뷰</span>
+                                        </div>
+                                    </td>
+                                    <td>회원만</td>
+                                    <td><span class="status-chip status-chip--left">미발행</span></td>
+                                    <td><span class="status-chip status-chip--neutral">비공개</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 manager"></div>
+                                            <div class="user-cell__info">
+                                                <div class="user-cell__name">
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding: 0 5px;"><input type="checkbox" class="table-check row-check" onchange="onRowCheck()" checked></td>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:8px;">
+                                            <span>이벤트 응모 설문</span>
+                                            <button type="button" class="btn sm border btn--icon"><img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">미리보기</button>
+                                            <button type="button" class="btn sm border">URL 복사</button>
+                                        </div>
+                                    </td>
+                                    <td>누구나</td>
+                                    <td><span class="status-chip status-chip--warning">수정</span></td>
+                                    <td><span class="status-chip status-chip--success">공개</span></td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>00</td>
+                                    <td>
+                                        <div class="user-cell">
+                                            <div class="c-avatar30 manager"></div>
+                                            <div class="user-cell__info">
+                                                <div class="user-cell__name">
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
 
                             </tbody>
@@ -509,9 +504,23 @@
                 </div>
 
             </div>
+
         </main>
 
     </div>
+
+    <!-- 하단 일괄처리 바 (체크박스 선택 시 노출) -->
+    <div class="c-bulk-bar" id="bulkBar">
+        <div class="c-bulk-bar__left">
+            <button class="c-bulk-bar__close" onclick="closeBulkBar()">×</button>
+            <span class="c-bulk-bar__text" id="bulkText">6개 항목 선택됨</span>
+        </div>
+        <div class="c-bulk-bar__actions">
+            <button class="c-bulk-bar__btn">복사</button>
+            <button class="c-bulk-bar__btn">삭제</button>
+        </div>
+    </div>
+
 
 <script>
     function toggleDropdown(trigger) {
@@ -542,6 +551,15 @@
         backdrop.classList.toggle('admin-lnb__backdrop--open');
     }
 
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.c-dropdown')) {
+            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        }
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+    });
+
     function closeAllLnb() {
         document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
     }
@@ -556,6 +574,16 @@
     function onRowCheck() {
         const checks = document.querySelectorAll('.row-check');
         const checked = [...checks].filter(c => c.checked);
+        const bulkBar = document.getElementById('bulkBar');
+        const bulkText = document.getElementById('bulkText');
+
+        if (checked.length > 0) {
+            bulkText.textContent = checked.length + '개 항목 선택됨';
+            bulkBar.classList.remove('hidden');
+        } else {
+            bulkBar.classList.add('hidden');
+        }
+
         document.getElementById('checkAll').indeterminate = checked.length > 0 && checked.length < checks.length;
         document.getElementById('checkAll').checked = checked.length === checks.length;
     }
@@ -565,15 +593,17 @@
         onRowCheck();
     }
 
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.c-dropdown')) {
-            document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
-        }
-        if (!e.target.closest('#headerUserMenu')) {
-            document.getElementById('headerUserMenu').classList.remove('open');
-        }
-    });
+    function closeBulkBar() {
+        document.querySelectorAll('.row-check, #checkAll').forEach(c => c.checked = false);
+        document.getElementById('bulkBar').classList.add('hidden');
+    }
 </script>
+
+        <!-- 고정 메모 버튼 -->
+        <button class="c-fab">
+            <img src="../../../images/ico-memo-fix.svg" width="20" height="20" alt="">
+            <span class="c-fab__text">메모</span>
+        </button>
 
 </body>
 </html>
