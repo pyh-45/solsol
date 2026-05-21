@@ -1603,6 +1603,8 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .c-dropdown--ghost .c-dropdown__trigger { height: 36px; border-color: transparent; background: transparent; min-width: 100px; }
 .c-dropdown--ghost .c-dropdown__trigger:hover { border-color: transparent; background: transparent; }
 .c-dropdown--ghost .c-dropdown__trigger.open { border-color: var(--color-primary); border-bottom-color: transparent; border-radius: 6px 6px 0 0; background: #fff; }
+.c-dropdown__trigger--primary { background:var(--color-primary); color:#fff; border-color:var(--color-primary); justify-content:center; min-width:120px; font-weight:500; }
+.c-dropdown__trigger--primary .c-dropdown__arrow { filter:brightness(0) invert(1); }
 .c-dropdown__item { display: block; width: calc(100% - 8px); margin: 0 4px; padding: 9px 10px; font-size: 13px; color: var(--text-primary); background: transparent; text-align: left; cursor: pointer; border: none; font-family: inherit; border-radius: 6px; }
 .c-dropdown__item:hover { background: #EAF3FF; }
 .c-dropdown__item.active { background: #EBF3FF; color: var(--color-blue); font-weight: 500; }
@@ -2561,12 +2563,13 @@ tr:has(.c-check:checked) {
     white-space: nowrap;
     flex-shrink: 0;
 }
-.product-tag--normal   { border-color: var(--tag-normal-color);   color: var(--tag-normal-color); }
-.product-tag--live     { border-color: var(--tag-live-color);     color: var(--tag-live-color); }
-.product-tag--video    { border-color: var(--tag-video-color);    color: var(--tag-video-color); }
-.product-tag--digital  { border-color: var(--tag-digital-color);  color: var(--tag-digital-color); }
-.product-tag--package  { border-color: #089253; color: #089253; }
-.product-tag--premium  { border-color: #F59500; color: #F59500; }
+.product-tag--normal     { border-color:#424242;   color: #333333; }
+.product-tag--live       { border-color:#F52A02;   color:#F52A02; }
+.product-tag--video      { border-color:#4700D6;   color:#4700D6; }
+.product-tag--digital    { border-color:#089253;   color:#089253; }
+.product-tag--package    { border-color: #1976D2; color: #1976D2; }
+.product-tag--premium    { border-color: #F59500; color: #F59500; }
+.product-tag--membership { border-color: #00BFB3; color: #00BFB3; }
 
 /* 학습 상태 / 수강 상태 칩 추가 변형 */
 .status-chip--outline-green  { background: transparent; border: 1px solid var(--color-green); color: var(--color-green); }
@@ -3522,8 +3525,13 @@ tr:has(.c-check:checked) {
 .count-card-grid--3 { grid-template-columns:repeat(3,1fr); }
 .count-card-grid--2 { grid-template-columns:repeat(2,1fr); }
 .count-card { padding:20px 30px; background:#fff; border:1px solid var(--border-color); border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.count-card__label { font-size:13px; color:var(--text-secondary); }
-.count-card__value { font-size:26px; font-weight:700; color:#222; letter-spacing:-0.5px; line-height:1; }
+.count-card__label { font-size:13px; color:var(--text-dark); }
+.count-card__value { font-size:28px; font-weight:600; color:#222; letter-spacing:-0.5px; line-height:1; }
+/* 정산 요약 카드 (세로 스택: 라벨 / 값 / 보조설명) */
+.count-card--summary { flex-direction:column; align-items:flex-end; text-align:right; gap:4px; padding:16px 30px; }
+.count-card__unit { font-size:17px; font-weight:600; color:inherit; margin-left:2px; }
+.count-card__value--primary { color:var(--color-blue); }
+.count-card__sub { font-size:12px; color:var(--color-textgray); }
 /* 채널별 누적 발송 통계 카드 (상단 라벨/값 + 하단 채널 브레이크다운) */
 .count-card--with-breakdown { flex-direction:column; align-items:stretch; gap:14px; padding:18px 22px; }
 .count-card__top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
@@ -4003,6 +4011,51 @@ tr:has(.c-check:checked) {
 .survey-question__subtitle-row { display:flex; align-items:center; justify-content:space-between; gap:16px;}
 .survey-question__subtitle { font-size:15px; font-weight:600; color:var(--text-primary); }
 .survey-question__actions { display:inline-flex; align-items:center; gap:16px; }
+/* 마케팅 툴 연동 — 2x2 카드 그리드 */
+.tool-connect-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; }
+.tool-connect-card { padding:20px; border:1px solid var(--border-color); border-radius:8px; background:#fff; display:flex; flex-direction:column; gap:14px; }
+.tool-connect-card__head { display:flex; align-items:center; gap:12px; }
+.tool-connect-card__icon { width:40px; height:40px; flex-shrink:0; }
+.tool-connect-card__text { display:flex; flex-direction:column; gap:2px; min-width:0; }
+.tool-connect-card__title { font-size:15px; font-weight:700; color:var(--text-primary); }
+.tool-connect-card__subtitle { font-size:12px; color:var(--text-secondary); }
+
+/* 정산 금액 요약 패널 (정산 상세 페이지) */
+.settlement-summary-panel { background:var(--bg-white); border-radius:8px; padding:16px 30px 30px 30px; box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.08); }
+
+/* 정산 정보 미등록 빈 상태 */
+.settle-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px;padding:20px 20px 26px; }
+.settle-empty__message { margin:0; font-size:14px; color:var(--text-secondary); }
+.settlement-summary-panel .dashboard-bar__title { margin:0 0 12px; }
+
+/* 정산 정보 등록 — 사이트 소유자 정보 (라벨 좌, 값 우) */
+.settle-info-grid { display:flex; flex-direction:column; }
+.settle-info-row { display:flex; align-items:flex-start; gap:24px; padding:14px 0; border-bottom:1px solid #F2F2F2; }
+.settle-info-row:last-child { border-bottom:0; }
+.settle-info-row__label { flex-shrink:0; width:130px; font-size:14px; font-weight:600; color:var(--text-primary); }
+.settle-info-row__value { flex:1; font-size:14px; color:var(--text-primary); }
+
+/* 입금 계좌 인증 결과 알림 */
+.settle-notice { display:flex; align-items:center; gap:8px; padding:12px 14px; border-radius:6px; font-size:13px; }
+.settle-notice--info { background:#E1FBFF; color:var(--color-blue); }
+.settle-notice--error { background:#FFE5E0; color:#F52A02; }
+.settle-notice .admin-infotip__icon { width:18px; height:18px; font-size:11px; }
+
+/* 개인정보 수집 및 이용 안내 */
+.settle-privacy { font-size:13px; color:var(--text-primary); line-height:1.7; }
+.settle-privacy p { margin:0 0 12px; }
+.settle-privacy__head { margin:16px 0 8px; font-size:13px; font-weight:700; color:var(--text-primary); }
+.settle-privacy__list { margin:0 0 16px; padding-left:18px; list-style:disc; }
+.settle-privacy__list li { margin-bottom:8px; }
+
+/* 정산 상세 — 입금 계좌 번호 섹션 */
+.settlement-bank-section { display:flex; flex-direction:column; gap:10px; margin-top:30px; margin-bottom:0; }
+
+/* 정산 상태 칩 (아이콘 + 텍스트) */
+.settle-chip { display:inline-flex; align-items:center; gap:4px; padding:5px 10px; border-radius:100px; font-size:12px; font-weight:600; white-space:nowrap; }
+.settle-chip--pending { background:#FFF4E5; color:#FF7700; }
+.settle-chip--done { background:#E2FFF3; color:#089253; }
+
 /* 답변 보기 모달 — 응답자 답변 표시 (readonly + 보조색) */
 .detail-form__input--answer,
 .detail-form__textarea--answer { color:var(--text-secondary); background:#fff; cursor:default; }
@@ -4033,7 +4086,11 @@ tr:has(.c-check:checked) {
 /* 설문폼 미리보기 모달 */
 .preview-form__logo { padding:0; height:80px; display:flex; align-items:center; justify-content:center; }
 .preview-form__title { text-align:center; font-size:20px; font-weight:700; color:var(--text-primary); margin:0 0 12px; }
-.preview-form__intro { min-height:120px; background:#F9F9F9; border-radius:6px; padding:20px; color:var(--text-secondary); margin-bottom:20px; }
+.preview-form__subtitle { text-align:center; font-size:13px; color:var(--text-secondary); margin:0 0 24px; }
+.preview-form__heading-group { display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:24px; }
+.preview-form__heading-group .preview-form__title,
+.preview-form__heading-group .preview-form__subtitle { margin:0; }
+.preview-form__intro { min-height:120px; background:#F9F9F9; border-radius:6px; padding:20px; color:var(--text-secondary);}
 .preview-form__fields { display:flex; flex-direction:column; gap:20px; }
 .preview-form__desc { margin:0; font-size:12px; color:var(--text-secondary); }
 .preview-form__options { display:flex; flex-direction:column; gap:8px; }
@@ -4082,7 +4139,7 @@ tr:has(.c-check:checked) {
 .msg-preview__talk-card-header { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
 .msg-preview__talk-logo { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:6px; background:#6756ED; color:#fff; font-size:14px; font-weight:700; flex-shrink:0; }
 .msg-preview__talk-card-header strong { font-size:13px; font-weight:600; color:#6756ED; }
-.msg-preview__talk-card p {:0; font-size:13px; color:var(--text-dark); line-height:1.4; }
+.msg-preview__talk-card p { margin:0; font-size:13px; color:var(--text-dark); line-height:1.4; }
 
 /* 세그먼트 탭 (segmented control: 2-3개 옵션 중 1개 선택) */
 .c-segment-tab { display:flex; gap:8px; padding:0; background:#F7F7F7; border-radius:8px; }

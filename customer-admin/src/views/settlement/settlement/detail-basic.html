@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - 정산 정보관리 상세</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="admin-header">
+
+        <button class="admin-header__menu-toggle" onclick="toggleSideNav()" aria-label="메뉴 열기">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
+        <div class="admin-header__logo">
+            <img src="../../../images/logo-symbol.svg" alt="logo" class="admin-header__logo-symbol">
+            <span class="admin-header__logo-name">맑은소프트</span>
+            <img src="../../../images/ico-top-export.svg" alt="" class="admin-header__logo-export">
+        </div>
+
+        <div class="admin-header__center">
+            <div class="admin-header__nav">
+                <span class="admin-header__page-title">상세페이지</span>
+                <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
+            <div class="admin-header__search">
+                <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
+                <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
+            </div>
+        </div>
+
+        <div class="admin-header__right">
+            <div class="admin-header__btns">
+                <button class="admin-header__btn admin-header__btn--outline">문의하기</button>
+            </div>
+            <div class="admin-header__icons">
+                <button class="admin-header__icon-btn">
+                    <img src="../../../images/ico-global.svg" alt="언어" width="24" height="24">
+                </button>
+                <button class="admin-header__icon-btn admin-header__icon-btn--bell">
+                    <img src="../../../images/ico-bell.svg" alt="알림" width="24" height="24">
+                    <span class="admin-header__bell-badge">6</span>
+                </button>
+            </div>
+            <div class="admin-header__user" id="headerUserMenu" onclick="toggleProfileMenu(event)">
+                <div class="c-avatar30 learner">A</div>
+                <span class="admin-header__username">홍길순</span>
+                <img src="../../../images/ico-dropdown-arrow.svg" alt="" class="admin-header__user-arrow">
+                <div class="c-profile-tooltip">
+                    <div class="c-profile-tooltip__top">
+                        <div class="c-avatar40 learner">A</div>
+                        <div class="c-profile-tooltip__info">
+                            <div class="c-profile-tooltip__name-row">
+                                <span class="role-badge role-badge--learner">학습자</span>
+                                <span class="c-profile-tooltip__name">djkim</span>
+                            </div>
+                            <p class="c-profile-tooltip__email">minjun.kim@example.com</p>
+                        </div>
+                    </div>
+                    <hr class="c-profile-tooltip__divider">
+                    <div class="c-profile-tooltip__actions">
+                        <button class="btn nm border">내 정보</button>
+                        <button class="btn nm border">로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="admin-wrap">
+
+        <!-- ===== LNB ===== -->
+        <aside class="admin-lnb">
+
+            <a href="#" class="lnb-shortcut">
+                <img src="../../../images/ico-top-export.svg" width="16" height="16" alt="">
+                사이트 바로가기
+            </a>
+
+            <a href="#" class="lnb-direct">
+                <img class="lnb-icon" src="../../../images/ico-left-inquiry.svg" alt="">
+                1:1 문의 관리
+                <span class="lnb-badge">3</span>
+            </a>
+
+
+            <div class="lnb-divider"></div>
+            <div class="lnb-section">
+
+                <a href="#" class="lnb-plain" onmouseenter="closeAllLnb()">
+                    <img class="lnb-icon" src="../../../images/ico-left-dashboard.svg" alt="">
+                    대시보드
+                </a>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-user.svg" alt="">
+                        <span class="lnb-accordion__label">사용자</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자</a>
+                        <a href="#" class="lnb-sub-item">강사</a>
+                        <a href="#" class="lnb-sub-item">관리자</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-product.svg" alt="">
+                        <span class="lnb-accordion__label">상품 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">일반강의</a>
+                        <a href="#" class="lnb-sub-item">라이브강의</a>
+                        <a href="#" class="lnb-sub-item">화상강의</a>
+                        <a href="#" class="lnb-sub-item">디지털 상품</a>
+                        <a href="#" class="lnb-sub-item">패키지 상품</a>
+                        <a href="#" class="lnb-sub-item">멤버십</a>
+                        <a href="#" class="lnb-sub-item">프리미엄커뮤니티</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-contents.svg" alt="">
+                        <span class="lnb-accordion__label">콘텐츠 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">콘텐츠 라이브러리</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sales.svg" alt="">
+                        <span class="lnb-accordion__label">판매 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">주문</a>
+                        <a href="#" class="lnb-sub-item">쿠폰</a>
+                        <a href="#" class="lnb-sub-item">환불</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-manage.svg" alt="">
+                        <span class="lnb-accordion__label">운영관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">게시판</a>
+                        <a href="#" class="lnb-sub-item">팝업메뉴</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-marketing.svg" alt="">
+                        <span class="lnb-accordion__label">마케팅 지원</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">캠페인</a>
+                        <a href="#" class="lnb-sub-item">발송내역</a>
+                        <a href="#" class="lnb-sub-item">수신자 그룹</a>
+                        <a href="#" class="lnb-sub-item">메세지 템플릿</a>
+                        <a href="#" class="lnb-sub-item">마케팅 툴 연동</a>
+                        <a href="#" class="lnb-sub-item">랜딩 페이지</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-site.svg" alt="">
+                        <span class="lnb-accordion__label">사이트 관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본정보</a>
+                        <a href="#" class="lnb-sub-item">메뉴</a>
+                        <a href="#" class="lnb-sub-item">페이지</a>
+                        <a href="#" class="lnb-sub-item">팝업</a>
+                        <a href="#" class="lnb-sub-item">메타코드</a>
+                        <a href="#" class="lnb-sub-item">SEO 설정</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-stats.svg" alt="">
+                        <span class="lnb-accordion__label">통계</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">학습자 통계</a>
+                        <a href="#" class="lnb-sub-item">매출 통계</a>
+                        <a href="#" class="lnb-sub-item">콘텐츠 통계</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion open">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-sell.svg" alt="">
+                        <span class="lnb-accordion__label">매출 및 정산관리</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">크레딧 관리</a>
+                        <a href="#" class="lnb-sub-item active">정산 정보관리</a>
+                        <a href="#" class="lnb-sub-item">정산 내역</a>
+                        <a href="#" class="lnb-sub-item">부가세 신고자료</a>
+                    </div>
+                </div>
+
+                <div class="lnb-accordion">
+                    <button class="lnb-accordion__header" onclick="toggleLnb(this)">
+                        <img class="lnb-icon" src="../../../images/ico-left-setting.svg" alt="">
+                        <span class="lnb-accordion__label">설정</span>
+                        <img class="lnb-icon lnb-accordion__arrow" src="../../../images/ico-dropdown-arrow.svg" alt="">
+                    </button>
+                    <div class="lnb-accordion__body">
+                        <a href="#" class="lnb-sub-item">기본 설정</a>
+                        <a href="#" class="lnb-sub-item">플레이어</a>
+                        <a href="#" class="lnb-sub-item">수료증 템플릿</a>
+                        <a href="#" class="lnb-sub-item">강사 및 관리자 알람</a>
+                        <a href="#" class="lnb-sub-item">학습자 알람</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lnb-credits">
+                <div class="lnb-credits__row">
+                    <span class="lnb-credits__label">보유 크레딧</span>
+                    <span class="lnb-credits__amount">120,000</span>
+                    <span class="lnb-credits__coin">C</span>
+                </div>
+                <button class="lnb-credits__btn">크레딧 관리</button>
+            </div>
+
+        </aside>
+
+        <!-- LNB 백드롭 (모바일 LNB 오픈 시) -->
+        <div class="admin-lnb__backdrop" onclick="toggleSideNav()"></div>
+
+        <!-- ===== 콘텐츠 영역 ===== -->
+        <main class="admin-content">
+            <div class="admin-body">
+
+                <!-- 인포박스 -->
+                <div class="admin-infotip">
+                    <span class="admin-infotip__icon">i</span>
+                    <span class="admin-infotip__text">정산 지급액은 순 매출 × (1 - 수수료율) 공식으로 산정됩니다. 표시 금액은 VAT 미포함입니다.</span>
+                </div>
+
+                <!-- 타이틀바 -->
+                <div class="dashboard-bar">
+                    <div class="dashboard-bar__main">
+                        <div class="dashboard-bar__head">
+                            <span class="dashboard-bar__title">2026년 3월 정산 상세</span>
+                            <span class="settle-chip settle-chip--pending"><img src="../../../images/ico-chip-clock.svg" width="13" height="13" alt="">정산 대기</span>
+                        </div>
+                        <div class="dashboard-bar__meta">
+                            <span class="dashboard-bar__meta-item">
+                                <span class="dashboard-bar__meta-label">정산 기간</span>
+                                <span class="dashboard-bar__meta-value">2026.03.01 ~ 2026.03.31</span>
+                            </span>
+                            <span class="dashboard-bar__meta-item">
+                                <span class="dashboard-bar__meta-label">정산 예정일</span>
+                                <span class="dashboard-bar__meta-value">2026.04.10</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="dashboard-bar__actions">
+                        <div class="dashboard-bar__btn-group">
+                            <button type="button" class="btn md border-primary btn--icon">
+                                <img src="../../../images/Ico_16px_printer.svg" width="16" height="16" alt="">
+                                인쇄
+                            </button>
+                            <button type="button" class="btn md border-primary btn--icon">
+                                <img src="../../../images/Ico_16px_out.svg" width="16" height="16" alt="">
+                                내보내기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 정산 금액 요약 (4 카드) -->
+                <div class="settlement-summary-panel">
+                    <h3 class="dashboard-bar__title">정산 금액 요약</h3>
+                    <div class="count-card-grid">
+                        <div class="count-card count-card--summary">
+                            <span class="count-card__label">총 매출액</span>
+                            <span class="count-card__value">400,309,000<span class="count-card__unit">원</span></span>
+                            <span class="count-card__sub">판매 완료 기준</span>
+                        </div>
+                        <div class="count-card count-card--summary">
+                            <span class="count-card__label">플랫폼 수수료</span>
+                            <span class="count-card__value">-400,309,000<span class="count-card__unit">원</span></span>
+                            <span class="count-card__sub">순매출의 11%</span>
+                        </div>
+                        <div class="count-card count-card--summary">
+                            <span class="count-card__label">플랫폼 수수료</span>
+                            <span class="count-card__value">-461,800<span class="count-card__unit">원</span></span>
+                            <span class="count-card__sub">순매출의 11%</span>
+                        </div>
+                        <div class="count-card count-card--summary">
+                            <span class="count-card__label">정산 지급액</span>
+                            <span class="count-card__value count-card__value--primary">400,309,000<span class="count-card__unit">원</span></span>
+                            <span class="count-card__sub">지급 예정 (2026.04.10)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 탭 메뉴 -->
+                <nav class="detail-tab">
+                    <button class="detail-tab__item active">정산 기본 정보</button>
+                    <button class="detail-tab__item">상품별 매출 내역</button>
+                    <button class="detail-tab__item">정산 후 취소 내역</button>
+                </nav>
+
+                <!-- 탭 콘텐츠: 정산 기본 정보 -->
+                <div class="list-panel list-panel--p30">
+                    <div class="detail-form__section">
+                        <h3 class="detail-form__section-title">정산 기본 정보</h3>
+                        <div class="detail-form__grid">
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">정산 번호</span>
+                                <span class="detail-form__text">{정산번호}</span>
+                            </div>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">정산일 / 정산기간</span>
+                                <span class="detail-form__text">2000.00.00 (2000.00.00 ~ 2000.00.00)</span>
+                            </div>
+
+                            <div class="detail-form__field detail-form__field--full">
+                                <span class="detail-form__label">정산 상태</span>
+                                <span><span class="settle-chip settle-chip--pending"><img src="../../../images/ico-chip-clock.svg" width="13" height="13" alt="">정산 대기</span></span>
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">정산건수</span>
+                                <span class="detail-form__text" style="color:var(--color-blue);">000</span>
+                            </div>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">결제건수 / 정산 후 취소 건수</span>
+                                <span class="detail-form__text">000 / 0</span>
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">결제금액(원)</span>
+                                <span class="detail-form__text">000,000</span>
+                            </div>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">공급가액(원)</span>
+                                <span class="detail-form__text">000,000</span>
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">부가세</span>
+                                <span class="detail-form__text">000,000</span>
+                            </div>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">판매수수료(원, 부가세포함)</span>
+                                <span class="detail-form__text">000,000</span>
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">PG수수료</span>
+                                <span class="detail-form__text">{정산번호}</span>
+                            </div>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">정산금액(원, 부가세포함)</span>
+                                <span class="detail-form__text" style="color:var(--color-blue); font-weight:600;">0,000,000</span>
+                            </div>
+
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">정산 후 취소액</span>
+                                <span class="detail-form__text">000,000</span>
+                            </div>
+                            <div class="detail-form__field">
+                                <span class="detail-form__label">생성 일시</span>
+                                <span class="detail-form__text">2000.00.00 오전/오후 00:00 (자동 생성)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 입금 계좌 번호 (dispatch-info-bar) -->
+                    <div class="detail-form__section settlement-bank-section">
+                        <span class="detail-form__label">입금 계좌 번호</span>
+                        <div class="dispatch-info-bar">
+                            <div class="dispatch-info-bar__item">
+                                <span class="dispatch-info-bar__label">은행</span>
+                                <span class="dispatch-info-bar__value">{은행명}</span>
+                            </div>
+                            <div class="dispatch-info-bar__item">
+                                <span class="dispatch-info-bar__label">계좌번호</span>
+                                <span class="dispatch-info-bar__value">000-000-00000</span>
+                            </div>
+                            <div class="dispatch-info-bar__item">
+                                <span class="dispatch-info-bar__label">예금주</span>
+                                <span class="dispatch-info-bar__value">홍길동</span>
+                            </div>
+                            <div></div>
+                            <div class="dispatch-info-bar__item dispatch-info-bar__item--right">
+                                <span class="status-chip status-chip--xs" style="background:#6756ED; color:#fff;">계좌 인증 완료</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- 날짜 선택 팝업 달력 -->
+    <div class="c-calendar c-calendar--popup" id="datePopupCalendar">
+        <div class="c-calendar__header">
+            <button class="c-calendar__nav" aria-label="이전 달">
+                <img src="../../../images/arrow-calendar-disabled.svg" width="20" height="20" alt="">
+            </button>
+            <span class="c-calendar__title">January, 2021</span>
+            <button class="c-calendar__nav" aria-label="다음 달">
+                <img src="../../../images/arrow-calendar-active.svg" width="20" height="20" alt="">
+            </button>
+        </div>
+        <div class="c-calendar__weekdays">
+            <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+        </div>
+        <div class="c-calendar__grid">
+            <button class="c-calendar__day c-calendar__day--muted">27</button>
+            <button class="c-calendar__day c-calendar__day--muted">28</button>
+            <button class="c-calendar__day c-calendar__day--muted">29</button>
+            <button class="c-calendar__day c-calendar__day--muted">30</button>
+            <button class="c-calendar__day c-calendar__day--muted">31</button>
+            <button class="c-calendar__day">1</button>
+            <button class="c-calendar__day">2</button>
+            <button class="c-calendar__day c-calendar__day--selected">3</button>
+            <button class="c-calendar__day">4</button>
+            <button class="c-calendar__day">5</button>
+            <button class="c-calendar__day">6</button>
+            <button class="c-calendar__day c-calendar__day--today">7</button>
+            <button class="c-calendar__day">8</button>
+            <button class="c-calendar__day">9</button>
+            <button class="c-calendar__day">10</button>
+            <button class="c-calendar__day">11</button>
+            <button class="c-calendar__day">12</button>
+            <button class="c-calendar__day">13</button>
+            <button class="c-calendar__day">14</button>
+            <button class="c-calendar__day">15</button>
+            <button class="c-calendar__day">16</button>
+            <button class="c-calendar__day">17</button>
+            <button class="c-calendar__day">18</button>
+            <button class="c-calendar__day">19</button>
+            <button class="c-calendar__day">20</button>
+            <button class="c-calendar__day">21</button>
+            <button class="c-calendar__day">22</button>
+            <button class="c-calendar__day">23</button>
+            <button class="c-calendar__day">24</button>
+            <button class="c-calendar__day">25</button>
+            <button class="c-calendar__day">26</button>
+            <button class="c-calendar__day">27</button>
+            <button class="c-calendar__day">28</button>
+            <button class="c-calendar__day">29</button>
+            <button class="c-calendar__day">30</button>
+            <button class="c-calendar__day">31</button>
+            <button class="c-calendar__day c-calendar__day--muted">1</button>
+            <button class="c-calendar__day c-calendar__day--muted">2</button>
+            <button class="c-calendar__day c-calendar__day--muted">3</button>
+            <button class="c-calendar__day c-calendar__day--muted">4</button>
+            <button class="c-calendar__day c-calendar__day--muted">5</button>
+            <button class="c-calendar__day c-calendar__day--muted">6</button>
+        </div>
+    </div>
+
+<script>
+    function toggleDropdown(trigger) {
+        const isOpen = trigger.classList.contains('open');
+        document.querySelectorAll('.c-dropdown__trigger.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) trigger.classList.add('open');
+    }
+
+    function selectItem(item) {
+        const panel = item.closest('.c-dropdown__panel');
+        panel.querySelectorAll('.c-dropdown__item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const trigger = panel.previousElementSibling;
+        trigger.querySelector('.c-dropdown__label').textContent = item.textContent;
+        trigger.classList.remove('open');
+    }
+
+    function toggleProfileMenu(e) {
+        e.stopPropagation();
+        document.getElementById('headerUserMenu').classList.toggle('open');
+    }
+
+    /* 모바일 LNB 토글 (햄버거 메뉴) */
+    function toggleSideNav() {
+        const lnb = document.querySelector('.admin-lnb');
+        const backdrop = document.querySelector('.admin-lnb__backdrop');
+        lnb.classList.toggle('admin-lnb--open');
+        backdrop.classList.toggle('admin-lnb__backdrop--open');
+    }
+
+    function closeAllLnb() {
+        document.querySelectorAll('.lnb-accordion.open').forEach(el => el.classList.remove('open'));
+    }
+
+    function toggleLnb(btn) {
+        const accordion = btn.closest('.lnb-accordion');
+        const isOpen = accordion.classList.contains('open');
+        closeAllLnb();
+        if (!isOpen) accordion.classList.add('open');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#headerUserMenu')) {
+            document.getElementById('headerUserMenu').classList.remove('open');
+        }
+        if (!e.target.closest('.c-date-input') && !e.target.closest('.c-calendar')) {
+            document.getElementById('datePopupCalendar')?.classList.remove('is-open');
+        }
+    });
+
+    function toggleCalendar(wrap) {
+        const cal = document.getElementById('datePopupCalendar');
+        if (!cal) return;
+        const isCurrent = cal.dataset.target === wrap.dataset.calId;
+        if (cal.classList.contains('is-open') && isCurrent) {
+            cal.classList.remove('is-open');
+            return;
+        }
+        const id = wrap.dataset.calId || ('cal-' + Math.random().toString(36).slice(2, 8));
+        wrap.dataset.calId = id;
+        const rect = wrap.getBoundingClientRect();
+        cal.style.top = (rect.bottom + window.scrollY + 4) + 'px';
+        cal.style.left = (rect.left + window.scrollX) + 'px';
+        cal.classList.add('is-open');
+        cal.dataset.target = id;
+    }
+</script>
+
+</body>
+</html>
