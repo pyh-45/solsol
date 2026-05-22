@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 정산 정보관리 - 등록(개인사업자)</title>
+    <title>Admin - 정산 정보 상세 (개인사업자)</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -25,6 +25,7 @@
             <div class="admin-header__nav">
                 <span class="admin-header__page-title">상세페이지</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+                <span class="btn xs" style="background:#6756ED; color:#fff; margin-left:-6px;">승인</span>
             </div>
             <div class="admin-header__search">
                 <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
@@ -259,7 +260,7 @@
                 <!-- 인포박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">사이트 소유자 정보는 <strong>설정 &gt; 기본정보</strong>에서 입력한 사업자 정보를 기준으로 합니다. 입력한 정보가 유효하지 않거나 확인이 필요한 경우 정산이 보류될 수 있습니다. 정산이 보류되는 경우, 1:1문의를 이용해주세요.<br>정산에 관련한 자세한 내용은 <strong>정산 가이드</strong>를 통해 확인하실 수 있습니다.</span>
+                    <span class="admin-infotip__text">입력한 정보가 유효하지 않거나 확인이 필요한 경우 정산이 보류될 수 있습니다.<br>정산에 관련한 자세한 내용은 <strong>정산 가이드</strong>를 통해 확인하실 수 있습니다.</span>
                 </div>
 
                 <!-- 상단 액션바 -->
@@ -267,21 +268,16 @@
                     <button type="button" class="btn lg dark">확인</button>
                 </div>
 
-                <!-- 1. 사업자 유형 탭 -->
-                <nav class="detail-tab">
-                    <button class="detail-tab__item active">개인사업자</button>
-                    <button class="detail-tab__item">법인사업자</button>
-                    <button class="detail-tab__item">개인</button>
-                </nav>
-
-                <!-- 2. 사이트 소유자 정보 (읽기 전용) -->
+                <!-- 사이트 소유자 정보 -->
                 <div class="list-panel list-panel--p30">
                     <h3 class="detail-form__section-title">사이트 소유자 정보</h3>
-
                     <div class="detail-form__grid">
                         <div class="detail-form__field">
                             <span class="detail-form__label">사업자등록번호</span>
-                            <span class="detail-form__text">000-00-00000</span>
+                            <span class="detail-form__text">
+                                <span class="status-chip status-chip--outline-purple" style="margin-right:6px;">개인사업자</span>
+                                000-00-00000
+                            </span>
                         </div>
                         <div class="detail-form__field">
                             <span class="detail-form__label">회사명</span>
@@ -310,122 +306,98 @@
                     </div>
                 </div>
 
-                <!-- 3. 정산 담당자 정보 -->
+                <!-- 정산 담당자 정보 -->
                 <div class="list-panel list-panel--p30">
                     <h3 class="detail-form__section-title">정산 담당자 정보</h3>
-
                     <div class="detail-form__grid">
                         <div class="detail-form__field">
-                            <span class="detail-form__label">이름 <span class="auth-required">*</span></span>
-                            <input type="text" class="detail-form__input" value="홍길동">
+                            <span class="detail-form__label">이름</span>
+                            <span class="detail-form__text">홍길동</span>
                         </div>
                         <div class="detail-form__field">
-                            <span class="detail-form__label">휴대폰 번호 <span class="auth-required">*</span></span>
-                            <input type="text" class="detail-form__input" value="010-0000-0000">
+                            <span class="detail-form__label">휴대폰 번호</span>
+                            <span class="detail-form__text">010-000-0000</span>
                         </div>
                         <div class="detail-form__field">
-                            <span class="detail-form__label">이메일 <span class="auth-required">*</span></span>
-                            <div class="detail-form__field-row">
-                                <input type="text" class="detail-form__input" value="example@example.com" style="flex:1; min-width:0;">
-                                <button type="button" class="btn md border-primary">이메일 인증</button>
-                            </div>
-                            <div class="detail-form__field-row" style="margin-top:8px;">
-                                <input type="text" class="detail-form__input" placeholder="인증코드 6자리" maxlength="6" style="width:200px;">
-                                <button type="button" class="btn md border-primary">확인</button>
-                            </div>
+                            <span class="detail-form__label">이메일</span>
+                            <span class="detail-form__text">example@example.com</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4. 입금 계좌 정보 -->
+                <!-- 입금 계좌 정보 -->
                 <div class="list-panel list-panel--p30">
                     <h3 class="detail-form__section-title">입금 계좌 정보</h3>
-
-                    <p class="c-hint c-hint--info">계좌 등록 유의사항 : <strong>법인 명의의 계좌만</strong> 등록할 수 있습니다. <strong>통장 사본에 표기된 예금주명</strong> 그대로 입력해 주세요. 사업자 통장의 예금주명은 사업자명 그대로 개설되지 않을 수 있습니다</p>
-
                     <div class="detail-form__grid">
-                        <!-- 은행명 -->
                         <div class="detail-form__field">
-                            <span class="detail-form__label">은행명 <span class="auth-required">*</span></span>
-                            <div class="c-dropdown" style="width:100%;">
-                                <button type="button" class="c-dropdown__trigger" onclick="toggleDropdown(this)" style="width:100%; max-width:none;">
-                                    <span class="c-dropdown__label" style="color:var(--text-placeholder);">은행을 선택하세요</span>
-                                    <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                </button>
-                                <div class="c-dropdown__panel">
-                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">신한은행</button>
-                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">국민은행</button>
-                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">우리은행</button>
-                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">하나은행</button>
-                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">기업은행</button>
-                                    <button type="button" class="c-dropdown__item" onclick="selectItem(this)">농협은행</button>
-                                </div>
-                            </div>
+                            <span class="detail-form__label">은행명</span>
+                            <span class="detail-form__text">신한은행</span>
                         </div>
-
-                        <!-- 계좌번호 -->
                         <div class="detail-form__field">
-                            <span class="detail-form__label">계좌번호 <span class="auth-required">*</span></span>
-                            <input type="text" class="detail-form__input" placeholder='계좌번호를 "-"없이 입력하세요'>
-                            <p class="c-hint c-hint--warn">숫자만 입력해주세요.</p>
+                            <span class="detail-form__label">계좌번호</span>
+                            <span class="detail-form__text">000-***-000000</span>
                         </div>
-
-                        <!-- 예금주 -->
                         <div class="detail-form__field">
-                            <span class="detail-form__label">예금주 <span class="auth-required">*</span></span>
-                            <input type="text" class="detail-form__input" placeholder="통장사본과 동일하게 입력해주세요">
-                            <p class="c-hint c-hint--warn">필수 항목입니다. 반드시 입력해주세요.</p>
+                            <span class="detail-form__label">예금주</span>
+                            <span class="detail-form__text">홍길동</span>
                         </div>
-
-                        <!-- 입금 계좌 인증 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <button type="button" class="btn--add">입금 계좌 인증</button>
-                        </div>
-
-                        <!-- 인증 결과 알림 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <p class="c-hint c-hint--info">정상적으로 인증되었습니다</p>
-                            <p class="c-hint c-hint--warn" style="margin-top:6px;">인증하지 못했습니다. 입력 정보를 확인해 주세요</p>
-                        </div>
-
-                        <!-- 인증 초기화 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <button type="button" class="btn--add">인증 초기화</button>
-                        </div>
-
-                        <!-- 통장 사본 -->
-                        <div class="detail-form__field detail-form__field--full">
-                            <span class="detail-form__label">통장 사본 <span class="auth-required">*</span></span>
-                            <div class="detail-form__field-row">
-                                <button type="button" class="btn md border">파일 업로드</button>
-                                <div style="display:inline-flex; align-items:center; gap:6px;">
-                                    <span style="font-size:13px; color:var(--text-primary);">{파일명.확장자}</span>
-                                    <button type="button" aria-label="삭제" style="width:18px; height:18px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary);">×</button>
-                                </div>
-                                <span style="font-size:12px; color:var(--text-secondary);">확장자는 pdf, jpg, jpeg, png, 파일 크기는 최대 5MB 이내만 가능합니다.</span>
-                            </div>
+                        <div class="detail-form__field">
+                            <span class="detail-form__label">인증 상태</span>
+                            <span><span class="status-chip status-chip--sent">계좌 인증 완료</span></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 5. 개인정보 수집 및 이용에 대한 안내 (panel-less plain text) -->
+                <!-- 처리 로그 -->
                 <div class="list-panel list-panel--p30">
-                    <h3 class="detail-form__section-title">개인정보 수집 및 이용에 대한 안내</h3>
-
-                    <div class="settle-privacy">
-                        <p>정산 정보 등록 및 대금지급 등을 위해 개인정보 보호법 제 15조제1항제4호(계약 체결·이행)에 따라, 다음과 같은 개인정보를 수집·이용합니다.</p>
-
-                        <h4 class="settle-privacy__head">수집하는 개인정보 항목 :</h4>
-                        <ul class="settle-privacy__list">
-                            <li>법인/개인사업자의 경우 :<br>사업자 정보(사업자등록번호, 회사명, 대표자명, 사업장 소재지, 업태, 업종), 정산 담당자 정보(이름, 전화번호, 이메일 주소), 계좌정보(은행명, 계좌번호, 예금주명), 증빙서류(사업자등록증, 통장사본)</li>
-                            <li>개인의 경우<br>- 내국인 : 이름, 국적, 거주국가, 주소, 전화번호, 이메일 주소, 계좌정보(은행명, 계좌번호, 예금주명), 증빙서류(통장사본)<br>- 외국인 : 이름, 국적, 거주국가, 주소, 전화번호, 이메일 주소, 계좌정보(은행명, 계좌번호, 예금주명), 증빙서류(통장사본)</li>
-                        </ul>
-
-                        <p>자세한 사항은 <strong>개인정보처리방침</strong>을 참고해주시기 바랍니다.</p>
+                    <h3 class="tab-info-title">처리 로그</h3>
+                    <div class="admin-table-wrap">
+                        <table class="tab-table">
+                            <thead>
+                                <tr>
+                                    <th style="min-width:200px;">처리일시</th>
+                                    <th style="min-width:200px;">처리자</th>
+                                    <th class="td-left">메모</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell" style="justify-content:center;">
+                                            <div class="c-avatar30 manager"></div>
+                                            <div class="user-cell__info">
+                                                <div class="user-cell__name">
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="td-left">정산 정보 심사가 통과되었습니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>2000.00.00 오전/오후 00:00</td>
+                                    <td>
+                                        <div class="user-cell" style="justify-content:center;">
+                                            <div class="c-avatar30 manager"></div>
+                                            <div class="user-cell__info">
+                                                <div class="user-cell__name">
+                                                    <span class="role-badge role-badge--manager">관리자</span>
+                                                    닉네임
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="td-left">정산 정보 심사가 통과되었습니다.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
             </div>
+
         </main>
 
     </div>

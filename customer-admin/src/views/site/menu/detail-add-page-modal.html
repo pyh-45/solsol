@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이지 선택</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal completion-modal--xl">
+
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">페이지 선택</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body" style="padding-bottom:24px;">
+
+            <!-- 안내 인포 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span class="admin-infotip__text">원하시는 페이지 1개를 선택하여 메뉴를 생성할 수 있습니다<br>페이지는 1개만 선택 가능합니다</span>
+            </div>
+
+            <!-- 검색 -->
+            <div class="tutor-search">
+                <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                <input type="text" class="tutor-search__input" placeholder="페이지명 검색">
+            </div>
+
+            <p class="search-result-count" style="margin-bottom:-6px;">검색결과 <strong>0</strong>개</p>
+
+            <!-- 페이지 목록 -->
+            <div class="tutor-pick-list">
+                <div class="tutor-pick-list__scroll">
+                <table class="admin-table tutor-pick-table">
+                    <colgroup>
+                        <col style="width:30px;">
+                        <col style="width:220px;">
+                        <col>
+                        <col style="width:200px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;"><input type="checkbox" class="table-check"></th>
+                            <th>페이지명</th>
+                            <th>페이지 설명</th>
+                            <th>등록일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <span>{페이지명}</span>
+                                    <button type="button" class="btn sm border btn--icon"><img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">미리보기</button>
+                                </div>
+                            </td>
+                            <td>{페이지 설명}</td>
+                            <td>2000.00.00 오전/오후 00:00</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <span>{페이지명}</span>
+                                </div>
+                            </td>
+                            <td>{페이지 설명}</td>
+                            <td>2000.00.00 오전/오후 00:00</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <span>{페이지명}</span>
+                                    <button type="button" class="btn sm border btn--icon"><img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">미리보기</button>
+                                </div>
+                            </td>
+                            <td>{페이지 설명}</td>
+                            <td>2000.00.00 오전/오후 00:00</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"><input type="checkbox" class="table-check"></td>
+                            <td>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <span>{페이지명}</span>
+                                    <button type="button" class="btn sm border btn--icon"><img src="../../../images/ico-16px-view.svg" width="16" height="16" alt="">미리보기</button>
+                                </div>
+                            </td>
+                            <td>{페이지 설명}</td>
+                            <td>2000.00.00 오전/오후 00:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="modal-pagination">
+                <button type="button" class="pagination__btn" disabled>‹</button>
+                <button type="button" class="pagination__btn active">1</button>
+                <button type="button" class="pagination__btn">2</button>
+                <button type="button" class="pagination__btn">3</button>
+                <button type="button" class="pagination__btn">4</button>
+                <button type="button" class="pagination__btn">5</button>
+                <button type="button" class="pagination__btn">›</button>
+            </div>
+
+            <!-- 선택된 페이지 -->
+            <div class="tutor-selected">
+                <h4 class="tutor-selected__title" style="color:var(--text-primary);">선택된 페이지 {n}</h4>
+                <div class="tutor-selected__tags">
+                    <span class="user-tag user-tag--plain">
+                        {페이지명}
+                        <button type="button" class="user-tag__remove" aria-label="삭제">×</button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="c-modal__footer">
+            <button type="button" class="btn big">확인</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

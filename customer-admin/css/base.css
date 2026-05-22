@@ -2574,6 +2574,8 @@ tr:has(.c-check:checked) {
 /* 학습 상태 / 수강 상태 칩 추가 변형 */
 .status-chip--outline-green  { background: transparent; border: 1px solid var(--color-green); color: var(--color-green); }
 .status-chip--outline-gray   { background: transparent; border: 1px solid var(--text-tertiary); color: var(--text-tertiary); }
+.status-chip--outline-purple { background: transparent; border: 1px solid var(--color-purple); color: var(--color-purple); }
+.status-chip--outline-blue   { background: transparent; border: 1px solid var(--color-blue); color: var(--color-blue); }
 .status-chip--success          { background: var(--status-success-bg); color: var(--status-success-text); }
 .status-chip--info           { background: var(--status-info-bg); color: var(--status-info-text); }
 .status-chip--danger            { background: var(--status-danger-bg); color: var(--status-danger-text); }
@@ -3289,6 +3291,7 @@ tr:has(.c-check:checked) {
 .setting-table__textarea-wrap { position: relative; }
 .setting-table__textarea-wrap .setting-table__textarea { padding-bottom: 28px; }
 .setting-table__counter { position: absolute; bottom: 10px; right: 12px; font-size: 12px; color: var(--text-tertiary); }
+.setting-table__file-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--color-blue); text-decoration: underline; }
 .setting-check-row { display: flex; align-items: center; gap: 24px; }
 .setting-check-label { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #333; cursor: pointer; }
 .setting-check-label input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; }

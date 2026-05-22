@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - 정산 정보관리 - 등록(개인사업자)</title>
+    <title>Admin - 정산 정보관리 - 등록(법인사업자)</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -25,6 +25,7 @@
             <div class="admin-header__nav">
                 <span class="admin-header__page-title">상세페이지</span>
                 <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+                <span class="btn xs" style="background:#6756ED; color:#fff; margin-left:-6px;">승인</span>
             </div>
             <div class="admin-header__search">
                 <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
@@ -259,7 +260,7 @@
                 <!-- 인포박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">사이트 소유자 정보는 <strong>설정 &gt; 기본정보</strong>에서 입력한 사업자 정보를 기준으로 합니다. 입력한 정보가 유효하지 않거나 확인이 필요한 경우 정산이 보류될 수 있습니다. 정산이 보류되는 경우, 1:1문의를 이용해주세요.<br>정산에 관련한 자세한 내용은 <strong>정산 가이드</strong>를 통해 확인하실 수 있습니다.</span>
+                    <span class="admin-infotip__text">입력한 정보가 유효하지 않거나 확인이 필요한 경우 정산이 보류될 수 있습니다.<br>정산에 관련한 자세한 내용은 <strong>정산 가이드</strong>를 통해 확인하실 수 있습니다.</span>
                 </div>
 
                 <!-- 상단 액션바 -->
@@ -269,8 +270,8 @@
 
                 <!-- 1. 사업자 유형 탭 -->
                 <nav class="detail-tab">
-                    <button class="detail-tab__item active">개인사업자</button>
-                    <button class="detail-tab__item">법인사업자</button>
+                    <button class="detail-tab__item">개인사업자</button>
+                    <button class="detail-tab__item active">법인사업자</button>
                     <button class="detail-tab__item">개인</button>
                 </nav>
 
@@ -278,13 +279,15 @@
                 <div class="list-panel list-panel--p30">
                     <h3 class="detail-form__section-title">사이트 소유자 정보</h3>
 
+                    <p class="c-hint c-hint--info">만일 사업자등록증(법인)이 변경될 경우, <strong>쏠쏠 사이트</strong>에 사업자 등록증을 다시 업로드 하신 후 인증해주세요</p>
+
                     <div class="detail-form__grid">
                         <div class="detail-form__field">
                             <span class="detail-form__label">사업자등록번호</span>
                             <span class="detail-form__text">000-00-00000</span>
                         </div>
                         <div class="detail-form__field">
-                            <span class="detail-form__label">회사명</span>
+                            <span class="detail-form__label">법인명</span>
                             <span class="detail-form__text">DJ테크트리</span>
                         </div>
                         <div class="detail-form__field">
