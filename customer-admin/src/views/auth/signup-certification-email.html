@@ -4,35 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>인증 메일 발송</title>
-    <link rel="stylesheet" href="../../../css/base.css">
 </head>
-<body>
+<body style="margin:0; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size:14px; color:#333333; -webkit-font-smoothing:antialiased;">
 
-<div class="c-modal-overlay">
-    <div class="c-modal c-modal--gap20">
+<div style="position:fixed; inset:0; background:rgba(0,0,0,0.4); z-index:1000; display:flex; align-items:center; justify-content:center;">
+    <div style="width:400px; background:#fff; border-radius:12px; padding:30px; display:flex; flex-direction:column; gap:20px; box-sizing:border-box;">
 
         <!-- 로고 -->
-        <div class="c-modal__logo">DJ테크트리</div>
+        <div style="text-align:center; font-size:24px; font-weight:900; letter-spacing:-0.02em; padding:30px; background:linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">DJ테크트리</div>
 
         <!-- 내용 -->
-        <div class="c-modal__content">
-            <p class="c-modal__title">인증 메일을 발송했습니다.</p>
-            <p class="c-modal__desc"><strong>{강사/운영자 이메일 주소}</strong>로<br>인증코드를 포함한 이메일을 발송했습니다.<br>메일함을 확인하고 인증코드를 입력해 주세요.</p>
-            <hr class="auth-divider">
-            <ul class="c-modal__info-list">
-                <li>인증코드는 <strong>10분간</strong> 유효합니다. 시간 내에 입력해 주세요.</li>
-                <li>메일이 보이지 않는다면 <strong>스팸 메일함</strong>을 확인해 보세요.</li>
-                <li>발신 주소: <strong>{최종관리자 이메일}</strong></li>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;">
+            <p style="margin:0; font-size:20px; font-weight:700; line-height:1.4; color:#333333; letter-spacing:-0.02em;">인증 메일을 발송했습니다.</p>
+            <p style="margin:0; width:100%; text-align:center; font-size:13px; color:#424242; line-height:1.5;"><strong>{강사/운영자 이메일 주소}</strong>로<br>인증코드를 포함한 이메일을 발송했습니다.<br>메일함을 확인하고 인증코드를 입력해 주세요.</p>
+            <hr style="border:none; border-top:1px solid #EAEAEA; margin:0; width:100%;">
+            <ul style="margin:0; width:100%; background:#fff; border:1px solid #E0E0E0; border-radius:8px; padding:14px 30px 14px 30px; display:flex; flex-direction:column; gap:4px; list-style:disc; text-align:left;box-sizing: border-box;">
+                <li style="font-size:12px; color:#666666; line-height:1.5;">인증코드는 <strong style="color:#333333; font-weight:600;">10분간</strong> 유효합니다. 시간 내에 입력해 주세요.</li>
+                <li style="font-size:12px; color:#666666; line-height:1.5;">메일이 보이지 않는다면 <strong style="color:#333333; font-weight:600;">스팸 메일함</strong>을 확인해 보세요.</li>
+                <li style="font-size:12px; color:#666666; line-height:1.5;">발신 주소: <strong style="color:#333333; font-weight:600;">{최종관리자 이메일}</strong></li>
             </ul>
-            <div class="c-modal__timer">
-                <span class="c-modal__timer-label">남은 유효시간</span>
-                <span class="c-modal__timer-value">02:47</span>
+            <div style="width:100%; background:#EEF5FF; border-radius:8px; padding:16px; display:flex; align-items:center; justify-content:center; gap:8px; box-sizing:border-box;">
+                <span style="font-size:14px; color:#027CFA;">남은 유효시간</span>
+                <span style="font-size:16px; font-weight:700; color:#027CFA;;">02:47</span>
             </div>
         </div>
 
         <!-- 버튼 -->
-        <div class="c-modal__footer">
-            <button class="btn lg">확인</button>
+        <div style="display:flex; justify-content:center; gap:6px;">
+            <button style="display:inline-flex; align-items:center; justify-content:center; gap:6px; width:100%; height:44px; padding:0 24px; font-size:15px; font-weight:500; color:#fff; background-color:#4FC0FC; border:1px solid transparent; border-radius:6px; cursor:pointer; letter-spacing:-0.02em;">확인</button>
         </div>
 
     </div>
