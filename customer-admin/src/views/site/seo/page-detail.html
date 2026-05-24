@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - SEO 설정</title>
+    <title>Admin - SEO 설정 상세페이지</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -22,8 +22,13 @@
         </div>
 
         <div class="admin-header__center">
-            <span class="admin-header__page-title">SEO 설정</span>
-            <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+            <div class="admin-header__nav">
+                <button class="admin-header__back">
+                    <img src="../../../images/ico-previous.svg" width="20" height="20" alt="">
+                </button>
+                <span class="admin-header__page-title">상세페이지</span>
+                <span class="btn xs dark"><span class="guide-ico">i</span> 가이드</span>
+            </div>
             <div class="admin-header__search">
                 <img src="../../../images/Ico-search.svg" alt="" width="24" height="24">
                 <input type="text" class="admin-header__search-input" placeholder="닉네임, 이름으로 검색">
@@ -258,114 +263,170 @@
                 <!-- 인포박스 -->
                 <div class="admin-infotip">
                     <span class="admin-infotip__icon">i</span>
-                    <span class="admin-infotip__text">사용중인 상품만 목록에 표시됩니다. 상품 콘텐츠 관리는 <strong>상품</strong>에서 진행해 주세요.</span>
+                    <span class="admin-infotip__text">페이지별 검색 설정을 할 수 있습니다. 페이지 편집은 <strong>페이지</strong> 메뉴에서 가능합니다.</span>
+                </div>
+
+                <!-- 상단 액션바 -->
+                <div class="setting-action-bar">
+                    <button type="button" class="btn lg border">목록</button>
+                    <button type="button" class="btn lg dark">저장</button>
                 </div>
 
                 <!-- 탭 메뉴 -->
                 <nav class="detail-tab">
                     <button class="detail-tab__item">사이트 설정</button>
-                    <button class="detail-tab__item">페이지별 설정</button>
-                    <button class="detail-tab__item active">상품별 설정</button>
+                    <button class="detail-tab__item active">페이지별 설정</button>
+                    <button class="detail-tab__item">상품별 설정</button>
                 </nav>
 
-                <!-- 상품 목록 -->
-                <div class="list-panel">
-                    <div class="list-panel__header list-panel__header--tab">
-                        <span class="list-panel__title">상품 목록</span>
+                <!-- 단일 패널: 좌측 폼 섹션 + 우측 미리보기 -->
+                <div class="list-panel list-panel--p30">
+                    <div style="display:grid; grid-template-columns:1fr 360px; gap:24px; align-items:start;">
+
+                        <!-- ============ 좌측 폼 ============ -->
+                        <div style="display:flex; flex-direction:column; gap:24px;">
+
+                            <!-- 기본 설정 섹션 -->
+                            <div class="detail-form__section">
+                                <h3 class="detail-form__section-title">기본 설정</h3>
+
+                                <p class="c-hint c-hint--info" style="margin:0 0 16px;"><span>네이버, 구글 등 검색사이트에서 사이트가 어떻게 보일지 설정할 수 있습니다.</span></p>
+
+                                <div style="display:flex; flex-direction:column; gap:16px;">
+
+                                    <!-- 검색엔진 색인 허용 -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">검색엔진 색인 허용</span>
+                                        <div style="display:flex; align-items:center; gap:10px;">
+                                            <label class="c-toggle">
+                                                <input type="checkbox" checked>
+                                                <span class="c-toggle__slider"></span>
+                                            </label>
+                                            <span style="font-size:14px; font-weight:600; color:var(--text-primary);">ON</span>
+                                            <span style="font-size:13px; color:var(--text-secondary);">검색 결과에 사이트를 노출합니다</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- 페이지 선택 -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">페이지 선택 <span class="auth-required">*</span></span>
+                                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                                            <span class="keyword-tags__chip keyword-tags__chip--outline">{페이지명} ({메뉴명})<button type="button" class="keyword-tags__chip-remove" aria-label="삭제">×</button></span>
+                                            <span class="keyword-tags__chip keyword-tags__chip--outline">{페이지명} ({메뉴명})<button type="button" class="keyword-tags__chip-remove" aria-label="삭제">×</button></span>
+                                            <button type="button" class="btn md border">페이지 선택</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 제목 태그 -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">제목 태그 <span class="auth-required">*</span></span>
+                                        <div style="display:flex; gap:8px;">
+                                            <input type="text" class="detail-form__input" placeholder="예) 쏠쏠 LMS - 온라인 강의 플랫폼" style="flex:1;">
+                                            <button type="button" class="btn md border">변수 추가</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 설명 -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">설명</span>
+                                        <div style="display:flex; gap:8px; align-items:flex-start;">
+                                            <div class="textarea-counter" style="flex:1;">
+                                                <textarea class="detail-form__textarea" placeholder="설명을 입력해주세요."></textarea>
+                                                <span class="textarea-counter__count"><strong>0</strong>자 / 200자</span>
+                                            </div>
+                                            <button type="button" class="btn md border">변수 추가</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 키워드 -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">키워드</span>
+                                        <div class="keyword-tags">
+                                            <span class="keyword-tags__chip">온라인 강의<button type="button" class="keyword-tags__chip-remove" aria-label="삭제">×</button></span>
+                                            <span class="keyword-tags__chip">LMS<button type="button" class="keyword-tags__chip-remove" aria-label="삭제">×</button></span>
+                                            <span class="keyword-tags__chip">AI 학습<button type="button" class="keyword-tags__chip-remove" aria-label="삭제">×</button></span>
+                                            <input type="text" class="keyword-tags__input" placeholder="키워드 입력 후, 쉼표 또는 Enter를 입력하세요">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- SNS 공유 설정 섹션 -->
+                            <div class="detail-form__section">
+                                <h3 class="detail-form__section-title">SNS 공유 설정 (Open Graph)</h3>
+
+                                <p class="c-hint c-hint--info" style="margin:0 0 16px;"><span>카카오톡, 페이스북에 사이트 링크를 공유할 때, 보여지는 이미지와 소개 문구를 설정할 수 있습니다.</span></p>
+
+                                <div style="display:flex; flex-direction:column; gap:16px;">
+
+                                    <!-- 제목 (og:title) -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">제목 (og:title)</span>
+                                        <div style="display:flex; gap:8px;">
+                                            <input type="text" class="detail-form__input" placeholder="예) 맑은 AI LMS - 온라인 강의 플랫폼" style="flex:1;">
+                                            <button type="button" class="btn md border">변수 추가</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 설명 (og:description) -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">설명 (og:description)</span>
+                                        <div style="display:flex; gap:8px; align-items:flex-start;">
+                                            <div class="textarea-counter" style="flex:1;">
+                                                <textarea class="detail-form__textarea" placeholder="설명을 입력해주세요. (최대 200자)"></textarea>
+                                                <span class="textarea-counter__count"><strong>0</strong>자 / 200자</span>
+                                            </div>
+                                            <button type="button" class="btn md border">변수 추가</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- 이미지 (og:image) -->
+                                    <div class="detail-form__field">
+                                        <span class="detail-form__label">이미지 (og:image)</span>
+                                        <div style="display:flex; align-items:center; gap:12px;">
+                                            <button type="button" class="btn md border">파일 업로드</button>
+                                            <span style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text-primary);">
+                                                {파일명.확장자}
+                                                <button type="button" aria-label="삭제" style="width:16px; height:16px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:16px; line-height:1;">×</button>
+                                            </span>
+                                        </div>
+                                        <p class="detail-form__hint" style="margin:8px 0 0;">권장 사이즈: 1200 × 630 px · 최대 2MB<br>JPG, PNG, WEBP 권장 · SNS 공유 시 표시되는 섬네일 이미지</p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ============ 우측 미리보기 ============ -->
+                        <div class="msg-preview">
+                            <div class="msg-preview__header">
+                                <span class="msg-preview__label">미리보기</span>
+                                <div style="display:flex; gap:4px;">
+                                    <button type="button" class="btn xs primary">Google</button>
+                                    <button type="button" class="btn xs border">SNS</button>
+                                </div>
+                            </div>
+
+                            <div class="seo-preview-card">
+                                <div class="seo-preview-card__top">
+                                    <img src="../../../images/ico-google-primary.svg" width="20" height="20" alt="Google">
+                                    <div class="seo-preview-card__site">
+                                        <div class="seo-preview-card__name">맑은 AI LMS</div>
+                                        <div class="seo-preview-card__url">https://malgeun.ai &rsaquo; 홈</div>
+                                    </div>
+                                </div>
+                                <h4 class="seo-preview-card__title">맑은 AI LMS - 온라인 강의 플랫폼</h4>
+                                <p class="seo-preview-card__desc">AI 기반 학습 환경에서 최고의 온라인 강의를 경험하세요. 맑은 AI LMS와 함께 더 스마트하게 배우세요.</p>
+                                <div class="seo-preview-card__refresh">
+                                    <img src="../../../images/Ico_12px_refresh.svg" width="12" height="12" alt="">
+                                    입력 시 실시간 반영
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-
-                    <div class="admin-table-wrap">
-                        <table class="tab-table">
-                            <thead>
-                                <tr>
-                                    <th style="width:120px;">이미지</th>
-                                    <th style="min-width:140px;">상품명</th>
-                                    <th style="min-width:160px;">상품 URL</th>
-                                    <th style="min-width:200px;">키워드</th>
-                                    <th style="min-width:220px;">제목 태그</th>
-                                    <th style="min-width:240px;">메타 설명</th>
-                                    <th style="width:100px;">색인 여부</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-                                    <td><img class="product-cell__thumb" src="../../../images/product-thumb.png" alt=""></td>
-                                    <td>{상품명}</td>
-                                    <td>/courses/20154</td>
-                                    <td>AI, 인공지능, 머신러닝</td>
-                                    <td>AI 기초 완성 과정 - 맑은 AI LMS</td>
-                                    <td>실무 데이터 분석을 파이썬으로 배웁니다.</td>
-                                    <td>
-                                        <label class="c-toggle">
-                                            <input type="checkbox" checked>
-                                            <span class="c-toggle__slider"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><img class="product-cell__thumb" src="../../../images/product-thumb.png" alt=""></td>
-                                    <td>{상품명}</td>
-                                    <td>/courses/20155</td>
-                                    <td>파이썬, 데이터 분석, pandas</td>
-                                    <td>파이썬 데이터 분석 - 맑은 AI LMS</td>
-                                    <td>실무 데이터 분석을 파이썬으로 배웁니다.</td>
-                                    <td>
-                                        <label class="c-toggle">
-                                            <input type="checkbox" checked>
-                                            <span class="c-toggle__slider"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><img class="product-cell__thumb" src="../../../images/product-thumb.png" alt=""></td>
-                                    <td>{상품명}</td>
-                                    <td>/courses/20155</td>
-                                    <td>파이썬, 데이터 분석, pandas</td>
-                                    <td>파이썬 데이터 분석 - 맑은 AI LMS</td>
-                                    <td>실무 데이터 분석을 파이썬으로 배웁니다.</td>
-                                    <td>
-                                        <label class="c-toggle">
-                                            <input type="checkbox" checked>
-                                            <span class="c-toggle__slider"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><img class="product-cell__thumb" src="../../../images/product-thumb.png" alt=""></td>
-                                    <td>{상품명}</td>
-                                    <td>/courses/20155</td>
-                                    <td>파이썬, 데이터 분석, pandas</td>
-                                    <td>파이썬 데이터 분석 - 맑은 AI LMS</td>
-                                    <td>실무 데이터 분석을 파이썬으로 배웁니다.</td>
-                                    <td>
-                                        <label class="c-toggle">
-                                            <input type="checkbox" checked>
-                                            <span class="c-toggle__slider"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- 페이지네이션 -->
-                    <div class="pagination" style="padding: 20px 0 4px;">
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="처음" style="transform:scaleX(-1)"></button>
-                        <button class="pagination__btn disabled" disabled><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="이전" style="transform:scaleX(-1)"></button>
-                        <button class="pagination__btn active">1</button>
-                        <button class="pagination__btn">2</button>
-                        <button class="pagination__btn">3</button>
-                        <button class="pagination__btn">4</button>
-                        <button class="pagination__btn">5</button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow10.svg" width="16" height="16" alt="다음"></button>
-                        <button class="pagination__btn"><img src="../../../images/paging-arrow.svg" width="16" height="16" alt="마지막"></button>
-                    </div>
-
                 </div>
 
             </div>
