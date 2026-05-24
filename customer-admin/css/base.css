@@ -2751,7 +2751,7 @@ tr:has(.c-check:checked) {
     flex-direction: column;
     gap:10px;
 }
-.auth-body--notice { align-items:center; text-align:center; padding:90px 0;margin-bottom:136px; gap:14px; }
+.auth-body--notice { align-items:center; text-align:center; padding:90px 0;margin-bottom:120px; gap:14px; }
 
 .auth-tabs {
     display: flex;
@@ -4149,6 +4149,14 @@ tr:has(.c-check:checked) {
 .keyword-tags:focus-within { border-color:var(--color-primary); }
 .keyword-tags__chip { display:inline-flex; align-items:center; gap:6px; padding:5px 10px; background:#E1FBFF; border-radius:100px; font-size:13px; font-weight:600; color:var(--color-blue); line-height:1.2; }
 .keyword-tags__chip--outline { background:#fff; border:1px solid var(--color-primary); color:var(--text-dark); font-weight:500; }
+
+/* 서비스 이용 제한 / 락 인트로 페이지 */
+.lock-intro { display:flex; flex-direction:column; align-items:center; text-align:center; padding:160px 24px 60px; min-height:100vh; box-sizing:border-box; background:#fff; }
+.lock-intro__image { width:280px; height:auto; margin-bottom:38px; }
+.lock-intro__title { margin:0 0 10px; font-size:20px; font-weight:600; color:var(--text-primary); line-height:1.4; }
+.lock-intro__desc { margin:0 0 40px; font-size:15px; color:var(--text-secondary); line-height:1.6; }
+.lock-intro__actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:24px; }
+.lock-intro__note { margin:0; font-size:13px; color:var(--text-tertiary); }
 .keyword-tags__chip-remove { width:14px; height:14px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:14px; line-height:1; display:inline-flex; align-items:center; justify-content:center; }
 .keyword-tags__chip-remove:hover { color:var(--text-primary); }
 .keyword-tags__input { flex:1; min-width:160px; border:none; outline:none; background:transparent; font-size:13px; color:var(--text-primary); font-family:inherit; padding:4px 0; }

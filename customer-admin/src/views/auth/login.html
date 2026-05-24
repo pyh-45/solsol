@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<div class="auth-wrap">
+<div class="auth-wrap" style="gap:40px;">
+
+    <!-- 좌측: 비활성 상태 (입력 전) -->
     <div class="auth-container">
 
         <!-- 로고 -->
@@ -17,15 +19,15 @@
         <!-- 입력 영역 -->
         <div class="auth-body">
             <div class="auth-tabs">
-                <input type="radio" name="auth-role" id="role-teacher" value="teacher" class="auth-tab-radio" checked>
-                <label for="role-teacher" class="auth-tab">
+                <input type="radio" name="auth-role-1" id="role-teacher-1" value="teacher" class="auth-tab-radio" checked>
+                <label for="role-teacher-1" class="auth-tab">
                     <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
                         <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     강사
                 </label>
-                <input type="radio" name="auth-role" id="role-manager" value="manager" class="auth-tab-radio">
-                <label for="role-manager" class="auth-tab">
+                <input type="radio" name="auth-role-1" id="role-manager-1" value="manager" class="auth-tab-radio">
+                <label for="role-manager-1" class="auth-tab">
                     <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
                         <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -33,17 +35,17 @@
                 </label>
             </div>
             <div class="auth-field-group">
-                <label class="auth-field-label" for="auth-email">이메일</label>
+                <label class="auth-field-label" for="auth-email-1">이메일</label>
                 <div class="auth-field">
                     <img src="../../images/form-ico-mail.svg" width="16" height="16" alt="">
-                    <input type="email" id="auth-email" class="auth-field__input" placeholder="example@email.com">
+                    <input type="email" id="auth-email-1" class="auth-field__input" placeholder="example@email.com">
                 </div>
             </div>
             <div class="auth-field-group">
-                <label class="auth-field-label" for="auth-password">비밀번호</label>
+                <label class="auth-field-label" for="auth-password-1">비밀번호</label>
                 <div class="auth-field">
                     <img src="../../images/form-ico-lock.svg" width="16" height="16" alt="">
-                    <input type="password" id="auth-password" class="auth-field__input" placeholder="비밀번호를 입력하세요">
+                    <input type="password" id="auth-password-1" class="auth-field__input" placeholder="비밀번호를 입력하세요">
                     <button class="auth-field__eye">
                         <img src="../../images/form-ico-eye.svg" width="16" height="16" alt="">
                     </button>
@@ -57,12 +59,69 @@
 
         <!-- 버튼 및 기타 -->
         <div class="auth-footer">
-            <button class="btn big gray">로그인</button>
+            <button class="btn big" disabled>로그인</button>
             <hr class="auth-divider">
             <p class="auth-help">비밀번호가 생각나지 않으신다면<a href="#">비밀번호 재설정</a></p>
         </div>
 
     </div>
+
+    <!-- 우측: 활성 상태 (입력 완료) -->
+    <div class="auth-container">
+
+        <!-- 로고 -->
+        <div class="auth-logo">DJ테크트리</div>
+
+        <!-- 입력 영역 -->
+        <div class="auth-body">
+            <div class="auth-tabs">
+                <input type="radio" name="auth-role-2" id="role-teacher-2" value="teacher" class="auth-tab-radio">
+                <label for="role-teacher-2" class="auth-tab">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                        <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    강사
+                </label>
+                <input type="radio" name="auth-role-2" id="role-manager-2" value="manager" class="auth-tab-radio" checked>
+                <label for="role-manager-2" class="auth-tab">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                        <path d="M2.5 8L6 11.5L13.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    관리자
+                </label>
+            </div>
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-email-2">이메일</label>
+                <div class="auth-field">
+                    <img src="../../images/form-ico-mail.svg" width="16" height="16" alt="">
+                    <input type="email" id="auth-email-2" class="auth-field__input" value="example@email.com">
+                </div>
+            </div>
+            <div class="auth-field-group">
+                <label class="auth-field-label" for="auth-password-2">비밀번호</label>
+                <div class="auth-field">
+                    <img src="../../images/form-ico-lock.svg" width="16" height="16" alt="">
+                    <input type="password" id="auth-password-2" class="auth-field__input" value="ekdkjtkdio@!#0123456">
+                    <button class="auth-field__eye">
+                        <img src="../../images/form-ico-eye.svg" width="16" height="16" alt="">
+                    </button>
+                </div>
+            </div>
+            <label class="auth-remember">
+                <input type="checkbox" class="c-check" checked>
+                이메일 기억하기
+            </label>
+        </div>
+
+        <!-- 버튼 및 기타 -->
+        <div class="auth-footer">
+            <button class="btn big">로그인</button>
+            <hr class="auth-divider">
+            <p class="auth-help">비밀번호가 생각나지 않으신다면<a href="#">비밀번호 재설정</a></p>
+        </div>
+
+    </div>
+
 </div>
 
 </body>
