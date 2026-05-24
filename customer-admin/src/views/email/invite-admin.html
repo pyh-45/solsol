@@ -4,117 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자 초대 메일</title>
-    <style>
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; color: #333333; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
-        a { text-decoration: none; }
-
-        /* 로고 / 디바이더 */
-        .auth-logo { text-align: center; font-size: 24px; padding: 30px 0; font-weight: 900; letter-spacing: -0.24px; background: linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .auth-divider { border: none; border-top: 1px solid #EAEAEA; margin: 0; }
-
-        /* 버튼 */
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 40px; padding: 0 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; border: 1px solid transparent; white-space: nowrap; letter-spacing: -0.02em; text-decoration: none; }
-        .btn.big { min-width: 360px; height: 52px; padding: 0 28px; font-size: 16px; font-weight: 600; color: #fff; border-radius: 6px; background-color: #4FC0FC; }
-
-        /* 이메일 레이아웃 */
-        .email-wrap { min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; padding: 60px 20px; background: #FFFFFF; }
-        .email-container { width: 560px; background: #FFFFFF; border-radius: 12px; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
-        .email-section { display: flex; flex-direction: column; gap: 20px; }
-        .email-title { font-size: 24px; font-weight: 700; color: #333333; line-height: 1.4; letter-spacing: -0.02em; }
-        .email-greeting { font-size: 16px; font-weight: 600; color: #333333; margin: 10px 0; }
-        .email-desc { font-size: 14px; color: #666666; line-height: 1.5; }
-        .email-desc a { color: #4FC0FC; font-weight: 600; }
-
-        /* 정보 박스 / 폴백 */
-        .email-info-box { display: flex; align-items: flex-start; gap: 10px; background: #EBF5FF; border-radius: 8px; padding: 14px 16px; }
-        .email-info-text { font-size: 13px; color: #4FC0FC; line-height: 1.5; }
-        .email-fallback { display: flex; flex-direction: column; gap: 8px; }
-        .email-fallback-label { font-size: 12px; color: #AAAAAA; }
-        .email-url-box { background: #F4F5F7; border: 1px solid #E5E7EB; border-radius: 6px; padding: 16px; font-size: 12px; color: #333333; word-break: break-all; line-height: 1.5; }
-
-        /* 보안/시작 안내 */
-        .email-security { background: #FFF; border: 1px solid #D2D6E1; border-radius: 8px; padding: 20px 24px; display: flex; flex-direction: column; gap: 10px; }
-        .email-security__title { font-size: 13px; font-weight: 700; color: #333333; }
-        .email-security__list { list-style: disc; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
-        .email-security__list li { font-size: 12px; color: #666666; line-height: 1.2; }
-        .email-security__list a { color: #027CFA; }
-
-        /* 초대 카드 */
-        .email-invite-card { background: #EEF3FA; border-radius: 10px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
-        .email-invite-card__title { font-size: 14px; font-weight: 700; color: #333333; text-align: center; padding-bottom: 14px; border-bottom: 1px solid #D0DCF0; }
-        .email-invite-row { display: flex; align-items: center; gap: 12px; }
-        .email-invite-col { display: flex; align-items: center; gap: 8px; }
-        .email-invite-label { font-size: 12px; color: #AAAAAA; flex-shrink: 0; }
-        .email-invite-value { font-size: 13px; color: #333333; }
-        .email-invite-badge { display: flex; align-items: center; height: 24px; line-height: 24px; padding: 6px 10px; border: 1px solid #4FC0FC; border-radius: 100px; font-size: 11px; color: #4FC0FC; background: #fff; }
-
-        /* 인증코드 */
-        .email-code-row { display: flex; justify-content: center; gap: 6px; }
-        .email-code-box { padding: 13px 25px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 700; color: #222222; background: #F5F8FF; border: 1.5px solid #4FC0FC; border-radius: 10px; }
-        .email-code-notice { font-size: 12px; color: #FF0000; text-align: center; margin-top: -10px; }
-        .email-code-notice strong { color: #FF0000; font-weight: 600; }
-    </style>
 </head>
-<body>
+<body style="margin:0; padding:0; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size:14px; color:#333333; background:#FFFFFF; -webkit-font-smoothing:antialiased;">
 
-<div class="email-wrap">
-    <div class="email-container">
+<div style="min-height:100vh; display:flex; justify-content:center; align-items:flex-start; padding:60px 20px; background:#FFFFFF; box-sizing:border-box;">
+    <div style="width:560px; background:#FFFFFF; border-radius:12px; padding:40px; display:flex; flex-direction:column; gap:20px; box-sizing:border-box;">
 
         <!-- 1. 로고 영역 -->
-        <div class="email-section">
-            <div class="auth-logo">DJ테크트리</div>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="text-align:center; font-size:24px; padding:30px 0; font-weight:900; letter-spacing:-0.24px; background:linear-gradient(107deg, #667EEA 0%, #764BA2 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">DJ테크트리</div>
         </div>
 
         <!-- 2. 안내텍스트 영역 -->
-        <div class="email-section">
-            <h1 class="email-title">{사이트명}<br>관리자 시스템으로 초대합니다.</h1>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+            <h1 style="margin:0; font-size:24px; font-weight:700; color:#333333; line-height:1.4; letter-spacing:-0.02em;">{사이트명}<br>관리자 시스템으로 초대합니다.</h1>
             <div>
-                <p class="email-greeting">{이메일주소}님, 환영합니다.</p>
-                <p class="email-desc">
+                <p style="margin:10px 0; font-size:16px; font-weight:600; color:#333333;">{이메일주소}님, 환영합니다.</p>
+                <p style="margin:0; font-size:14px; color:#666666; line-height:1.5;">
                     귀하를 <strong>{사이트명}</strong>의 새로운 <strong>{관리자}</strong> 권한으로 초대하였습니다.<br>
-                    아래 <a href="#">[계정 설정]</a> 버튼을 클릭하여 본인 인증 후 비밀번호를 설정해 주세요.
+                    아래 <a href="#" style="color:#4FC0FC; font-weight:600; text-decoration:none;">[계정 설정]</a> 버튼을 클릭하여 본인 인증 후 비밀번호를 설정해 주세요.
                 </p>
             </div>
         </div>
- 
+
         <!-- 3. 초대정보 + 버튼 영역 -->
-        <div class="email-section">
-            <div class="email-invite-card">
-                <p class="email-invite-card__title">초대 정보</p>
-                <div class="email-invite-row">
-                    <div class="email-invite-col">
-                        <span class="email-invite-label">초대 권한</span>
-                        <span class="email-invite-badge">관리자</span>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="background:#EEF3FA; border-radius:10px; padding:20px 24px; display:flex; flex-direction:column; gap:14px;">
+                <p style="margin:0; font-size:14px; font-weight:700; color:#333333; text-align:center; padding-bottom:14px; border-bottom:1px solid #D0DCF0;">초대 정보</p>
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:12px; color:#AAAAAA; flex-shrink:0;">초대 권한</span>
+                        <span style="display:flex; align-items:center; height:24px; line-height:24px; padding:6px 10px; border:1px solid #4FC0FC; border-radius:100px; font-size:11px; color:#4FC0FC; background:#fff;">관리자</span>
                     </div>
-                    <div class="email-invite-col">
-                        <span class="email-invite-label">초대 일시</span>
-                        <span class="email-invite-value">2000.00.00 오전/오후 00:00</span>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:12px; color:#AAAAAA; flex-shrink:0;">초대 일시</span>
+                        <span style="font-size:13px; color:#333333;">2000.00.00 오전/오후 00:00</span>
                     </div>
                 </div>
-                <div class="email-invite-row">
-                    <div class="email-invite-col">
-                        <span class="email-invite-label">수신 계정</span>
-                        <span class="email-invite-value">{이메일 주소}</span>
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:12px; color:#AAAAAA; flex-shrink:0;">수신 계정</span>
+                        <span style="font-size:13px; color:#333333;">{이메일 주소}</span>
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn big">관리자 회원가입</a>
+            <a href="#" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; min-width:360px; height:52px; padding:0 28px; border-radius:6px; font-size:16px; font-weight:600; color:#fff; background-color:#4FC0FC; border:1px solid transparent; cursor:pointer; white-space:nowrap; letter-spacing:-0.02em; text-decoration:none;">관리자 회원가입</a>
         </div>
-        <hr class="auth-divider">
+
+        <hr style="border:none; border-top:1px solid #EAEAEA; margin:0;">
+
         <!-- 4. 시작 안내 영역 -->
-        <div class="email-section">
-            <div class="email-security">
-                <p class="email-security__title">시작 안내</p>
-                <ul class="email-security__list">
-                    <li>본 메일에 개인 정보 입력을 요구하는 내용은 포함되어 있지 않습니다.</li>
-                    <li>초대 수락 과정에서 문제가 발생하면 시스템 관리자<a href="mailto:admin@djtechtree.com">(admin@djtechtree.com)</a>에게 문의해 주세요.</li>
-                    <li>본 메일을 요청하지 않으셨다면 즉시 관리자에게 알려 주세요.</li>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="background:#FFF; border:1px solid #D2D6E1; border-radius:8px; padding:20px 24px; display:flex; flex-direction:column; gap:10px;">
+                <p style="margin:0; font-size:13px; font-weight:700; color:#333333;">시작 안내</p>
+                <ul style="list-style:disc; padding-left:18px; margin:0; display:flex; flex-direction:column; gap:3px;">
+                    <li style="font-size:12px; color:#666666; line-height:1.2;">본 메일에 개인 정보 입력을 요구하는 내용은 포함되어 있지 않습니다.</li>
+                    <li style="font-size:12px; color:#666666; line-height:1.2;">초대 수락 과정에서 문제가 발생하면 시스템 관리자<a href="mailto:admin@djtechtree.com" style="color:#027CFA; text-decoration:none;">(admin@djtechtree.com)</a>에게 문의해 주세요.</li>
+                    <li style="font-size:12px; color:#666666; line-height:1.2;">본 메일을 요청하지 않으셨다면 즉시 관리자에게 알려 주세요.</li>
                 </ul>
             </div>
-        </div>               
+        </div>
 
     </div>
 </div>
