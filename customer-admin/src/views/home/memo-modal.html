@@ -47,12 +47,12 @@
                     </button>
                     <div class="c-dropdown__panel" style="right:0; left:auto;">
                         <button class="c-dropdown__item active" onclick="selectItem(this)">등록 최신순</button>
-                        <button class="c-dropdown__item" onclick="selectItem(this)">등록 오래된순</button>
+                        <button class="c-dropdown__item" onclick="selectItem(this)">등록 과거순</button>
                     </div>
                 </div>
             </div>
 
-            <div class="modal-table-wrap">
+            <div class="modal-table-wrap" style="min-height:0; max-height:none; overflow-x:auto; overflow-y:visible;">
                 <table class="modal-table">
                     <colgroup>
                         <col style="width:50px;">
@@ -73,6 +73,7 @@
                                         <button class="c-dropdown__item" onclick="selectItem(this)">학습자</button>
                                         <button class="c-dropdown__item" onclick="selectItem(this)">주문</button>
                                         <button class="c-dropdown__item" onclick="selectItem(this)">환불</button>
+                                        <button class="c-dropdown__item" onclick="selectItem(this)">1:1문의</button>
                                     </div>
                                 </div>
                             </th>
@@ -132,30 +133,6 @@
                         </tr>
                         <tr>
                             <td>환불</td>
-                            <td>{메모 내용}</td>
-                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
-                            <td class="td-left">
-                                <div class="user-cell user-cell--modal">
-                                    <span class="c-avatar22 basic"></span>
-                                    <span class="role-badge role-badge--manager">관리자</span>
-                                    닉네임
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>학습자</td>
-                            <td>{메모 내용}</td>
-                            <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
-                            <td class="td-left">
-                                <div class="user-cell user-cell--modal">
-                                    <span class="c-avatar22 manager"></span>
-                                    <span class="role-badge role-badge--manager">관리자</span>
-                                    alpha_user_kr
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>주문</td>
                             <td>{메모 내용}</td>
                             <td style="white-space:nowrap;">2024-12-15 오전/오후 00:00</td>
                             <td class="td-left">
