@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수 추가</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body>
+
+<div class="c-modal-overlay">
+    <div class="c-modal completion-modal completion-modal--lg">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">변수 추가</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body" style="gap:16px; padding-bottom:24px;">
+
+            <!-- 인포팁 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span class="admin-infotip__text">사용하고 싶은 변수를 클릭하시면, 본문 입력창에 추가됩니다.</span>
+            </div>
+
+            <!-- 기본 정보 -->
+            <section class="completion-section">
+                <h4 class="completion-section__title">기본 정보</h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                    <button type="button" class="msg-var-chip">사이트명{site_name}</button>
+                    <button type="button" class="msg-var-chip">페이지명{page_title}</button>
+                    <button type="button" class="msg-var-chip">회사명{company_name}</button>
+                </div>
+            </section>
+
+            <!-- 페이지 정보 -->
+            <section class="completion-section">
+                <h4 class="completion-section__title">페이지 정보</h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                    <button type="button" class="msg-var-chip">페이지명{page_name}</button>
+                    <button type="button" class="msg-var-chip">게시판명{board_name}</button>
+                    <button type="button" class="msg-var-chip">글제목{post_title}</button>
+                    <button type="button" class="msg-var-chip">작성자 닉네임{author_name}</button>
+                </div>
+            </section>
+
+            <!-- 상품 정보 -->
+            <section class="completion-section">
+                <h4 class="completion-section__title">상품 정보</h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                    <button type="button" class="msg-var-chip">상품명(course_title)</button>
+                    <button type="button" class="msg-var-chip">강사명(instructor_name)</button>
+                    <button type="button" class="msg-var-chip">카테고리명(category_name)</button>
+                    <button type="button" class="msg-var-chip">가격(course_price)</button>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

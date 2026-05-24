@@ -4135,6 +4135,25 @@ tr:has(.c-check:checked) {
 .msg-preview__sms-bubble { display:inline-block; background:#fff; border-radius:12px 12px 12px 0; padding:14px 16px; font-size:14px; color:var(--text-dark); box-shadow:0 1px 3px rgba(0,0,0,0.06); }
 .msg-preview__sms-bubble p { margin:0; }
 
+/* SEO 검색결과 미리보기 카드 */
+.seo-preview-card { padding:30px 25px; border:1px solid var(--border-color); border-radius:20px; background:#fff; }
+.seo-preview-card__top { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+.seo-preview-card__name { font-size:11px; color:var(--text-dark); font-weight:700; line-height:1.3; }
+.seo-preview-card__url { font-size:10px; color:var(--text-tertiary); line-height:1; }
+.seo-preview-card__title { margin:0 0 6px; font-size:17px; font-weight:600; color:var(--color-purple); line-height:1.4; }
+.seo-preview-card__desc { margin:0; font-size:13px; color:var(--text-secondary); line-height:1.5; }
+.seo-preview-card__refresh { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:16px; padding-top:12px; font-size:12px; color:var(--text-tertiary); }
+
+/* 키워드 태그 입력 (검색 키워드 등 enter/쉼표로 칩 추가) */
+.keyword-tags { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:12px 14px; border:1px solid var(--border-color); border-radius:6px; background:#fff; min-height:48px; cursor:text; }
+.keyword-tags:focus-within { border-color:var(--color-primary); }
+.keyword-tags__chip { display:inline-flex; align-items:center; gap:6px; padding:5px 10px; background:#E1FBFF; border-radius:100px; font-size:13px; font-weight:600; color:var(--color-blue); line-height:1.2; }
+.keyword-tags__chip--outline { background:#fff; border:1px solid var(--color-primary); color:var(--text-dark); font-weight:500; }
+.keyword-tags__chip-remove { width:14px; height:14px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:14px; line-height:1; display:inline-flex; align-items:center; justify-content:center; }
+.keyword-tags__chip-remove:hover { color:var(--text-primary); }
+.keyword-tags__input { flex:1; min-width:160px; border:none; outline:none; background:transparent; font-size:13px; color:var(--text-primary); font-family:inherit; padding:4px 0; }
+.keyword-tags__input::placeholder { color:var(--text-placeholder); }
+
 /* 알림톡 미리보기 (카카오톡 스타일) — primary 박스 + 발신자 라벨 + 흰 카드 */
 .msg-preview__talk-bubble { min-height:200px; background:var(--color-primary); padding:18px 16px; border-radius:20px; }
 .msg-preview__talk-brand-label { display:block; font-size:13px; color:var(--text-primary); margin-bottom:14px; }
