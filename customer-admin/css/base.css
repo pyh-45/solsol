@@ -3666,7 +3666,7 @@ tr:has(.c-check:checked) {
 .folder-dots__item:hover { background:#EAF3FF; color:var(--color-blue); }
 
 /* ==================== Panel Section Title ==================== */
-.panel-section-title { font-size:20px; font-weight:700; color:#222; margin:0 -30px 0; padding:0 30px 16px; border-bottom:1px solid #EFEFEF; }
+.panel-section-title { font-size:20px; font-weight:700; color:#222; margin:0 -30px 0; padding:0 30px 13px; border-bottom:1px solid #EFEFEF; }
 .panel-section-title--with-action { padding-bottom: 8px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 
 /* ==================== c-form-row ==================== */
