@@ -787,7 +787,8 @@ ul, ol { list-style: none; }
 .modal-info-table__highlight { color: var(--color-blue); font-weight: 500; }
 /* 검색결과 N개 카운트 캡션 (테이블 위 등에 사용) */
 .search-result-count { margin: 0 0 8px; font-size: 13px; color: var(--text-secondary); }
-.search-result-count strong { color: #222; font-weight: 500; }
+.search-result-count strong { color: var(--color-blue); font-weight: 500; }
+.search-result-count--total { margin-bottom: -10px; }
 .modal-info-table__cancel { color: var(--color-red); font-weight: 500; margin-left: 16px; }
 .modal-info-table__hint { margin: 6px 0 0; font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
 
