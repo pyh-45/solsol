@@ -1793,6 +1793,9 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .user-cell--modal { font-size: 12px; }
 .user-cell--modal .user-cell__name { font-size: 12px; }
 
+/* 추가 버튼 + 유저셀 그룹 (가로 정렬) */
+.user-action-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
 /* 상품 셀 (썸네일 + 상품명) */
 .product-cell {
     display: inline-flex;
