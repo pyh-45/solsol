@@ -280,7 +280,7 @@
                                 <td>
                                     <div style="display:flex; align-items:center; gap:10px;">
                                         <span class="setting-table__text">기본형 )1)</span>
-                                        <button class="btn sm border">템플릿 보기</button>
+                                        <button class="btn md border btn--narrow">템플릿 보기</button>
                                     </div>
                                 </td>
                             </tr>
@@ -347,7 +347,7 @@
                             <tr>
                                 <th>서명 또는 직인<span class="setting-table__required">*</span></th>
                                 <td>
-                                    <button class="btn sm border">이미지 등록</button>
+                                    <button class="btn md border btn--narrow">이미지 등록</button>
                                     <span class="setting-table__desc" style="margin-top:8px;">배경이 없는 PNG 이미지를 사용하면 수료증에 더욱 자연스럽게 적용됩니다.</span>
                                     <span class="setting-table__desc">업로드 가능 확장자 : JPG, PNG / 권장 사이즈 : 600px X 600px</span>
                                 </td>
@@ -357,43 +357,42 @@
                     </table>
                 </div>
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <!-- 1. 수료증 템플릿 수정 확인 -->
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                            </div>
+                            <p class="c-modal__desc">수료증 템플릿을 수정하시겠어요?</p>
+                            <p class="c-modal__desc-sub">변경 내용은 신규 발급부터 적용됩니다.</p>
+                        </div>
+                        <div class="c-modal__footer c-modal__footer--split">
+                            <button type="button" class="btn lg border">취소</button>
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+
+                    <!-- 2. 수료증 템플릿 수정 완료 -->
+                    <div class="c-modal">
+                        <div class="c-modal__content">
+                            <div class="c-modal__icon-wrap">
+                                <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                            </div>
+                            <p class="c-modal__desc">수료증 템플릿이 수정되었습니다.</p>
+                        </div>
+                        <div class="c-modal__footer">
+                            <button type="button" class="btn lg">확인</button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
-    </div>
-
-    <!-- ===== 모달창 모음 (display:none 상태) ===== -->
-
-    <!-- 1. 수료증 템플릿 수정 확인 (notice + split) -->
-    <div class="c-modal-overlay" id="templateEditConfirmModal" style="display:none;">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
-                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">수료증 템플릿을 수정하시겠어요?</p>
-                <p class="c-modal__desc-sub">변경 내용은 신규 발급부터 적용됩니다.</p>
-            </div>
-            <div class="c-modal__footer c-modal__footer--split">
-                <button type="button" class="btn lg border">취소</button>
-                <button type="button" class="btn lg">확인</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. 수료증 템플릿 수정 완료 (success) -->
-    <div class="c-modal-overlay" id="templateEditDoneModal" style="display:none;">
-        <div class="c-modal">
-            <div class="c-modal__content">
-                <div class="c-modal__icon-wrap">
-                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
-                </div>
-                <p class="c-modal__desc">수료증 템플릿이 수정되었습니다.</p>
-            </div>
-            <div class="c-modal__footer">
-                <button type="button" class="btn lg">확인</button>
-            </div>
-        </div>
     </div>
 
 <script>
