@@ -2119,7 +2119,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .applied-coupon { display:flex; align-items:center; gap:16px; margin-top:16px; }
 .applied-coupon__label { font-size:14px; color:var(--text-tertiary); flex-shrink:0; }
 .applied-coupon__value { font-size:14px; color:var(--text-primary); }
-.detail-form__textarea { width: 100%; min-height: 120px; padding: 15px 30px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px; color: var(--text-dark); font-family: inherit; resize: vertical; outline: none; box-sizing: border-box; line-height: 1.6; }
+.detail-form__textarea { width: 100%; min-height: 120px; padding: 15px 20px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 13px; color: var(--text-dark); font-family: inherit; resize: vertical; outline: none; box-sizing: border-box; line-height: 1.6; }
 .detail-form__textarea:focus { border-color: var(--color-primary); }
 .detail-form__textarea::placeholder { color: var(--text-placeholder); }
 .detail-form__select,
@@ -2236,6 +2236,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .form-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
 .form-table th { font-size: 14px; font-weight: 400; color: var(--color-dark); background: #f9f9f9; padding: 14px 12px; border-top: 1px solid var(--border-color);border-bottom: 1px solid var(--border-color); text-align: center; }
 .form-table td { height: 48px; padding: 5px 2px; border-bottom: 1px solid var(--border-color); border-top: none; vertical-align: middle; }
+.form-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .form-table td input, .form-table td select { width: 100%; height: 40px; padding: 0 10px; border: 1px solid var(--border-color); border-radius: 6px; outline: none; font-size: 13px; font-family: inherit; color: var(--text-primary); background: #fff; box-sizing: border-box; }
 .form-table td input:focus, .form-table td select:focus { border-color: var(--color-primary); }
 .form-table td input:disabled, .form-table td select:disabled { color: var(--text-disabled); background: #F2F2F2; cursor: not-allowed; }
@@ -3086,9 +3087,9 @@ tr:has(.c-check:checked) {
 .c-calendar__day { display:flex; align-items:center; justify-content:center; width: 28px; height:28px; margin:0 auto; padding:0; border:1.5px solid transparent; background:transparent; border-radius:50%; font-size:13px; color:#222; font-family:inherit; cursor:pointer; }
 .c-calendar__day:hover { background:#F4F5F7; }
 .c-calendar__day--muted { color:#BDBDBD; }
-.c-calendar__day--today { background:#4FC0FC; color:#fff; }
+.c-calendar__day--today { background:#4FC0FC;color:#fff; }
 .c-calendar__day--today:hover { background:#4FC0FC; }
-.c-calendar__day--selected { border-color:#4FC0FC; color:#4FC0FC; }
+.c-calendar__day--selected { border-color:#4FC0FC; }
 .c-calendar__day--selected:hover { background:transparent; }
 
 .c-calendar-legend { display:flex; flex-direction:column; gap:10px; font-size:13px; color:#222; }
@@ -3363,6 +3364,9 @@ tr:has(.c-check:checked) {
 
     /* Bulk bar */
     .c-bulk-bar { left: calc(var(--lnb-width) + 24px); }
+
+    /* form-table 가로 스크롤 */
+    .form-table-wrap .form-table { min-width: 720px; }
 }
 
 /* ==================== Responsive: Mobile (≤768px) ==================== */
@@ -3393,6 +3397,7 @@ tr:has(.c-check:checked) {
     .admin-filter__selects { width: 100%; }
     .admin-filter__select  { flex: 1; }
 }
+
 
 /* ==================== 날짜 지정 검색 필터 ==================== */
 .c-date-filter { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
@@ -4415,5 +4420,28 @@ tr:has(.c-check:checked) {
     /* ───── 통계 카드 그리드: 2열 ───── */
     .count-card-grid,
     [class*="stat-card"] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ==================== Responsive: Small Mobile (≤480px) ==================== */
+@media (max-width: 480px) {
+    /* 모든 통계 카드 1열 */
+    .admin-grid--4,
+    .admin-grid--3,
+    .admin-grid--2,
+    .count-card-grid,
+    .count-card-grid--3,
+    .count-card-grid--2,
+    .modal-dashboard { grid-template-columns: 1fr !important; }
+
+    /* 상단 가이드 버튼 숨김 */
+    .admin-header .btn.xs.dark { display: none !important; }
+
+    /* 프로필바: 아바타 아래에 메타정보 세로 배치 */
+    .detail-profile__top { flex-direction: column; align-items: center; text-align: center; }
+    .detail-profile__name-row,
+    .detail-profile__meta { justify-content: center; }
+
+    /* 탭메뉴 텍스트 12px */
+    .detail-tab__item { font-size: 12px; }
 }
 

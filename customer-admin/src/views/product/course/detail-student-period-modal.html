@@ -79,6 +79,38 @@
         </div>
 
     </div>
+
+    <!-- ===== 오른쪽 얼럿 모달 갤러리 (디자인 확인용, 기능 없음) ===== -->
+    <div style="display:flex; flex-direction:column; gap:16px; margin-left:24px;">
+
+        <!-- 1-a : 학습기간 일괄 변경 확인 -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">{n}개 학습자의 학습기간을 일괄 변경하시겠어요?</p>
+            </div>
+            <div class="c-modal__footer c-modal__footer--split">
+                <button type="button" class="btn lg border">취소</button>
+                <button type="button" class="btn lg">확인</button>
+            </div>
+        </div>
+
+        <!-- 1-b : 학습기간 변경 완료 -->
+        <div class="c-modal">
+            <div class="c-modal__content">
+                <div class="c-modal__icon-wrap">
+                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                </div>
+                <p class="c-modal__desc">선택하신 학습자의 학습기간이 변경되었습니다</p>
+            </div>
+            <div class="c-modal__footer">
+                <button type="button" class="btn lg">확인</button>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <script>
