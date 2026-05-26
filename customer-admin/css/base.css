@@ -2559,11 +2559,14 @@ tr:has(.c-check:checked) {
 .product-tag {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     height: 18px;
     padding: 0 5px;
+    box-sizing: border-box;
     border-radius: 3px;
     border: 1px solid;
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 1;
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
@@ -2602,7 +2605,7 @@ tr:has(.c-check:checked) {
 /* 일부공개 (아이콘 + 텍스트, 그라데이션 보더) */
 .status-chip--partial {
     gap:4px;
-    padding: 9px 10px;
+    padding: 7px 10px 6px;
     color: var(--status-danger-text);
     border: 2px solid transparent;
     background:
@@ -3175,6 +3178,13 @@ tr:has(.c-check:checked) {
 .tutor-pick-table td:first-child { text-align:left; }
 .tutor-pick-table td:nth-child(2) { text-align:center; }
 .tutor-pick-info { display:inline-flex; align-items:center; gap:8px; padding:4px 14px 4px 6px; background:#fff; border:1px solid var(--border-color); border-radius:100px; }
+
+/* 검색창 포커스 시 드롭다운 추천 항목 (아바타 + 이름 + 이메일 + 추가 버튼) */
+.tutor-suggest-item { display:flex; align-items:center; gap:12px; padding:8px 14px; cursor:pointer; border:none; background:transparent; width:100%; text-align:left; font-family:inherit; }
+.tutor-suggest-item:hover { background:#F4F8FF; }
+.tutor-suggest-item--selected { background:#EAF3FF; }
+.tutor-suggest-item__name { font-size:13px; color:var(--text-primary); font-weight:500; min-width:60px; flex-shrink:0; }
+.tutor-suggest-item__email { flex:1; font-size:13px; color:var(--text-secondary); }
 .tutor-pick-info__name { color:var(--text-primary); font-weight:500; margin-left:2px; }
 .tutor-pick-info__email { color:var(--text-secondary); font-size:12px; }
 .tutor-pick-add { display:inline-flex; align-items:center; gap:6px; padding:0; border:none; background:none; cursor:pointer; font-size:13px; color:var(--text-secondary); }

@@ -27,10 +27,38 @@
                 <span>대표강사 관리는 사용자 > 강사 에서 설정해 주세요.</span>
             </div>
 
-            <!-- 검색 -->
-            <div class="tutor-search">
-                <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
-                <input type="text" class="tutor-search__input" placeholder="강사명 또는 이메일 검색">
+            <!-- 검색 + 자동완성 추천 -->
+            <div class="tutor-search-wrap">
+                <div class="tutor-search">
+                    <img src="../../../images/Ico-search.svg" width="20" height="20" alt="">
+                    <input type="text" class="tutor-search__input" id="tutorSearchInput" placeholder="강사명 또는 이메일 검색" oninput="filterTutorSuggest(this.value)" onfocus="filterTutorSuggest(this.value)">
+                </div>
+                <div class="c-dropdown__panel" id="tutorSuggestPanel" style="display:none;">
+                    <button type="button" class="tutor-suggest-item tutor-suggest-item--selected" data-name="홍길동" data-email="hong.gd@example.com">
+                        <span class="c-avatar22 basic"></span>
+                        <span class="tutor-suggest-item__name">홍길동</span>
+                        <span class="tutor-suggest-item__email">hong.gd@example.com</span>
+                        <span class="tutor-pick-add tutor-pick-add--selected">
+                            <span class="tutor-pick-add__icon">✓</span> 추가
+                        </span>
+                    </button>
+                    <button type="button" class="tutor-suggest-item" data-name="홍동길" data-email="hong.dg@example.com">
+                        <span class="c-avatar22 basic"></span>
+                        <span class="tutor-suggest-item__name">홍동길</span>
+                        <span class="tutor-suggest-item__email">hong.dg@example.com</span>
+                        <span class="tutor-pick-add">
+                            <span class="tutor-pick-add__icon">+</span> 추가
+                        </span>
+                    </button>
+                    <button type="button" class="tutor-suggest-item" data-name="홍진영" data-email="hong.jy@example.com">
+                        <span class="c-avatar22 basic"></span>
+                        <span class="tutor-suggest-item__name">홍진영</span>
+                        <span class="tutor-suggest-item__email">hong.jy@example.com</span>
+                        <span class="tutor-pick-add">
+                            <span class="tutor-pick-add__icon">+</span> 추가
+                        </span>
+                    </button>
+                </div>
             </div>
 
             <!-- 강사 목록 -->
@@ -171,6 +199,32 @@
     </div>
 
 </div>
+
+<script>
+    function filterTutorSuggest(value) {
+        const panel = document.getElementById('tutorSuggestPanel');
+        const items = panel.querySelectorAll('.tutor-suggest-item');
+        const keyword = (value || '').trim().toLowerCase();
+
+        if (!keyword) { panel.style.display = 'none'; return; }
+
+        let matchCount = 0;
+        items.forEach(item => {
+            const name  = (item.dataset.name  || '').toLowerCase();
+            const email = (item.dataset.email || '').toLowerCase();
+            const matched = name.includes(keyword) || email.includes(keyword);
+            item.style.display = matched ? 'flex' : 'none';
+            if (matched) matchCount++;
+        });
+        panel.style.display = matchCount > 0 ? 'block' : 'none';
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.tutor-search-wrap')) {
+            document.getElementById('tutorSuggestPanel').style.display = 'none';
+        }
+    });
+</script>
 
 </body>
 </html>
