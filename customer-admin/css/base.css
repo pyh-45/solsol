@@ -1842,7 +1842,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 
 /* ==================== Email Cell ==================== */
 .email-cell {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 5px;
 }
@@ -2004,7 +2004,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
     font-size: 12px;
     font-weight: 600;
 }
-.send-status-chip--success { background: var(--status-success-bg);  color: var(--status-success-text); }
+.send-status-chip--success { background: var(--status-info-bg);     color: var(--status-info-text); }
 .send-status-chip--fail    { background: var(--status-danger-bg);    color: var(--status-danger-text);   }
 .send-status-chip--pending { background: var(--status-warning-bg); color: var(--status-warning-text); }
 
@@ -2588,6 +2588,8 @@ tr:has(.c-check:checked) {
 .status-chip--neutral        { background: var(--status-neutral-bg); color: var(--status-neutral-text); }
 .status-chip--muted          { background: var(--status-muted-bg); color: var(--status-muted-text); }
 .status-chip--accent         { background: var(--status-accent-bg); color: var(--status-accent-text); }
+.status-chip--defer          { background: #FAF2EB; color: var(--status-warning-text); }   /* 결제유예 */
+.status-chip--done           { background: #E8E8E8; color: #2C2C2C; }                       /* 수강완료 */
 
 /* 라이브 상태 (라이브/예정/종료) - 너비 80 고정 */
 .status-chip--live,
