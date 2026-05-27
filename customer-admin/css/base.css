@@ -3621,8 +3621,9 @@ tr:has(.c-check:checked) {
 .list-sort-select { height:34px; padding:0 10px; border:1px solid var(--border-color); border-radius:6px; font-size:13px; font-family:inherit; color:var(--text-primary); background:#fff; outline:none; cursor:pointer; }
 
 /* 패널 내부 빈 상태 (가운데 정렬, 상하 80px 패딩) */
-.panel-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:40px 20px; text-align:center; }
-.panel-empty__desc { line-height:1.5; margin:0; }
+.panel-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:40px 20px; text-align:center; }
+.panel-empty__title { margin:0; font-size:20px; font-weight:700; color:var(--text-primary); }
+.panel-empty__desc { line-height:1.5; margin:0 0 20px; }
 
 /* AI 자료 첨부 (페이퍼클립 + 파일명 + 크기) */
 .ai-file-attach { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--text-primary); }

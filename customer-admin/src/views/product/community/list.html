@@ -462,6 +462,42 @@
 
                 </div><!-- /list-panel -->
 
+                <!-- ===== 모달 목업 갤러리 (디자인 확인용, 기능 없음) ===== -->
+                <div style="margin-top:40px; background:#F4F5F7; padding:40px 24px; border-radius:8px; display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start;">
+
+                    <!-- 3-a : 판매중지 일괄 변경 확인 -->
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                            <div class="c-modal__content">
+                                <div class="c-modal__icon-wrap c-modal__icon-wrap--notice">
+                                    <img src="../../../images/ico-modal-notice.svg" width="36" height="36" alt="">
+                                </div>
+                                <p class="c-modal__desc">판매중지 시 신규 구독이 중단되며 기존 구독자는<br>추가 결제 없이 이용 기간 내에서 계속 이용할 수 있습니다<br><br>{n}개 상품의 판매상태를 판매중지로 일괄 변경하시겠어요?</p>
+                            </div>
+                            <div class="c-modal__footer c-modal__footer--split">
+                                <button type="button" class="btn lg border">취소</button>
+                                <button type="button" class="btn lg">확인</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3-b : 판매중지 변경 완료 -->
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div class="c-modal">
+                            <div class="c-modal__content">
+                                <div class="c-modal__icon-wrap">
+                                    <img src="../../../images/ico-modal-success.svg" width="36" height="36" alt="">
+                                </div>
+                                <p class="c-modal__desc">{n}개 상품의 판매상태가 판매중지로 변경되었습니다.</p>
+                            </div>
+                            <div class="c-modal__footer">
+                                <button type="button" class="btn lg">확인</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </main>
 
