@@ -3396,6 +3396,10 @@ tr:has(.c-check:checked) {
         --content-gap: 16px;
     }
 
+    /* 랜딩 미리보기: 상품 2열 / 쿠폰 1열 */
+    .lp-preview__products { grid-template-columns: repeat(2, 1fr); }
+    .lp-preview__coupons { grid-template-columns: 1fr; }
+
     /* LNB 숨김 + 햄버거 토글 (.admin-lnb--open 클래스로 슬라이드 인) */
     .admin-lnb { transform: translateX(-100%); transition: transform 0.2s; z-index: 60; }
     .admin-lnb--open { transform: translateX(0); }
@@ -3447,7 +3451,7 @@ tr:has(.c-check:checked) {
 
 /* 혜택 설정 쿠폰 */
 .lp-coupon-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; margin-top:14px; }
-.lp-coupon-row { display:flex; align-items:center; gap:16px; padding:16px 20px; background:#FAFAFA; border-radius:8px; }
+.lp-coupon-row { display:flex; align-items:center; gap:16px; padding:25px 24px; background:#FAFAFA; border-radius:8px; }
 .lp-coupon-row__label { flex-shrink:0; font-size:13px; color:var(--text-secondary); }
 .lp-coupon-row__name { flex:1; min-width:0; font-size:14px; color:var(--text-primary); }
 .lp-coupon-row__amount { flex-shrink:0; font-size:14px; color:var(--text-primary); }
