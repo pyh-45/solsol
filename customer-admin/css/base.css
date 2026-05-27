@@ -3157,6 +3157,7 @@ tr:has(.c-check:checked) {
 .perm-tree__list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:14px; color:var(--text-primary); }
 .perm-tree__sub { list-style:none; margin:10px 0 0; padding-left:24px; display:flex; flex-direction:column; gap:10px; }
 .c-checkbox { display:inline-flex; align-items:center; gap:8px; cursor:pointer; }
+.c-checkbox--disabled { color:var(--text-disabled); cursor:not-allowed; }
 
 /* 강사 검색 */
 .tutor-search { display:flex; align-items:center; gap:8px; height:40px; padding:0 14px; border:1px solid var(--border-color); border-radius:6px; background:#fff; }
@@ -3413,6 +3414,19 @@ tr:has(.c-check:checked) {
     .admin-filter__select  { flex: 1; }
 }
 
+
+/* ==================== 테스트 발송 모달 ==================== */
+.test-send { align-items:stretch; text-align:left; gap:20px; }
+.test-send__group { display:flex; flex-direction:column; gap:10px; }
+.test-send__box { border:1px solid var(--border-color); border-radius:8px; padding:20px 24px; background:#FAFAFA; }
+.test-send__channels { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.test-send__channel-status { font-size:13px; font-weight:600; line-height:1.4; color:var(--color-blue); }
+.test-send__sim-link { font-size:14px; font-weight:700; color:var(--color-blue); text-decoration:none; }
+.test-send__sim-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.test-send__sim-row { display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:14px; }
+.test-send__sim-label { color:var(--text-secondary); }
+.test-send__sim-value { color:var(--text-primary); }
+.test-send__sim-value--credit { display:inline-flex; align-items:center; gap:5px; }
 
 /* ==================== 날짜 지정 검색 필터 ==================== */
 .c-date-filter { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }

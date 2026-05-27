@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테스트 발송</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:40px 20px;">
+
+<div style="display:flex; gap:40px; justify-content:center; align-items:flex-start;">
+
+    <!-- ===== 기본 모달 ===== -->
+    <div class="c-modal completion-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">테스트 발송</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body test-send">
+
+            <!-- 안내 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>작성 중인 캠페인 내용을 실제 발송 전 미리 확인해 볼 수 있습니다.</span>
+            </div>
+
+            <!-- 발송 채널 -->
+            <div class="test-send__group">
+                <span class="memo-modal__section-title">발송 채널 <span class="auth-required">*</span></span>
+                <div class="test-send__box">
+                    <div class="test-send__channels">
+                        <label class="c-checkbox"><input type="checkbox" class="c-check"> 이메일</label>
+                        <label class="c-checkbox"><input type="checkbox" class="c-check"> 문자</label>
+                        <label class="c-checkbox"><input type="checkbox" class="c-check"> 알림톡</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 발송 시뮬레이션 -->
+            <div class="test-send__group">
+                <span class="memo-modal__section-title">발송 시뮬레이션</span>
+                <div class="test-send__box">
+                    <ul class="test-send__sim-list">
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">이메일</span>
+                            <strong class="test-send__sim-value">minjun.kim@example.com</strong>
+                        </li>
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">휴대폰 번호</span>
+                            <strong class="test-send__sim-value">010-0000-0000</strong>
+                        </li>
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">현재 보유 크레딧</span>
+                            <strong class="test-send__sim-value test-send__sim-value--credit">000,000 <span class="c-credit-coin">C</span></strong>
+                        </li>
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">예상 차감 크레딧</span>
+                            <strong class="test-send__sim-value test-send__sim-value--credit">0,000 <span class="c-credit-coin">C</span></strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big">테스트 발송</button>
+        </div>
+
+    </div>
+
+    <!-- ===== 변형 모달: 알림톡 심사중/심사반려 + 휴대폰 미등록 ===== -->
+    <div class="c-modal completion-modal">
+
+        <!-- 헤더 -->
+        <div class="completion-modal__header">
+            <h3 class="completion-modal__heading">테스트 발송</h3>
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body test-send">
+
+            <!-- 안내 -->
+            <div class="admin-infotip">
+                <span class="admin-infotip__icon">i</span>
+                <span>작성 중인 캠페인 내용을 실제 발송 전 미리 확인해 볼 수 있습니다.</span>
+            </div>
+
+            <!-- 발송 채널 (알림톡 심사중) -->
+            <div class="test-send__group">
+                <span class="memo-modal__section-title">발송 채널 <span class="auth-required">*</span></span>
+                <div class="test-send__box">
+                    <div class="test-send__channels">
+                        <label class="c-checkbox"><input type="checkbox" class="c-check"> 이메일</label>
+                        <label class="c-checkbox"><input type="checkbox" class="c-check"> 문자</label>
+                        <label class="c-checkbox c-checkbox--disabled"><input type="checkbox" class="c-check" disabled> 알림톡 <span class="test-send__channel-status">(심사중)</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 발송 시뮬레이션 (휴대폰 미등록) -->
+            <div class="test-send__group">
+                <span class="memo-modal__section-title">발송 시뮬레이션</span>
+                <div class="test-send__box">
+                    <ul class="test-send__sim-list">
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">이메일</span>
+                            <strong class="test-send__sim-value">minjun.kim@example.com</strong>
+                        </li>
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">휴대폰 번호</span>
+                            <a href="#" class="test-send__sim-link">휴대폰 번호 등록하기</a>
+                        </li>
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">현재 보유 크레딧</span>
+                            <strong class="test-send__sim-value test-send__sim-value--credit">000,000 <span class="c-credit-coin">C</span></strong>
+                        </li>
+                        <li class="test-send__sim-row">
+                            <span class="test-send__sim-label">예상 차감 크레딧</span>
+                            <strong class="test-send__sim-value test-send__sim-value--credit">0,000 <span class="c-credit-coin">C</span></strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big">테스트 발송</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
