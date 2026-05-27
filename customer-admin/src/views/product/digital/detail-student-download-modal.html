@@ -3,13 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>다운로드 이력</title>
+    <title>다운로드 상세보기</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body style="background:#888888; padding:40px 20px;">
 
     <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
-        <!-- TODO: 다운로드 이력 모달 -->
+
+        <!-- 다운로드 상세보기 모달 -->
+        <div class="c-modal completion-modal completion-modal--lg">
+
+            <div class="completion-modal__header">
+                <h3 class="completion-modal__heading completion-modal__heading--sm">다운로드 상세보기</h3>
+                <button type="button" class="completion-modal__close" aria-label="닫기">
+                    <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+                </button>
+            </div>
+
+            <div class="c-modal__content completion-modal__body completion-modal__body--no-footer">
+
+                <!-- 1-1 전체 개수 -->
+                <p style="margin:0 0 4px; font-size:14px; color:var(--text-secondary);">전체 <strong style="color:var(--text-primary);">10</strong>개</p>
+
+                <!-- 1-2 파일 리스트 + 1-3 다운로드 제한 -->
+                <div class="content-select__list" style="margin-top:0;">
+                    <ul class="content-select__items">
+                        <li class="content-select__item">
+                            <img src="../../../images/Ico_20px_paperclip.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">PDF 전자책 (E-Book).ppt</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">1</strong>/10</span>
+                        </li>
+                        <li class="content-select__item">
+                            <img src="../../../images/Ico_20px_video02.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">sns_마케팅_전략_강의.mp4</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">1</strong>/10</span>
+                        </li>
+                        <li class="content-select__item">
+                            <img src="../../../images/Ico_20px_gallery.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">유튜브_썸네일_템플릿.png</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">5</strong>/10</span>
+                        </li>
+                        <li class="content-select__item">
+                            <img src="../../../images/Ico_20px_paperclip.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">html_css_입문_가이드.pdf</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">1</strong>/10</span>
+                        </li>
+                        <li class="content-select__item">
+                            <img src="../../../images/Ico_20px_paperclip.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">브이로그_편집_강의_링크.txt</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">10</strong>/10</span>
+                        </li>
+                        <li class="content-select__item">
+                            <img src="../../../images/Ico_20px_paperclip.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">인스타그램_콘텐츠_이미지_세트.zip</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">1</strong>/10</span>
+                        </li>
+                        <li class="content-select__item">
+                            <img src="../../../images/Icon_20px_link02.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">https://www.youtube.com/watch?v=qkf3kybw9y0</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">1</strong>/10</span>
+                        </li>
+                        <li class="content-select__item">
+                            <img src="../../../images/Ico_20px_video02.svg" width="20" height="20" alt="" style="flex-shrink:0;">
+                            <span class="content-select__item__name" style="flex:1; min-width:0;">온라인클래스_촬영_세팅.mp4</span>
+                            <span style="flex-shrink:0; font-size:14px; color:var(--text-secondary);"><strong style="color:var(--text-primary);">1</strong>/10</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
 </body>
