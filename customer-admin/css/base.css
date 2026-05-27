@@ -2985,8 +2985,10 @@ tr:has(.c-check:checked) {
 .completion-modal { width: 480px; padding: 0; gap: 0; }
 .completion-modal--lg { width: 600px; }
 .completion-modal--xl { width: 800px; }
+.completion-modal--xxl { width: 1200px; }
 .completion-modal.completion-modal--lg .c-modal__content,
-.completion-modal.completion-modal--xl .c-modal__content { padding-bottom: 20px; }
+.completion-modal.completion-modal--xl .c-modal__content,
+.completion-modal.completion-modal--xxl .c-modal__content { padding-bottom: 20px; }
 .completion-modal__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 64px; padding: 0 18px 0 30px; border-bottom: 1px solid #EAEAEA; }
 .completion-modal__heading { margin: 0; font-size: 20px; font-weight: 700; color: var(--text-primary); }
 /* 모달 헤더 텍스트 변형 — 리스트형/드릴인형 등 보조 모달용 */
@@ -3359,6 +3361,9 @@ tr:has(.c-check:checked) {
     .admin-grid--4,
     .count-card-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
+    /* 랜딩 상품 카드: 4열 → 2열 */
+    .lp-pcard-grid { grid-template-columns: repeat(2, 1fr); }
+
     /* 필터 패널 */
     .admin-filter { flex-wrap: wrap; gap: 8px; }
     .admin-filter__selects { flex-wrap: wrap; }
@@ -3427,6 +3432,44 @@ tr:has(.c-check:checked) {
 .test-send__sim-label { color:var(--text-secondary); }
 .test-send__sim-value { color:var(--text-primary); }
 .test-send__sim-value--credit { display:inline-flex; align-items:center; gap:5px; }
+
+/* ==================== 랜딩페이지 확장형 ==================== */
+/* 상품 선택 행 */
+.lp-select-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+
+/* 선택된 상품 카드 그리드 (썸네일 이미지) */
+.lp-pcard-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+.lp-pcard-thumb { width:100%; height:auto; display:block; border-radius:10px; }
+
+/* 상품 카드 노출 옵션 */
+.lp-options-row { display:flex; align-items:center; gap:18px 28px; flex-wrap:wrap; }
+.lp-option { display:inline-flex; align-items:center; gap:10px; font-size:14px; color:var(--text-primary); }
+
+/* 혜택 설정 쿠폰 */
+.lp-coupon-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; margin-top:14px; }
+.lp-coupon-row { display:flex; align-items:center; gap:16px; padding:16px 20px; background:#FAFAFA; border-radius:8px; }
+.lp-coupon-row__label { flex-shrink:0; font-size:13px; color:var(--text-secondary); }
+.lp-coupon-row__name { flex:1; min-width:0; font-size:14px; color:var(--text-primary); }
+.lp-coupon-row__amount { flex-shrink:0; font-size:14px; color:var(--text-primary); }
+.lp-coupon-row__amount strong { font-weight:700; }
+.lp-coupon-row__remove { flex-shrink:0; width:18px; height:18px; padding:0; background:none; border:none; cursor:pointer; color:var(--text-tertiary); font-size:15px; line-height:1; }
+
+/* CTA 색상 입력 */
+.lp-color-field__label { font-size:9px; font-weight:600; color:var(--color-blue); }
+.lp-color-input { display:flex; align-items:center; gap:10px; }
+.lp-color-swatch { width:40px; height:40px; border-radius:8px; border:1px solid var(--border-color); background:#F2F2F2; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+.lp-color-swatch__chip { width:24px; height:24px; border-radius:2px; border:1px solid rgba(0,0,0,0.08); }
+
+/* 랜딩페이지 미리보기 (확장형) */
+.lp-preview__hero { background:#E8F3FF; border-radius:8px; padding:90px 24px; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.lp-preview__hero-title { margin:0; font-size:20px; font-weight:700; color:var(--text-primary); }
+.lp-preview__hero-sub { margin:0; font-size:13px; color:var(--text-secondary); }
+.lp-preview__content { min-height:280px; background:#F4F5F7; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-tertiary); }
+.lp-preview__section-title { margin:0 0 12px; font-size:15px; font-weight:700; color:var(--text-primary); }
+.lp-preview__products { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+.lp-preview__product { width:100%; height:auto; display:block; border-radius:8px; }
+.lp-preview__coupons { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+.lp-preview__coupon { width:100%; height:auto; display:block; }
 
 /* ==================== 날짜 지정 검색 필터 ==================== */
 .c-date-filter { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
@@ -4489,6 +4532,13 @@ tr:has(.c-check:checked) {
 
     /* 스텝퍼 2열 */
     .step-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; justify-items: start; }
+
+    /* 랜딩 상품 카드 1열 */
+    .lp-pcard-grid { grid-template-columns: 1fr; }
+
+    /* 적용 쿠폰 1열 + 내부 텍스트 세로 배치 */
+    .lp-coupon-grid { grid-template-columns: 1fr; }
+    .lp-coupon-row { flex-direction: column; align-items: flex-start; gap: 6px; }
 
     /* 차시 추가 텍스트 숨김 + 인풋 영역이 빈 공간 흡수 */
     .curriculum-row__add-text { display: none; }

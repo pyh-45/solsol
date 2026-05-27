@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜딩페이지 미리보기 (확장형)</title>
+    <link rel="stylesheet" href="../../../../css/base.css">
+</head>
+<body style="background:#888; padding:60px 0;">
+
+<div style="display:flex; justify-content:center; padding:0 30px;">
+
+    <!-- ========= 랜딩페이지 미리보기 모달 (확장형, W1200) ========= -->
+    <div class="c-modal completion-modal completion-modal--xxl">
+        <div class="completion-modal__header completion-modal__header--close-only">
+            <button type="button" class="completion-modal__close" aria-label="닫기">
+                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+            </button>
+        </div>
+
+        <div class="c-modal__content completion-modal__body" style="gap:24px;">
+
+            <!-- 사이트명 -->
+            <div class="auth-logo preview-form__logo">DJ테크트리</div>
+
+            <!-- 1. 메인 헤드라인 + 서브 타이틀 -->
+            <div class="lp-preview__hero">
+                <h3 class="lp-preview__hero-title">{메인 헤드라인}</h3>
+                <p class="lp-preview__hero-sub">{서브 타이틀}</p>
+            </div>
+
+            <!-- 본문 내용 -->
+            <div class="lp-preview__content">/ 내용 /</div>
+
+            <!-- 2. 추천 상품 -->
+            <div>
+                <h4 class="lp-preview__section-title">추천 상품</h4>
+                <div class="lp-preview__products">
+                    <img class="lp-preview__product" src="../../../images/front/product-card-thumb.png" alt="">
+                    <img class="lp-preview__product" src="../../../images/front/product-card-thumb02.png" alt="">
+                    <img class="lp-preview__product" src="../../../images/front/product-card-thumb03.png" alt="">
+                    <img class="lp-preview__product" src="../../../images/front/product-card-thumb04.png" alt="">
+                </div>
+            </div>
+
+            <!-- 3. 쿠폰 혜택 -->
+            <div>
+                <h4 class="lp-preview__section-title">쿠폰 혜택</h4>
+                <div class="lp-preview__coupons">
+                    <img class="lp-preview__coupon" src="../../../images/front/coupon.png" alt="">
+                    <img class="lp-preview__coupon" src="../../../images/front/coupon.png" alt="">
+                    <img class="lp-preview__coupon" src="../../../images/front/coupon.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 4. 푸터 CTA -->
+        <div class="c-modal__footer">
+            <button type="button" class="btn big primary" style="width:100%;">{버튼명}</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
