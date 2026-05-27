@@ -1516,6 +1516,7 @@ textarea.form-control {
 .admin-infotip__link {
     color: var(--color-blue);
     font-weight: 600;
+    margin-left:6px;
     white-space: nowrap;
     text-decoration: underline;
 }
@@ -2027,7 +2028,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .target-selected__list li > span { flex:1; }
 .target-selected__remove { width:14px; height:14px; padding:0; border:none; background:none; cursor:pointer; font-size:14px; line-height:1; color:var(--text-secondary); display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
 .target-selected__remove:hover { color:var(--color-primary); }
-.detail-form__field { display: flex; flex-direction: column; gap: 6px; }
+.detail-form__field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .detail-form__field--full { grid-column: 1 / -1; }
 .detail-form__label { font-size: 13px;line-height:1.5; color: var(--color-textgray); }
 .detail-form__input-box { padding: 10px 14px; border: 1px solid #EFEFEF; border-radius: 6px; font-size: 14px; color: #222; background: #FAFAFA; }
@@ -2236,7 +2237,7 @@ th .c-dropdown__trigger { gap: 4px; min-width: unset; padding: 0 8px; }
 .form-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
 .form-table th { font-size: 14px; font-weight: 400; color: var(--color-dark); background: #f9f9f9; padding: 14px 12px; border-top: 1px solid var(--border-color);border-bottom: 1px solid var(--border-color); text-align: center; }
 .form-table td { height: 48px; padding: 5px 2px; border-bottom: 1px solid var(--border-color); border-top: none; vertical-align: middle; }
-.form-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.form-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; max-width: 100%; }
 .form-table td input, .form-table td select { width: 100%; height: 40px; padding: 0 10px; border: 1px solid var(--border-color); border-radius: 6px; outline: none; font-size: 13px; font-family: inherit; color: var(--text-primary); background: #fff; box-sizing: border-box; }
 .form-table td input:focus, .form-table td select:focus { border-color: var(--color-primary); }
 .form-table td input:disabled, .form-table td select:disabled { color: var(--text-disabled); background: #F2F2F2; cursor: not-allowed; }
@@ -3365,8 +3366,22 @@ tr:has(.c-check:checked) {
     /* Bulk bar */
     .c-bulk-bar { left: calc(var(--lnb-width) + 24px); }
 
+    /* 스텝퍼: 간격 20px + 라인 숨김 */
+    .step-tabs { flex-wrap: wrap; gap: 12px 20px; }
+    .step-tabs__line { display: none; }
+
+    /* 대시보드바: 세로 스택 */
+    .dashboard-bar { flex-direction: column; align-items: stretch; gap: 12px; }
+    .dashboard-bar__actions { flex-wrap: wrap; }
+
     /* form-table 가로 스크롤 */
     .form-table-wrap .form-table { min-width: 720px; }
+    .form-table-wrap .subtitle-table { min-width: 720px; }
+    .form-table-wrap .tab-info-table { min-width: 720px; }
+    .form-table-wrap .tab-info-table > colgroup > col:first-child { width: 120px !important; }
+    .form-table-wrap .tab-info-table > tbody > tr > th { width: 120px; padding: 16px; }
+    .form-table-wrap .folder-mgmt-header,
+    .form-table-wrap .folder-mgmt-row { min-width: 720px; }
 }
 
 /* ==================== Responsive: Mobile (≤768px) ==================== */
@@ -4405,12 +4420,11 @@ tr:has(.c-check:checked) {
     .list-panel--p30 { padding: 20px 16px; }
     .list-panel--p24-30 { padding: 16px; }
 
-    /* ───── 대시보드바: 세로 스택 ───── */
-    .dashboard-bar { flex-direction: column; align-items: stretch; gap: 12px; }
-    .dashboard-bar__actions { flex-wrap: wrap; }
+    /* ───── 패널 타이틀: 줄어든 padding에 맞춰 음수 margin 조정 ───── */
+    .panel-title { margin: 0 -16px 20px; padding: 0 16px 16px; }
 
     /* ───── 스텝퍼: 줄바꿈 ───── */
-    .step-tabs { flex-wrap: wrap; gap: 12px 0; padding: 16px; }
+    .step-tabs { padding: 16px; }
     .step-tabs__line { display: none; }
 
     /* ───── 헤더 정보 영역 축소 ───── */
@@ -4441,7 +4455,39 @@ tr:has(.c-check:checked) {
     .detail-profile__name-row,
     .detail-profile__meta { justify-content: center; }
 
-    /* 탭메뉴 텍스트 12px */
-    .detail-tab__item { font-size: 12px; }
+    /* 탭메뉴 텍스트 12px + 좌우 패딩 축소 */
+    .detail-tab__item { font-size: 12px; padding: 0 11px; }
+
+    /* 패널 헤더: 타이틀 아래로 드롭다운 배치 */
+    .list-panel__header { flex-direction: column; align-items: flex-start; }
+
+    /* 상품후기 요약: 총점 영역 축소해 프로그래스바 노출 */
+    .review-summary { gap: 16px; padding: 20px 16px; }
+    .review-summary__overall { min-width: 0; gap: 4px; }
+    .review-summary__score { font-size: 32px; }
+
+    /* 하단 플로팅바 버튼 축소 */
+    .c-bulk-bar__btn { height: 34px; padding: 8px 14px; font-size: 12px; }
+
+    /* 모달 목록 테이블 가로 스크롤 */
+    .modal-table-wrap .modal-table { min-width: 480px; }
+
+    /* 스텝퍼 2열 */
+    .step-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; justify-items: start; }
+
+    /* 차시 추가 텍스트 숨김 + 인풋 영역이 빈 공간 흡수 */
+    .curriculum-row__add-text { display: none; }
+    .curriculum-row { grid-template-columns: 20px 50px 1fr 24px auto; }
+
+    /* 차시 이용중지 토글은 다음 줄로 */
+    .content-lesson__title-row { flex-wrap: wrap; }
+    .content-lesson__toggle-area { order: 99; width: 100%; justify-content: flex-start; }
+
+    /* 콘텐츠 체크박스 리스트 세로 나열 */
+    .content-lesson__row { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+    /* 2단 레이아웃 → 세로 스택 */
+    .two-col-layout { flex-direction: column; align-items: stretch; }
+    .two-col-layout__col { width: 100%; }
 }
 
