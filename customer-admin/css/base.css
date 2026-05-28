@@ -3477,6 +3477,10 @@ tr:has(.c-check:checked) {
 /* 업로드 리스트 본문 (테이블 영역 패딩) */
 .upload-list-body { padding:0 30px 30px; }
 
+/* 게시판 권한 설정 행 (라벨 + 라디오) */
+.board-perm-row { display:flex; align-items:center; gap:24px; }
+.board-perm-row__label { min-width:60px; font-size:14px; color:var(--color-textgray); }
+
 /* 유튜브 링크 추가 행 (인풋 + 추가 버튼) */
 .yt-add-row { display:flex; gap:6px; }
 .yt-add-row__btn { flex-shrink:0; width:84px; }
@@ -4528,8 +4532,17 @@ tr:has(.c-check:checked) {
     .yt-add-row .setting-table__input { flex: 1 1 100%; }
     .yt-add-row__btn { width: 100%; }
 
-    /* setting-table 전체 폭 */
+    /* setting-table 전체 폭 + th 폭 축소 */
     .setting-table { width: 100%; margin: 0; }
+    .setting-table th { width: 90px; padding: 12px 12px; }
+    .setting-table td { padding: 12px 12px; }
+
+    /* 업로드 리스트 헤더: 제목/콘텐츠 용량 세로 배치 */
+    .upload-list__head { flex-direction: column; align-items: flex-start; gap: 0; }
+    .upload-list__head .upload-storage-info { padding-top: 0; }
+
+    /* 게시판 권한 설정: 라벨·라디오 세로 배치 */
+    .board-perm-row { flex-direction: column; align-items: flex-start; gap: 10px; }
 
     /* 업로드 리스트 본문: 좌우 패딩 축소 */
     .upload-list-body { padding: 0 12px 20px; }

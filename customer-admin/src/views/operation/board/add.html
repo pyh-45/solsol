@@ -307,15 +307,15 @@
                             <tr>
                                 <th>권한 설정</th>
                                 <td>
-                                    <div style="display:flex; align-items:center; gap:24px;">
-                                        <span style="font-size:14px; color:var(--color-textgray); min-width:48px;">글 쓰기</span>
+                                    <div class="board-perm-row">
+                                        <span class="board-perm-row__label">글 쓰기</span>
                                         <label class="c-radio">
                                             <input type="radio" name="writePermission" checked>
                                             <span>관리자</span>
                                         </label>
                                     </div>
-                                    <div style="display:flex; align-items:center; gap:24px; margin-top:16px;">
-                                        <span style="font-size:14px; color:var(--color-textgray); min-width:48px;">글 읽기</span>
+                                    <div class="board-perm-row" style="margin-top:16px;">
+                                        <span class="board-perm-row__label">글 읽기</span>
                                         <label class="c-radio">
                                             <input type="radio" name="readPermission" checked>
                                             <span>모든 사용자</span>
