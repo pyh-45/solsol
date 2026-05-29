@@ -269,116 +269,122 @@
                 <!-- 사이트 정보 패널 -->
                 <div class="list-panel list-panel--flush">
                     <h3 class="list-panel__title">사이트 정보</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>사이트 이름</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="예) 세계최강 DJ테크트리">
-                                    <span class="setting-table__desc">사용자에게 노출되는 사이트의 공식 이름입니다.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>사이트 URL</th>
-                                <td>
-                                    <div class="setting-table__url-row">
-                                        <span class="setting-table__text">https://admin-creatorlms</span>
-                                        <button class="btn md border">도메인 설정 바로가기</button>
-                                        <span class="setting-table__desc" style="margin:0;">사이트 도메인을 변경하시려면, <strong>설정 &gt; 기본설정</strong> 메뉴에서 가능합니다.</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="form-table-wrap">
+                        <table class="setting-table">
+                            <tbody>
+                                <tr>
+                                    <th>사이트 이름</th>
+                                    <td>
+                                        <input type="text" class="setting-table__input" placeholder="예) 세계최강 DJ테크트리">
+                                        <span class="setting-table__desc">사용자에게 노출되는 사이트의 공식 이름입니다.</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>사이트 URL</th>
+                                    <td>
+                                        <div class="setting-table__url-row">
+                                            <span class="setting-table__text">https://admin-creatorlms</span>
+                                            <button class="btn md border">도메인 설정 바로가기</button>
+                                            <span class="setting-table__desc" style="margin:0;">사이트 도메인을 변경하시려면, <strong>설정 &gt; 기본설정</strong> 메뉴에서 가능합니다.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!-- 로고 설정 패널 -->
                 <div class="list-panel list-panel--flush">
                     <h3 class="list-panel__title">로고 설정</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>로고 사용</th>
-                                <td>
-                                    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                        <label class="c-radio"><input type="radio" name="logoType"><span>로고 이미지</span></label>
-                                        <label class="c-radio"><input type="radio" name="logoType" checked><span>텍스트</span></label>
-                                        <input type="text" class="setting-table__input" placeholder="로고 대신 사용할 텍스트를 작성해주세요" style="flex:1; min-width:280px;">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>로고 이미지</th>
-                                <td>
-                                    <button type="button" class="btn md border">파일 업로드</button>
-                                    <span class="setting-table__desc">로고 이미지는 사이트의 브랜딩에 사용됩니다. (권장: 300x300px, 최대 5MB)</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>SNS 공유 이미지</th>
-                                <td>
-                                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                    <div class="form-table-wrap">
+                        <table class="setting-table">
+                            <tbody>
+                                <tr>
+                                    <th>로고 사용</th>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                                            <label class="c-radio"><input type="radio" name="logoType"><span>로고 이미지</span></label>
+                                            <label class="c-radio"><input type="radio" name="logoType" checked><span>텍스트</span></label>
+                                            <input type="text" class="setting-table__input" placeholder="로고 대신 사용할 텍스트를 작성해주세요" style="flex:1; min-width:280px;">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>로고 이미지</th>
+                                    <td>
                                         <button type="button" class="btn md border">파일 업로드</button>
-                                        <a href="#" class="setting-table__file-link">
-                                            <img src="../../../images/ico-download-clip.svg" width="16" height="16" alt="">
-                                            image.jpg
-                                        </a>
-                                    </div>
-                                    <span class="setting-table__desc">공유 이미지는 소셜 미디어에서 사이트 공유 시 노출됩니다. (권장: 1200x630px, 최대 10MB)</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>파비콘 이미지</th>
-                                <td>
-                                    <input type="text" class="setting-table__input" placeholder="이미지 URL을 입력하세요">
-                                    <span class="setting-table__desc">파비콘 이미지는 브라우저 탭에 표시됩니다. (권장: 32x32px, 최대 1MB)</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                        <span class="setting-table__desc">로고 이미지는 사이트의 브랜딩에 사용됩니다. (권장: 300x300px, 최대 5MB)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>SNS 공유 이미지</th>
+                                    <td>
+                                        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                                            <button type="button" class="btn md border">파일 업로드</button>
+                                            <a href="#" class="setting-table__file-link">
+                                                <img src="../../../images/ico-download-clip.svg" width="16" height="16" alt="">
+                                                image.jpg
+                                            </a>
+                                        </div>
+                                        <span class="setting-table__desc">공유 이미지는 소셜 미디어에서 사이트 공유 시 노출됩니다. (권장: 1200x630px, 최대 10MB)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>파비콘 이미지</th>
+                                    <td>
+                                        <input type="text" class="setting-table__input" placeholder="이미지 URL을 입력하세요">
+                                        <span class="setting-table__desc">파비콘 이미지는 브라우저 탭에 표시됩니다. (권장: 32x32px, 최대 1MB)</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!-- 호출 페이지 정의 패널 -->
                 <div class="list-panel list-panel--flush">
                     <h3 class="list-panel__title">호출 페이지 정의</h3>
-                    <table class="setting-table">
-                        <tbody>
-                            <tr>
-                                <th>로그아웃 상태</th>
-                                <td>
-                                    <div class="c-dropdown" style="width:300px;">
-                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                            <span class="c-dropdown__label">페이지를 선택하세요</span>
-                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                        </button>
-                                        <div class="c-dropdown__panel">
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">메인 페이지</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">로그인 페이지</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">소개 페이지</button>
+                    <div class="form-table-wrap">
+                        <table class="setting-table">
+                            <tbody>
+                                <tr>
+                                    <th>로그아웃 상태</th>
+                                    <td>
+                                        <div class="c-dropdown" style="width:300px;">
+                                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">페이지를 선택하세요</span>
+                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">메인 페이지</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">로그인 페이지</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">소개 페이지</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span class="setting-table__desc">로그아웃 상태의 사용자에게 표시할 기본 호출 페이지를 선택하세요.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>로그인 상태</th>
-                                <td>
-                                    <div class="c-dropdown" style="width:300px;">
-                                        <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
-                                            <span class="c-dropdown__label">페이지를 선택하세요</span>
-                                            <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
-                                        </button>
-                                        <div class="c-dropdown__panel">
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">대시보드</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">메인 페이지</button>
-                                            <button class="c-dropdown__item" onclick="selectItem(this)">학습 페이지</button>
+                                        <span class="setting-table__desc">로그아웃 상태의 사용자에게 표시할 기본 호출 페이지를 선택하세요.</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>로그인 상태</th>
+                                    <td>
+                                        <div class="c-dropdown" style="width:300px;">
+                                            <button class="c-dropdown__trigger" onclick="toggleDropdown(this)">
+                                                <span class="c-dropdown__label">페이지를 선택하세요</span>
+                                                <img src="../../../images/chevron-down.svg" width="24" height="24" alt="" class="c-dropdown__arrow">
+                                            </button>
+                                            <div class="c-dropdown__panel">
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">대시보드</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">메인 페이지</button>
+                                                <button class="c-dropdown__item" onclick="selectItem(this)">학습 페이지</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <span class="setting-table__desc">로그인 상태의 사용자에게 표시할 기본 호출 페이지를 선택하세요.</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                        <span class="setting-table__desc">로그인 상태의 사용자에게 표시할 기본 호출 페이지를 선택하세요.</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
             </div>

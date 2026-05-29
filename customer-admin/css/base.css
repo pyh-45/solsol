@@ -803,6 +803,12 @@ ul, ol { list-style: none; }
 
 /* setting-table 셀 - 입력 행 컴팩트 패딩 (상하 2px) */
 .setting-table td.setting-table__cell--tight { padding-top: 2px; padding-bottom: 2px; }
+
+/* 검색 + 드롭다운 한 줄 (모달 등) */
+.search-filter-bar { display: flex; align-items: center; gap: 8px; }
+
+/* 폼 + 우측 미리보기 그리드 (1024 이하 세로 스택) */
+.form-preview-grid { display: grid; grid-template-columns: 1fr 400px; gap: 16px; align-items: start; }
 .list-panel--flush .list-panel__header { margin-bottom: 8px; }
 
 /* 탭 메뉴 아래 패널 헤더 (padding-top 제거, 타이틀 17px) */
@@ -3391,6 +3397,11 @@ tr:has(.c-check:checked) {
     .form-table-wrap .tab-info-table > tbody > tr > th { width: 120px; padding: 16px; }
     .form-table-wrap .folder-mgmt-header,
     .form-table-wrap .folder-mgmt-row { min-width: 720px; }
+    .form-table-wrap .setting-table { min-width: 720px; width: 100%; margin: 0; }
+    .form-table-wrap .setting-table th { width: 120px; padding: 12px 16px; }
+
+    /* 폼 + 미리보기 그리드: 세로 스택 */
+    .form-preview-grid { grid-template-columns: 1fr; }
 }
 
 /* ==================== Responsive: Mobile (≤768px) ==================== */
@@ -4615,6 +4626,18 @@ tr:has(.c-check:checked) {
     /* 2단 레이아웃 → 세로 스택 */
     .two-col-layout { flex-direction: column; align-items: stretch; }
     .two-col-layout__col { width: 100%; }
+
+    /* 모달 검색바: 검색+드롭다운 세로 스택 */
+    .search-filter-bar,
+    .content-select__filter { flex-direction: column; align-items: stretch; }
+    .search-filter-bar > *,
+    .content-select__filter > * { width: 100% !important; flex: 0 0 auto !important; }
+    .search-filter-bar .c-dropdown__trigger,
+    .content-select__filter .c-dropdown__trigger { max-width: none; }
+
+    /* 메시지 미리보기/리치텍스트 에디터: 가로 스크롤·고정폭 방지 */
+    .msg-preview { width: 100% !important; max-width: 100%; box-sizing: border-box; }
+    .rt-editor__toolbar { flex-wrap: wrap; row-gap: 4px; }
 }
 
 /* ============================================================ */
