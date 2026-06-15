@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 validation 체크</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- Header (auth 공통, H105px) -->
+    <header class="auth-header">
+        <a href="#"><img class="auth-header__logo" src="../../images/logo-white.svg" alt="쏠쏠"></a>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-card auth-card--signup">
+            <h2 class="auth-card__title">회원가입</h2>
+            <p class="auth-card__desc">쏠쏠에 오신 것을 환영합니다</p>
+
+            <form class="auth-form">
+
+                <!-- 성 / 이름 (에러) -->
+                <div class="auth-field">
+                    <div class="auth-row">
+                        <div class="auth-field">
+                            <label class="auth-field__label">성<span class="auth-req">*</span></label>
+                            <div class="input-box input-box--error"><input type="text" placeholder="성을 입력해 주세요"></div>
+                        </div>
+                        <div class="auth-field">
+                            <label class="auth-field__label">이름<span class="auth-req">*</span></label>
+                            <div class="input-box input-box--error"><input type="text" placeholder="이름을 입력해 주세요"></div>
+                        </div>
+                    </div>
+                    <p class="auth-field__error">성과 이름을 입력해 주세요</p>
+                </div>
+
+                <!-- 이메일 (에러) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">이메일 주소<span class="auth-req">*</span></label>
+                    <div class="auth-inline">
+                        <div class="input-box input-box--error"><input type="email" placeholder="이메일을 입력해 주세요"></div>
+                        <button type="button" class="auth-sendbtn">인증코드 발송</button>
+                    </div>
+                    <p class="auth-field__error">이메일 주소를 입력해 주세요</p>
+                </div>
+
+                <!-- 인증코드 (에러, 확인 활성) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">인증코드<span class="auth-req">*</span></label>
+                    <div class="auth-code">
+                        <div class="auth-code__digits">
+                            <input class="auth-code__digit auth-code__digit--error" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit auth-code__digit--error" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit auth-code__digit--error" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit auth-code__digit--error" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit auth-code__digit--error" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit auth-code__digit--error" type="text" maxlength="1" inputmode="numeric">
+                        </div>
+                        <button type="button" class="auth-code__confirm auth-code__confirm--active">확인</button>
+                    </div>
+                    <p class="auth-field__error">이메일로 보내 드린 인증코드를 입력해 주세요</p>
+                    <p class="auth-field__error">만료되었거나 유효하지 않은 인증코드입니다.  인증코드 재발송으로 새로운 인증코드를 입력해 주세요</p>
+                </div>
+
+                <!-- 비밀번호 (에러, 메시지 없음) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">비밀번호<span class="auth-req">*</span></label>
+                    <div class="input-box input-box--error"><input type="password" placeholder="최소 8자 이상 특수문자 기호를 포함해 주세요."></div>
+                </div>
+
+                <!-- 비밀번호 확인 (에러) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">비밀번호 확인<span class="auth-req">*</span></label>
+                    <div class="input-box input-box--error"><input type="password" placeholder="비밀번호를 다시 입력해 주세요."></div>
+                    <p class="auth-field__error">비밀번호가 맞지 않네요. 다시 입력해 주세요</p>
+                </div>
+
+                <!-- 약관 동의 (에러) -->
+                <div class="auth-agree auth-agree--error">
+                    <label class="auth-agree__all">
+                        <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>전체 동의
+                    </label>
+                    <label class="auth-agree__item">
+                        <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>
+                        <span><span class="auth-agree__req">[필수]</span> 이용약관 동의</span>
+                        <a class="auth-agree__view" href="#">보기 <img src="../../images/arrows-down.svg" alt=""></a>
+                    </label>
+                    <label class="auth-agree__item">
+                        <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>
+                        <span><span class="auth-agree__req">[필수]</span> 개인정보 처리방침 동의</span>
+                        <a class="auth-agree__view" href="#">보기 <img src="../../images/arrows-down.svg" alt=""></a>
+                    </label>
+                    <label class="auth-agree__item">
+                        <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>
+                        <span><span class="auth-agree__req">[필수]</span> 만 14세 이상입니다</span>
+                        <a class="auth-agree__view" href="#">보기 <img src="../../images/arrows-down.svg" alt=""></a>
+                    </label>
+                    <label class="auth-agree__item">
+                        <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>
+                        <span>[선택] 마케팅 정보 수신 동의</span>
+                        <a class="auth-agree__view" href="#">보기 <img src="../../images/arrows-down.svg" alt=""></a>
+                    </label>
+                </div>
+                <p class="auth-field__error">필수 동의를 체크해 주세요</p>
+
+                <hr class="auth-divider">
+
+                <button type="submit" class="btn btn--primary">회원 가입하기</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

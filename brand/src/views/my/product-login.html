@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 (유료플랜 구매)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- Header (auth 공통, H105px) -->
+    <header class="auth-header">
+        <a href="#"><img class="auth-header__logo" src="../../images/logo-white.svg" alt="쏠쏠"></a>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-card">
+            <h2 class="auth-card__title">로그인</h2>
+
+            <form class="auth-form">
+                <div class="auth-field">
+                    <label class="auth-field__label" for="email">이메일</label>
+                    <div class="input-box">
+                        <input type="email" id="email" placeholder="이메일을 입력해 주세요">
+                    </div>
+                </div>
+
+                <div class="auth-field">
+                    <label class="auth-field__label" for="password">비밀번호</label>
+                    <div class="input-box">
+                        <input type="password" id="password" placeholder="비밀번호(영문, 숫자, 특수문자 조합으로 8자 이상)를 입력해 주세요">
+                        <img class="input-box__icon" src="../../images/ico-eye-slash.svg" alt="비밀번호 표시">
+                    </div>
+                </div>
+
+                <div class="auth-remember">
+                    <label class="c-check">
+                        <input type="checkbox"><span class="c-check__box"></span>아이디 기억하기
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn--primary">로그인하기</button>
+
+                <p class="auth-help">비밀번호가 생각나지 않으신다면<a class="auth-help__link" href="#">비밀번호 재설정</a></p>
+            </form>
+
+            <hr class="auth-divider">
+
+            <div class="auth-signup">
+                <p class="auth-signup__text">아직 회원가입을 하지 않으셨다면</p>
+                <a class="btn btn--line auth-signup__btn" href="#">회원가입하기</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

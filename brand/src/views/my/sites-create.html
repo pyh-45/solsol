@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 사이트 관리하기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light로 전환) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 콘텐츠 바디 (max-width 1400) -->
+    <main class="mysite">
+        <div class="mysite__head">
+            <h1 class="mysite__title">내 사이트 관리하기</h1>
+            <p class="mysite__desc">내 사이트를 만들고 손쉽게 관리할 수 있어요</p>
+        </div>
+
+        <form class="mysite__form">
+            <hr class="auth-divider">
+
+            <div class="auth-field">
+                <label class="auth-field__label">사이트 이름<span class="auth-req">*</span></label>
+                <div class="input-box"><input type="text" placeholder="2~20자 이내로 입력해 주세요"></div>
+                <p class="auth-field__help">사이트의 이름을 입력해주세요. (예: 김영희의 영어 교실)</p>
+            </div>
+
+            <div class="auth-field">
+                <label class="auth-field__label">사이트 도메인<span class="auth-req">*</span></label>
+                <div class="auth-inline">
+                    <div class="input-box">
+                        <span class="input-affix">https://</span>
+                        <input type="text" placeholder="3~30자 이내로 입력해 주세요">
+                        <span class="input-affix">.solsol.com</span>
+                    </div>
+                    <button type="button" class="auth-sendbtn auth-sendbtn--auto">도메인 중복 체크</button>
+                </div>
+                <p class="auth-field__help">사이트의 고유 주소를 설정하세요. (영문, 숫자, 하이픈만 사용 가능)</p>
+            </div>
+
+            <hr class="auth-divider">
+
+            <button type="submit" class="btn btn--primary"><span class="btn-plus">+</span>생성하기</button>
+        </form>
+    </main>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+</body>
+</html>

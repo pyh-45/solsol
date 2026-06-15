@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 사이트 관리하기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 콘텐츠 바디 (max-width 1400) -->
+    <main class="mysite">
+        <div class="mysite__head">
+            <h1 class="mysite__title">내 사이트 관리하기</h1>
+            <p class="mysite__desc">내 사이트를 만들고 손쉽게 관리할 수 있어요</p>
+        </div>
+
+        <div class="mysite__toolbar">
+            <a class="btn btn--register btn--auto" href="#"><span class="btn-plus">+</span>내 사이트 만들기</a>
+        </div>
+
+        <div class="site-grid">
+
+            <!-- 1. 사용중 (관리하기 포함) -->
+            <div class="site-card">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--green">BASIC</span></div>
+                        <div class="site-card__title">DJ테크트리 ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">5명</b>/무제한</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">관리하기</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status"><span class="badge badge--soft badge--soft-blue">사용중</span></div>
+            </div>
+
+            <!-- 2. 사용중 (월간 자동 결제) -->
+            <div class="site-card">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">MONZO ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status"><span class="badge badge--soft badge--soft-blue">사용중</span></div>
+            </div>
+
+            <!-- 3. 사용중 (월간 자동 결제) -->
+            <div class="site-card">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">DJ테크트리 ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">5명</b>/무제한</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status"><span class="badge badge--soft badge--soft-blue">사용중</span></div>
+            </div>
+
+            <!-- 4. 결제 실패 -->
+            <div class="site-card">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">MONZO ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--primary">결제하기</button>
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status"><span class="badge badge--soft badge--soft-red">결제 실패 - 사용중(1일 남음)</span></div>
+            </div>
+
+            <!-- 5. 결제 유예 -->
+            <div class="site-card">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">MONZOMONZO ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--primary">결제하기</button>
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status"><span class="badge badge--soft badge--soft-red">결제 유예 (20일 남음)</span></div>
+            </div>
+
+            <!-- 6. 서비스 중지 -->
+            <div class="site-card">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">DJ테크트리_글자수 ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--primary">결제하기</button>
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status"><span class="badge badge--soft badge--soft-red">서비스 중지</span></div>
+            </div>
+
+            <!-- 7. 사용중 + 용량/수강 경고 (featured) -->
+            <div class="site-card site-card--featured">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">MONZO ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status">
+                    <span class="badge badge--soft badge--soft-blue">사용중</span>
+                    <div class="site-card__alerts">
+                        <span class="alert-text"><img src="../../images/i-64-danger.svg" alt="">영상 용량 제한 90% 도달 - 플랜 업그레이드가 필요합니다</span>
+                        <span class="alert-text"><img src="../../images/i-64-danger.svg" alt="">수강 신청 제한 90% 도달 - 플랜 업그레이드가 필요합니다</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. 사용중 + 사용 연장 필요 (featured) -->
+            <div class="site-card site-card--featured">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">MONZOMONZO ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--dark">사용 연장하기</button>
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status">
+                    <span class="badge badge--soft badge--soft-blue">사용중</span>
+                    <div class="site-card__alerts">
+                        <span class="alert-text"><img src="../../images/i-64-danger.svg" alt="">구독기간 20일 남음 - 사용 연장이 필요합니다</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. 기간 만료 (featured) -->
+            <div class="site-card site-card--featured">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">DJ테크트리_글자수 ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--dark">사용 연장하기</button>
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status">
+                    <span class="badge badge--soft badge--soft-red">기간 만료</span>
+                    <div class="site-card__alerts">
+                        <span class="alert-text"><img src="../../images/i-64-danger.svg" alt="">1개월내 사용 연장하시면 서비스는 정상 유지됩니다</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. 서비스 중지 (featured) -->
+            <div class="site-card site-card--featured">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">DJ테크트리_글자수 ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--dark">사용 연장하기</button>
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status">
+                    <span class="badge badge--soft badge--soft-red">서비스 중지</span>
+                    <div class="site-card__alerts">
+                        <span class="alert-text"><img src="../../images/i-64-danger.svg" alt="">1개월내 사용 연장하시면 서비스는 정상 유지됩니다</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. 사용중 - 구독취소 -->
+            <div class="site-card">
+                <div class="site-card__row">
+                    <div class="site-card__main">
+                        <div class="site-card__head"><span class="plan-tag plan-tag--blue">BASIC</span><span class="sub">월간 자동 결제</span></div>
+                        <div class="site-card__title">MONZO ›</div>
+                        <div class="site-card__domain">djtechtree.solsol.com</div>
+                    </div>
+                    <div class="site-card__aside">
+                        <div class="site-card__info">
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">다음 결제일</span><span class="site-info__value">-</span></div>
+                                <div class="site-info"><span class="site-info__label">구독기간</span><span class="site-info__value">2026.01.15 ~ 무제한</span></div>
+                            </div>
+                            <div class="site-info-col">
+                                <div class="site-info"><span class="site-info__label">영상용량</span><span class="site-info__value"><b class="hl">2GB(5%)</b>/40GB</span></div>
+                                <div class="site-info"><span class="site-info__label">수강신청 제한</span><span class="site-info__value"><b class="hl">500명(50%)</b>/1,000명</span></div>
+                            </div>
+                        </div>
+                        <div class="site-card__actions">
+                            <button type="button" class="btn btn--sm btn--line-red">플랜 업그레이드</button>
+                            <button type="button" class="btn btn--sm btn--line-dark">구독 취소하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-card__status"><span class="badge badge--soft badge--soft-gray">사용중 - 구독취소</span></div>
+            </div>
+
+        </div>
+
+        <!-- 다른 플랜 둘러보기 배너 -->
+        <section class="plan-banner">
+            <img class="plan-banner__bg" src="../../images/img-plan-3d.png" alt="">
+            <div class="plan-banner__inner">
+                <h2 class="plan-banner__title">다른 플랜 둘러보기</h2>
+                <p class="plan-banner__desc">더 많은 기능이 필요하신가요? 다른 플랜을 확인해보세요.</p>
+                <a class="plan-banner__btn" href="#">플랜 둘러보러 가기 <img src="../../images/line-24px-arrow-right.svg" alt=""></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+</body>
+</html>

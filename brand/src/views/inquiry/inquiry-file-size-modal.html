@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의하기 - 파일 용량 초과</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 콘텐츠 바디 (max-width 1400) -->
+    <main class="mysite">
+        <div class="mysite__head">
+            <h1 class="mysite__title">문의하기</h1>
+            <p class="mysite__desc">궁금하신 사항이나 도움이 필요하신 경우 문의해 주세요. 빠르고 정확하게 답변 드리겠습니다.</p>
+        </div>
+
+        <form class="info-table">
+
+            <!-- 문의유형 -->
+            <div class="info-table__row">
+                <div class="info-table__th">문의유형<span class="info-table__req">*</span></div>
+                <div class="info-table__td">
+                    <div class="inquiry-radios">
+                        <label class="c-radio"><input type="radio" name="inq" checked><span class="c-radio__dot"></span>상품</label>
+                        <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>결제 (구매 및 환불)</label>
+                        <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>제휴 문의</label>
+                        <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>서비스 문의</label>
+                        <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>기타</label>
+                    </div>
+                    <div class="inquiry-sub">
+                        <p class="inquiry-sub__label">상품 유형을 선택해 주세요</p>
+                        <div class="inquiry-sub__btns">
+                            <button type="button" class="plan-btn plan-btn--active">상품전반</button>
+                            <button type="button" class="plan-btn">무료플랜</button>
+                            <button type="button" class="plan-btn">유료플랜</button>
+                            <button type="button" class="plan-btn">엔터프라이즈</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 제목 -->
+            <div class="info-table__row">
+                <div class="info-table__th">제목<span class="info-table__req">*</span></div>
+                <div class="info-table__td info-table__td--tight">
+                    <div class="input-box"><input type="text" placeholder="문의 제목을 입력해 주세요"></div>
+                </div>
+            </div>
+
+            <!-- 내용 -->
+            <div class="info-table__row">
+                <div class="info-table__th">내용<span class="info-table__req">*</span></div>
+                <div class="info-table__td">
+                    <div class="editor">
+                        <div class="editor__toolbar">
+                            <button type="button" class="editor__btn editor__btn--b">B</button>
+                            <button type="button" class="editor__btn editor__btn--i">I</button>
+                            <button type="button" class="editor__btn editor__btn--u">U</button>
+                            <button type="button" class="editor__btn editor__btn--s">S</button>
+                            <span class="editor__divider"></span>
+                            <button type="button" class="editor__btn">•</button>
+                            <button type="button" class="editor__btn">≡</button>
+                            <span class="editor__divider"></span>
+                            <button type="button" class="editor__btn">↗</button>
+                            <button type="button" class="editor__btn">▣</button>
+                            <span class="editor__divider"></span>
+                            <button type="button" class="editor__btn">≣</button>
+                            <button type="button" class="editor__btn">≡</button>
+                            <button type="button" class="editor__btn">≡</button>
+                            <span class="editor__divider"></span>
+                            <button type="button" class="editor__btn">Tx</button>
+                        </div>
+                        <div class="editor__body">
+                            우리 서비스의 기능이나 이용 방법에 대해 궁금한 점이 생기셨나요? 사소한 질문이라도 정성껏 답변해 드릴게요!
+                            <ul>
+                                <li>채널이 있을 경우 URL 주소를 적어주세요.</li>
+                                <li>어떤 기능과 플랜이 궁금하신가요?</li>
+                                <li>궁금한 내용을 자유롭게 남겨주세요:</li>
+                                <li>자세히 작성해 주실수록 빠르고 정확한 답변이 가능합니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 첨부파일 -->
+            <div class="info-table__row">
+                <div class="info-table__th">첨부파일 (선택)<span class="info-table__req">*</span></div>
+                <div class="info-table__td">
+                    <div class="file-upload">
+                        <button type="button" class="btn btn--upload">파일 업로드</button>
+                        <span class="file-upload__hint">최대 5개, 파일당 10MB 이하 (이미지, PDF, 문서, 압축파일)</span>
+                    </div>
+                    <div class="file-item">
+                        <img src="../../images/Ico_file.svg" alt="">image.jpg
+                        <button type="button" class="file-item__remove">✕</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="mysite__submit">
+            <button type="submit" class="btn btn--md btn--auto btn--primary">문의하기</button>
+        </div>
+    </main>
+
+    <!-- 모달: 파일 용량 초과 (화면 중앙) -->
+    <div class="modal-overlay">
+        <div class="modal-card">
+            <img class="modal-card__icon" src="../../images/ico-48px-check.svg" alt="">
+            <div class="modal-card__title">파일 용량이 업로드 가능한 최대 용량을<br>초과했습니다.</div>
+            <div class="modal-card__footer">
+                <button type="button" class="btn btn--alert btn--primary">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+</body>
+</html>
