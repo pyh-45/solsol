@@ -3,12 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결제 이메일 변경 validation 체크</title>
+    <title>결제 이메일 변경 - 밸리데이션 체크</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
 <body>
 
-    <!-- TODO: 결제 이메일 변경 validation 체크 퍼블리싱 -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 콘텐츠 바디 (max-width 1400) -->
+    <main class="mysite">
+        <div class="mysite__head">
+            <h1 class="mysite__title">계정 관리</h1>
+            <p class="mysite__desc">내 계정 정보를 관리할 수 있어요</p>
+        </div>
+
+        <!-- 결제 이메일 변경 카드 -->
+        <div class="billing-card">
+            <div class="billing-card__head">
+                <h2 class="billing-card__title">결제 이메일 변경</h2>
+                <p class="billing-card__desc">다음 결제 이메일부터 변경된 이메일로 결제 이메일이 발송됩니다.</p>
+            </div>
+
+            <form class="auth-form">
+                <!-- 현재 이메일 주소 (에러) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">현재 이메일 주소<span class="auth-req">*</span></label>
+                    <div class="input-box input-box--error"><input type="email" placeholder="이메일을 입력해 주세요"></div>
+                    <p class="auth-field__error">이메일 주소를 입력해 주세요</p>
+                </div>
+
+                <!-- 변경할 이메일 주소 (에러) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">변경할 이메일 주소<span class="auth-req">*</span></label>
+                    <div class="auth-inline">
+                        <div class="input-box input-box--error"><input type="email" placeholder="이메일을 입력해 주세요"></div>
+                        <button type="button" class="auth-sendbtn">인증코드 발송</button>
+                    </div>
+                    <p class="auth-field__error">이메일 주소를 입력해 주세요</p>
+                </div>
+
+                <!-- 인증코드 (에러) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">인증코드<span class="auth-req">*</span></label>
+                    <div class="auth-code">
+                        <div class="auth-code__digits">
+                            <input class="auth-code__digit" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit" type="text" maxlength="1" inputmode="numeric">
+                            <input class="auth-code__digit" type="text" maxlength="1" inputmode="numeric">
+                        </div>
+                        <button type="button" class="auth-code__confirm">확인</button>
+                    </div>
+                    <p class="auth-field__error">이메일로 보내 드린 인증코드를 입력해 주세요 (2분 52초 남음)</p>
+                </div>
+
+                <!-- 비밀번호 (에러) -->
+                <div class="auth-field">
+                    <label class="auth-field__label">비밀번호<span class="auth-req">*</span></label>
+                    <div class="input-box input-box--error"><input type="password" placeholder="로그인 비밀번호를 입력해 주세요"></div>
+                    <p class="auth-field__error">비밀번호가 맞지 않네요. 다시 입력해 주세요.</p>
+                </div>
+
+                <hr class="auth-divider">
+
+                <button type="submit" class="btn btn--primary">결제 이메일 변경하기</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
 
 </body>
 </html>

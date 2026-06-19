@@ -3,11 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사용량 경고 폼</title>
+    <title>사용량 경고 메일</title>
 </head>
-<body style="margin:0; padding:0; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#333333; background:#FFFFFF; -webkit-font-smoothing:antialiased;">
+<body style="margin:0; padding:40px 20px; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#333333; background:#F2F3F5; -webkit-font-smoothing:antialiased;">
 
-    <!-- TODO: 사용량 경고 폼 이메일 템플릿 퍼블리싱 -->
+    <!-- Wrapper (W630) -->
+    <div style="width:630px; max-width:100%; margin:0 auto; background:#FFFFFF; border-radius:16px; overflow:hidden;">
+
+        <!-- Head (로고, H100) -->
+        <div style="height:100px; padding:0 30px; background:#0E0E10; display:flex; align-items:center;">
+            <img src="../../images/logo-white.svg" alt="쏠쏠" width="108" style="display:block; width:108px; height:auto;">
+        </div>
+
+        <!-- Body (padding 30) -->
+        <div style="padding:30px;">
+
+            <!-- 헤더 -->
+            <div style="text-align:center;">
+                <img src="../../images/i-64-light.svg" alt="" width="64" height="64" style="display:block; width:64px; height:64px; margin:10px auto 0;">
+                <h1 style="margin:24px 0 0; font-size:32px; font-weight:700; color:#222222;">사용량이 90%에 도달했습니다</h1>
+                <p style="margin:20px 0 0; font-size:15px; line-height:1.6; color:#555555;">{{USER_NAME}} 님의 사이트 사용량이 플랜 제공량의 90%에 도달했습니다<br>원활한 서비스 이용을 위해 플랜 업그레이드를 권장합니다</p>
+            </div>
+
+            <hr style="margin:30px 0; border:0; border-top:1px solid #EAEAEA;">
+
+            <!-- 사용량 현황 -->
+            <div style="padding:24px; background:#F9F9F9; border-radius:12px;">
+                <div style="padding-bottom:20px; margin-bottom:20px; border-bottom:1px solid #333333; font-size:16px; font-weight:700; color:#222222;">사용량 현황</div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">사이트명</span><span style="color:#222222; font-weight:500;">{{SITE_NAME}}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">현재 플랜</span><span style="color:#222222; font-weight:500;">{{PLAN_TYPE}}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">저장 용량</span><span style="color:#222222; font-weight:500;">{{STORAGE_USED}} / {{STORAGE_LIMIT}}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">수강신청 수</span><span style="color:#222222; font-weight:500;">{{ENROLLMENT_USED}} / {{ENROLLMENT_LIMIT}}</span></div>
+
+                <hr style="margin:20px 0 30px; border:0; border-top:1px solid #E5E5E5;">
+
+                <div style="height:10px; border-radius:999px; background:#E5E5E5;">
+                    <div style="width:90%; height:10px; border-radius:999px; background:#2C5BFF;"></div>
+                </div>
+                <p style="margin:8px 0 0; text-align:right; font-size:13px; font-weight:700; color:#222222;">90% 사용중</p>
+            </div>
+
+            <!-- 안내사항 -->
+            <div style="margin-top:20px; padding:20px 24px; border:1px solid #EAEAEA; border-radius:12px;">
+                <p style="margin:0 0 10px; font-size:14px; font-weight:700; color:#222222;">안내사항</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.5; color:#424242;">
+                    <li>제공 용량 초과 시 동영상 업로드 등 일부 기능이 제한될 수 있습니다</li>
+                    <li>수강신청 수 초과 시 신규 수강신청이 제한됩니다</li>
+                </ul>
+            </div>
+
+            <!-- 안내문 -->
+            <p style="margin:24px 0 0; text-align:center; font-size:13px; color:#222222;">더 넉넉한 플랜으로 업그레이드 해 보세요</p>
+
+            <!-- CTA -->
+            <a href="#" style="display:block; margin-top:24px; padding:16px; border-radius:6px; background:#ED1B23; color:#FFFFFF; font-size:15px; font-weight:700; text-align:center; text-decoration:none;">플랜 업그레이드 바로가기</a>
+
+            <!-- Footer -->
+            <p style="margin:24px 0 0; text-align:center; font-size:12px; color:#424242;">© Solsol. All rights reserved.</p>
+
+        </div>
+    </div>
 
 </body>
 </html>

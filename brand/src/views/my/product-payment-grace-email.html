@@ -3,11 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결제 유예 폼</title>
+    <title>결제 유예 메일</title>
 </head>
-<body style="margin:0; padding:0; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#333333; background:#FFFFFF; -webkit-font-smoothing:antialiased;">
+<body style="margin:0; padding:40px 20px; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#333333; background:#F2F3F5; -webkit-font-smoothing:antialiased;">
 
-    <!-- TODO: 결제 유예 폼 이메일 템플릿 퍼블리싱 -->
+    <!-- Wrapper (W630) -->
+    <div style="width:630px; max-width:100%; margin:0 auto; background:#FFFFFF; border-radius:16px; overflow:hidden;">
+
+        <!-- Head (로고, H100) -->
+        <div style="height:100px; padding:0 30px; background:#0E0E10; display:flex; align-items:center;">
+            <img src="../../images/logo-white.svg" alt="쏠쏠" width="108" style="display:block; width:108px; height:auto;">
+        </div>
+
+        <!-- Body (padding 30) -->
+        <div style="padding:30px;">
+
+            <!-- 헤더 -->
+            <div style="text-align:center;">
+                <img src="../../images/i-64-3dot.svg" alt="" width="64" height="64" style="display:block; width:64px; height:64px; margin:10px auto 0;">
+                <h1 style="margin:24px 0 0; font-size:32px; font-weight:700; color:#222222;">결제 유예 상태입니다</h1>
+                <p style="margin:20px 0 0; font-size:17px; line-height:1.6; color:#222222;">{{USER_NAME}} 님의 구독 요금이 3일간 재결제에 실패하여<br>결제유예 상태로 전환되었습니다</p>
+            </div>
+
+            <hr style="margin:30px 0; border:0; border-top:1px solid #EAEAEA;">
+
+            <!-- 결제 정보 -->
+            <div style="padding:24px; background:#F9F9F9; border-radius:12px;">
+                <div style="padding-bottom:14px; margin-bottom:6px; border-bottom:1px solid #E5E5E5; font-size:16px; font-weight:700; color:#222222;">결제 정보</div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">사이트명</span><span style="color:#222222; font-weight:500;">{{SITE_NAME}}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">구독 유형</span><span style="color:#222222; font-weight:500;">{{PLAN_TYPE}}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">미결제 금액</span><span style="color:#ED1B23; font-weight:600;">{{PAYMENT_AMOUNT}}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">유예 시작일</span><span style="color:#222222; font-weight:500;">{{GRACE_START_DATE}}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">유예 만료일</span><span style="color:#ED1B23; font-weight:600;">{{GRACE_END_DATE}}</span></div>
+
+                <hr style="margin:14px 0; border:0; border-top:1px solid #E5E5E5;">
+
+                <div style="margin-bottom:8px; font-size:14px; font-weight:700; color:#222222;">서비스 이용 상태</div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">사이트 관리 (Admin)</span><span style="color:#ED1B23; font-weight:600;">사용 중지</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">사이트 (Front)</span><span style="color:#07B200; font-weight:600;">사용 가능</span></div>
+            </div>
+
+            <!-- 안내사항 -->
+            <div style="margin-top:20px; padding:20px 24px; border:1px solid #EAEAEA; border-radius:12px;">
+                <p style="margin:0 0 10px; font-size:14px; font-weight:700; color:#222222;">안내사항</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.5; color:#424242;">
+                    <li>결제유예 기간은 27일이며, 기간 내 즉시결제가 가능합니다</li>
+                    <li>사이트관리 (Admin)는 이용이 중지되며, 사이트(Front)는 정상 이용 가능합니다</li>
+                    <li>유예 기간 내 미결제 시 구독이 해지되며, 서비스가 완전히 중단됩니다</li>
+                </ul>
+            </div>
+
+            <!-- 안내문 -->
+            <p style="margin:24px 0 0; text-align:center; font-size:13px; color:#222222;">즉시결제로 서비스를 다시 정상 이용하세요</p>
+
+            <!-- CTA -->
+            <a href="#" style="display:block; margin-top:30px; padding:16px; border-radius:6px; background:#ED1B23; color:#FFFFFF; font-size:15px; font-weight:700; text-align:center; text-decoration:none;">즉시결제 바로가기</a>
+
+            <!-- Footer -->
+            <p style="margin:24px 0 0; text-align:center; font-size:12px; color:#424242;">© Solsol. All rights reserved.</p>
+
+        </div>
+    </div>
 
 </body>
 </html>

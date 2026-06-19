@@ -10,6 +10,28 @@
 <body>
 
     <!-- GNB (Default / Dark, 스크롤 시 Light로 전환) -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
     <header class="gnb gnb--dark gnb--sticky">
         <a class="gnb__logo" href="#">
             <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
@@ -41,12 +63,13 @@
 
             <div class="auth-field">
                 <label class="auth-field__label">사이트 이름<span class="auth-req">*</span></label>
-                <div class="input-box"><input type="text" placeholder="2~20자 이내로 입력해 주세요"></div>
                 <p class="auth-field__help">사이트의 이름을 입력해주세요. (예: 김영희의 영어 교실)</p>
+                <div class="input-box"><input type="text" placeholder="2~20자 이내로 입력해 주세요"></div>
             </div>
 
             <div class="auth-field">
                 <label class="auth-field__label">사이트 도메인<span class="auth-req">*</span></label>
+                <p class="auth-field__help">사이트의 고유 주소를 설정하세요. (영문, 숫자, 하이픈만 사용 가능)</p>
                 <div class="auth-inline">
                     <div class="input-box">
                         <span class="input-affix">https://</span>
@@ -55,7 +78,6 @@
                     </div>
                     <button type="button" class="auth-sendbtn auth-sendbtn--auto">도메인 중복 체크</button>
                 </div>
-                <p class="auth-field__help">사이트의 고유 주소를 설정하세요. (영문, 숫자, 하이픈만 사용 가능)</p>
             </div>
 
             <hr class="auth-divider">

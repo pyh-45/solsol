@@ -3,12 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>문의 내역 상세</title>
+    <title>문의 상세</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
 <body>
 
-    <!-- TODO: 문의 내역 상세 퍼블리싱 -->
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 콘텐츠 바디 (max-width 1400) -->
+    <main class="mysite">
+        <div class="mysite__head">
+            <h1 class="mysite__title">문의 내역</h1>
+            <p class="mysite__desc">내 문의내역에 대한 답변을 확인하실 수 있습니다</p>
+        </div>
+
+        <!-- 상단 구분선 -->
+        <div class="divider"></div>
+
+        <!-- 문의 헤더 -->
+        <div class="post-item">
+            <span class="badge badge--line-red post-item__badge">답변대기</span>
+            <div class="post-item__head">
+                <h4 class="post-item__title"><span class="cat">[결제]</span>‘UX 기획자를 위한 실전 서비스 기획 라이브 클래스’ 상품이 수정되었습니다.</h4>
+                <span class="kebab">
+                    <button class="post-item__more"><img src="../../images/more-dot.svg" alt=""></button>
+                    <div class="kebab__menu">
+                        <button class="kebab__item">수정</button>
+                        <button class="kebab__item kebab__item--danger">삭제</button>
+                    </div>
+                </span>
+            </div>
+            <div class="post-item__meta">
+                <span class="post-meta"><img src="../../images/ico-clock.svg" alt="">2000.00.00</span>
+                <span class="post-meta"><img src="../../images/ico-message-text.svg" alt="">300</span>
+            </div>
+        </div>
+
+        <div class="inq-sep"></div>
+
+        <!-- 문의 본문 -->
+        <div class="inq-body">
+            <p class="inq-body__note">신고하기 또는 결제내역 &gt; 문의하기 했을 경우 관련 정보 노출 영역</p>
+            <div class="inq-body__box"></div>
+        </div>
+
+        <!-- 첨부파일 -->
+        <div class="download-area">
+            <div class="download-area__title">첨부파일</div>
+            <div class="download-item">
+                <img class="download-item__icon" src="../../images/Ico_file.svg" alt="">
+                <span class="download-item__name">최대 파일명 자리수가 50자는 넘지 않겠다싶어 설계와 다르게 2열로 수정했습니다..jpg</span>
+                <button class="btn btn--line">다운로드</button>
+            </div>
+            <div class="download-item">
+                <img class="download-item__icon" src="../../images/Ico_file.svg" alt="">
+                <span class="download-item__name">최대 파일명 자리수가 50자는 넘지 않겠다싶어 설계와 다르게 2열로 수정했습니다..jpg</span>
+                <button class="btn btn--line">다운로드</button>
+            </div>
+        </div>
+
+        <div class="divider" style="margin-top:40px;"></div>
+
+        <!-- 댓글 -->
+        <div class="review-box" style="margin-top:40px;">
+            <div class="review-count">전체 <b>10</b></div>
+
+            <!-- 댓글 1: 답글 작성 에디터 -->
+            <div class="comment">
+                <div class="comment__head">
+                    <span class="comment__user">
+                        <span class="comment__avatar"><img src="../../images/ico-user-admin.svg" alt=""></span>
+                        <span class="badge badge--admin">관리자</span>
+                    </span>
+                    <span class="comment__name">닉네임</span>
+                    <span class="comment__time">1시간 전</span>
+                    <span class="comment__actions">
+                        <button class="comment__reply-btn">답글</button>
+                        <span class="kebab">
+                            <button class="comment__more"><img src="../../images/more-dot.svg" alt=""></button>
+                            <div class="kebab__menu">
+                                <button class="kebab__item">수정</button>
+                                <button class="kebab__item kebab__item--danger">삭제</button>
+                            </div>
+                        </span>
+                    </span>
+                </div>
+                <div class="comment__body">
+                    해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.<br>
+                    다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다. 기초부터 정리하고 싶은 분들께 특히 추천드립니다.
+                </div>
+                <div class="reply-editor">
+                    <div class="reply-editor__head">
+                        <span class="comment__avatar"><img src="../../images/ico-user-admin.svg" alt=""></span>
+                        <span class="comment__name">닉네임</span>
+                    </div>
+                    <div class="reply-editor__box">
+                        <textarea placeholder="@ 관리자 닉네임 답글 내용을 입력해 주세요."></textarea>
+                    </div>
+                    <div class="reply-actions">
+                        <button class="btn btn--line">취소</button>
+                        <button class="btn btn--line-red">등록</button>
+                        <button class="btn btn--primary">등록</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 댓글 2: 삭제된 댓글 + 답글 수정 에디터 -->
+            <div class="comment">
+                <div class="comment__head">
+                    <span class="comment__avatar"><img src="../../images/ico-user-admin.svg" alt=""></span>
+                    <span class="comment__name">닉네임</span>
+                    <span class="comment__time">1시간 전</span>
+                    <span class="comment__actions">
+                        <button class="comment__reply-btn">답글</button>
+                        <span class="kebab">
+                            <button class="comment__more"><img src="../../images/more-dot.svg" alt=""></button>
+                            <div class="kebab__menu">
+                                <button class="kebab__item">수정</button>
+                                <button class="kebab__item kebab__item--danger">삭제</button>
+                            </div>
+                        </span>
+                    </span>
+                </div>
+                <div class="comment__body">
+                    @닉네임 해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다.기초부터 정리하고 싶은 분들께 특히 추천드립니다.
+                </div>
+                <div class="comment__deleted">삭제된 댓글 입니다. (닉네임 삭제)</div>
+                <div class="reply-editor">
+                    <div class="reply-editor__head">
+                        <span class="comment__user">
+                            <span class="comment__avatar"><img src="../../images/ico-user-admin.svg" alt=""></span>
+                            <span class="badge badge--admin">관리자</span>
+                        </span>
+                        <span class="comment__name">닉네임</span>
+                    </div>
+                    <div class="reply-editor__box">@닉네임 해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다.기초부터 정리하고 싶은 분들께 특히 추천드립니다.</div>
+                    <div class="reply-actions">
+                        <button class="btn btn--line">취소</button>
+                        <button class="btn btn--line-red">수정</button>
+                        <button class="btn btn--primary">수정</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 댓글 3: 등록 비활성 -->
+            <div class="comment">
+                <div class="comment__head">
+                    <span class="comment__avatar"><img src="../../images/ico-user-admin.svg" alt=""></span>
+                    <span class="comment__name">닉네임</span>
+                    <span class="comment__actions">
+                        <button class="comment__reply-btn">답글</button>
+                        <span class="kebab">
+                            <button class="comment__more"><img src="../../images/more-dot.svg" alt=""></button>
+                            <div class="kebab__menu">
+                                <button class="kebab__item">수정</button>
+                                <button class="kebab__item kebab__item--danger">삭제</button>
+                            </div>
+                        </span>
+                    </span>
+                </div>
+                <div class="reply-editor" style="margin-left:0;">
+                    <div class="reply-editor__box">@관리자 닉네임 해당 강의는 초보자도 수강할 수 있도록 구성되어 있습니다. 기본 개념부터 차근차근 설명하며, 중간중간 실무 예시를 함께 다루기 때문에 관련 경험이 없으신 분들도 따라오실 수 있습니다.다만, 용어 자체가 처음인 경우에는 초반 강의에서 다소 낯설게 느껴질 수는 있으나 강의를 순서대로 수강하시면 자연스럽게 이해하실 수 있도록 구성되어 있습니다.기초부터 정리하고 싶은 분들께 특히 추천드립니다.</div>
+                    <div class="reply-actions">
+                        <button class="btn btn--primary is-disabled">등록</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 더보기 -->
+        <div class="table-more">더보기 <img src="../../images/arrows-down.svg" alt=""></div>
+    </main>
+
+    <!-- Footer -->
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+
+    // 케밥 메뉴(수정/삭제) 토글
+    (function () {
+        document.addEventListener('click', function (e) {
+            var trigger = e.target.closest('.post-item__more, .comment__more, .qna-item__more');
+            var current = trigger ? trigger.closest('.kebab') : null;
+            document.querySelectorAll('.kebab.is-open').forEach(function (k) {
+                if (k !== current) k.classList.remove('is-open');
+            });
+            if (current && !e.target.closest('.kebab__menu')) {
+                current.classList.toggle('is-open');
+            }
+        });
+    })();
+    </script>
 
 </body>
 </html>

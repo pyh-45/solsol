@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유료플랜 구매 후 로그인 화면 이동</title>
+    <title>유료플랜 구매하기 - 결제 밸리데이션</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
@@ -86,7 +86,7 @@
                     <div class="plan-summary__note">필요하실 때 언제든지 플랜 업그레이드가 가능합니다!</div>
                     <div class="plan-summary__total">
                         <div class="plan-summary__total-label">결제 예정 금액</div>
-                        <div class="plan-summary__amount">55,000<span class="won"> 원</span></div>
+                        <div class="plan-summary__amount">110,000<span class="won"> 원</span></div>
                         <div class="plan-summary__vat">(VAT포함)</div>
                     </div>
                 </div>
@@ -101,11 +101,12 @@
                     </div>
                     <div class="checkout__content">
                         <div class="checkout__label">결제 정보<span class="req">*</span></div>
-                        <div class="checkout__card-box">
+                        <div class="checkout__card-box checkout__card-box--error">
                             <img class="icon" src="../../images/picto-card.svg" alt="">
                             <span class="empty">등록된 카드가 없습니다</span>
                             <button type="button" class="btn btn--register btn--auto btn--line"><span class="btn-plus">+</span>카드 등록하기</button>
                         </div>
+                        <p class="checkout__error">결제 정보 등록은 필수입니다</p>
 
                         <div class="checkout__sub-label">무료 플랜시 유의사항</div>
                         <div class="checkout__notice">
@@ -118,10 +119,11 @@
                             </ul>
                         </div>
 
-                        <label class="checkout__agree">
+                        <label class="checkout__agree checkout__agree--error">
                             <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>
                             쏠쏠 <a href="#">무료약정상품 구매 약관</a>에 동의합니다.
                         </label>
+                        <p class="checkout__error">약관 동의는 필수입니다</p>
                         <hr class="checkout__line">
                     </div>
                 </div>

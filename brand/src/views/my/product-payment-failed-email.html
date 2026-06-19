@@ -3,11 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결제 실패 폼</title>
+    <title>결제 실패 메일</title>
 </head>
-<body style="margin:0; padding:0; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#333333; background:#FFFFFF; -webkit-font-smoothing:antialiased;">
+<body style="margin:0; padding:40px 20px; font-family:'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color:#333333; background:#F2F3F5; -webkit-font-smoothing:antialiased;">
 
-    <!-- TODO: 결제 실패 폼 이메일 템플릿 퍼블리싱 -->
+    <!-- Wrapper (W630) -->
+    <div style="width:630px; max-width:100%; margin:0 auto; background:#FFFFFF; border-radius:16px; overflow:hidden;">
+
+        <!-- Head (로고, H100) -->
+        <div style="height:100px; padding:0 30px; background:#0E0E10; display:flex; align-items:center;">
+            <img src="../../images/logo-white.svg" alt="쏠쏠" width="108" style="display:block; width:108px; height:auto;">
+        </div>
+
+        <!-- Body (padding 30) -->
+        <div style="padding:30px;">
+
+            <!-- 실패 헤더 -->
+            <div style="text-align:center;">
+                <img src="../../images/i-64-close.svg" alt="" width="64" height="64" style="display:block; width:64px; height:64px; margin:10px auto 0;">
+                <h1 style="margin:24px 0 0; font-size:32px; font-weight:700; color:#222222;">결제에 실패했습니다.</h1>
+                <p style="margin:20px 0 0; font-size:15px; font-weight:700; color:#222222;">결제 처리 중 문제가 발생했습니다</p>
+                <p style="margin:8px 0 0; font-size:14px; color:#707070;">다시 시도해 주세요</p>
+            </div>
+
+            <hr style="margin:30px 0; border:0; border-top:1px solid #EAEAEA;">
+
+            <!-- 결제 정보 -->
+            <div style="padding:24px; background:#F9F9F9; border-radius:12px;">
+                <div style="padding-bottom:14px; margin-bottom:6px; border-bottom:1px solid #E5E5E5; font-size:16px; font-weight:700; color:#222222;">결제 정보</div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">주문번호</span><span style="color:#222222; font-weight:500;">ORDER-2025-03-15-001234</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">구독 플랜</span><span style="color:#222222; font-weight:500;">Basic (베이직 플랜)</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">구독 유형</span><span style="color:#222222; font-weight:500;">월간 자동결제</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">결제 금액</span><span style="color:#222222; font-weight:500;">110,000원 (VAT 포함)</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">결제 수단</span><span style="color:#222222; font-weight:500;">신한카드 **** **** **** 1234</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">구독 기간</span><span style="color:#222222; font-weight:500;">2025.03.15 - 2025.04.14</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">다음 결제일</span><span style="color:#222222; font-weight:500;">2025.04.15</span></div>
+                <div style="display:flex; justify-content:space-between; padding:9px 0; font-size:14px;"><span style="color:#707070;">결제 상태</span><span style="color:#ED1B23; font-weight:600;">✕&nbsp; 결제 실패</span></div>
+            </div>
+
+            <!-- 실패 원인 -->
+            <div style="margin-top:20px; padding:20px 24px; border:1px solid #EAEAEA; border-radius:12px;">
+                <p style="margin:0 0 10px; font-size:14px; font-weight:700; color:#222222;">실패 원인</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.5; color:#424242;">
+                    <li>카드 한도 초과 또는 결제 승인이 거부되었습니다</li>
+                    <li>카드사에 문의하시거나 다른 결제 수단을 이용해 주세요</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <a href="#" style="display:block; margin-top:24px; padding:16px; border-radius:6px; background:#ED1B23; color:#FFFFFF; font-size:15px; font-weight:700; text-align:center; text-decoration:none;">쏠쏠 바로가기</a>
+
+            <!-- Footer -->
+            <p style="margin:24px 0 0; text-align:center; font-size:12px; color:#424242;">© Solsol. All rights reserved.</p>
+
+        </div>
+    </div>
 
 </body>
 </html>

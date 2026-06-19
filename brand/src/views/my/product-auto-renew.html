@@ -3,12 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자동 연장하기</title>
+    <title>사용 연장하기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
 <body>
 
-    <!-- TODO: 자동 연장하기 퍼블리싱 -->
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <main class="mysite">
+        <div class="pay-done">
+            <img class="pay-done__icon" src="../../images/i-72-refresh.svg" alt="">
+            <h1 class="pay-done__title">사용 연장하기</h1>
+            <p class="pay-done__sub">플랜을 연장하고 서비스를 계속 이용하실 수 있어요!</p>
+
+            <!-- 선택된 플랜 카드 -->
+            <div class="plan-summary">
+                <div class="plan-summary__head">선택된 플랜</div>
+                <div class="plan-summary__body">
+                    <div class="plan-summary__top">
+                        <span class="plan-summary__name">Basic</span>
+                        <span class="badge badge--outline">베이직 플랜</span>
+                        <span class="plan-summary__site">MONZO</span>
+                        <span class="plan-summary__fee">플랫폼 수수료<b>0</b><span class="pct">%</span></span>
+                    </div>
+                    <hr class="plan-summary__divider">
+                    <div class="plan-summary__info plan-summary__info--two">
+                        <div class="plan-info">
+                            <div class="plan-info__label">구독 주기</div>
+                            <div class="plan-info__value">월간 자동결제</div>
+                        </div>
+                        <div class="plan-info">
+                            <div class="plan-info__label">만료 예정일</div>
+                            <div class="plan-info__value">2025.04.15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 안내 -->
+            <div class="renew-note">
+                <ul>
+                    <li>모든 콘텐츠 및 학습자 데이터 유지</li>
+                    <li>기존 플랜과 동일한 기능 제공</li>
+                </ul>
+            </div>
+
+            <div class="pay-done__btns">
+                <a class="btn btn--line" href="#">취소</a>
+                <a class="btn btn--primary" href="#">결제하기</a>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
