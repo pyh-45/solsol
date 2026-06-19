@@ -3,12 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유료플랜 구매하기</title>
+    <title>유료플랜 구매하기 - 결제하기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
 <body>
 
-    <!-- TODO: 유료플랜 구매하기 퍼블리싱 -->
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+        <div class="checkout-layout">
+
+            <!-- 선택된 플랜 -->
+            <div class="plan-summary">
+                <div class="plan-summary__head">선택된 플랜</div>
+                <div class="plan-summary__body">
+                    <div class="plan-summary__top">
+                        <span class="plan-summary__name">Basic</span>
+                        <span class="badge badge--outline">베이직 플랜</span>
+                        <span class="plan-summary__fee">플랫폼 수수료 <b>0</b><span class="pct">%</span></span>
+                    </div>
+                    <hr class="plan-summary__divider">
+                    <div class="plan-summary__info">
+                        <div class="plan-info">
+                            <div class="plan-info__label">구독 주기</div>
+                            <div class="plan-info__value">월간 자동결제</div>
+                        </div>
+                        <div class="plan-info">
+                            <div class="plan-info__label">구독 기간</div>
+                            <div class="plan-info__value">2026.02.14 ~ 2027.02.13</div>
+                        </div>
+                        <div class="plan-info">
+                            <div class="plan-info__label">다음 결제일</div>
+                            <div class="plan-info__value">2025.04.15</div>
+                        </div>
+                    </div>
+                    <hr class="plan-summary__divider plan-summary__divider--light">
+                    <div class="plan-summary__note">필요하실 때 언제든지 플랜 업그레이드가 가능합니다!</div>
+                    <div class="plan-summary__total">
+                        <div class="plan-summary__total-label">결제 예정 금액</div>
+                        <div class="plan-summary__amount">110,000<span class="won"> 원</span></div>
+                        <div class="plan-summary__vat">(VAT포함)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 결제하기 -->
+            <div class="checkout">
+                <div class="checkout__body">
+                    <div class="checkout__head">
+                        <div class="checkout__title">결제하기</div>
+                        <div class="checkout__sub">여러분의 서비스 성공을 기원합니다!!</div>
+                    </div>
+                    <div class="checkout__content">
+                        <div class="checkout__label">결제 정보<span class="req">*</span></div>
+                        <div class="checkout__card-box">
+                            <img class="icon" src="../../images/picto-card.svg" alt="">
+                            <span class="empty">등록된 카드가 없습니다</span>
+                            <button type="button" class="btn btn--register btn--auto btn--line"><span class="btn-plus">+</span>카드 등록하기</button>
+                        </div>
+
+                        <div class="checkout__sub-label">무료 플랜시 유의사항</div>
+                        <div class="checkout__notice">
+                            <div class="checkout__notice-title">구독서비스 결제 안내</div>
+                            <ul>
+                                <li>위캔디오의 서비스 플랜은 1개월 또는 1년 단위로 정기 결제되는 구독 서비스입니다</li>
+                                <li class="sub">- 월간 구독 : 매월 요금을 자동으로 결제하는 방식입니다. 처음 결제한 날짜를 기준으로 매월 같은 날에 자동으로 요금이 결제됩니다.</li>
+                                <li class="sub">예를 들어, 3월 25일에 처음 결제한 경우 구독기간은 3월 25일 ~ 4월 24일까지입니다.<br>정기결제일은 매월 25일이며 다음 결제는 4월 25일 진행됩니다.</li>
+                                <li class="sub">- 연간 구독 : 매월 요금을 자동으로 결제하는 방식입니다. 처음 결제한 날짜를 기준으로 다음 년도 같은 날에 자동으로 요금 결제가 연장됩니다.</li>
+                            </ul>
+                        </div>
+
+                        <label class="checkout__agree">
+                            <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>
+                            쏠쏠 <a href="#">무료약정상품 구매 약관</a>에 동의합니다.
+                        </label>
+                        <hr class="checkout__line">
+                    </div>
+                </div>
+
+                <div class="checkout__footer">
+                    <button type="submit" class="btn btn--big btn--primary">결제하기</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
 
 </body>
 </html>
