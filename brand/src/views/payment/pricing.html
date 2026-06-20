@@ -3,12 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가격표</title>
+    <title>요금제</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
 <body>
 
-    <!-- TODO: 가격표 퍼블리싱 -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 상단 (그라데이션 배경) -->
+    <section class="pricing-top">
+        <div class="pricing-hero">
+            <h1 class="pricing-hero__title">크리에이터에게 딱 맞는 플랜을 선택하세요</h1>
+            <p class="pricing-hero__sub">소규모 사이트부터 대규모 운영까지, 모든 단계에 최적화된 가격</p>
+            <div class="toggle-seg pricing-hero__toggle">
+                <button type="button" class="is-active">월간 구독</button>
+                <button type="button">연간 구독</button>
+            </div>
+            <p class="pricing-hero__save"><span class="pricing-hero__save-yr">연간</span> 30% 할인</p>
+        </div>
+
+        <!-- 플랜 카드 -->
+        <div class="pricing-grid">
+            <!-- Free -->
+            <div class="pricing-card pricing-card--free">
+                <div class="pricing-card__title">Free</div>
+                <hr class="pricing-card__divider">
+                <div class="pricing-card__price"><span class="won">₩</span><span class="amount">0</span><span class="per"> / 영구 무료</span></div>
+                <div class="pricing-card__fee">플랫폼 수수료 <b>10%</b></div>
+                <div class="pricing-card__features">
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">발행 상품 수</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">동영상 저장 용량</span><span class="pricing-row__value">20 GB</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">학습자 회원 제한</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">월 수강신청 제한</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">관리자 계정 수</span><span class="pricing-row__value">없음</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">도메인 &amp; SSL</span><span class="pricing-row__value">없음</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">사이트 수</span><span class="pricing-row__value">1 개</span></div>
+                </div>
+                <div class="pricing-card__ai">
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 튜터</span><span class="pricing-ai__value">강좌당 1 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 영상자막</span><span class="pricing-ai__value">영상당 1 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">영상자동번역</span><span class="pricing-ai__value">영상당 1 개 무료</span></div>
+                </div>
+                <a class="btn btn--primary" href="#">무료로 시작하기</a>
+            </div>
+
+            <!-- Basic (featured) -->
+            <div class="pricing-card pricing-card--featured">
+                <div class="pricing-card__title">Basic <span class="pricing-card__best">BEST</span></div>
+                <hr class="pricing-card__divider">
+                <div class="pricing-card__price"><span class="won">₩</span><span class="amount">100,000</span><span class="per"> / 월</span></div>
+                <div class="pricing-card__fee">플랫폼 수수료 <b>0%</b></div>
+                <div class="pricing-card__features">
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">발행 상품 수</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">동영상 저장 용량</span><span class="pricing-row__value">200 GB</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">학습자 회원 제한</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">월 수강신청 제한</span><span class="pricing-row__value">200 건</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">관리자 계정 수</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">도메인 &amp; SSL</span><span class="pricing-row__value">1개 무료</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">사이트 수</span><span class="pricing-row__value">1 개</span></div>
+                </div>
+                <div class="pricing-card__ai">
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 튜터</span><span class="pricing-ai__value">강좌당 5 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 영상자막</span><span class="pricing-ai__value">영상당 20 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">영상자동번역</span><span class="pricing-ai__value">영상당 20 개 무료</span></div>
+                </div>
+                <a class="btn btn--dark" href="#">구매하기</a>
+            </div>
+
+            <!-- Growth -->
+            <div class="pricing-card">
+                <div class="pricing-card__title">Growth</div>
+                <hr class="pricing-card__divider">
+                <div class="pricing-card__price"><span class="won">₩</span><span class="amount">300,000</span><span class="per"> / 월</span></div>
+                <div class="pricing-card__fee">플랫폼 수수료 <b>0%</b></div>
+                <div class="pricing-card__features">
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">발행 상품 수</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">동영상 저장 용량</span><span class="pricing-row__value">500 GB</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">학습자 회원 제한</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">월 수강신청 제한</span><span class="pricing-row__value">500 건</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">관리자 계정 수</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">도메인 &amp; SSL</span><span class="pricing-row__value">1개 무료</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">사이트 수</span><span class="pricing-row__value">1 개</span></div>
+                </div>
+                <div class="pricing-card__ai">
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 튜터</span><span class="pricing-ai__value">강좌당 10 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 영상자막</span><span class="pricing-ai__value">영상당 40 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">영상자동번역</span><span class="pricing-ai__value">영상당 40 개 무료</span></div>
+                </div>
+                <a class="btn btn--dark" href="#">구매하기</a>
+            </div>
+
+            <!-- Advanced -->
+            <div class="pricing-card">
+                <div class="pricing-card__title">Advanced</div>
+                <hr class="pricing-card__divider">
+                <div class="pricing-card__price"><span class="won">₩</span><span class="amount">500,000</span><span class="per"> / 월</span></div>
+                <div class="pricing-card__fee">플랫폼 수수료 <b>0%</b></div>
+                <div class="pricing-card__features">
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">발행 상품 수</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">동영상 저장 용량</span><span class="pricing-row__value">1 TB</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">학습자 회원 제한</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">월 수강신청 제한</span><span class="pricing-row__value">1,000 건</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">관리자 계정 수</span><span class="pricing-row__value">무제한</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">도메인 &amp; SSL</span><span class="pricing-row__value">1개 무료</span></div>
+                    <div class="pricing-row"><span class="pricing-row__label"><img src="../../images/ico-check-sm.svg" alt="">사이트 수</span><span class="pricing-row__value">1 개</span></div>
+                </div>
+                <div class="pricing-card__ai">
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 튜터</span><span class="pricing-ai__value">강좌당 30 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">AI 영상자막</span><span class="pricing-ai__value">영상당 100 개 무료</span></div>
+                    <div class="pricing-ai"><span class="pricing-ai__label"><img src="../../images/ico-mouse-circle.svg" alt="">영상자동번역</span><span class="pricing-ai__value">영상당 100 개 무료</span></div>
+                </div>
+                <a class="btn btn--dark" href="#">구매하기</a>
+            </div>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="enterprise pricing-enterprise">
+            <div class="enterprise__intro">
+                <h5>Enterprise</h5>
+                <p>대규모 조직과 기업을 위한 맞춤형 솔루션입니다.<br>무제한 확장성과 전담 지원으로 여러분의 비즈니스를 성장시키세요.</p>
+                <a href="#">협의 문의하기 →</a>
+            </div>
+            <div class="enterprise__features">
+                <div class="feature-card">
+                    <img src="../../images/line-unlimited.svg" alt="">
+                    <b>무제한 확장</b>
+                    <span>24/7 전담 개발팀과 계정 매니저 배정</span>
+                </div>
+                <div class="feature-card">
+                    <img src="../../images/ico-security.svg" alt="">
+                    <b>엔터프라이즈 보안</b>
+                    <span>99.9% 가동률 보장 및 우선 지원</span>
+                </div>
+                <div class="feature-card">
+                    <img src="../../images/ico-user-square.svg" alt="">
+                    <b>전담 지원팀</b>
+                    <span>24/7 전담 개발팀과 계정 매니저 배정</span>
+                </div>
+                <div class="feature-card">
+                    <img src="../../images/ico-like.svg" alt="">
+                    <b>SLA 보장</b>
+                    <span>99.9% 가동률 보장 및 우선 지원</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 플랜 비교 (아코디언) -->
+    <section class="pricing-compare">
+        <p class="pricing-compare__lead">요금제 비교</p>
+        <h2 class="pricing-compare__title">각 플랜의 기능을 비교해 보세요</h2>
+
+        <div class="cmp">
+            <!-- 헤더 -->
+            <div class="cmp__head-row">
+                <div>기능 분류</div><div>Free</div><div>Basic</div><div>Growth</div><div>Advanced</div>
+            </div>
+
+            <!-- 기본정보 -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-info-circle.svg" alt="">기본정보</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>학습자 수</div><div>최대 50명</div><div>최대 200명</div><div>최대 1,000명</div><div>무제한</div></div>
+                    <div class="cmp__row"><div>영상 저장 용량</div><div>10 GB</div><div>100 GB</div><div>500 GB</div><div>무제한</div></div>
+                    <div class="cmp__row"><div>강의 수</div><div>최대 3개</div><div>최대 20개</div><div>무제한</div><div>무제한</div></div>
+                    <div class="cmp__row"><div>관리자 계정</div><div>1명</div><div>3명</div><div>10명</div><div>무제한</div></div>
+                </div>
+            </div>
+
+            <!-- 콘텐츠 관리 -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-video.svg" alt="">콘텐츠 관리</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>영상 업로드</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>YouTube 연동</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>AI 자동 자막 생성</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>라이브 스트리밍</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>다운로드 방지 (DRM)</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                </div>
+            </div>
+
+            <!-- 학습 관리 -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-teacher.svg" alt="">학습 관리</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>진도율 추적</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>퀴즈 및 시험</div><div>기본</div><div>고급</div><div>고급 + AI</div><div>고급 + AI</div></div>
+                    <div class="cmp__row"><div>수료증 발급</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>학습 분석 리포트</div><div>기본</div><div>상세</div><div>고급</div><div>맞춤형</div></div>
+                    <div class="cmp__row"><div>AI 학습 추천</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                </div>
+            </div>
+
+            <!-- 커뮤니티 및 소통 -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-messages.svg" alt="">커뮤니티 및 소통</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>Q &amp; A 게시판</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>댓글 기능</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>실시간 채팅</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>공지사항</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                </div>
+            </div>
+
+            <!-- 결제 및 수익화 -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-money.svg" alt="">결제 및 수익화</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>유료 강의 판매</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>구독 모델</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>쿠폰 및 할인</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>결제 수수료</div><div>-</div><div>5%</div><div>3%</div><div>협의</div></div>
+                </div>
+            </div>
+
+            <!-- 커스터마이징 -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-path-square.svg" alt="">커스터마이징</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>기본 테마</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>커스텀 도메인</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>브랜딩 제거</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>커스텀 디자인</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                </div>
+            </div>
+
+            <!-- 통합 및 API -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-24px-unlimited.svg" alt="">통합 및 API</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>YouTube 멤버십 연동</div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>Zapier 연동</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>REST API</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                    <div class="cmp__row"><div>SSO (Single Sign-On)</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-o"><img src="../../images/ico-24px-check.svg" alt="지원"></div></div>
+                </div>
+            </div>
+
+            <!-- 지원 및 서비스 -->
+            <div class="cmp__group is-open">
+                <button class="cmp__toggle" onclick="this.parentElement.classList.toggle('is-open')"><span class="cmp__label"><img class="cmp__icon" src="../../images/line-heart-search.svg" alt="">지원 및 서비스</span> <img src="../../images/arrows-down.svg" alt=""></button>
+                <div class="cmp__rows">
+                    <div class="cmp__row"><div>이메일 지원</div><div>72시간 이내</div><div>48시간 이내</div><div>24시간 이내</div><div>우선 지원</div></div>
+                    <div class="cmp__row"><div>채팅 지원</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div>업무 시간</div><div>24/5</div><div>24/7</div></div>
+                    <div class="cmp__row"><div>전화 지원</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div>업무 시간</div><div>24/7</div></div>
+                    <div class="cmp__row"><div>전담 매니저</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div>맞춤형</div></div>
+                    <div class="cmp__row"><div>온보딩 교육</div><div class="cmp-x"><img src="../../images/ico-24px-gray-x.svg" alt="미지원"></div><div>온라인</div><div>온라인 + 1회</div><div>맞춤형</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="#">이용약관</a><a href="#">무료약정상품 이용약관</a><a href="#">유료약정상품 이용약관</a><a href="#">개인정보처리방침</a><a href="#">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+
+    // 월간/연간 토글
+    (function () {
+        document.querySelectorAll('.toggle-seg').forEach(function (seg) {
+            seg.addEventListener('click', function (e) {
+                var btn = e.target.closest('button');
+                if (!btn) return;
+                seg.querySelectorAll('button').forEach(function (b) { b.classList.remove('is-active'); });
+                btn.classList.add('is-active');
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>
