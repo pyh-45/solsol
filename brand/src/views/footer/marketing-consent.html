@@ -4,11 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마케팅 정보 수신 동의</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
 <body>
 
-    <!-- TODO: 마케팅 정보 수신 동의 퍼블리싱 -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
 
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 콘텐츠 바디 -->
+    <main class="mysite">
+        <div class="legal-head">
+            <h1 class="legal-head__title">마케팅 정보 수신 동의</h1>
+            <div class="dropdown legal-rev">
+                <button type="button" class="dropdown__toggle">
+                    <span class="dropdown__label">2025.01.01 개정</span>
+                    <img class="dropdown__chev" src="../../images/ico-chevron-down.svg" alt="">
+                </button>
+                <ul class="dropdown__menu">
+                    <li class="dropdown__head">
+                        <span class="dropdown__label">2025.01.01 개정</span>
+                        <img class="dropdown__chev" src="../../images/ico-chevron-down.svg" alt="">
+                    </li>
+                    <li class="dropdown__item dropdown__item--active">2025.01.01 개정</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="legal-divider">
+
+        <div class="legal-box">
+            <ul class="legal-list">
+                <li>제1조 광고성 정보의 이용목적
+                    <ul>
+                        <li>위캔디오에서는 수집 및 이용에 동의한 개인정보를 활용하여, 다양한 전자적 전송매체(SMS/MMS/Push Notification/E-Mail 등)를 통해 다음의 각종 정보를 제공할 수 있습니다.
+                            <ul>
+                                <li>①맞춤형 서비스, 광고, 정보의 제공</li>
+                                <li>②뉴스레터 발송, 새로운 기능(제품)의 안내</li>
+                                <li>③할인 및 쿠폰 등 이벤트 등의 광고성 정보 제공</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>제2조 미동의 시 불이익 사항
+                    <ul>
+                        <li>광고성 정보 수신에 대해서는 동의를 거부하더라도 서비스를 이용하실 수 있으며, 중요 공지 및 결제 안내 등 의무적으로 안내해야 하는 정보성 내용 및 일부 혜택성 정보는 수신동의 여부와 무관하게 제공합니다.</li>
+                    </ul>
+                </li>
+                <li>제3조 서비스 정보 수신 동의 철회
+                    <ul>
+                        <li>광고성 정보의 수신을 원하지 않을 경우 고객센터(Support@Wecandeo.Com)로 문의하거나 ‘로그인 &gt; 계정관리 &gt; 계정정보 &gt; 광고성 정보 수신’에서 언제든지 수신거부 할 수 있습니다.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <hr class="legal-after">
+    </main>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="terms.html">이용약관</a><a href="terms-free.html">무료약정상품 이용약관</a><a href="terms-paid.html">유료약정상품 이용약관</a><a href="privacy.html">개인정보처리방침</a><a href="marketing-consent.html">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="terms.html">이용약관</a><a href="terms-free.html">무료약정상품 이용약관</a><a href="terms-paid.html">유료약정상품 이용약관</a><a href="privacy.html">개인정보처리방침</a><a href="marketing-consent.html">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+    <script>
+    document.querySelectorAll('.dropdown').forEach(function (dd) {
+        var toggle = dd.querySelector('.dropdown__toggle');
+        var head = dd.querySelector('.dropdown__head');
+        var label = toggle.querySelector('.dropdown__label');
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            dd.classList.toggle('is-open');
+        });
+        if (head) {
+            head.addEventListener('click', function () { dd.classList.remove('is-open'); });
+        }
+        dd.querySelectorAll('.dropdown__item').forEach(function (item) {
+            item.addEventListener('click', function () {
+                dd.querySelectorAll('.dropdown__item').forEach(function (i) { i.classList.remove('dropdown__item--active'); });
+                item.classList.add('dropdown__item--active');
+                label.innerHTML = item.innerHTML;
+                dd.classList.remove('is-open');
+            });
+        });
+    });
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown.is-open').forEach(function (d) { d.classList.remove('is-open'); });
+        }
+    });
+    </script>
 </body>
 </html>

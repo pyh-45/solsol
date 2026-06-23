@@ -3,12 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인</title>
+    <title>쏠쏠 — YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="../../../css/base.css">
 </head>
 <body>
 
-    <!-- TODO: 메인 퍼블리싱 -->
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <a class="mnav__item" href="#">주요 기능</a>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="#">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 메인 히어로 -->
+    <section class="hero">
+        <span class="hero__badge">YouTube 크리에이터를 위한 올인원 학습 플랫폼</span>
+        <h1 class="hero__title"><span class="thin">크리에이터를 위한</span>핵심 서비스만 모았습니다</h1>
+        <p class="hero__sub">AI튜터로 학습자의 만족도 Up, 회원들의 AI 학습 피드백으로 이탈률 Down</p>
+        <p class="hero__desc">AI튜터로 학습자의 만족도 Up, 회원들의 AI 학습 피드백으로 이탈률 Down, 스마트한 학습 관리 시스템으로 크리에이터의 교육 비지니스를 성장시키세요.</p>
+        <div class="hero__btns">
+            <a class="btn btn--primary hero__start" href="#">무료로 시작하기 <img src="../../images/arrow-right.svg" alt=""></a>
+            <a class="btn hero__demo" href="#">데모보기 <img src="../../images/line-24px-play.svg" alt=""></a>
+        </div>
+
+        <!-- 마퀴 갤러리 -->
+        <div class="hero-gallery">
+            <div class="hero-row hero-row--1">
+                <div class="hero-card hero-card--a"></div>
+                <div class="hero-card hero-card--b"></div>
+                <div class="hero-card hero-card--c"></div>
+                <div class="hero-card hero-card--d"></div>
+                <div class="hero-card hero-card--e"></div>
+                <div class="hero-card hero-card--f"></div>
+                <div class="hero-card hero-card--g"></div>
+                <div class="hero-card hero-card--h"></div>
+                <!-- 복제 (무한 루프) -->
+                <div class="hero-card hero-card--a"></div>
+                <div class="hero-card hero-card--b"></div>
+                <div class="hero-card hero-card--c"></div>
+                <div class="hero-card hero-card--d"></div>
+                <div class="hero-card hero-card--e"></div>
+                <div class="hero-card hero-card--f"></div>
+                <div class="hero-card hero-card--g"></div>
+                <div class="hero-card hero-card--h"></div>
+            </div>
+            <div class="hero-row hero-row--2">
+                <div class="hero-card hero-card--i6"></div>
+                <div class="hero-card hero-card--i7"></div>
+                <div class="hero-card hero-card--i8"></div>
+                <div class="hero-card hero-card--i9"></div>
+                <div class="hero-card hero-card--i10"></div>
+                <div class="hero-card hero-card--i6"></div>
+                <div class="hero-card hero-card--i7"></div>
+                <div class="hero-card hero-card--i8"></div>
+                <!-- 복제 (무한 루프) -->
+                <div class="hero-card hero-card--i6"></div>
+                <div class="hero-card hero-card--i7"></div>
+                <div class="hero-card hero-card--i8"></div>
+                <div class="hero-card hero-card--i9"></div>
+                <div class="hero-card hero-card--i10"></div>
+                <div class="hero-card hero-card--i6"></div>
+                <div class="hero-card hero-card--i7"></div>
+                <div class="hero-card hero-card--i8"></div>
+            </div>
+            <div class="hero-gallery__fade"></div>
+        </div>
+    </section>
+
+    <!-- 1. Solutions -->
+    <section class="home-solutions">
+        <div class="home-solutions__head">
+            <span class="home-tag">Solutions</span>
+            <h2 class="home-h2"><span class="home-h2__hl">크리에이터의 문제</span>,<br>AI가 해결합니다</h2>
+            <p class="home-lead">YouTube 멤버십 운영에서 겪는 핵심 문제들을<br>AI 기술로 완벽하게 해결합니다</p>
+        </div>
+        <div class="home-prob">
+            <div class="problem-card">
+                <div class="problem-card__top">
+                    <img src="../../images/ico-edit.svg" alt="">
+                    <span class="problem-card__tag">AI 자동 생성</span>
+                </div>
+                <h4 class="problem-card__title">콘텐츠 제작 부담</h4>
+                <p class="problem-card__desc">YouTube 플랫폼의 기능적 한계와 도구 미지원<br>영상만 올리면 학습자료, 퀴즈 자동 생성</p>
+                <div class="problem-card__chips">
+                    <span class="problem-chip">핵심 요약 자동 생성</span>
+                    <span class="problem-chip">퀴즈 문제 자동 출제</span>
+                    <span class="problem-chip">다국어 자막 지원</span>
+                </div>
+            </div>
+            <div class="problem-card">
+                <div class="problem-card__top">
+                    <img src="../../images/ico-teacher.svg" alt="">
+                    <span class="problem-card__tag">완벽한 LMS</span>
+                </div>
+                <h4 class="problem-card__title">학습관리 시스템 부재</h4>
+                <p class="problem-card__desc">YouTube 플랫폼의 기능적 한계와 도구 미지원<br>체계적인 커리큘럼과 진도 관리 시스템</p>
+                <div class="problem-card__chips">
+                    <span class="problem-chip">진도 체크 시스템</span>
+                    <span class="problem-chip">퀴즈 &amp; 과제 관리</span>
+                    <span class="problem-chip">수료증 자동 발급</span>
+                </div>
+            </div>
+            <div class="problem-card">
+                <div class="problem-card__top">
+                    <img src="../../images/ico-activity.svg" alt="">
+                    <span class="problem-card__tag">이탈률 40~60%</span>
+                </div>
+                <h4 class="problem-card__title">회원 참여도 및 이탈</h4>
+                <p class="problem-card__desc">YouTube 플랫폼의 기능적 한계와 도구 미지원<br>체계적인 커리큘럼과 진도 관리 시스템</p>
+                <div class="problem-card__chips">
+                    <span class="problem-chip">실시간 참여도 분석</span>
+                    <span class="problem-chip">맞춤형 리마인더</span>
+                    <span class="problem-chip">개인화 학습 추천</span>
+                </div>
+            </div>
+            <div class="problem-card">
+                <div class="problem-card__top">
+                    <img src="../../images/ico-mingcute-chat.svg" alt="">
+                    <span class="problem-card__tag">AI 튜터 24/7</span>
+                </div>
+                <h4 class="problem-card__title">질의응답 대응한계</h4>
+                <p class="problem-card__desc">회원 증가시 개별 질문 대응 불가능<br>AI 튜터가 24시간 자동으로 질문 응답</p>
+                <div class="problem-card__chips">
+                    <span class="problem-chip">강의 내용 기반 답변</span>
+                    <span class="problem-chip">자연스러운 대화형</span>
+                    <span class="problem-chip">질문 패턴 분석</span>
+                </div>
+            </div>
+            <div class="problem-card">
+                <div class="problem-card__top">
+                    <img src="../../images/ico-search-status.svg" alt="">
+                    <span class="problem-card__tag">스마트 분류</span>
+                </div>
+                <h4 class="problem-card__title">콘텐츠 검색 및 관리</h4>
+                <p class="problem-card__desc">수백 개 영상 누적 시 체계적 분류 불가<br>AI 기반 자동 태깅과 카테고리 분류</p>
+                <div class="problem-card__chips">
+                    <span class="problem-chip">주제별 자동 분류</span>
+                    <span class="problem-chip">난이도별 정리</span>
+                    <span class="problem-chip">스마트 검색 기능</span>
+                </div>
+            </div>
+            <div class="problem-card">
+                <div class="problem-card__top">
+                    <img src="../../images/ico-discount-circle.svg" alt="">
+                    <span class="problem-card__tag">수수료 30%</span>
+                </div>
+                <h4 class="problem-card__title">수익다각화 단계</h4>
+                <p class="problem-card__desc">높은 플랫폼 수수료와 제한적 가격 정책<br>자유로운 가격 설정과 다양한 수익 모델</p>
+                <div class="problem-card__chips">
+                    <span class="problem-chip">유연한 가격 정책</span>
+                    <span class="problem-chip">1:1 코칭 판매</span>
+                    <span class="problem-chip">추가 자료 판매</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 뉴스레터 -->
+    <section class="home-news">
+        <h2 class="home-news__title">이미 알고 있는 것보다 더 많은 걸 알게 됩니다</h2>
+        <p class="home-news__sub">매주 실제 전환 사례와 운영을 더욱 가볍게, 수익으로 전환하는 방법과 실제로 사용할 수 있는 전략 등 다양한 소식을 보내드립니다.</p>
+        <form class="home-news__form">
+            <div class="input-box"><input type="email" placeholder="이메일을 입력하세요"></div>
+            <button type="submit" class="btn btn--primary">주간 인사이트 받기 <img src="../../images/arrow-right.svg" alt=""></button>
+        </form>
+    </section>
+
+    <!-- 3. 비교표 -->
+    <section class="home-compare">
+        <div class="home-compare__inner">
+            <div class="home-compare__head">
+                <span class="home-tag home-tag--red">경쟁력</span>
+                <h2 class="home-h2">다른 플랫폼과<br>무엇이 다른가요?</h2>
+                <p class="home-lead">쏠쏠만의 차별화된 기능과 가치를 확인하세요</p>
+            </div>
+            <div class="home-cmp-scroll">
+                <div class="home-cmp">
+                    <div class="home-cmp__cell home-cmp__cell--head home-cmp__cell--label">기능</div>
+                    <div class="home-cmp__cell home-cmp__cell--head"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+                    <div class="home-cmp__cell home-cmp__cell--head">경쟁사 A</div>
+                    <div class="home-cmp__cell home-cmp__cell--head">경쟁사 B</div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">AI 콘텐츠 자동생성</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">AI 튜터 (24/7 자동 답변)</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">YouTube 멤버십 연동</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">학습 분석 &amp; 리포트</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">자동 퀴즈 생성</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">수료증 자동 발급</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">커뮤니티 기능</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">한국어 지원</div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__o">✓</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__x">✕</span></div>
+
+                    <div class="home-cmp__cell home-cmp__cell--label">월 이용료</div>
+                    <div class="home-cmp__cell"><b class="home-cmp__price">₩ 49,000 ~</b></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__price-sub">₩ 89,000 ~</span></div>
+                    <div class="home-cmp__cell"><span class="home-cmp__price-sub">₩ 99,000 ~</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 핵심 기능 -->
+    <section class="home-feature">
+        <div class="home-feature__inner">
+        <div class="home-feature__head">
+            <span class="home-tag home-tag--red">핵심 기능</span>
+            <h2 class="home-h2">AI 기술이 만드는 차별화된 학습 경험</h2>
+            <p class="home-lead">YouTube 멤버십을 전문 교육 플랫폼으로 전환하는 혁신적인 기능들</p>
+        </div>
+        <div class="home-feat-grid">
+            <div class="icon-feature icon-feature--featured">
+                <img class="icon-feature__icon" src="../../images/ico-square-edit.svg" alt="">
+                <h4 class="icon-feature__title">AI 콘텐츠 자동생성</h4>
+                <p class="icon-feature__desc">영상을 업로드하면 AI가 자동으로 자막 추출, 학습 요약본, 퀴즈, 과제를 생성합니다. 콘텐츠 제작 시간을 80% 단축하세요.</p>
+            </div>
+            <div class="icon-feature">
+                <img class="icon-feature__icon" src="../../images/ico-square-teacher.svg" alt="">
+                <h4 class="icon-feature__title">AI 튜터 맑은샘</h4>
+                <p class="icon-feature__desc">24/7 실시간 AI 튜터가 학습자의 질문에 즉시 답변하고, 강의 내용 기반 맞춤형 학습 가이드를 제공합니다.</p>
+            </div>
+            <div class="icon-feature">
+                <img class="icon-feature__icon" src="../../images/ico-square-graph.svg" alt="">
+                <h4 class="icon-feature__title">스마트 학습 분석</h4>
+                <p class="icon-feature__desc">학습자의 진도, 참여도, 이해도를 실시간으로 분석하여 맞춤형 학습 경로를 추천합니다.</p>
+            </div>
+            <div class="icon-feature">
+                <img class="icon-feature__icon" src="../../images/ico-square-online-talk.svg" alt="">
+                <h4 class="icon-feature__title">YouTube 멤버십 연동</h4>
+                <p class="icon-feature__desc">YouTube 멤버십과 자동 동기화되어 별도의 회원 관리없이 간편하게 운영할 수 있습니다.</p>
+            </div>
+            <div class="icon-feature">
+                <img class="icon-feature__icon" src="../../images/ico-square-search.svg" alt="">
+                <h4 class="icon-feature__title">자동 퀴즈 생성</h4>
+                <p class="icon-feature__desc">AI가 강의 내용을 분석하여 자동으로 퀴즈를 생성하고, 학습 이해도를 측정합니다.</p>
+            </div>
+            <div class="icon-feature">
+                <img class="icon-feature__icon" src="../../images/ico-square-data.svg" alt="">
+                <h4 class="icon-feature__title">수료증 자동 발급</h4>
+                <p class="icon-feature__desc">학습 완료시 커스터마이징 가능한 디지털 수료증을 자동으로 발급합니다.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- 5. 프로토타입 체험 -->
+    <section class="home-proto">
+        <div class="home-proto__inner">
+            <div class="home-proto__head">
+                <span class="home-tag home-tag--ghost">경쟁력</span>
+                <h2 class="home-h2">실제 구현된<br>프로토타입을 직접<br>체험해보세요</h2>
+                <p class="home-lead">쏠쏠만의 차별화된 기능과 가치를 확인하세요</p>
+            </div>
+            <div class="home-proto__cards">
+                <div class="home-proto__card">
+                    <div class="home-proto__card-top"><img src="../../images/ico-teacher-octagon.svg" alt=""><span class="badge badge--mode">학습자 모드</span></div>
+                    <h4>마이페이지 (학습 대시보드)<br>AI 통합 학습 뷰어<br>AI 학습분석 리포트<br>수료증 &amp; 배치 시스템</h4>
+                    <button type="button" class="btn btn--dark">학습자모드 체험하기 <img src="../../images/arrow-right.svg" alt=""></button>
+                </div>
+                <div class="home-proto__card home-proto__card--ghost">
+                    <div class="home-proto__card-top"><img src="../../images/ico-user-octagon-white.svg" alt=""><span class="badge badge--mode badge--mode-light">관리자 모드</span></div>
+                    <h4>통합 관리자 대시보드<br>강의 관리 시스템<br>YouTube 멤버십 연동<br>학습 통계 &amp; 분석</h4>
+                    <button type="button" class="btn btn--line-white">관리자모드 체험하기 <img src="../../images/arrow-right.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 시작 CTA -->
+    <section class="home-cta">
+        <div class="home-cta__badges">
+            <span class="home-tag home-tag--ghost">신용카드 등록없이</span>
+            <span class="home-tag home-tag--red">14일 무료체험</span>
+            <span class="home-tag home-tag--ghost">모든 기능</span>
+        </div>
+        <h2 class="home-cta__title">지금 바로 시작하세요</h2>
+        <p class="home-cta__sub">14일 무료 체험으로 모든 기능을 경험해보세요. 신용카드 등록없이 시작할 수 있습니다.</p>
+        <div class="home-cta__btns">
+            <a class="btn btn--ghost" href="#">무료로 시작하기</a>
+            <a class="btn btn--ghost" href="#">상담 문의하기</a>
+        </div>
+    </section>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
 
 </body>
 </html>
