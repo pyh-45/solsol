@@ -2965,6 +2965,112 @@ tr:has(.c-check:checked) {
 .auth-strength__label--weak { color: var(--color-accent); }
 .auth-terms { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #222;font-weight: 600;; cursor: pointer; }
 
+
+/* ==================== Auth Split (비주얼 패널형 로그인/비밀번호 찾기) ==================== */
+body:has(> .auth-split) { background: var(--bg-white); }
+
+.auth-split {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+    padding: 40px;
+    background: var(--bg-white);
+}
+
+/* --- 좌측 비주얼 패널 --- */
+.auth-split__visual {
+    --auth-visual-pad: 60px;
+    flex: 0 0 38%;
+    min-width: 420px;
+    max-width: 730px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px var(--auth-visual-pad) 80px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, #4FC0FC 0%, #10517C 100%);
+    overflow: hidden;
+}
+
+/* 이미지는 패널 우측에서 50px 떨어지도록 좌우 패딩을 무시하고 우측 정렬 */
+.auth-split__figure { display: flex; justify-content: flex-end; margin-right: calc(var(--auth-visual-pad) * -1); padding-right: 50px; }
+.auth-split__figure img { display: block; width: 100%; max-width: 550px; height: auto; }
+
+.auth-split__points {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+    margin-top: auto;
+}
+.auth-split__point {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    min-width: 180px;
+    height: 46px;
+    padding: 0 24px 0 36px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+}
+.auth-split__point svg { flex-shrink: 0; }
+
+.auth-split__title {
+    margin-top: 44px;
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.32;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+}
+.auth-split__desc {
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- 우측 폼 영역 --- */
+.auth-split__form {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+.auth-split__form .auth-container { width: 460px; padding: 0; }
+/* 비주얼형 로그인 전용 — 비선택 탭은 흰색 배경 유지 (선택 탭은 기존 다크) */
+.auth-split .auth-tab { background: #FFFFFF; }
+.auth-split__form .auth-logo { padding: 0 0 26px; }
+.auth-split__form .btn.big { min-width: 0; width: 100%; }
+
+/* --- 반응형 --- */
+@media (max-width: 1200px) {
+    .auth-split__visual { --auth-visual-pad: 40px; min-width: 360px; padding: 40px var(--auth-visual-pad) 56px; }
+    .auth-split__title { font-size: 38px; }
+}
+
+@media (max-width: 1024px) {
+    /* 태블릿 이하에서는 좌측 비주얼 패널 숨김 — 로그인 폼만 노출 */
+    .auth-split { padding: 20px; }
+    .auth-split__visual { display: none; }
+    .auth-split__form { padding: 20px 0 40px; }
+}
+
+@media (max-width: 768px) {
+    .auth-split { padding: 12px; }
+    .auth-split__form { padding: 12px 8px 40px; }
+    .auth-split__form .auth-container { width: 100%; }
+}
+
 /* ==================== Common Modal ====================*/
 .c-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; }
 .c-modal-overlay.is-hidden { display: none; }
