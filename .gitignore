@@ -5,3 +5,5 @@
 .env
 *.log
 docs/
+# brand 사이트맵 (로컬 전용, 커밋 제외)
+brand/sitemap.html
