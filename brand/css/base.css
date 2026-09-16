@@ -2267,6 +2267,8 @@ a { color: inherit; text-decoration: none; }
     .feat-row--reverse { grid-template-columns: 1fr; gap: 32px; }
     .feat-row__media,
     .feat-row--reverse .feat-row__media { order: -1; }
+    /* 텍스트를 먼저 보여줄 행 */
+    .feat-row--text-first .feat-row__media { order: 1; }
     .feat-body { font-size: 16px; }
     /* 히어로는 모바일 전용 이미지(<picture>)로 교체되므로 원본 비율 그대로 */
     .feat-shot::after,
@@ -2291,4 +2293,200 @@ a { color: inherit; text-decoration: none; }
     .feat-hero__desc, .feat-body { font-size: 15px; }
     .feat-list__item { gap: 8px; font-size: 15px; }
     .feat-cta__title { font-size: 18px; }
+}
+
+/* =========================================================
+   주요기능 소개 — 수료증 (certificate)
+   ========================================================= */
+/* 히어로 비주얼 회색 패널 변형 */
+.feat-hero__visual--gray { background: #F2F2F2; }
+
+/* 그라데이션 밴드 섹션 */
+.feat-section--grad { margin: 80px 0; padding: 160px 40px; background: linear-gradient(135deg, rgba(244, 67, 54, 0.12) 0%, rgba(103, 86, 237, 0.12) 100%); }
+
+/* --- 수료증 템플릿 슬라이더 --- */
+/* 슬롯 폭을 가로형 기준으로 통일 → 3장이 항상 같은 폭으로 노출 */
+.cert-slider { position: relative; display: flex; align-items: center; gap: 20px; max-width: 1570px; margin: 30px auto 0; }
+/* 아래 여백 35 = 확대된 세로형 카드가 내려오는 15 + 캡션과의 간격 20 */
+.cert-slider__viewport { flex: 1; min-width: 0; overflow: hidden; padding: 50px 0 35px; }
+.cert-slider__track { position: relative; display: flex; align-items: center; gap: 40px; margin: 0; padding: 0; list-style: none; transition: transform .45s cubic-bezier(.16, 1, .3, 1); }
+
+.cert-slide { flex: 0 0 450px; display: flex; justify-content: center; opacity: .5; transform: scale(1); transform-origin: center center; transition: transform .45s cubic-bezier(.16, 1, .3, 1), opacity .45s ease; }
+.cert-slide.is-active { z-index: 1; opacity: 1; transform: scale(1.06); }
+.cert-slide__card { position: relative; }
+.cert-slide img { display: block; width: 450px; height: auto; border-radius: 4px; box-shadow: 0 12px 34px rgba(0, 0, 0, .14); }
+.cert-slide--v img { width: 355px; }
+
+/* 알약 세로 중심을 카드 상단 라인에 맞춤 */
+.cert-slide__tag { position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); padding: 5px 15px; border-radius: 999px; background: #1A1A1A; color: var(--text-white); font-size: 16px; font-weight: 400; letter-spacing: -0.3px; white-space: nowrap; }
+.cert-slide.is-active .cert-slide__tag { background: var(--primary-color); }
+
+/* 좌우 화살표 */
+.cert-slider__nav { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; padding: 0; border: none; background: none; color: #000000; cursor: pointer; transition: opacity .15s ease; }
+.cert-slider__nav svg { width: 40px; height: 40px; }
+.cert-slider__nav:hover { opacity: .6; }
+
+/* 활성 슬라이드 설명 */
+.cert-slider__caption { margin: 0; font-size: 22px; letter-spacing: -0.3px; color: var(--text-gray); text-align: center; }
+
+/* 인디케이터 */
+.cert-dots { display: flex; justify-content: center; gap: 12px; margin: 50px 0 0; }
+.cert-dots__btn { width: 14px; height: 14px; padding: 0; border: none; border-radius: 999px; background: #FFFFFF; cursor: pointer; transition: background .2s ease; }
+.cert-dots__btn.is-active { background: #000000; }
+
+/* --- certificate 반응형 --- */
+@media (max-width: 1280px) {
+    /* 슬롯 380 + 간격 40 → 3장 = 1220, 슬라이더 1220+화살표 128 */
+    .cert-slider { max-width: 1348px; }
+    .cert-slide { flex-basis: 380px; }
+    .cert-slide img { width: 380px; }
+    .cert-slide--v img { width: 300px; }
+}
+
+@media (max-width: 1024px) {
+    .feat-section--grad { margin: 60px 0; padding: 80px 20px; }
+    .cert-slider { max-width: 953px; margin-top: 32px; gap: 8px; }
+    .cert-slider__viewport { padding: 50px 0 32px; }
+    .cert-slider__track { gap: 30px; }
+    .cert-slide { flex-basis: 255px; }
+    .cert-slide.is-active { transform: scale(1.05); }
+    .cert-slide img { width: 255px; }
+    .cert-slide--v img { width: 201px; }
+    .cert-slide__tag { font-size: 14px; padding: 4px 12px; }
+    .cert-slider__caption { font-size: 18px; }
+    .cert-dots { margin-top: 36px; }
+}
+
+@media (max-width: 768px) {
+    /* 화면이 좁아 3장은 무리 → 가운데 1장 + 좌우 살짝 노출 */
+    .cert-slider { max-width: none; }
+    .cert-slider__viewport { padding: 40px 0 30px; }
+    .cert-slider__track { gap: 24px; }
+    .cert-slide { flex-basis: 230px; }
+    .cert-slide img { width: 230px; }
+    .cert-slide--v img { width: 181px; }
+    .cert-slider__nav { width: 36px; height: 36px; }
+    .cert-slider__nav svg { width: 24px; height: 24px; }
+    .cert-slider__caption { font-size: 16px; }
+}
+
+@media (max-width: 375px) {
+    .feat-section--grad { padding: 56px 16px; }
+    .cert-slider__track { gap: 16px; }
+    .cert-slide { flex-basis: 180px; }
+    .cert-slide img { width: 180px; }
+    .cert-slide--v img { width: 142px; }
+}
+}
+
+/* --- 수료증 커스터마이즈 (03 CUSTOMIZE) --- */
+/* 체크 힌트 문구 */
+.cert-hint { margin: 28px 0 0; font-size: 14px; line-height: 1.5; letter-spacing: -0.3px; color: #707070; }
+
+/* 미리보기 (이미지 + 항목 오버레이) */
+.cert-preview { position: relative; }
+/* 이미지+오버레이만 감싸는 상자 — 토글 패널 높이가 항목 위치에 영향 주지 않도록 */
+.cert-preview__frame { position: relative; container-type: inline-size; }
+.cert-preview__frame img.cert-preview__base { display: block; width: 100%; height: auto; }
+
+/* 원본에 그림자가 포함돼 있어 종이의 가로 중심은 이미지 폭의 43.6% 지점 */
+.cert-preview__field { position: absolute; left: 43.6%; transform: translateX(-50%); white-space: nowrap; color: #2B2B2B; transition: opacity .2s ease; }
+.cert-preview__frame .is-off { opacity: 0; }
+
+.cert-preview__no { top: 13.4%; font-size: 12px; font-size: 1.9cqw; color: #4A4A4A; }
+.cert-preview__name { top: 41.5%; font-size: 20px; font-size: 3.1cqw; font-weight: 700; }
+.cert-preview__org { top: 71.5%; left: 39.7%; font-size: 11px; font-size: 1.7cqw; font-weight: 700; }
+/* 직인은 기관명 오른쪽에 고정 — 켜고 꺼도 기관명이 밀리지 않게 */
+.cert-preview__frame img.cert-preview__stamp { top: 66.9%; left: 45%; transform: none; width: 55px; width: 8.6cqw; height: auto; }
+
+/* 항목 on/off 패널 */
+.cert-toggle { position: absolute; left: -120px; bottom: -10px; z-index: 2; width: 250px; padding: 20px 22px 22px; border-radius: 30px; background: #FFFFFF; box-shadow: 0 10px 30px rgba(0, 0, 0, .14); }
+.cert-toggle__close { display: block; margin: 0 0 6px auto; width: 20px; height: 20px; padding: 0; border: none; background: none; font-size: 18px; line-height: 1; color: #9A9A9A; cursor: default; }
+.cert-toggle__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 0; }
+.cert-toggle__label { font-size: 15px; font-weight: 700; letter-spacing: -0.3px; color: var(--text-dark); }
+
+/* 텍스트 토글 (customer-admin .c-toggle-text 동일 규격) */
+.c-toggle-text { position: relative; display: inline-block; cursor: pointer; }
+.c-toggle-text input { display: none; }
+.c-toggle-text__track { display: inline-flex; align-items: center; justify-content: flex-start; width: 76px; height: 32px; padding: 3px; background: #CCCCCC; border-radius: 28px; transition: 0.2s; box-sizing: border-box; }
+.c-toggle-text__pill { height: 26px; min-width: 48px; padding: 0 10px; background: #fff; border-radius: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #999; transition: color 0.2s; }
+.c-toggle-text__pill--off { display: none; }
+.c-toggle-text input:checked + .c-toggle-text__track { background: #4FC0FC; justify-content: flex-end; }
+.c-toggle-text input:checked + .c-toggle-text__track .c-toggle-text__pill--on { color: #027CFA; }
+.c-toggle-text input:not(:checked) + .c-toggle-text__track .c-toggle-text__pill--on { display: none; }
+.c-toggle-text input:not(:checked) + .c-toggle-text__track .c-toggle-text__pill--off { display: inline-flex; }
+.c-toggle-text input:focus-visible + .c-toggle-text__track { outline: 2px solid #027CFA; outline-offset: 2px; }
+
+@media (max-width: 1024px) {
+    .cert-hint { margin-top: 10px; font-size: 13px; }
+    /* 태블릿 이하: 미리보기를 줄이면 오버레이 위치가 흐트러지므로 크기는 그대로 두고 세로 배치 */
+    .cert-row { grid-template-columns: 1fr; gap: 36px; }
+    /* 타이틀·본문이 위, 미리보기가 아래 */
+    /* 왼쪽으로 120px 삐져나온 토글 패널까지 포함해 가운데 정렬 */
+    .cert-row .feat-row__media { order: 1; width: 100%; max-width: 640px; margin-left: 120px; justify-self: center; }
+    /* 세로 배치에서는 줄바꿈 없이 한 줄로 */
+    .cert-row br { display: none; }
+    /* 토글 패널은 데스크톱과 동일하게 수료증 왼쪽 아래 */
+    .cert-toggle { width: 220px; padding: 16px 18px 18px; border-radius: 24px; }
+    .cert-toggle__label { font-size: 13px; }
+    .c-toggle-text__track { width: 66px; height: 28px; }
+    .c-toggle-text__pill { height: 22px; min-width: 42px; font-size: 11px; }
+}
+
+@media (max-width: 768px) {
+    /* 폭이 좁아 수료증 왼쪽에 공간이 없으므로, 가운데에서 왼쪽 45px + 수료증 바로 아래 */
+    .cert-preview { margin-bottom: 200px; }
+    .cert-toggle { left: 50%; top: 100%; bottom: auto; transform: translate(calc(-50% - 45px), 0); width: 100%; max-width: 260px; margin: 0; }
+}
+
+/* --- 활용 시나리오 (SCENARIO) --- */
+.cert-case { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 50px 0 0; }
+.cert-case__item { padding: 50px; border-radius: 20px; background: var(--text-white); overflow: hidden; }
+.cert-case__badge { display: inline-block; padding: 6px 16px; border-radius: 999px; background: #EAF4FF; font-size: 15px; font-weight: 600; letter-spacing: -0.3px; color: #027CFA; }
+.cert-case__badge--global { background: #F0ECFF; color: #6756ED; }
+.cert-case__title { margin: 18px 0 0; font-size: 30px; font-weight: 700; line-height: 1.3; letter-spacing: -0.5px; color: var(--text-dark); }
+.cert-case__desc { margin: 14px 0 0; font-size: 18px; line-height: 1.5; letter-spacing: -0.3px; color: var(--text-gray); }
+.cert-case__thumb { position: relative; margin: 130px 0 0; }
+/* 이미지 위 표시용 토글 (동작 없음) — 수료증 가로 중심에 맞춰 상단 라인에 걸침 */
+.cert-case__toggle { position: absolute; top: 0; z-index: 1; transform: translate(-50%, -50%); }
+.cert-case__toggle--license { left: 73.1%; }
+.cert-case__toggle--global { left: 66.5%; }
+
+.c-toggle-text--static { pointer-events: none; }
+.c-toggle-text--static .c-toggle-text__track { background: #CCCCCC; justify-content: flex-start; }
+.c-toggle-text--static .c-toggle-text__pill { display: inline-flex; color: #999999; }
+.c-toggle-text--static.is-on .c-toggle-text__track { background: #4FC0FC; justify-content: flex-end; }
+.c-toggle-text--static.is-on .c-toggle-text__pill { color: #027CFA; }
+.cert-case__thumb img { display: block; width: 100%; height: auto; }
+
+/* --- 자동 발급 흐름 (WORKFLOW) --- */
+/* 컬럼 폭 216 = 원 66 + 원 사이 간격 150 */
+.cert-flow { display: grid; grid-template-columns: repeat(4, 216px); justify-content: center; margin: 100px 0 0; padding: 0; list-style: none; }
+.cert-flow__step { position: relative; text-align: center; }
+/* 원과 원을 잇는 선 */
+.cert-flow__step::before { content: ""; position: absolute; top: 32px; left: 50%; width: 100%; height: 2px; background: var(--primary-color); }
+.cert-flow__step:last-child::before { display: none; }
+.cert-flow__icon { position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; width: 66px; height: 66px; border-radius: 50%; background: var(--primary-color); }
+.cert-flow__icon img { width: 30px; height: 30px; }
+.cert-flow__no { margin: 18px 0 0; font-size: 16px; font-weight: 800; letter-spacing: 0; color: var(--primary-color); }
+.cert-flow__title { margin: 5px 0 0; font-size: 22px; font-weight: 500; letter-spacing: -0.3px; color: var(--text-default); }
+
+@media (max-width: 1024px) {
+    .cert-case { gap: 20px; margin-top: 32px; }
+    .cert-case__item { padding: 24px; border-radius: 16px; }
+    .cert-case__title { font-size: 20px; }
+    .cert-case__desc { font-size: 14px; }
+    .cert-flow { margin-top: 40px; }
+    .cert-flow__icon { width: 54px; height: 54px; }
+    .cert-flow__icon img { width: 24px; height: 24px; }
+    .cert-flow__step::before { top: 26px; }
+    .cert-flow__title { font-size: 15px; }
+}
+
+@media (max-width: 768px) {
+    .cert-case { grid-template-columns: 1fr; }
+    /* 4단계는 좁은 화면에서 2열로 */
+    .cert-flow { grid-template-columns: repeat(2, 1fr); row-gap: 36px; }
+    .cert-flow__step:nth-child(2)::before { display: none; }
+    .cert-flow__no { margin-top: 14px; }
 }

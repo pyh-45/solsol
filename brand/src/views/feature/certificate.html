@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수료증 — 쏠쏠 주요기능</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="../home/index.html"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="mnav__group is-open">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">주요 기능 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+            </div>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="../home/index.html">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 히어로 -->
+    <section class="feat-hero">
+        <span class="feat-hero__badge">브랜드 맞춤형 수료증</span>
+        <h1 class="feat-hero__title">학습의 완성을 증명하는,<br>브랜드가 살아있는 맞춤형 수료증</h1>
+        <p class="feat-hero__desc">감각적인 다양한 템플릿을 활용해 브랜드에 맞는 수료증을 손쉽게 제작할 수 있습니다.<br>이름, 수료일, 직인까지 자유롭게 설정해 보세요.</p>
+        <div class="feat-hero__visual feat-hero__visual--gray">
+            <img src="../../images/brand02-03-certificate01.png" alt="수료증 템플릿 모음 — 기본형·세로형·영문형 7가지">
+        </div>
+    </section>
+
+    <!-- 01. PROBLEM -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row feat-row--reverse feat-row--text-first">
+            <div class="feat-row__media">
+                <img src="../../images/brand02-03-certificate02.png" alt="성의 없는 기본 수료증(BEFORE)과 브랜드 맞춤형 수료증(AFTER) 비교">
+            </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">01</span><span class="feat-label__text">PROBLEM</span></div>
+                <h2 class="feat-h2">성의 없는 수료증 한 장이,<br>브랜드 이미지를<br>깎아먹습니다</h2>
+                <p class="feat-body">흔한 양식의 수료증은 성의 없어 보이면 브랜드 이미지가 떨어지고, 수강생도 SNS에 자랑하고 싶지 않아집니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. WORKFLOW — 템플릿 슬라이더 -->
+    <section class="feat-section--grad">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">02</span><span class="feat-label__text">WORKFLOW</span></div>
+                <h2 class="feat-h2">기본형·세로형·영문형, 7가지 템플릿</h2>
+            </div>
+        </div>
+
+        <div class="cert-slider" id="certSlider">
+            <button type="button" class="cert-slider__nav cert-slider__nav--prev" aria-label="이전 템플릿">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <div class="cert-slider__viewport">
+                <ul class="cert-slider__track">
+                    <li class="cert-slide" data-caption="가로형 · 기본 레이아웃">
+                        <div class="cert-slide__card">
+                            <span class="cert-slide__tag">기본형 A</span>
+                            <img src="../../images/certificate-a.png" alt="기본형 A 수료증 템플릿">
+                        </div>
+                    </li>
+                    <li class="cert-slide cert-slide--v" data-caption="세로형 · 자격증 느낌">
+                        <div class="cert-slide__card">
+                            <span class="cert-slide__tag">세로형 A</span>
+                            <img src="../../images/certificate-a-vertical.png" alt="세로형 A 수료증 템플릿">
+                        </div>
+                    </li>
+                    <li class="cert-slide" data-caption="영문 · 글로벌 강의용">
+                        <div class="cert-slide__card">
+                            <span class="cert-slide__tag">영문형 A</span>
+                            <img src="../../images/certificate-a-eng.png" alt="영문형 A 수료증 템플릿">
+                        </div>
+                    </li>
+                    <li class="cert-slide" data-caption="가로형 · 기본 레이아웃">
+                        <div class="cert-slide__card">
+                            <span class="cert-slide__tag">기본형 B</span>
+                            <img src="../../images/certificate-b.png" alt="기본형 B 수료증 템플릿">
+                        </div>
+                    </li>
+                    <li class="cert-slide cert-slide--v" data-caption="세로형 · 자격증 느낌">
+                        <div class="cert-slide__card">
+                            <span class="cert-slide__tag">세로형 B</span>
+                            <img src="../../images/certificate-b-vertical.png" alt="세로형 B 수료증 템플릿">
+                        </div>
+                    </li>
+                    <li class="cert-slide" data-caption="영문 · 글로벌 강의용">
+                        <div class="cert-slide__card">
+                            <span class="cert-slide__tag">영문형 B</span>
+                            <img src="../../images/certificate-b-eng.png" alt="영문형 B 수료증 템플릿">
+                        </div>
+                    </li>
+                    <li class="cert-slide cert-slide--v" data-caption="세로형 · 자격증 느낌">
+                        <div class="cert-slide__card">
+                            <span class="cert-slide__tag">세로형 C</span>
+                            <img src="../../images/certificate-c-official.png" alt="세로형 C 수료증 템플릿">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="cert-slider__nav cert-slider__nav--next" aria-label="다음 템플릿">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <p class="cert-slider__caption" id="certCaption">가로형 · 기본 레이아웃</p>
+
+        <div class="cert-dots" id="certDots">
+            <button type="button" class="cert-dots__btn" aria-label="1번 템플릿"></button>
+            <button type="button" class="cert-dots__btn" aria-label="2번 템플릿"></button>
+            <button type="button" class="cert-dots__btn" aria-label="3번 템플릿"></button>
+            <button type="button" class="cert-dots__btn" aria-label="4번 템플릿"></button>
+            <button type="button" class="cert-dots__btn" aria-label="5번 템플릿"></button>
+            <button type="button" class="cert-dots__btn" aria-label="6번 템플릿"></button>
+            <button type="button" class="cert-dots__btn" aria-label="7번 템플릿"></button>
+        </div>
+    </section>
+
+    <!-- 03. CUSTOMIZE — 항목 on/off -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row feat-row--reverse cert-row">
+            <div class="feat-row__media">
+                <div class="cert-preview">
+                    <div class="cert-preview__frame">
+                        <img class="cert-preview__base" src="../../images/brand02-03-certificate04.png" alt="수료증 미리보기 — 이름·수료번호·직인 항목을 켜고 끌 수 있습니다">
+
+                        <span class="cert-preview__field cert-preview__no" id="cpNo">수료번호 2026-000123</span>
+                        <span class="cert-preview__field cert-preview__name" id="cpName">홍길동</span>
+                        <span class="cert-preview__field cert-preview__org">{발급 기관명}</span>
+                        <img class="cert-preview__field cert-preview__stamp is-off" id="cpSeal" src="../../images/stamp.png" alt="직인">
+                    </div>
+
+                    <div class="cert-toggle">
+                        <span class="cert-toggle__close" aria-hidden="true">&times;</span>
+                        <div class="cert-toggle__row">
+                            <span class="cert-toggle__label">이름</span>
+                            <label class="c-toggle-text">
+                                <input type="checkbox" data-target="cpName" checked>
+                                <span class="c-toggle-text__track">
+                                    <span class="c-toggle-text__pill c-toggle-text__pill--on">노출</span>
+                                    <span class="c-toggle-text__pill c-toggle-text__pill--off">미노출</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="cert-toggle__row">
+                            <span class="cert-toggle__label">수료번호</span>
+                            <label class="c-toggle-text">
+                                <input type="checkbox" data-target="cpNo" checked>
+                                <span class="c-toggle-text__track">
+                                    <span class="c-toggle-text__pill c-toggle-text__pill--on">노출</span>
+                                    <span class="c-toggle-text__pill c-toggle-text__pill--off">미노출</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="cert-toggle__row">
+                            <span class="cert-toggle__label">직인</span>
+                            <label class="c-toggle-text">
+                                <input type="checkbox" data-target="cpSeal">
+                                <span class="c-toggle-text__track">
+                                    <span class="c-toggle-text__pill c-toggle-text__pill--on">노출</span>
+                                    <span class="c-toggle-text__pill c-toggle-text__pill--off">미노출</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">03</span><span class="feat-label__text">CUSTOMIZE</span></div>
+                <h2 class="feat-h2">이름부터 직인까지, <br>원하는 대로</h2>
+                <p class="feat-body">템플릿 안 이름·수료번호·수료일·서명(직인) 등 항목을 원하는 대로 <br>켜고 끄는(on/off) 커스텀 기능을 제공합니다.</p>
+                <p class="cert-hint">눌러 보면(키보드 Tab+Enter/Space 가능) 우측 미리보기 항목이 함께 켜지고 꺼집니다 <br>(시각 동작 예시)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. SCENARIO — 강의 성격별 활용 -->
+    <section class="feat-section feat-section--gray">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">04</span><span class="feat-label__text">SCENARIO</span></div>
+                <h2 class="feat-h2">강의 성격에 맞게 골라 쓰는 수료증</h2>
+            </div>
+
+            <div class="cert-case">
+                <div class="cert-case__item">
+                    <span class="cert-case__badge">자격증형 강의</span>
+                    <p class="cert-case__title">세로형 템플릿 지정</p>
+                    <p class="cert-case__desc">YouTube 플랫폼의 기능적 한계와 도구 미지원<br>자격증형 강의엔 세로형을 지정하고, "직인"을 켜서 공식성을 강조합니다.</p>
+                    <div class="cert-case__thumb">
+                        <span class="cert-case__toggle cert-case__toggle--license c-toggle-text c-toggle-text--static is-on" aria-hidden="true">
+                            <span class="c-toggle-text__track"><span class="c-toggle-text__pill">이름</span></span>
+                        </span>
+                        <img src="../../images/brand02-03-04-license.png" alt="자격증형 강의에 세로형 템플릿을 적용한 예시">
+                    </div>
+                </div>
+
+                <div class="cert-case__item">
+                    <span class="cert-case__badge cert-case__badge--global">글로벌 강의</span>
+                    <p class="cert-case__title">영문형 템플릿 지정</p>
+                    <p class="cert-case__desc">해외 수강생 대상 강의엔 영문형을 지정하고, "수료번호"를 꺼서 심플하게<br>구성합니다.</p>
+                    <div class="cert-case__thumb">
+                        <span class="cert-case__toggle cert-case__toggle--global c-toggle-text c-toggle-text--static" aria-hidden="true">
+                            <span class="c-toggle-text__track"><span class="c-toggle-text__pill">번호</span></span>
+                        </span>
+                        <img src="../../images/brand02-03-04-global.png" alt="글로벌 강의에 영문형 템플릿을 적용한 예시">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. WORKFLOW — 자동 발급 흐름 -->
+    <section class="feat-section">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">05</span><span class="feat-label__text">WORKFLOW</span></div>
+                <h2 class="feat-h2">완강하면, 수료증은 알아서</h2>
+                <p class="feat-head__sub">직접 설정한 진도율 %를 넘기면 수료증이 자동으로 발급되고, 학습자는 마이페이지에서 바로 확인합니다.<br>크리에이터가 따로 챙길 일이 없습니다.</p>
+            </div>
+
+            <ol class="cert-flow">
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-03-05-icon01.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 1</p>
+                    <p class="cert-flow__title">설정한 진도율 달성</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-03-05-icon02.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 2</p>
+                    <p class="cert-flow__title">조건 충족 확인</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-03-05-icon03.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 3</p>
+                    <p class="cert-flow__title">수료증 자동 발급</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-03-05-icon04.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 4</p>
+                    <p class="cert-flow__title">마이페이지에서 확인</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- 하단 CTA -->
+    <section class="feat-cta">
+        <h2 class="feat-cta__title">크리에이터의 상상이 쏠쏠한 비즈니스로 <span class="feat-cta__hl">완성</span>되는 순간</h2>
+        <p class="feat-cta__sub">AI 자동화부터 판매, 운영, 구독 비즈니스까지 성장을 위한 모든 과정을 쏠쏠이 함께합니다</p>
+        <div class="feat-cta__btns">
+            <a class="btn btn--fill" href="#">무료로 시작하기 <img src="../../images/arrow-right.svg" alt=""></a>
+            <a class="btn btn--ghost" href="../inquiry/inquiry.html">상담 문의하기</a>
+        </div>
+    </section>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- GNB 스크롤 다크/라이트 전환 -->
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+    <!-- 수료증 템플릿 롤링 슬라이더 (무한 순환) -->
+    <script>
+    (function () {
+        var slider = document.getElementById('certSlider');
+        if (!slider) return;
+
+        var viewport = slider.querySelector('.cert-slider__viewport');
+        var track = slider.querySelector('.cert-slider__track');
+        var reals = Array.prototype.slice.call(track.children);
+        var dots = Array.prototype.slice.call(document.querySelectorAll('#certDots .cert-dots__btn'));
+        var caption = document.getElementById('certCaption');
+        var prevBtn = slider.querySelector('.cert-slider__nav--prev');
+        var nextBtn = slider.querySelector('.cert-slider__nav--next');
+
+        var TOTAL = reals.length;   // 실제 카드 7장
+        var CLONES = 2;             // 양끝에 복제해 끊김 없이 순환
+        var AUTO_MS = 4000;
+
+        // 앞뒤로 복제본 삽입
+        for (var i = 0; i < CLONES; i++) {
+            track.appendChild(reals[i].cloneNode(true));
+        }
+        for (var j = CLONES - 1; j >= 0; j--) {
+            track.insertBefore(reals[TOTAL - CLONES + j].cloneNode(true), track.firstChild);
+        }
+        Array.prototype.forEach.call(track.children, function (el, i) {
+            if (i < CLONES || i >= CLONES + TOTAL) el.setAttribute('aria-hidden', 'true');
+        });
+
+        var all = Array.prototype.slice.call(track.children);
+        var pos = CLONES;           // 첫 카드(기본형 A)부터 시작
+        var timer = null;
+
+        function realIndex() {
+            return ((pos - CLONES) % TOTAL + TOTAL) % TOTAL;
+        }
+
+        function layout() {
+            var active = all[pos];
+            var offset = viewport.clientWidth / 2 - (active.offsetLeft + active.offsetWidth / 2);
+            track.style.transform = 'translateX(' + offset + 'px)';
+        }
+
+        function paint() {
+            all.forEach(function (s, i) { s.classList.toggle('is-active', i === pos); });
+            var real = realIndex();
+            dots.forEach(function (d, i) { d.classList.toggle('is-active', i === real); });
+            if (caption) caption.textContent = reals[real].getAttribute('data-caption') || '';
+        }
+
+        function move(next) { pos = next; paint(); layout(); }
+
+        // 애니메이션 없이 위치만 바꿔치기 (복제본 ↔ 실제 카드)
+        function silentMove(next) {
+            track.style.transition = 'none';
+            pos = next;
+            paint();
+            layout();
+            void track.offsetWidth;          // 강제 리플로우
+            track.style.transition = '';
+        }
+
+        track.addEventListener('transitionend', function (e) {
+            if (e.target !== track || e.propertyName !== 'transform') return;
+            if (pos < CLONES) silentMove(pos + TOTAL);
+            else if (pos >= CLONES + TOTAL) silentMove(pos - TOTAL);
+        });
+
+        function startAuto() { stopAuto(); timer = setInterval(function () { move(pos + 1); }, AUTO_MS); }
+        function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+
+        prevBtn.addEventListener('click', function () { move(pos - 1); startAuto(); });
+        nextBtn.addEventListener('click', function () { move(pos + 1); startAuto(); });
+        dots.forEach(function (d, i) {
+            d.addEventListener('click', function () { move(CLONES + i); startAuto(); });
+        });
+
+        // 마우스를 올리거나 탭 이동 시 자동 롤링 정지
+        slider.addEventListener('mouseenter', stopAuto);
+        slider.addEventListener('mouseleave', startAuto);
+        slider.addEventListener('focusin', stopAuto);
+        slider.addEventListener('focusout', startAuto);
+
+        window.addEventListener('resize', function () { silentMove(pos); });
+
+        // 이미지 로드 후 위치가 어긋나지 않도록 한 번 더 계산
+        all.forEach(function (s) {
+            var img = s.querySelector('img');
+            if (img && !img.complete) img.addEventListener('load', function () { silentMove(pos); });
+        });
+
+        silentMove(pos);
+        startAuto();
+    })();
+    </script>
+
+    <!-- 수료증 항목 on/off 토글 -->
+    <script>
+    (function () {
+        var inputs = document.querySelectorAll('.cert-toggle input[data-target]');
+        if (!inputs.length) return;
+        Array.prototype.forEach.call(inputs, function (input) {
+            var target = document.getElementById(input.getAttribute('data-target'));
+            if (!target) return;
+            function sync() { target.classList.toggle('is-off', !input.checked); }
+            input.addEventListener('change', sync);
+            sync();
+        });
+    })();
+    </script>
+
+    <!-- 스크롤 진입 애니메이션 (헤더/푸터 제외 콘텐츠 아래→위) -->
+    <script>
+    (function () {
+        var SELECTORS = [
+            '.feat-hero__badge', '.feat-hero__title', '.feat-hero__desc', '.feat-hero__visual',
+            '.feat-row__media', '.feat-row__body',
+            '.feat-head', '.cert-slider', '.cert-case__item',
+            '.feat-cta__title', '.feat-cta__sub', '.feat-cta__btns'
+        ];
+        var els = document.querySelectorAll(SELECTORS.join(','));
+        if (!els.length) return;
+
+        // 같은 부모끼리 순차 지연(stagger)
+        var byParent = new Map();
+        els.forEach(function (el) {
+            el.classList.add('reveal-up');
+            var arr = byParent.get(el.parentElement) || [];
+            arr.push(el);
+            byParent.set(el.parentElement, arr);
+        });
+        byParent.forEach(function (arr) {
+            arr.forEach(function (el, i) { el.dataset.revDelay = Math.min(i, 6) * 70; });
+        });
+
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('is-in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                var el = e.target;
+                el.style.transitionDelay = (el.dataset.revDelay || 0) + 'ms';
+                el.classList.add('is-in');
+                io.unobserve(el);
+            });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+        els.forEach(function (el) { io.observe(el); });
+    })();
+    </script>
+
+</body>
+</html>
