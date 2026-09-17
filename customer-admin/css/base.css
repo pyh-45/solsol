@@ -5213,6 +5213,7 @@ body:has(> .auth-split) { background: var(--bg-white); }
 
 
 /* ==================== 강사·관리자 알림 모달 ==================== */
+.notice-modal { width: 1400px; max-width: calc(100vw - 40px); }
 .notice-modal .completion-modal__header { padding: 0 18px 0 30px; border-bottom: none; }
 /* 제목 아래 구분선 — 좌우 30 여백 안쪽으로 */
 .notice-modal__divider { flex: none; margin: 0 30px; border: 0; border-top: 1px solid #EAEAEA; }
@@ -5226,6 +5227,7 @@ body:has(> .auth-split) { background: var(--bg-white); }
 .notice-modal__scroll .inbox-item__more { margin-left: 4px; }
 
 @media (max-width: 768px) {
+    .c-modal-overlay .notice-modal { width: calc(100vw - 32px); }
     .notice-modal .completion-modal__header { padding: 0 10px 0 16px; }
     .notice-modal__divider { margin: 0 16px; }
     .notice-modal__body { padding: 0 16px 24px; }
