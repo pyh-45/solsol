@@ -5211,3 +5211,24 @@ body:has(> .auth-split) { background: var(--bg-white); }
 .bd-dropdown__item.active { background:#EBF3FF; color:var(--color-blue); font-weight:500; }
 
 
+
+/* ==================== 강사·관리자 알림 모달 ==================== */
+.notice-modal .completion-modal__header { padding: 0 18px 0 30px; border-bottom: none; }
+/* 제목 아래 구분선 — 좌우 30 여백 안쪽으로 */
+.notice-modal__divider { flex: none; margin: 0 30px; border: 0; border-top: 1px solid #EAEAEA; }
+.notice-modal__body { padding: 0 30px 40px; }
+/* 스크롤바가 모달 안쪽(좌우 여백 안)에 붙도록 별도 래퍼에 스크롤 */
+.notice-modal__scroll { max-height: min(640px, calc(100vh - 220px)); overflow-y: auto; overscroll-behavior: contain; }
+.notice-modal__scroll .inbox-item:first-child { border-top: none; }
+/* 전체보기/접기 버튼을 본문 끝에 이어 붙임 */
+.notice-modal__scroll .inbox-item__desc-text { display: -webkit-inline-box; max-width: calc(100% - 62px); vertical-align: bottom; }
+.notice-modal__scroll .inbox-item__desc.expanded .inbox-item__desc-text { display: inline; }
+.notice-modal__scroll .inbox-item__more { margin-left: 4px; }
+
+@media (max-width: 768px) {
+    .notice-modal .completion-modal__header { padding: 0 10px 0 16px; }
+    .notice-modal__divider { margin: 0 16px; }
+    .notice-modal__body { padding: 0 16px 24px; }
+    .notice-modal__scroll { max-height: calc(100vh - 170px); }
+    .notice-modal__scroll .inbox-item__body { padding-left: 14px; }
+}
