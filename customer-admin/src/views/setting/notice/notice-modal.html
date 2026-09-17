@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>강사 및 관리자 알림</title>
+    <title>관리자 공지</title>
     <link rel="stylesheet" href="../../../../css/base.css">
 </head>
 <body>
@@ -12,10 +12,13 @@
     <div class="c-modal completion-modal completion-modal--xl notice-modal">
 
         <div class="completion-modal__header">
-            <h3 class="completion-modal__heading">강사 및 관리자 알림</h3>
-            <button type="button" class="completion-modal__close" aria-label="닫기">
-                <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
-            </button>
+            <h3 class="completion-modal__heading">관리자 공지</h3>
+            <div class="notice-modal__head-right">
+                <button type="button" class="notice-modal__read-all">모든공지확인</button>
+                <button type="button" class="completion-modal__close" aria-label="닫기">
+                    <img src="../../../images/btn-modal-close.svg" width="24" height="24" alt="">
+                </button>
+            </div>
         </div>
 
         <hr class="notice-modal__divider">
@@ -38,9 +41,9 @@
                         <span class="importance-badge importance-badge--lg" style="align-self:flex-start; margin-bottom:6px;">중요</span>
                         <span class="inbox-item__title">강의 정보 업데이트 요청</span>
                         <div class="inbox-item__desc">
-                            <span class="inbox-item__desc-text">현재 등록된 강의 정보 중 일부 내용이 최신 상태와 일치하지 않는 것으로 확인되었습니다. 수강생 안내 및 상품 신뢰도를 위해 강의 소개, 커리큘럼, 썸네일 등 주요 정보를 최신 기준으로 수정해 주시기 바랍니다.<br>특히 강의 설명 및 구성 정보는 구매 결정에 직접적인 영향을 주는 요소이므로 정확한 내용으로 유지하는 것이 중요합니다. 관리자 페이지에서 해당 강의를 확인하신 후 수정 작업을 진행해 주세요.</span>
-                            <button type="button" class="inbox-item__more" onclick="toggleNoticeDesc(this, event)">전체보기</button>
+                            <span class="inbox-item__desc-text">현재 등록된 강의 정보 중 일부 내용이 최신 상태와 일치하지 않는 것으로 확인되었습니다. 수강생 안내 및 상품 신뢰도를 위해 강의 소개, 커리큘럼, 썸네일 등 주요 정보를 최신 기준으로 수정해 주시기 바랍니다.<br>특히 강의 설명 및 구성 정보는 구매 결정에 직접적인 영향을 주는 요소이므로 정확한 내용으로 유지하는 것이 중요합니다. 관리자 페이지에서 해당 강의를 확인하신 후 수정 작업을 진행해 주세요.<br>또한 강의 일정이 변경된 경우 수강생에게 자동 안내가 발송되지 않으므로, 공지사항 등록 또는 알림 발송을 통해 반드시 사전에 공유해 주시기 바랍니다.<br>수정이 완료된 강의는 검수 후 순차적으로 노출에 반영되며, 반영까지 최대 24시간이 소요될 수 있는 점 참고 부탁드립니다.</span>
                         </div>
+                        <button type="button" class="inbox-item__more" onclick="toggleNoticeDesc(this, event)">전체보기</button>
                         <span class="inbox-item__time">방금 전</span>
                     </div>
                 </a>
@@ -49,9 +52,9 @@
                     <div class="inbox-item__body">
                         <span class="inbox-item__title">강의 콘텐츠 보완 요청</span>
                         <div class="inbox-item__desc expanded">
-                            <span class="inbox-item__desc-text">일부 강의에서 콘텐츠 누락 또는 구성 불완전 상태가 확인되었습니다. 원활한 수강 경험 제공을 위해 강의 영상, 자료, 자막 등 콘텐츠를 점검해 주시기 바랍니다.강의 품질은 수강 유지율과 직접적으로 연결되므로, 필요한 경우 추가 콘텐츠 등록 또는 보완 작업을 진행해 주세요. 관리자 페이지에서 해당 강의를 확인하신 후 조치 부탁드립니다.</span>
-                            <button type="button" class="inbox-item__more" onclick="toggleNoticeDesc(this, event)">접기</button>
+                            <span class="inbox-item__desc-text">일부 강의에서 콘텐츠 누락 또는 구성 불완전 상태가 확인되었습니다. 원활한 수강 경험 제공을 위해 강의 영상, 자료, 자막 등 콘텐츠를 점검해 주시기 바랍니다.<br>강의 품질은 수강 유지율과 직접적으로 연결되므로, 필요한 경우 추가 콘텐츠 등록 또는 보완 작업을 진행해 주세요. 관리자 페이지에서 해당 강의를 확인하신 후 조치 부탁드립니다.<br>자막은 자동 생성본 그대로 노출될 경우 오탈자가 포함될 수 있으므로, 업로드 전 한 번 더 검수해 주시기 바랍니다.<br>보완이 어려운 강의는 운영팀에 사유를 회신해 주시면 일정 조정을 함께 검토하겠습니다.</span>
                         </div>
+                        <button type="button" class="inbox-item__more" onclick="toggleNoticeDesc(this, event)">접기</button>
                         <span class="inbox-item__time">1시간 전</span>
                     </div>
                 </a>
@@ -93,7 +96,7 @@
     function toggleNoticeDesc(btn, event) {
         event.preventDefault();
         event.stopPropagation();
-        const desc = btn.closest('.inbox-item__desc');
+        const desc = btn.parentElement.querySelector('.inbox-item__desc');
         const expanded = desc.classList.toggle('expanded');
         btn.textContent = expanded ? '접기' : '전체보기';
     }
