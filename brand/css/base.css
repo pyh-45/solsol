@@ -2490,3 +2490,60 @@ a { color: inherit; text-decoration: none; }
     .cert-flow__step:nth-child(2)::before { display: none; }
     .cert-flow__no { margin-top: 14px; }
 }
+
+/* =========================================================
+   주요기능 소개 — 상품 유형 (product types)
+   ========================================================= */
+/* 6종 상품 유형 카드 */
+.ptype-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin: 60px 0 0; }
+.ptype-card { display: flex; flex-direction: column; align-items: center; padding: 44px 28px 26px; border-radius: 16px; background: var(--text-white); text-align: center; }
+.ptype-card__icon { display: block; width: 48px; height: 48px; }
+.ptype-card__title { margin: 22px 0 0; font-size: 26px; font-weight: 700; line-height: 1.3; letter-spacing: -0.5px; color: var(--text-dark); }
+.ptype-card__desc { flex: 1; margin: 12px 0 0; font-size: 16px; line-height: 1.5; letter-spacing: -0.3px; color: var(--text-gray); }
+.ptype-card__more { display: inline-flex; align-items: center; gap: 4px; margin: 22px 0 0; font-size: 13px; letter-spacing: -0.3px; color: var(--text-light); }
+.ptype-card__more:hover { color: var(--text-dark); }
+
+/* 상품 유형 비교표 */
+.ptype-table-wrap { margin: 60px 0 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.ptype-table { width: 100%; min-width: 1100px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+.ptype-table th, .ptype-table td { padding: 18px 20px; font-size: 16px; line-height: 1.6; letter-spacing: -0.3px; text-align: left; vertical-align: top; color: var(--text-default); border-bottom: 1px solid #EAEAEA; }
+.ptype-table thead th { height: 72px; padding: 0 20px; background: #1A1A1A; color: var(--text-white); font-size: 20px; font-weight: 700; text-align: center; vertical-align: middle; border-bottom: none; }
+.ptype-table thead th:first-child { border-radius: 8px 0 0 8px; }
+.ptype-table thead th:last-child { border-radius: 0 8px 8px 0; }
+/* 카드 더보기로 이동한 행 강조 (스티키 헤더만큼 여유) */
+.ptype-table tbody tr { scroll-margin-top: 140px; }
+.ptype-table tbody tr.is-target th,
+.ptype-table tbody tr.is-target td { background: #FFF1F1; }
+.ptype-table tbody th,
+.ptype-table tbody td { transition: background .3s ease; }
+.ptype-table tbody th { background: #F9F9F9; font-size: 18px; font-weight: 600; color: var(--text-dark); text-align: center; vertical-align: middle; }
+
+/* 성장 시나리오 그래프 */
+.ptype-graph { display: flex; align-items: center; justify-content: center; width: 800px; max-width: 100%; height: 400px; margin: 70px auto 0; border-radius: 16px; background: #F7F7F7; }
+.ptype-graph img { display: block; width: 475px; max-width: 100%; height: auto; }
+
+/* 성장 단계 — 문구가 길어 컬럼을 넓히고 글자를 줄임 */
+.ptype-flow { grid-template-columns: repeat(4, 280px); }
+.ptype-flow .cert-flow__title { font-size: 18px; }
+
+/* 단계 아이콘은 빨간 원 위에 항상 흰색으로 */
+.cert-flow__icon img { filter: brightness(0) invert(1); }
+
+@media (max-width: 1024px) {
+    .ptype-cards { grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+    .ptype-card { padding: 28px 18px 20px; border-radius: 12px; }
+    .ptype-card__title { margin-top: 16px; font-size: 17px; }
+    .ptype-card__desc { margin-top: 10px; font-size: 13px; }
+    .ptype-card__more { margin-top: 16px; font-size: 12px; }
+    .ptype-table-wrap { margin-top: 36px; }
+    .ptype-flow { grid-template-columns: repeat(4, 200px); }
+    .ptype-flow .cert-flow__title { font-size: 15px; }
+    .ptype-graph { margin-top: 44px; }
+}
+
+@media (max-width: 768px) {
+    .ptype-cards { grid-template-columns: 1fr; gap: 12px; }
+    .ptype-flow { grid-template-columns: repeat(2, 1fr); }
+    .ptype-card { padding: 26px 20px 20px; }
+    .ptype-graph { height: 300px; padding: 0 20px; }
+}

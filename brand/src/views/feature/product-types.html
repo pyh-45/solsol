@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 유형 — 쏠쏠 주요기능</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="../home/index.html"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="mnav__group is-open">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">주요 기능 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="product-types.html">상품유형</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+            </div>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="../home/index.html">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="product-types.html">상품유형</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 히어로 -->
+    <section class="feat-hero">
+        <span class="feat-hero__badge">6종 상품 유형</span>
+        <h1 class="feat-hero__title">강의부터 정기 구독형 상품까지<br>원하는 지식의 모든 제형 판매</h1>
+        <p class="feat-hero__desc">원하는 방식으로 콘텐츠를 판매하세요. 쏠쏠에서는 강의형, 디지털형, 구독형까지 다양한 상품을<br>하나의 플랫폼에서 운영할 수 있습니다.</p>
+    </section>
+
+    <!-- 01. PRODUCT TYPE — 6종 카드 -->
+    <section class="feat-section feat-section--gray">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">01</span><span class="feat-label__text">PRODUCT TYPE</span></div>
+                <h2 class="feat-h2">내 콘텐츠에 맞는 상품 유형 고르기</h2>
+            </div>
+
+            <div class="ptype-cards">
+                <div class="ptype-card">
+                    <img class="ptype-card__icon" src="../../images/brand02-04-ico-book.svg" alt="">
+                    <p class="ptype-card__title">일반강의</p>
+                    <p class="ptype-card__desc">언제 어디서나 학습할 수 있는 온라인 강의로, 학습 기간, 진도율, 수료증까지 체계적으로 관리할 수 있습니다.</p>
+                    <a class="ptype-card__more" href="#ptype-normal">더보기
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+
+                <div class="ptype-card">
+                    <img class="ptype-card__icon" src="../../images/brand02-04-ico-video.svg" alt="">
+                    <p class="ptype-card__title">라이브 &amp; 화상강의</p>
+                    <p class="ptype-card__desc">실시간 라이브 방송 또는 Zoom·Google Meet 연동을 통해 수강생과 직접 소통하며 강의를 진행할 수 있습니다.</p>
+                    <a class="ptype-card__more" href="#ptype-live">더보기
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+
+                <div class="ptype-card">
+                    <img class="ptype-card__icon" src="../../images/brand02-04-ico-digital.svg" alt="">
+                    <p class="ptype-card__title">디지털 상품</p>
+                    <p class="ptype-card__desc">PDF, 템플릿, 전자책, 자료집 등 다운로드형 콘텐츠를 손쉽게 판매할 수 있습니다.</p>
+                    <a class="ptype-card__more" href="#ptype-digital">더보기
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+
+                <div class="ptype-card">
+                    <img class="ptype-card__icon" src="../../images/brand02-04-ico-package.svg" alt="">
+                    <p class="ptype-card__title">패키지 상품</p>
+                    <p class="ptype-card__desc">여러 상품을 하나로 묶어 판매하여 더 높은 가치를 제공하고 매출을 확대할 수 있습니다.</p>
+                    <a class="ptype-card__more" href="#ptype-package">더보기
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+
+                <div class="ptype-card">
+                    <img class="ptype-card__icon" src="../../images/brand02-04-ico-membership.svg" alt="">
+                    <p class="ptype-card__title">멤버십</p>
+                    <p class="ptype-card__desc">월 정기결제를 통해 구독자를 확보하고, 지정된 콘텐츠와 혜택을 지속적으로 제공할 수 있습니다.</p>
+                    <a class="ptype-card__more" href="#ptype-membership">더보기
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+
+                <div class="ptype-card">
+                    <img class="ptype-card__icon" src="../../images/brand02-04-ico-commun.svg" alt="">
+                    <p class="ptype-card__title">프리미엄 커뮤니티</p>
+                    <p class="ptype-card__desc">구독 회원만 참여할 수 있는 전용 커뮤니티를 운영하여 충성도 높은 팬층을 구축할 수 있습니다.</p>
+                    <a class="ptype-card__more" href="#ptype-community">더보기
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. COMPARISON — 비교표 -->
+    <section class="feat-section">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">02</span><span class="feat-label__text">COMPARISON</span></div>
+                <h2 class="feat-h2">한눈에 보는 상품 유형 비교</h2>
+            </div>
+
+            <div class="ptype-table-wrap">
+                <table class="ptype-table">
+                    <colgroup>
+                        <col style="width:130px;">
+                        <col style="width:22%;">
+                        <col style="width:16%;">
+                        <col style="width:24%;">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">유형</th>
+                            <th scope="col">적합한 상황</th>
+                            <th scope="col">결제방식</th>
+                            <th scope="col">진도관리 유무</th>
+                            <th scope="col">추천 크리에이터</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="ptype-normal">
+                            <th scope="row">일반강의</th>
+                            <td>촬영해둔 강의 영상으로 체계적인 커리큘럼·진도관리가 필요한 강의를 운영할 때</td>
+                            <td>1회성 단건 결제(할부 가능)</td>
+                            <td>있음 — 순차 수강 제한 + 직접 설정한 진도율 이상 시 수료</td>
+                            <td>촬영된 강의 콘텐츠를 이미 보유한 크리에이터, 자기주도 학습형 커리큘럼을 판매하려는 크리에이터</td>
+                        </tr>
+                        <tr id="ptype-package">
+                            <th scope="row">패키지 상품</th>
+                            <td>이미 있는 강의·상품 여러 개를 묶어 더 큰 가치로 한 번에 팔고 싶을 때</td>
+                            <td>1회성 단건 결제(패키지 할인 적용)</td>
+                            <td>구성 상품별 정책을 그대로 따름(예: 일반강의 포함 시 진도율 관리, 화상강의 포함 시 입장 즉시 수료)</td>
+                            <td>여러 강의·상품을 보유해 묶음 판매로 객단가를 높이고 싶은 크리에이터</td>
+                        </tr>
+                        <tr id="ptype-live">
+                            <th scope="row">라이브 &amp;<br>화상강의</th>
+                            <td>정해진 시간에 실시간으로 소통하며 진행하는 강의를 열고 싶을 때(유튜브 라이브 또는 Zoom·Google Meet 연동 중 선택)</td>
+                            <td>1회성 단건 결제</td>
+                            <td>없음 — 강의실 입장 즉시 자동 수료 처리(라이브 종료는 크리에이터가 직접 수동 처리)</td>
+                            <td>실시간 소통·피드백을 중요하게 여기는 크리에이터, 소규모 그룹 코칭·특강을 진행하는 크리에이터</td>
+                        </tr>
+                        <tr id="ptype-membership">
+                            <th scope="row">멤버십</th>
+                            <td>강의를 낱개로 파는 대신 매달 안정적인 정기 구독 매출을 만들고 싶을 때</td>
+                            <td>월 정기결제(자동결제, 취소 전까지 매월 청구)</td>
+                            <td>구독 기간 동안 이용 가능한 개별 강의 단위로 관리(각 강의의 진도율 정책을 그대로 따름)</td>
+                            <td>지속적으로 소비할 콘텐츠가 있고 안정적인 정기 매출 구조를 원하는 크리에이터</td>
+                        </tr>
+                        <tr id="ptype-digital">
+                            <th scope="row">디지털 상품</th>
+                            <td>강의 영상이 아니라 PDF·템플릿·전자책 등 파일형 콘텐츠를 판매하고 싶을 때</td>
+                            <td>1회성 단건 결제</td>
+                            <td>해당 없음(다운로드 제공 방식이라 진도율 개념 자체가 없음)</td>
+                            <td>전자책·템플릿·워크북 등 다운로드형 콘텐츠를 판매하려는 크리에이터</td>
+                        </tr>
+                        <tr id="ptype-community">
+                            <th scope="row">프리미엄<br>커뮤니티</th>
+                            <td>강의 콘텐츠보다 꾸준한 소통·정보 공유가 중심인 유료 커뮤니티를 운영하고 싶을 때</td>
+                            <td>월 정기결제(자동결제)</td>
+                            <td>해당 없음(게시판형 구독 상품이라 진도율 개념이 없음)</td>
+                            <td>팬덤과의 밀착 소통, 정보 공유형 유료 커뮤니티를 운영하려는 크리에이터</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. GROWTH SCENARIO — 성장 단계 -->
+    <section class="feat-section">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">03</span><span class="feat-label__text">GROWTH SCENARIO</span></div>
+                <h2 class="feat-h2">이렇게 성장하는 크리에이터들</h2>
+            </div>
+
+            <ol class="cert-flow ptype-flow">
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-04-ico-book-line.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 1</p>
+                    <p class="cert-flow__title">일반강의로 시작</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-04-ico-video-line.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 2</p>
+                    <p class="cert-flow__title">라이브·화상강의 추가</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-04-ico-premium-line.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 3</p>
+                    <p class="cert-flow__title">멤버십·프리미엄 커뮤니티로<br>정기수익 확보</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-04-ico-package-line.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 4</p>
+                    <p class="cert-flow__title">인기 상품을 묶어 패키지로<br>업셀</p>
+                </li>
+            </ol>
+
+            <div class="ptype-graph">
+                <img src="../../images/brand02-04-graph.svg" alt="상품 유형을 넓혀갈수록 매출이 성장하는 그래프">
+            </div>
+        </div>
+    </section>
+
+    <!-- 하단 CTA -->
+    <section class="feat-cta">
+        <h2 class="feat-cta__title">크리에이터의 상상이 쏠쏠한 비즈니스로 <span class="feat-cta__hl">완성</span>되는 순간</h2>
+        <p class="feat-cta__sub">AI 자동화부터 판매, 운영, 구독 비즈니스까지 성장을 위한 모든 과정을 쏠쏠이 함께합니다</p>
+        <div class="feat-cta__btns">
+            <a class="btn btn--fill" href="#">무료로 시작하기 <img src="../../images/arrow-right.svg" alt=""></a>
+            <a class="btn btn--ghost" href="../inquiry/inquiry.html">상담 문의하기</a>
+        </div>
+    </section>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="product-types.html">상품유형</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="teacher-mode.html">강사모드</a><a href="#">AI 튜터</a><a href="certificate.html">맞춤형수료증</a><a href="product-types.html">상품유형</a><a href="#">AI 학습분석리포트</a><a href="#">강의관리</a><a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- GNB 스크롤 다크/라이트 전환 -->
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+    <!-- 카드 더보기 → 비교표 해당 행으로 이동 -->
+    <script>
+    (function () {
+        var links = document.querySelectorAll('.ptype-card__more[href^="#"]');
+        if (!links.length) return;
+        Array.prototype.forEach.call(links, function (link) {
+            link.addEventListener('click', function (e) {
+                var row = document.querySelector(link.getAttribute('href'));
+                if (!row) return;
+                e.preventDefault();
+                var top = row.getBoundingClientRect().top + window.pageYOffset - 140;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+                row.classList.add('is-target');
+                setTimeout(function () { row.classList.remove('is-target'); }, 1800);
+            });
+        });
+    })();
+    </script>
+
+    <!-- 스크롤 진입 애니메이션 (헤더/푸터 제외 콘텐츠 아래→위) -->
+    <script>
+    (function () {
+        var SELECTORS = [
+            '.feat-hero__badge', '.feat-hero__title', '.feat-hero__desc',
+            '.feat-head', '.ptype-card', '.ptype-table-wrap', '.ptype-graph',
+            '.feat-cta__title', '.feat-cta__sub', '.feat-cta__btns'
+        ];
+        var els = document.querySelectorAll(SELECTORS.join(','));
+        if (!els.length) return;
+
+        // 같은 부모끼리 순차 지연(stagger)
+        var byParent = new Map();
+        els.forEach(function (el) {
+            el.classList.add('reveal-up');
+            var arr = byParent.get(el.parentElement) || [];
+            arr.push(el);
+            byParent.set(el.parentElement, arr);
+        });
+        byParent.forEach(function (arr) {
+            arr.forEach(function (el, i) { el.dataset.revDelay = Math.min(i, 6) * 70; });
+        });
+
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('is-in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                var el = e.target;
+                el.style.transitionDelay = (el.dataset.revDelay || 0) + 'ms';
+                el.classList.add('is-in');
+                io.unobserve(el);
+            });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+        els.forEach(function (el) { io.observe(el); });
+    })();
+    </script>
+
+</body>
+</html>
