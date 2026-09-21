@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styleguide - Buttons</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/styleguide.css">
+</head>
+<body class="sg-page-gray">
+
+<div class="sg">
+
+    <h2 class="sg-title">BUTTONS</h2>
+
+    <!-- ===================== CONTENTS ===================== -->
+    <p class="sg-label">CONTENTS</p>
+
+    <!-- Big (H48) -->
+    <p class="sg-form__label">Big (H48px)</p>
+    <div class="sg-btn-grid4">
+        <button class="btn btn--big btn--primary">확인</button>
+        <button class="btn btn--big btn--primary is-hover">확인</button>
+        <button class="btn btn--big btn--primary is-active">확인</button>
+        <button class="btn btn--big btn--primary is-disabled">확인</button>
+    </div>
+    <div class="sg-btn-grid4">
+        <button class="btn btn--big btn--line">취소</button>
+        <button class="btn btn--big btn--line is-hover">취소</button>
+        <button class="btn btn--big btn--line is-active">취소</button>
+        <button class="btn btn--big btn--line is-disabled">취소</button>
+    </div>
+
+    <!-- 가변 버튼 매트릭스 -->
+    <p class="sg-form__label sg-label--mt">Text에 따라 가변적이며 최소사이즈는 가로 110px로 제한</p>
+    <div class="sg-btn-row"><span class="sg-btn-row__label">Default</span>
+        <button class="btn btn--md btn--auto btn--min110 btn--primary">저장하기</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--dark">확인</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--line">인증코드 발송</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--line">삭제</button>
+    </div>
+    <div class="sg-btn-row"><span class="sg-btn-row__label">Hover</span>
+        <button class="btn btn--md btn--auto btn--min110 btn--primary is-hover">저장하기</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--dark is-hover">확인</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--dark">인증코드 발송</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--line is-hover">삭제</button>
+    </div>
+    <div class="sg-btn-row"><span class="sg-btn-row__label">Active</span>
+        <button class="btn btn--md btn--auto btn--min110 btn--primary is-active">저장하기</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--dark">확인</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--line">인증코드 발송</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--line">삭제</button>
+    </div>
+    <div class="sg-btn-row"><span class="sg-btn-row__label">Disable</span>
+        <button class="btn btn--md btn--auto btn--min110 is-disabled">저장하기</button>
+        <button class="btn btn--md btn--auto btn--min110 is-disabled">확인</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--line is-disabled">인증코드 발송</button>
+        <button class="btn btn--md btn--auto btn--min110 btn--line is-disabled">삭제</button>
+    </div>
+
+    <!-- 카드 등록/수정 (min 160) -->
+    <p class="sg-form__label sg-label--mt">카드 등록/수정 화면에서만 가로 160px으로 제한</p>
+    <div class="sg-btn-row">
+        <button class="btn btn--md btn--auto btn--min160 btn--dark">대표 카드 설정</button>
+        <button class="btn btn--md btn--auto btn--min160 btn--line">삭제</button>
+    </div>
+
+    <!-- 플랜 선택 버튼 -->
+    <div class="sg-btn-row sg-label--mt">
+        <button class="plan-btn">Free</button>
+        <button class="plan-btn">Basic</button>
+        <button class="plan-btn plan-btn--active">Basic</button>
+        <button class="plan-btn">Growth</button>
+        <button class="plan-btn">Advanced</button>
+    </div>
+
+    <!-- 소형 버튼 리스트 (Default / Hover) -->
+    <div class="sg-btn-row sg-label--mt" style="align-items:flex-start; gap:40px;">
+        <div class="sg-btn-col">
+            <span class="sg-form__label">Default</span>
+            <button class="btn btn--xs btn--free btn--dark">Free</button>
+            <button class="btn btn--xs btn--primary">결제하기</button>
+            <button class="btn btn--xs btn--dark">사용 연장하기</button>
+            <button class="btn btn--xs btn--line-red">플랜 업그레이드</button>
+            <button class="btn btn--xs btn--line">관리하기</button>
+            <button class="btn btn--xs btn--line">구독 취소하기</button>
+            <button class="btn btn--xs btn--reject">수신 거부하기</button>
+        </div>
+        <div class="sg-btn-col">
+            <span class="sg-form__label">Hover / Active</span>
+            <button class="btn btn--xs btn--free btn--primary">Free</button>
+            <button class="btn btn--xs btn--primary is-hover">결제하기</button>
+            <button class="btn btn--xs btn--dark is-hover">사용 연장하기</button>
+            <button class="btn btn--xs btn--primary">플랜 업그레이드</button>
+            <button class="btn btn--xs btn--dark">관리하기</button>
+            <button class="btn btn--xs btn--line is-active" style="background:#707070; color:#fff; border-color:#707070;">구독 취소하기</button>
+            <button class="btn btn--xs btn--reject is-hover">수신 거부하기</button>
+        </div>
+    </div>
+
+    <!-- 아이콘 버튼 (Default / Hover / Disable) -->
+    <div class="sg-btn-row sg-label--mt" style="align-items:flex-start; gap:60px;">
+        <div class="sg-btn-col">
+            <span class="sg-form__label">Default</span>
+            <button class="btn btn--md btn--auto btn--dark"><span class="btn-plus">+</span>내 사이트 만들기</button>
+            <button class="btn btn--register btn--auto btn--line"><span class="btn-plus">+</span>카드 등록하기</button>
+            <button class="btn-link">계정삭제</button>
+        </div>
+        <div class="sg-btn-col">
+            <span class="sg-form__label">Hover / Active</span>
+            <button class="btn btn--md btn--auto btn--dark is-hover"><span class="btn-plus">+</span>내 사이트 만들기</button>
+            <button class="btn btn--register btn--auto btn--dark"><span class="btn-plus">+</span>카드 등록하기</button>
+            <button class="btn-link is-hover">계정삭제</button>
+        </div>
+        <div class="sg-btn-col">
+            <span class="sg-form__label">Disable</span>
+            <button class="btn btn--md btn--auto btn--dark is-disabled"><span class="btn-plus">+</span>내 사이트 만들기</button>
+            <button class="btn btn--register btn--auto btn--line is-disabled"><span class="btn-plus">+</span>카드 등록하기</button>
+            <button class="btn-link is-disabled">계정삭제</button>
+        </div>
+    </div>
+
+    <!-- ===================== Other ===================== -->
+    <p class="sg-label sg-label--mt">Other</p>
+    <div class="sg-btn-row">
+        <button class="btn-circle"><img src="../../images/ico-40_circle-refresh.svg" alt="새로고침"></button>
+    </div>
+
+    <!-- ===================== PAGINATION ===================== -->
+    <p class="sg-label sg-label--mt">PAGINATION (W36 × H36)</p>
+
+    <!-- 기본 (36 x 36) -->
+    <div class="sg-btn-row">
+        <nav class="pagination">
+            <button class="pagination__btn"><img src="../../images/paging-arrow.svg" alt="처음" style="transform:scaleX(-1)"></button>
+            <button class="pagination__btn"><img src="../../images/paging-arrow10.svg" alt="이전" style="transform:scaleX(-1)"></button>
+            <button class="pagination__btn pagination__btn--active">1</button>
+            <button class="pagination__btn">2</button>
+            <button class="pagination__btn">3</button>
+            <button class="pagination__btn">4</button>
+            <button class="pagination__btn">5</button>
+            <button class="pagination__btn"><img src="../../images/paging-arrow10.svg" alt="다음"></button>
+            <button class="pagination__btn"><img src="../../images/paging-arrow.svg" alt="끝"></button>
+        </nav>
+    </div>
+
+    <!-- 레이어 팝업용 (32 x 32) -->
+    <p class="sg-form__label sg-label--mt">레이어 팝업 (W32 × H32)</p>
+    <div class="sg-btn-row">
+        <nav class="pagination pagination--sm">
+            <button class="pagination__btn"><img src="../../images/paging-arrow.svg" alt="처음" style="transform:scaleX(-1)"></button>
+            <button class="pagination__btn"><img src="../../images/paging-arrow10.svg" alt="이전" style="transform:scaleX(-1)"></button>
+            <button class="pagination__btn pagination__btn--active">1</button>
+            <button class="pagination__btn">2</button>
+            <button class="pagination__btn">3</button>
+            <button class="pagination__btn">4</button>
+            <button class="pagination__btn">5</button>
+            <button class="pagination__btn"><img src="../../images/paging-arrow10.svg" alt="다음"></button>
+            <button class="pagination__btn"><img src="../../images/paging-arrow.svg" alt="끝"></button>
+        </nav>
+    </div>
+
+</div>
+
+</body>
+</html>

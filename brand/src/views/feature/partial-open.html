@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 일부공개 기능 — 쏠쏠 주요기능</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="../home/index.html"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="mnav__group is-open">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">주요 기능 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="#">사이트 디자인</a><a href="#">마케팅 지원</a></div>
+            </div>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="../home/index.html">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="#">사이트 디자인</a><a href="#">마케팅 지원</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 히어로 -->
+    <section class="feat-hero share-hero">
+        <div class="feat-inner feat-row feat-row--reverse">
+            <div class="feat-row__media">
+                <img src="../../images/brand02-05-con1.png" alt="링크를 건네받는 모습의 일러스트">
+            </div>
+            <div class="feat-row__body">
+                <span class="feat-hero__badge">링크 전용 공개</span>
+                <h1 class="feat-hero__title">링크를 아는 사람만,<br>VIP에게 슬쩍</h1>
+                <p class="feat-hero__desc">유튜브 영상 공개설정이 아니라, 어드민에서 '일부공개'라고 부르는 쏠쏠 상품 상세페이지의 공개범위 설정 기능입니다. 링크를 가진 사람만 접근할 수 있어, 특정 회원이나 그룹·단체만을 위한 전용 상품을 운영할 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01. PROBLEM -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row share-row">
+            <div class="feat-row__media share-stack">
+                <img class="share-stack__img share-stack__img--back" src="../../images/brand02-05-con2-1.png" alt="">
+                <img class="share-stack__img share-stack__img--front" src="../../images/brand02-05-con2-2.png" alt="">
+            </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">01</span><span class="feat-label__text">PROBLEM</span></div>
+                <h2 class="feat-h2">모두에게 공개하면,<br>특별함도 사라집니다</h2>
+                <p class="feat-body">VIP 고객, 그룹·단체 고객, 오프라인 행사 참여자에게만 드리고 싶은 특별한 상품이 있어도, 사이트에 올리는 순간 누구나 검색해서 들어올 수 있게 됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. SCENARIO -->
+    <section class="feat-section feat-section--gray share-scenario">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">02</span><span class="feat-label__text">SCENARIO</span></div>
+                <h2 class="feat-h2">검색에는 없고, 링크에는 있다</h2>
+                <p class="feat-head__sub">상품을 "일부공개"로 설정하면 사이트 목록·검색에서는 완전히 숨겨지고, <br>링크를 직접 전달받은 사람만 상세페이지에 접근할 수 있습니다.</p>
+            </div>
+
+            <div class="share-seg">
+                <div class="share-seg__list">
+                    <span class="share-seg__item">공개</span>
+                    <span class="share-seg__item">비공개</span>
+                    <span class="share-seg__item is-on">일부 공개</span>
+                </div>
+            </div>
+            <p class="share-setting">이 설정의 실제 이름은 <b class="share-setting__hl">'일부공개'</b>입니다</p>
+
+            <div class="share-shots">
+                <div class="share-shots__frame">
+                    <img class="share-shots__img share-shots__img--list" src="../../images/brand02-05-con3-1.png" alt="목록·검색 화면에서는 상품이 노출되지 않습니다">
+                    <img class="share-shots__img share-shots__img--link" src="../../images/brand02-05-con3-2.png" alt="링크로 접근하면 상품 상세페이지가 열립니다">
+                </div>
+                <span class="share-shots__tag share-shots__tag--list">목록·검색 화면</span>
+                <span class="share-shots__tag share-shots__tag--link">링크로 접근 시</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. BENEFIT -->
+    <section class="feat-section">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">03</span><span class="feat-label__text">BENEFIT</span></div>
+                <h2 class="feat-h2">이런 분들이 쓰기 좋아요</h2>
+            </div>
+
+            <div class="share-cards">
+                <div class="share-card">
+                    <img class="share-card__icon" src="../../images/brand02-05-ico-dia.svg" alt="">
+                    <p class="share-card__title">VIP 전용 특별 오퍼</p>
+                    <p class="share-card__desc">가장 아끼는 고객에게만, 남다른 혜택을 조용히 전달할 수 있습니다.</p>
+                </div>
+                <div class="share-card">
+                    <img class="share-card__icon" src="../../images/brand02-05-ico-ticket.svg" alt="">
+                    <p class="share-card__title">오프라인 행사 연동 한정 판매</p>
+                    <p class="share-card__desc">행사장에서 안내한 링크로만 구매할 수 있는 한정 상품을 운영할 수 있습니다.</p>
+                </div>
+                <div class="share-card">
+                    <img class="share-card__icon" src="../../images/brand02-05-ico-group.svg" alt="">
+                    <p class="share-card__title">그룹·단체 맞춤 제공</p>
+                    <p class="share-card__desc">스터디 모임, 협회, 거래처 등 그룹마다 다른 조건의 상품을 별도 링크로 나눠 제공할 수 있습니다.</p>
+                </div>
+                <div class="share-card">
+                    <img class="share-card__icon" src="../../images/brand02-05-ico-link.svg" alt="">
+                    <p class="share-card__title">별도 시스템 없이 프라이빗 런칭</p>
+                    <p class="share-card__desc">링크 하나만 공유하면 전용 판매 페이지가 바로 열립니다. 추가 개발이 필요 없습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 하단 CTA -->
+    <section class="feat-cta">
+        <h2 class="feat-cta__title">크리에이터의 상상이 쏠쏠한 비즈니스로 <span class="feat-cta__hl">완성</span>되는 순간</h2>
+        <p class="feat-cta__sub">AI 자동화부터 판매, 운영, 구독 비즈니스까지 성장을 위한 모든 과정을 쏠쏠이 함께합니다</p>
+        <div class="feat-cta__btns">
+            <a class="btn btn--fill" href="#">무료로 시작하기 <img src="../../images/arrow-right.svg" alt=""></a>
+            <a class="btn btn--ghost" href="../inquiry/inquiry.html">상담 문의하기</a>
+        </div>
+    </section>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="#">사이트 디자인</a><a href="#">마케팅 지원</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="#">사이트 디자인</a><a href="#">마케팅 지원</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- GNB 스크롤 다크/라이트 전환 -->
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+    <!-- 스크롤 진입 애니메이션 (헤더/푸터 제외 콘텐츠 아래→위) -->
+    <script>
+    (function () {
+        var SELECTORS = [
+            '.feat-hero__badge', '.feat-hero__title', '.feat-hero__desc',
+            '.feat-head', '.feat-row__media', '.feat-row__body',
+            '.share-setting', '.share-seg', '.share-shots', '.share-card',
+            '.feat-cta__title', '.feat-cta__sub', '.feat-cta__btns'
+        ];
+        var els = document.querySelectorAll(SELECTORS.join(','));
+        if (!els.length) return;
+
+        // 같은 부모끼리 순차 지연(stagger)
+        var byParent = new Map();
+        els.forEach(function (el) {
+            el.classList.add('reveal-up');
+            var arr = byParent.get(el.parentElement) || [];
+            arr.push(el);
+            byParent.set(el.parentElement, arr);
+        });
+        byParent.forEach(function (arr) {
+            arr.forEach(function (el, i) { el.dataset.revDelay = Math.min(i, 6) * 70; });
+        });
+
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('is-in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                var el = e.target;
+                el.style.transitionDelay = (el.dataset.revDelay || 0) + 'ms';
+                el.classList.add('is-in');
+                io.unobserve(el);
+            });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+        els.forEach(function (el) { io.observe(el); });
+    })();
+    </script>
+
+</body>
+</html>

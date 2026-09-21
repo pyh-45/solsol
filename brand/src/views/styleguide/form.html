@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styleguide - Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/styleguide.css">
+</head>
+<body>
+
+<div class="sg">
+
+    <h2 class="sg-title">FORM</h2>
+
+    <!-- ===================== DROPDOWN ===================== -->
+    <p class="sg-label">DROPDOWN (H40px)</p>
+    <div class="sg-form">
+        <div class="sg-form__cell"><p class="sg-form__label">Placeholder</p>
+            <div class="input-box input-box--select"><input placeholder="Placeholder"><img class="input-box__icon" src="../../images/arrows-down.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Focus</p>
+            <div class="input-box input-box--select input-box--focus"><input value="Input Text"><img class="input-box__icon" src="../../images/arrows-down.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Disabled</p>
+            <div class="input-box input-box--select input-box--disabled"><input value="Input Text" disabled><img class="input-box__icon" src="../../images/arrows-down.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Normal (클릭하여 열기)</p>
+            <div class="dropdown">
+                <button type="button" class="dropdown__toggle">
+                    <span class="dropdown__label"><i class="dropdown__mark">✕</i>구독취소하기</span>
+                    <img class="dropdown__chev" src="../../images/arrows-down.svg" alt="">
+                </button>
+                <ul class="dropdown__menu">
+                    <li class="dropdown__head">
+                        <span class="dropdown__label"><i class="dropdown__mark">✕</i>구독취소하기</span>
+                        <img class="dropdown__chev" src="../../images/arrows-down.svg" alt="">
+                    </li>
+                    <li class="dropdown__item"><i class="dropdown__mark">○</i>즉시 결제</li>
+                    <li class="dropdown__item"><i class="dropdown__mark">∧</i>플랜 업그레이드</li>
+                </ul>
+            </div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Field Error</p>
+            <div class="input-box input-box--select input-box--error"><input value="Input Text"><img class="input-box__icon" src="../../images/arrows-down.svg" alt=""></div></div>
+    </div>
+
+    <!-- ===================== TEXT INPUT ===================== -->
+    <p class="sg-label sg-label--mt">TEXT INPUT (H40px)</p>
+    <div class="sg-form">
+        <div class="sg-form__cell"><p class="sg-form__label">Placeholder</p>
+            <div class="input-box"><input placeholder="Placeholder"></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Focus</p>
+            <div class="input-box input-box--focus"><input value="Input Text"></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Disabled</p>
+            <div class="input-box input-box--disabled"><input value="Input Text" disabled></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Normal</p>
+            <div class="input-box input-box--normal"><input value="Input Text"></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Field Error</p>
+            <div class="input-box input-box--error"><input value="Input Text"></div></div>
+    </div>
+    <!-- 글자수 카운터 -->
+    <div class="sg-form">
+        <div class="sg-form__cell"><div class="input-box"><input placeholder="Placeholder"><span class="input-box__count"><b>3</b>/15</span></div></div>
+        <div class="sg-form__cell"><div class="input-box input-box--focus"><input value="Input Text"><span class="input-box__count"><b>3</b>/15</span></div></div>
+        <div class="sg-form__cell"><div class="input-box input-box--disabled"><input value="Input Text" disabled><span class="input-box__count"><b>3</b>/15</span></div></div>
+        <div class="sg-form__cell"><div class="input-box input-box--normal"><input value="Input Text"><span class="input-box__count"><b>3</b>/15</span></div></div>
+        <div class="sg-form__cell"><div class="input-box input-box--error"><input value="Input Text"><span class="input-box__count"><b>3</b>/15</span></div></div>
+    </div>
+
+    <!-- ===================== INPUT + ICON ===================== -->
+    <p class="sg-label sg-label--mt">INPUT + ICON (날짜/시간, H40px)</p>
+    <!-- 단일 날짜 -->
+    <div class="sg-form sg-form--date">
+        <div class="sg-form__cell"><p class="sg-form__label">Placeholder</p>
+            <div class="input-box"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Focus</p>
+            <div class="input-box input-box--focus"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Disabled</p>
+            <div class="input-box input-box--disabled"><input value="2025.08.17" disabled><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Normal</p>
+            <div class="input-box input-box--normal"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Field Error</p>
+            <div class="input-box input-box--error"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div>
+    </div>
+    <!-- 날짜 범위 -->
+    <div class="sg-form sg-form--date">
+        <div class="sg-form__cell"><div class="input-range"><div class="input-box"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div><span class="input-range__sep">~</span><div class="input-box"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div></div>
+        <div class="sg-form__cell"><div class="input-range"><div class="input-box input-box--focus"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div><span class="input-range__sep">~</span><div class="input-box input-box--focus"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div></div>
+        <div class="sg-form__cell"><div class="input-range"><div class="input-box input-box--disabled"><input value="2025.08.17" disabled><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div><span class="input-range__sep">~</span><div class="input-box input-box--disabled"><input value="2025.08.17" disabled><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div></div>
+        <div class="sg-form__cell"><div class="input-range"><div class="input-box input-box--normal"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div><span class="input-range__sep">~</span><div class="input-box input-box--normal"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div></div>
+        <div class="sg-form__cell"><div class="input-range"><div class="input-box input-box--error"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div><span class="input-range__sep">~</span><div class="input-box input-box--error"><input value="2025.08.17"><img class="input-box__icon" src="../../images/ico-form-calendar.svg" alt=""></div></div></div>
+    </div>
+    <!-- 시간 -->
+    <div class="sg-form sg-form--date">
+        <div class="sg-form__cell"><div class="input-box"><input value="00:00"><img class="input-box__icon" src="../../images/ico-input-clock.svg" alt=""></div></div>
+        <div class="sg-form__cell"><div class="input-box input-box--focus"><input value="00:00"><img class="input-box__icon" src="../../images/ico-input-clock.svg" alt=""></div></div>
+        <div class="sg-form__cell"><div class="input-box input-box--disabled"><input value="00:00" disabled><img class="input-box__icon" src="../../images/ico-input-clock.svg" alt=""></div></div>
+        <div class="sg-form__cell"><div class="input-box input-box--normal"><input value="00:00"><img class="input-box__icon" src="../../images/ico-input-clock.svg" alt=""></div></div>
+        <div class="sg-form__cell"></div>
+    </div>
+
+    <!-- ===================== TEXT AREA ===================== -->
+    <p class="sg-label sg-label--mt">TEXT AREA</p>
+    <div class="sg-form">
+        <div class="sg-form__cell"><p class="sg-form__label">Placeholder</p>
+            <div class="textarea-box"><textarea placeholder="위지윅타입가 연결, 어디서, 무엇을, 어떻게, 왜냐 더 가까이 구체적으로 작성 바랍니다."></textarea></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Focus</p>
+            <div class="textarea-box textarea-box--focus"><textarea>Active</textarea></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Disabled</p>
+            <div class="textarea-box textarea-box--disabled"><textarea placeholder="Typing" disabled></textarea></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Normal</p>
+            <div class="textarea-box"><textarea>Typing</textarea></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Error</p>
+            <div class="textarea-box textarea-box--error"><textarea>Typing</textarea></div></div>
+    </div>
+    <!-- 카운터 -->
+    <div class="textarea-box" style="margin-bottom:28px;"><textarea placeholder="@사이트의 답글 내용을 입력해 주세요."></textarea><span class="textarea-box__count"><b>0</b>/500</span></div>
+
+    <!-- ===================== TOGGLES ===================== -->
+    <p class="sg-label sg-label--mt">TOGGLES</p>
+    <div class="sg-form-toggles">
+        <!-- Switch -->
+        <div class="sg-form-set">
+            <p class="sg-form__label">Switch</p>
+            <div class="sg-form-set__row">
+                <label class="c-toggle"><input type="checkbox" checked><span class="c-toggle__slider"></span></label>
+                <label class="c-toggle"><input type="checkbox"><span class="c-toggle__slider"></span></label>
+                <label class="c-toggle"><input type="checkbox" disabled><span class="c-toggle__slider"></span></label>
+            </div>
+            <div class="sg-form-set__row" style="gap:18px;">
+                <span class="sg-form__label">ON</span><span class="sg-form__label">OFF</span><span class="sg-form__label">DISABLED</span>
+            </div>
+        </div>
+        <!-- Checkbox -->
+        <div class="sg-form-set">
+            <p class="sg-form__label">Checkbox</p>
+            <div class="sg-form-set__row">
+                <label class="c-check"><input type="checkbox"><span class="c-check__box"></span></label>
+                <label class="c-check"><input type="checkbox" checked><span class="c-check__box"></span></label>
+                <label class="c-check"><input type="checkbox" disabled><span class="c-check__box"></span></label>
+            </div>
+            <div class="sg-form-set__row" style="gap:30px;">
+                <span class="sg-form__label">UNSELECTED</span><span class="sg-form__label">SELECTED</span><span class="sg-form__label">DISABLED</span>
+            </div>
+        </div>
+        <!-- Radio -->
+        <div class="sg-form-set">
+            <p class="sg-form__label">Radio Button</p>
+            <div class="sg-form-set__row">
+                <label class="c-radio"><input type="radio" name="r1" checked><span class="c-radio__dot"></span></label>
+                <label class="c-radio"><input type="radio" name="r1"><span class="c-radio__dot"></span></label>
+                <label class="c-radio"><input type="radio" name="r2" disabled><span class="c-radio__dot"></span></label>
+            </div>
+            <div class="sg-form-set__row" style="gap:30px;">
+                <span class="sg-form__label">ON</span><span class="sg-form__label">OFF</span><span class="sg-form__label">DISABLED</span>
+            </div>
+            <div class="sg-form-set__row" style="gap:16px;">
+                <label class="c-radio"><input type="radio" name="r3" checked><span class="c-radio__dot"></span>Text</label>
+                <label class="c-radio"><input type="radio" name="r3"><span class="c-radio__dot"></span>Text</label>
+                <label class="c-radio"><input type="radio" name="r4" disabled><span class="c-radio__dot"></span>Text</label>
+            </div>
+            <div class="sg-form-set__row" style="gap:16px;">
+                <label class="c-check"><input type="checkbox" checked><span class="c-check__box"></span>Text</label>
+                <label class="c-check"><input type="checkbox"><span class="c-check__box"></span>Text</label>
+                <label class="c-check"><input type="checkbox" disabled><span class="c-check__box"></span>Text</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== SEARCH ===================== -->
+    <p class="sg-label sg-label--mt">SEARCH (H40px)</p>
+    <div class="sg-form">
+        <div class="sg-form__cell"><p class="sg-form__label">Placeholder</p>
+            <div class="input-box input-box--search"><input placeholder="Placeholder"><img class="input-box__icon" src="../../images/ico-20px-delete.svg" alt=""><img class="input-box__icon" src="../../images/ico-20px-search.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Focus</p>
+            <div class="input-box input-box--search input-box--focus"><input value="Input Text"><img class="input-box__icon" src="../../images/ico-20px-delete.svg" alt=""><img class="input-box__icon" src="../../images/ico-20px-search.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Disabled</p>
+            <div class="input-box input-box--search input-box--disabled"><input value="Input Text" disabled><img class="input-box__icon" src="../../images/ico-20px-delete.svg" alt=""><img class="input-box__icon" src="../../images/ico-20px-search.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Normal</p>
+            <div class="input-box input-box--search input-box--normal"><input value="Input Text"><img class="input-box__icon" src="../../images/ico-20px-delete.svg" alt=""><img class="input-box__icon" src="../../images/ico-20px-search.svg" alt=""></div></div>
+        <div class="sg-form__cell"><p class="sg-form__label">Field Error</p>
+            <div class="input-box input-box--search input-box--error"><input value="Input Text"><img class="input-box__icon" src="../../images/ico-20px-delete.svg" alt=""><img class="input-box__icon" src="../../images/ico-20px-search.svg" alt=""><img class="input-box__icon" src="../../images/line-info-circle.svg" alt=""></div></div>
+    </div>
+
+    <!-- ===================== CALENDAR ===================== -->
+    <p class="sg-label sg-label--mt">CALENDAR</p>
+    <div class="sg-badges">
+        <div class="c-calendar">
+            <div class="c-calendar__header">
+                <button class="c-calendar__nav" aria-label="이전 달"><img src="../../images/arrow-calendar-disabled.svg" width="20" height="20" alt=""></button>
+                <span class="c-calendar__title">January, 2021</span>
+                <button class="c-calendar__nav" aria-label="다음 달"><img src="../../images/arrow-calendar-active.svg" width="20" height="20" alt=""></button>
+            </div>
+            <div class="c-calendar__weekdays">
+                <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+            </div>
+            <div class="c-calendar__grid">
+                <button class="c-calendar__day c-calendar__day--muted">27</button>
+                <button class="c-calendar__day c-calendar__day--muted">28</button>
+                <button class="c-calendar__day c-calendar__day--muted">29</button>
+                <button class="c-calendar__day c-calendar__day--muted">30</button>
+                <button class="c-calendar__day c-calendar__day--muted">31</button>
+                <button class="c-calendar__day">1</button>
+                <button class="c-calendar__day">2</button>
+                <button class="c-calendar__day c-calendar__day--selected">3</button>
+                <button class="c-calendar__day">4</button>
+                <button class="c-calendar__day">5</button>
+                <button class="c-calendar__day">6</button>
+                <button class="c-calendar__day c-calendar__day--today">7</button>
+                <button class="c-calendar__day">8</button>
+                <button class="c-calendar__day">9</button>
+                <button class="c-calendar__day">10</button>
+                <button class="c-calendar__day">11</button>
+                <button class="c-calendar__day">12</button>
+                <button class="c-calendar__day">13</button>
+                <button class="c-calendar__day">14</button>
+                <button class="c-calendar__day">15</button>
+                <button class="c-calendar__day">16</button>
+                <button class="c-calendar__day">17</button>
+                <button class="c-calendar__day">18</button>
+                <button class="c-calendar__day">19</button>
+                <button class="c-calendar__day">20</button>
+                <button class="c-calendar__day">21</button>
+                <button class="c-calendar__day">22</button>
+                <button class="c-calendar__day">23</button>
+                <button class="c-calendar__day">24</button>
+                <button class="c-calendar__day">25</button>
+                <button class="c-calendar__day">26</button>
+                <button class="c-calendar__day">27</button>
+                <button class="c-calendar__day">28</button>
+                <button class="c-calendar__day">29</button>
+                <button class="c-calendar__day">30</button>
+            </div>
+        </div>
+        <div class="c-calendar-legend">
+            <div class="c-calendar-legend__item"><span class="c-calendar-legend__dot c-calendar-legend__dot--filled"></span>오늘</div>
+            <div class="c-calendar-legend__item"><span class="c-calendar-legend__dot c-calendar-legend__dot--outline"></span>선택</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.dropdown').forEach(function (dd) {
+    var toggle = dd.querySelector('.dropdown__toggle');
+    var head = dd.querySelector('.dropdown__head');
+    var label = toggle.querySelector('.dropdown__label');
+
+    toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        dd.classList.toggle('is-open');
+    });
+    if (head) {
+        head.addEventListener('click', function () { dd.classList.remove('is-open'); });
+    }
+    dd.querySelectorAll('.dropdown__item').forEach(function (item) {
+        item.addEventListener('click', function () {
+            dd.querySelectorAll('.dropdown__item').forEach(function (i) { i.classList.remove('dropdown__item--active'); });
+            item.classList.add('dropdown__item--active');
+            label.innerHTML = item.innerHTML;
+            dd.classList.remove('is-open');
+        });
+    });
+});
+document.addEventListener('click', function (e) {
+    if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown.is-open').forEach(function (d) { d.classList.remove('is-open'); });
+    }
+});
+</script>
+
+</body>
+</html>

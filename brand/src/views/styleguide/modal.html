@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styleguide - Modal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/styleguide.css">
+</head>
+<body class="sg-page-gray">
+
+<div class="sg">
+
+    <h2 class="sg-title">POPUP &amp; MODAL &amp; ALERT</h2>
+    <p class="sg-label">MODAL &amp; ALERT</p>
+
+    <div class="sg-modals">
+
+        <!-- 1. 제목 + 설명 + 단일 버튼 -->
+        <div class="modal-card">
+            <img class="modal-card__icon" src="../../images/ico-48px-check.svg" alt="">
+            <div class="modal-card__title">비밀번호가 재설정되었습니다</div>
+            <div class="modal-card__desc">새로운 비밀번호로 로그인하세요.</div>
+            <div class="modal-card__footer">
+                <button class="btn btn--alert btn--primary">확인</button>
+            </div>
+        </div>
+
+        <!-- 2. 제목 + 단일 버튼 -->
+        <div class="modal-card">
+            <img class="modal-card__icon" src="../../images/ico-48px-check.svg" alt="">
+            <div class="modal-card__title">1개 이상 카드가 등록되어있어야 합니다.</div>
+            <div class="modal-card__footer">
+                <button class="btn btn--alert btn--primary">확인</button>
+            </div>
+        </div>
+
+        <!-- 3. 제목 + 취소/확인 -->
+        <div class="modal-card">
+            <img class="modal-card__icon" src="../../images/ico-48px-check.svg" alt="">
+            <div class="modal-card__title">MASTER(*****34728) 카드를 대표카드로 등록 하시겠습니까?</div>
+            <div class="modal-card__footer">
+                <button class="btn btn--alert btn--line">취소</button>
+                <button class="btn btn--alert btn--primary">확인</button>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="sg-label sg-label--mt">MODAL (Large)</p>
+    <div class="sg-modals">
+        <div class="modal-card modal-card--lg">
+            <img class="modal-card__icon" src="../../images/i-64-close.svg" alt="">
+            <div class="modal-card__title">탈퇴하기</div>
+            <div class="modal-card__desc">계정을 삭제하면 모든 데이터가 영구적으로 삭제되며<br>복구할 수 없습니다. 신중하게 결정해주세요.</div>
+            <div class="modal-card__sub">탈퇴하시겠습니까?</div>
+            <div class="modal-card__notice">
+                <div class="modal-card__notice-title">주의사항</div>
+                <ul>
+                    <li>탈퇴 시 계정 정보, 상품 구매 내역, 계정에 묶여 있는 모든 콘텐츠 내역 등 모든 내역이 삭제됩니다.</li>
+                    <li>탈퇴 이후에는 환불, 백업 등의 모든 행동이 불가능합니다.</li>
+                </ul>
+            </div>
+            <label class="modal-card__check">
+                <span class="c-check"><input type="checkbox"><span class="c-check__box"></span></span>
+                위 내용에 동의 합니다
+            </label>
+            <div class="modal-card__field">
+                <div class="input-box"><input type="password" placeholder="현재 비밀번호를 입력해 주세요"></div>
+            </div>
+            <div class="modal-card__footer">
+                <button class="btn btn--alert btn--line">취소</button>
+                <button class="btn btn--alert btn--primary">탈퇴하기</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

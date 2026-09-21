@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styleguide - Navigation &amp; Footer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/styleguide.css">
+</head>
+<body class="sg-page-gray">
+
+<div class="sg">
+
+    <h2 class="sg-title">NAVIGATION AND FOOTER</h2>
+
+    <p class="sg-label">TOP NAVIGATION BAR</p>
+    <ul class="sg-notes">
+        <li>공간 활용도를 높이고 화면 상단의 시각적 비중이 높아지지 않도록 슬림하게 제작한다.</li>
+        <li>텍스트는 가독성을 고려하여 이미지로 제작하지 않고 Html로 제작한다.</li>
+    </ul>
+
+    <!-- ===================== Default (Dark) ===================== -->
+    <p class="sg-state">Default</p>
+    <header class="gnb gnb--dark">
+        <a class="gnb__logo" href="#"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- ===================== Active (Light, 드롭다운 열림) ===================== -->
+    <p class="sg-state">Active</p>
+    <header class="gnb gnb--light">
+        <a class="gnb__logo" href="#"><img src="../../images/logo.svg" alt="쏠쏠"></a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item is-open">
+                <span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-up.svg" alt=""></span>
+                <div class="gnb__dropdown">
+                    <a href="#">플랫폼 소개</a>
+                    <a href="#">프로덕트</a>
+                    <a href="#">데모보기</a>
+                    <a href="#">가격</a>
+                </div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item is-open">
+                <img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-up.svg" alt="">
+                <div class="gnb__dropdown">
+                    <a href="#">한국어</a>
+                    <a href="#">영어</a>
+                </div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- ===================== Footer ===================== -->
+    <p class="sg-label sg-label--mt">FOOTER</p>
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a>
+                    <a href="#">프로덕트</a>
+                    <a href="#">데모보기</a>
+                    <a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="#">AI 튜터</a>
+                    <a href="#">AI 학습분석리포트</a>
+                    <a href="#">강의관리</a>
+                    <a href="#">학습자 관리</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a>
+                    <a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="#">이용약관</a>
+                    <a href="#">무료약정상품 이용약관</a>
+                    <a href="#">유료약정상품 이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+
+        <hr class="gfooter__divider">
+
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

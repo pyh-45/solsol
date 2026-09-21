@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styleguide - Table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/styleguide.css">
+</head>
+<body>
+
+<div class="sg">
+
+    <h2 class="sg-title">TABLE</h2>
+    <p class="sg-label">TABLE LIST</p>
+
+    <h4 class="table-title">결제 내역</h4>
+
+    <!-- 필터 바 -->
+    <div class="table-filter">
+        <div class="input-box input-box--select"><input value="전체" readonly><img class="input-box__icon" src="../../images/arrows-down.svg" alt=""></div>
+        <div class="input-box input-box--select"><input value="전체" readonly><img class="input-box__icon" src="../../images/arrows-down.svg" alt=""></div>
+        <div class="input-box input-box--select"><input value="전체" readonly><img class="input-box__icon" src="../../images/arrows-down.svg" alt=""></div>
+        <button class="btn-circle"><img src="../../images/ico-40_circle-refresh.svg" alt="새로고침"></button>
+        <div class="input-box input-box--search table-filter__search"><input placeholder="검색어를 입력하세요."><img class="input-box__icon" src="../../images/ico-20px-delete.svg" alt=""><img class="input-box__icon" src="../../images/ico-20px-search.svg" alt=""></div>
+    </div>
+
+    <!-- 테이블 -->
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>결제일</th><th>상품명</th><th>사이트명</th><th>결제방법</th><th>결제금액</th><th>상태</th><th>관리</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2026.01.01</td>
+                <td>Basic 플랜(월간 자동결제)</td>
+                <td>DJ테크트리</td>
+                <td>신용카드</td>
+                <td>110,000원 (VAT포함)</td>
+                <td><span class="status-chip status-chip--done">결제완료</span></td>
+                <td><button class="btn btn--xs btn--line"><img src="../../images/picto-receipt.svg" alt="">영수증</button></td>
+            </tr>
+            <tr>
+                <td>2026.01.01</td>
+                <td>Basic 플랜(월간 자동결제)</td>
+                <td>DJ테크트리</td>
+                <td>신용카드</td>
+                <td>110,000원 (VAT포함)</td>
+                <td><span class="status-chip status-chip--done">결제완료</span></td>
+                <td><button class="btn btn--xs btn--line"><img src="../../images/picto-receipt.svg" alt="">영수증</button></td>
+            </tr>
+            <tr>
+                <td>2026.01.01</td>
+                <td>Basic 플랜(월간 자동결제)</td>
+                <td>DJ테크트리</td>
+                <td>신용카드</td>
+                <td>110,000원 (VAT포함)</td>
+                <td><span class="status-chip status-chip--cancel">결제취소</span><span class="data-table__sub">2000.00.00 00:00:00</span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2026.01.01</td>
+                <td>Basic 플랜(월간 자동결제)</td>
+                <td>DJ테크트리</td>
+                <td>신용카드</td>
+                <td>110,000원 (VAT포함)</td>
+                <td><span class="status-chip status-chip--done">결제완료</span></td>
+                <td><button class="btn btn--xs btn--line"><img src="../../images/picto-receipt.svg" alt="">영수증</button></td>
+            </tr>
+            <tr>
+                <td>2026.01.01</td>
+                <td>Basic 플랜(월간 자동결제)</td>
+                <td>DJ테크트리</td>
+                <td>신용카드</td>
+                <td>110,000원 (VAT포함)</td>
+                <td><span class="status-chip status-chip--done">결제완료</span></td>
+                <td><button class="btn btn--xs btn--line"><img src="../../images/picto-receipt.svg" alt="">영수증</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 더보기 -->
+    <div class="table-more">더보기 <img src="../../images/arrows-down.svg" alt=""></div>
+
+    <!-- ===================== INFO TABLE (폼형) ===================== -->
+    <p class="sg-label sg-label--mt">INFO TABLE</p>
+    <div class="info-table">
+
+        <!-- 문의유형 -->
+        <div class="info-table__row">
+            <div class="info-table__th">문의유형<span class="info-table__req">*</span></div>
+            <div class="info-table__td">
+                <div class="inquiry-radios">
+                    <label class="c-radio"><input type="radio" name="inq" checked><span class="c-radio__dot"></span>상품</label>
+                    <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>결제 (구매 및 환불)</label>
+                    <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>제휴 문의</label>
+                    <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>서비스 문의</label>
+                    <label class="c-radio"><input type="radio" name="inq"><span class="c-radio__dot"></span>기타</label>
+                </div>
+                <div class="inquiry-sub">
+                    <p class="inquiry-sub__label">상품 유형을 선택해 주세요</p>
+                    <div class="inquiry-sub__btns">
+                        <button class="plan-btn plan-btn--active">상품전반</button>
+                        <button class="plan-btn">무료플랜</button>
+                        <button class="plan-btn">유료플랜</button>
+                        <button class="plan-btn">엔터프라이즈</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 제목 -->
+        <div class="info-table__row">
+            <div class="info-table__th">제목<span class="info-table__req">*</span></div>
+            <div class="info-table__td info-table__td--tight">
+                <div class="input-box"><input placeholder="문의 제목을 입력해 주세요"></div>
+            </div>
+        </div>
+
+        <!-- 내용 -->
+        <div class="info-table__row">
+            <div class="info-table__th">내용<span class="info-table__req">*</span></div>
+            <div class="info-table__td">
+                <div class="editor">
+                    <div class="editor__toolbar">
+                        <button class="editor__btn editor__btn--b">B</button>
+                        <button class="editor__btn editor__btn--i">I</button>
+                        <button class="editor__btn editor__btn--u">U</button>
+                        <button class="editor__btn editor__btn--s">S</button>
+                        <span class="editor__divider"></span>
+                        <button class="editor__btn">•</button>
+                        <button class="editor__btn">≡</button>
+                        <span class="editor__divider"></span>
+                        <button class="editor__btn">↗</button>
+                        <button class="editor__btn">▣</button>
+                        <span class="editor__divider"></span>
+                        <button class="editor__btn">≣</button>
+                        <button class="editor__btn">≡</button>
+                        <button class="editor__btn">≡</button>
+                        <span class="editor__divider"></span>
+                        <button class="editor__btn">Tx</button>
+                    </div>
+                    <div class="editor__body">
+                        우리 서비스의 기능이나 이용 방법에 대해 궁금한 점이 생기셨나요? 사소한 질문이라도 정성껏 답변해 드릴게요!
+                        <ul>
+                            <li>채널이 있을 경우 URL 주소를 적어주세요.</li>
+                            <li>어떤 기능과 플랜이 궁금하신가요?</li>
+                            <li>궁금한 내용을 자유롭게 남겨주세요:</li>
+                            <li>자세히 작성해 주실수록 빠르고 정확한 답변이 가능합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 첨부파일 -->
+        <div class="info-table__row">
+            <div class="info-table__th">첨부파일 (선택)<span class="info-table__req">*</span></div>
+            <div class="info-table__td">
+                <div class="file-upload">
+                    <button class="btn btn--upload">파일 업로드</button>
+                    <span class="file-upload__hint">최대 5개, 파일당 10MB 이하 (이미지, PDF, 문서, 압축파일)</span>
+                </div>
+                <div class="file-item">
+                    <img src="../../images/Ico_file.svg" alt="">image.jpg
+                    <button class="file-item__remove">✕</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===================== DETAIL (읽기형 상세) ===================== -->
+    <p class="sg-label sg-label--mt">DETAIL</p>
+    <div class="detail-box">
+        <h4 class="detail-head">문의내용</h4>
+        <div class="detail-meta">
+            <span class="detail-meta__label">문의유형</span>
+            <span class="detail-meta__value">상품 - 무료플랜</span>
+        </div>
+        <div class="detail-body">
+            <p>블라블라블라 블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라 블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라 블라블라블라블라블라블라블라블라블라블라블라~~~~~~~~</p>
+            <p>블라블라블라 블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라 블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라 블라블라블라블라블라블라블라블라블라블라블라~~~~~~~~</p>
+            <p>블라블라블라 블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라 블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라 블라블라블라블라블라블라블라블라블라블라블라~~~~~~~~</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

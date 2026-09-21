@@ -1,0 +1,239 @@
+/* =========================================================
+   Styleguide preview (styleguide 폴더 전용)
+   - base.css 의 디자인 토큰을 사용하므로 base.css 다음에 로드
+   ========================================================= */
+:root {
+    --sg-accent: #5B6CF0;   /* 스타일가이드 문서 강조색 (브랜드색 아님) */
+}
+
+.sg { max-width: 1440px; margin: 0 auto; padding: 40px 20px; }
+.sg-title {
+    margin: 0 0 32px;
+    padding-left: 12px;
+    border-left: 4px solid var(--sg-accent);
+    color: var(--sg-accent);
+    font-size: var(--fs-h6);
+    font-weight: var(--fw-bold);
+}
+.sg-label {
+    margin: 0 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--btn-gray-lighter);
+    font-weight: var(--fw-bold);
+}
+.sg-label--mt { margin-top: 48px; }
+.sg-notes { margin: 0 0 32px; padding-left: 18px; font-size: 13px; line-height: 1.8; color: var(--text-gray); }
+.sg-state { margin: 32px 0 12px; font-size: 13px; font-weight: 600; color: var(--sg-accent); }
+.sg-font {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 40px;
+    padding: 32px;
+    background: #F8F9FC;
+    border-radius: 12px;
+}
+.sg-font-box {
+    flex: none;
+    width: 180px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2B3A67;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 56px;
+}
+.sg-font-name {
+    margin: 0 0 12px;
+    color: var(--sg-accent);
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+}
+.sg-font-set { margin: 4px 0; color: var(--text-dark); letter-spacing: 2px; }
+.sg-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--btn-gray-lighter);
+}
+.sg-tag {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--sg-accent);
+    font-size: var(--fs-b3);
+    font-weight: var(--fw-bold);
+}
+.sg-meta { margin: 10px 0 0; color: var(--text-light); font-size: var(--fs-b3); }
+.sg-meta span { margin-right: 24px; }
+
+/* ---- Color swatches ---- */
+.sg-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+.sg-swatch {
+    width: 150px;
+    border: 1px solid var(--btn-gray-lighter);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.sg-swatch-color { height: 110px; }
+.sg-swatch-hex {
+    padding: 12px;
+    background: var(--text-white);
+    font-size: var(--fs-b3);
+    text-align: center;
+}
+
+/* 페이지 배경 (연한 회색) */
+.sg-page-gray { min-height: 100vh; background: var(--bg-100); }
+
+/* ---- Badge / Toggle preview rows ---- */
+.sg-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.sg-badges--col { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+/* ---- Card preview rows ---- */
+.sg-cards { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 40px; align-items: stretch; }
+.sg-cards--stack { flex-direction: column; }
+.sg-cards--full { flex-wrap: nowrap; gap: 15px; }
+.sg-cards--full > * { flex: 1; min-width: 0; }
+.sg-cards--2col { align-items: flex-start; }
+.sg-cards--2col > * { flex: 1 1 calc(50% - 12px); min-width: 0; }
+.sg-cards--grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.sg-cards--grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sg-modals { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; }
+
+/* ---- Form preview ---- */
+.sg-form { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px 20px; margin-bottom: 28px; }
+.sg-form__label { margin: 0 0 8px; font-size: var(--fs-b3); color: var(--text-gray); }
+.sg-form__cell { min-width: 0; }
+.sg-form--date .input-box { width: 128px; flex: none; }
+.sg-form-toggles { display: flex; flex-wrap: wrap; gap: 48px; margin-bottom: 28px; }
+.sg-form-set { display: flex; flex-direction: column; gap: 14px; }
+.sg-form-set__row { display: flex; align-items: center; gap: 32px; }
+.sg-form-set__row .sg-form__label { margin: 0; width: 90px; }
+
+/* ---- Button preview ---- */
+.sg-btn-grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 16px; }
+.sg-btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 12px; }
+.sg-btn-row__label { width: 64px; flex: none; font-size: var(--fs-b3); color: var(--text-gray); }
+.sg-btn-col { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+/* ---- Icon grid ---- */
+.sg-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.sg-icon {
+    width: 112px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 8px;
+    border: 1px solid var(--btn-gray-lighter);
+    border-radius: 10px;
+    text-align: center;
+}
+.sg-icon img { width: 32px; height: 32px; object-fit: contain; }
+
+/* 72px 표시 그룹 */
+.sg-icons--72 .sg-icon { width: 120px; }
+.sg-icons--72 .sg-icon img { width: 72px; height: 72px; }
+
+/* 64px 표시 그룹 */
+.sg-icons--64 .sg-icon { width: 112px; }
+.sg-icons--64 .sg-icon img { width: 64px; height: 64px; }
+
+/* 56px 표시 그룹 */
+.sg-icons--56 .sg-icon img { width: 56px; height: 56px; }
+
+/* 44px 표시 그룹 */
+.sg-icons--44 .sg-icon img { width: 44px; height: 44px; }
+
+/* 48px 표시 그룹 */
+.sg-icons--48 .sg-icon img { width: 48px; height: 48px; }
+
+/* 24px 표시 그룹 */
+.sg-icons--24 .sg-icon img { width: 24px; height: 24px; }
+
+/* 16px 표시 그룹 */
+.sg-icons--16 .sg-icon img { width: 16px; height: 16px; }
+
+/* 개별 아이콘 크기 오버라이드 */
+.sg-icon--16 img { width: 16px !important; height: 16px !important; }
+.sg-icon--20 img { width: 20px !important; height: 20px !important; }
+.sg-icon--24 img { width: 24px !important; height: 24px !important; }
+.sg-icon--40 img { width: 40px !important; height: 40px !important; }
+.sg-icon--48 img { width: 48px !important; height: 48px !important; }
+.sg-icon-name {
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--text-gray);
+    word-break: break-all;
+}
+
+/* 마스코트(흰색 캐릭터)용 80x80 원형 배경 */
+.sg-char {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #262626;
+    border-radius: 50%;
+}
+.sg-char img { width: 48px; height: 48px; }
+
+/* 어두운 패널 + 40x40 흰 박스 (DISCOUNT 등) */
+.sg-icons--ondark {
+    display: inline-flex;
+    background: #262626;
+    border-radius: 12px;
+    padding: 20px;
+}
+.sg-icons--ondark .sg-icon { background: transparent; border-color: transparent; }
+.sg-icons--ondark .sg-icon img {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+    background: var(--text-white);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+.sg-icons--ondark .sg-icon-name { color: var(--text-white); }
+
+/* 검은 배경(SNS 등 흰색 글리프 아이콘용) */
+.sg-icons--dark {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+    background: var(--btn-dark);
+    border-radius: 12px;
+}
+.sg-icons--dark .sg-icon {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+.sg-icons--dark .sg-icon-name { color: var(--text-white); }
+
+@media (max-width: 768px) {
+    .sg-row { grid-template-columns: 1fr; gap: 20px; }
+    .sg-font { flex-direction: column; align-items: flex-start; }
+    .sg-swatch { width: calc(50% - 8px); }
+    .sg-icon { width: calc(33.333% - 8px); }
+}
