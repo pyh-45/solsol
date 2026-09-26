@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 디자인 — 쏠쏠 주요기능</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="../home/index.html"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="mnav__group is-open">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">주요 기능 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a></div>
+            </div>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="../home/index.html">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 히어로 -->
+    <section class="feat-hero">
+        <span class="feat-hero__badge">노코드 사이트 빌더</span>
+        <h1 class="feat-hero__title">디자이너 없이 만드는,<br>나의 브랜드 공간</h1>
+        <p class="feat-hero__desc">메뉴부터 랜딩페이지까지 디자이너나 개발자 없이 원하는 형태로 구성하여 <br>브랜드 아이덴티티를 자연스럽게 담아낼 수 있습니다.</p>
+        <div class="feat-hero__visual">
+            <img src="../../images/brand02-06-con1.png" alt="쏠쏠로 만든 다양한 브랜드 사이트 예시">
+        </div>
+    </section>
+
+    <!-- 01. PROBLEM -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row">
+            <div class="feat-row__media">
+                <img src="../../images/brand02-06-con2.png" alt="사이트 제작에 시간과 비용을 쏟고 있는 모습의 일러스트">
+            </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">01</span><span class="feat-label__text">PROBLEM</span></div>
+                <h2 class="feat-h2">브랜드는 있어도,<br>사이트를 만들 사람은 없습니다</h2>
+                <p class="feat-body">홈페이지 하나 만들려 해도 개발자를 구하고, 디자인 시안을 주고받고, 수정할 때마다 다시 연락해야 합니다. 콘텐츠에 써야 할 시간과 비용이 사이트 제작에 먼저 소모됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. SOLUTION -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row feat-row--reverse">
+            <div class="feat-row__media">
+                <div class="sdz-build">
+                    <img class="sdz-build__frame" src="../../images/brand02-06-con3.png" alt="섹션을 끌어다 놓아 페이지를 구성하는 편집 화면">
+                    <span class="sdz-build__slot" aria-hidden="true"></span>
+                    <span class="sdz-build__drag" aria-hidden="true">
+                        <img class="sdz-build__item" src="../../images/brand02-06-con3-img.png" alt="">
+                        <img class="sdz-build__cursor" src="../../images/brand02-06-con3-drag.svg" alt="">
+                    </span>
+                </div>
+            </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">02</span><span class="feat-label__text">SOLUTION</span></div>
+                <h2 class="feat-h2">메뉴부터 랜딩페이지까지,<br>클릭 몇 번으로</h2>
+                <p class="feat-body">완전히 빈 화면에서 시작하거나, 미리 준비된 템플릿을 골라 더 빠르게 시작할 수도 있습니다. 메인 배너·배너+텍스트·이미지·텍스트·상품·상품후기·게시판·지도·설문폼, 9가지 섹션을 원하는 순서로 조합해 페이지를 완성하세요. 완성한 페이지는 메뉴에 연결하면 바로 사이트에 노출됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. 9 SECTION TYPES -->
+    <section class="feat-section feat-section--gray">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">03</span><span class="feat-label__text">9 SECTION TYPES</span></div>
+                <h2 class="feat-h2">9가지 섹션으로 자유롭게</h2>
+            </div>
+
+            <div class="sdz-types">
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon01.svg" alt="">
+                    <p class="sdz-type__title">메인 배너</p>
+                    <p class="sdz-type__desc">상단에 큰 배너로 헤드라인·부제·버튼(1~2개)을 강조해 보여줍니다.</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon02.svg" alt="">
+                    <p class="sdz-type__title">배너+텍스트</p>
+                    <p class="sdz-type__desc">배너 이미지 위에 헤드라인·부제·버튼을 함께 배치해 보여줍니다.</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon03.svg" alt="">
+                    <p class="sdz-type__title">이미지</p>
+                    <p class="sdz-type__desc">이미지 한 장을 단독으로 배치해 보여줍니다.</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon04.svg" alt="">
+                    <p class="sdz-type__title">텍스트</p>
+                    <p class="sdz-type__desc">제목과 본문 텍스트로 브랜드 스토리나 안내문을 전달합니다.</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon05.svg" alt="">
+                    <p class="sdz-type__title">상품</p>
+                    <p class="sdz-type__desc">판매 중인 강의·상품을 카드 형태로 보여줍니다.</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon06.svg" alt="">
+                    <p class="sdz-type__title">상품후기</p>
+                    <p class="sdz-type__desc">수강생 후기를 작성자·평점·내용과 함께 보여줍니다(상품명 노출 여부 선택 가능).</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon07.svg" alt="">
+                    <p class="sdz-type__title">게시판</p>
+                    <p class="sdz-type__desc">게시판 글 목록을 보여줍니다.</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon08.svg" alt="">
+                    <p class="sdz-type__title">지도</p>
+                    <p class="sdz-type__desc">주소·전화번호와 함께 위치를 지도로 안내합니다.</p>
+                </div>
+                <div class="sdz-type">
+                    <img class="sdz-type__icon" src="../../images/brand02-06-con4-icon09.svg" alt="">
+                    <p class="sdz-type__title">설문폼</p>
+                    <p class="sdz-type__desc">설문 참여 링크를 삽입해 방문자의 의견을 수집합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. BENEFIT -->
+    <section class="feat-section">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">04</span><span class="feat-label__text">BENEFIT</span></div>
+                <h2 class="feat-h2">이런 분들이 쓰기 좋아요</h2>
+            </div>
+
+            <div class="sdz-cards">
+                <div class="sdz-card">
+                    <span class="sdz-card__icon"><img src="../../images/brand02-06-con5-icon01.svg" alt=""></span>
+                    <p class="sdz-card__title">개발자 없이 완성</p>
+                    <p class="sdz-card__desc">드래그앤드롭으로 섹션을 배치하기만 하면 됩니다. 코드 한 줄 몰라도 원하는 페이지를 직접 만들 수 있습니다.</p>
+                </div>
+                <div class="sdz-card">
+                    <span class="sdz-card__icon"><img src="../../images/brand02-06-con5-icon02.svg" alt=""></span>
+                    <p class="sdz-card__title">언제든 자유롭게 수정</p>
+                    <p class="sdz-card__desc">이벤트나 시즌에 맞춰 페이지 구성을 바꾸고 싶을 때, 외주 없이 몇 번의 클릭으로 바로 반영할 수 있습니다.</p>
+                </div>
+                <div class="sdz-card">
+                    <span class="sdz-card__icon"><img src="../../images/brand02-06-con5-icon03.svg" alt=""></span>
+                    <p class="sdz-card__title">템플릿으로 더 빠르게 시작</p>
+                    <p class="sdz-card__desc">완전히 빈 화면부터 직접 구성할 수도 있고, 미리 만들어진 여러 템플릿 중 골라 더 빠르게 시작할 수도 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 하단 CTA -->
+    <section class="feat-cta">
+        <h2 class="feat-cta__title">크리에이터의 상상이 쏠쏠한 비즈니스로 <span class="feat-cta__hl">완성</span>되는 순간</h2>
+        <p class="feat-cta__sub">AI 자동화부터 판매, 운영, 구독 비즈니스까지 성장을 위한 모든 과정을 쏠쏠이 함께합니다</p>
+        <div class="feat-cta__btns">
+            <a class="btn btn--fill" href="#">무료로 시작하기 <img src="../../images/arrow-right.svg" alt=""></a>
+            <a class="btn btn--ghost" href="../inquiry/inquiry.html">상담 문의하기</a>
+        </div>
+    </section>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="teacher-mode.html">강사모드</a><a href="#">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- GNB 스크롤 다크/라이트 전환 -->
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+    <!-- 스크롤 진입 애니메이션 (헤더/푸터 제외 콘텐츠 아래→위) -->
+    <script>
+    (function () {
+        var SELECTORS = [
+            '.feat-hero__badge', '.feat-hero__title', '.feat-hero__desc', '.feat-hero__visual',
+            '.feat-head', '.feat-row__media', '.feat-row__body',
+            '.sdz-type', '.sdz-card',
+            '.feat-cta__title', '.feat-cta__sub', '.feat-cta__btns'
+        ];
+        var els = document.querySelectorAll(SELECTORS.join(','));
+        if (!els.length) return;
+
+        // 같은 부모끼리 순차 지연(stagger)
+        var byParent = new Map();
+        els.forEach(function (el) {
+            el.classList.add('reveal-up');
+            var arr = byParent.get(el.parentElement) || [];
+            arr.push(el);
+            byParent.set(el.parentElement, arr);
+        });
+        byParent.forEach(function (arr) {
+            arr.forEach(function (el, i) { el.dataset.revDelay = Math.min(i, 6) * 70; });
+        });
+
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('is-in'); });
+            return;
+        }
+        function reveal(el) {
+            if (el.classList.contains('is-in')) return;
+            el.style.transitionDelay = (el.dataset.revDelay || 0) + 'ms';
+            el.classList.add('is-in');
+            io.unobserve(el);
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) reveal(e.target); });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+        els.forEach(function (el) { io.observe(el); });
+
+        // 이미지 로딩 등으로 레이아웃이 뒤늦게 잡히는 경우를 위한 보조 검사
+        var left = els.length;
+        function sweep() {
+            if (!left) return;
+            var h = window.innerHeight;
+            els.forEach(function (el) {
+                if (el.classList.contains('is-in')) return;
+                var r = el.getBoundingClientRect();
+                if (r.top < h * 0.9 && r.bottom > 0) { reveal(el); left--; }
+            });
+        }
+        window.addEventListener('scroll', sweep, { passive: true });
+        window.addEventListener('resize', sweep);
+        window.addEventListener('load', sweep);
+        sweep();
+    })();
+    </script>
+
+</body>
+</html>
