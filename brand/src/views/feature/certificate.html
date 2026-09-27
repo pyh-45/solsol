@@ -230,43 +230,33 @@
     </section>
 
     <!-- 04. SCENARIO — 강의 성격별 활용 -->
-    <section class="feat-section feat-section--gray">
-        <div class="feat-inner">
-            <div class="feat-head">
-                <div class="feat-label"><span class="feat-label__no">04</span><span class="feat-label__text">SCENARIO</span></div>
-                <h2 class="feat-h2">강의 성격에 맞게 골라 쓰는 수료증</h2>
+    <section class="feat-section">
+        <div class="feat-inner feat-row cert-scene">
+            <div class="feat-row__media cert-scene__media">
+                <img class="cert-scene__img" src="../../images/brand02-03-04-con.png" alt="자격증형 세로 수료증과 글로벌 강의용 영문 수료증 예시">
+
+                <div class="cert-scene__cap cert-scene__cap--license">
+                    <span class="cert-scene__badge"><img src="../../images/brand02-03-04-icon01.svg" alt="">자격증형 강의</span>
+                    <p class="cert-scene__title">세로형 템플릿 지정</p>
+                    <p class="cert-scene__desc">자격증형 강의엔 세로형을 지정하고, <br><b class="cert-scene__hl">"직인"</b>을 켜서 공식성을 강조합니다.</p>
+                </div>
+
+                <div class="cert-scene__cap cert-scene__cap--global">
+                    <span class="cert-scene__badge cert-scene__badge--global"><img src="../../images/brand02-03-04-icon02.svg" alt="">글로벌 강의</span>
+                    <p class="cert-scene__title">영문형 템플릿 지정</p>
+                    <p class="cert-scene__desc">해외 수강생 대상 강의엔 영문형을 지정하고, <br><b class="cert-scene__hl cert-scene__hl--global">"수료번호"</b>를 꺼서 심플하게 구성합니다.</p>
+                </div>
             </div>
 
-            <div class="cert-case">
-                <div class="cert-case__item">
-                    <span class="cert-case__badge">자격증형 강의</span>
-                    <p class="cert-case__title">세로형 템플릿 지정</p>
-                    <p class="cert-case__desc">자격증형 강의엔 세로형을 지정하고, "직인"을 켜서 공식성을<br>강조합니다.</p>
-                    <div class="cert-case__thumb cert-case__thumb--license">
-                        <span class="cert-case__toggle cert-case__toggle--license c-toggle-text c-toggle-text--static is-on" aria-hidden="true">
-                            <span class="c-toggle-text__track"><span class="c-toggle-text__pill">이름</span></span>
-                        </span>
-                        <img src="../../images/brand02-03-04-license.png" alt="자격증형 강의에 세로형 템플릿을 적용한 예시">
-                    </div>
-                </div>
-
-                <div class="cert-case__item">
-                    <span class="cert-case__badge cert-case__badge--global">글로벌 강의</span>
-                    <p class="cert-case__title">영문형 템플릿 지정</p>
-                    <p class="cert-case__desc">해외 수강생 대상 강의엔 영문형을 지정하고, "수료번호"를 꺼서 심플하게<br>구성합니다.</p>
-                    <div class="cert-case__thumb cert-case__thumb--global">
-                        <span class="cert-case__toggle cert-case__toggle--global c-toggle-text c-toggle-text--static" aria-hidden="true">
-                            <span class="c-toggle-text__track"><span class="c-toggle-text__pill">번호</span></span>
-                        </span>
-                        <img src="../../images/brand02-03-04-global.png" alt="글로벌 강의에 영문형 템플릿을 적용한 예시">
-                    </div>
-                </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">04</span><span class="feat-label__text">SCENARIO</span></div>
+                <h2 class="feat-h2">강의 성격에 맞게<br>골라 쓰는 수료증</h2>
             </div>
         </div>
     </section>
 
     <!-- 05. WORKFLOW — 자동 발급 흐름 -->
-    <section class="feat-section">
+    <section class="feat-section feat-section--gray feat-section--flush">
         <div class="feat-inner">
             <div class="feat-head">
                 <div class="feat-label"><span class="feat-label__no">05</span><span class="feat-label__text">WORKFLOW</span></div>
@@ -502,7 +492,7 @@
         var SELECTORS = [
             '.feat-hero__badge', '.feat-hero__title', '.feat-hero__desc', '.feat-hero__visual',
             '.feat-row__media', '.feat-row__body',
-            '.feat-head', '.cert-slider', '.cert-case__item',
+            '.feat-head', '.cert-slider', '.cert-scene__cap',
             '.feat-cta__title', '.feat-cta__sub', '.feat-cta__btns'
         ];
         var els = document.querySelectorAll(SELECTORS.join(','));
