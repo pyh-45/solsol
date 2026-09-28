@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 기능 — 쏠쏠 주요기능</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@latest/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="../../../css/base.css">
+</head>
+<body>
+
+    <!-- Mobile Nav (≤1024 전용) -->
+    <div class="mnav">
+        <div class="mnav__bar">
+            <a class="mnav__logo" href="../home/index.html"><img src="../../images/logo-white.svg" alt="쏠쏠"></a>
+            <a class="mnav__cta" href="#">무료로 시작하기</a>
+            <button class="mnav__toggle" aria-label="메뉴" onclick="this.closest('.mnav').classList.toggle('is-open')"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="mnav__panel">
+            <div class="mnav__group">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="mnav__group is-open">
+                <button class="mnav__item" onclick="this.parentElement.classList.toggle('is-open')">주요 기능 <img class="mnav__chev" src="../../images/arrows-down.svg" alt=""></button>
+                <div class="mnav__sub"><a href="teacher-mode.html">강사모드</a><a href="ai.html">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a></div>
+            </div>
+            <a class="mnav__item" href="#">가격</a>
+            <a class="mnav__item" href="#">운영가이드</a>
+            <div class="mnav__util">
+                <span class="mnav__util-item"><img src="../../images/line-20px-global.svg" alt="">한국어</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+                <span class="mnav__util-item"><img src="../../images/line-20px-login.svg" alt="">로그인</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- GNB (Default / Dark, 스크롤 시 Light) -->
+    <header class="gnb gnb--dark gnb--sticky">
+        <a class="gnb__logo" href="../home/index.html">
+            <img class="gnb__logo-dark" src="../../images/logo-white.svg" alt="쏠쏠">
+            <img class="gnb__logo-light" src="../../images/logo.svg" alt="쏠쏠">
+        </a>
+        <nav class="gnb__menu">
+            <div class="gnb__menu-item"><span class="gnb__menu-link">서비스 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">주요 기능 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt=""></span>
+                <div class="gnb__dropdown"><a href="teacher-mode.html">강사모드</a><a href="ai.html">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a></div>
+            </div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">가격</span></div>
+            <div class="gnb__menu-item"><span class="gnb__menu-link">운영가이드</span></div>
+        </nav>
+        <div class="gnb__util">
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-global.svg" alt="">한국어 <img class="gnb-icon gnb__chev" src="../../images/arrows-down.svg" alt="">
+                <div class="gnb__dropdown"><a href="#">한국어</a><a href="#">영어</a></div>
+            </span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-message-notif.svg" alt="">문의하기</span>
+            <span class="gnb__util-item"><img class="gnb-icon gnb__util-icon" src="../../images/line-20px-login.svg" alt="">로그인</span>
+            <a class="gnb__cta" href="#">무료로 시작하기</a>
+        </div>
+    </header>
+
+    <!-- 히어로 -->
+    <section class="feat-hero">
+        <span class="feat-hero__badge">AI 자동화</span>
+        <h1 class="feat-hero__title">영상만 올리세요<br>자막부터 퀴즈 생성까지 AI가 다 알아서 하니까</h1>
+        <p class="feat-hero__desc">콘텐츠를 올리기만 하면 번거로운 부가 업무는 쏠쏠의 AI가 대신 처리해 드립니다.</p>
+
+        <div class="ai-tabs" role="tablist">
+            <button type="button" class="ai-tab is-on" role="tab" aria-selected="true" aria-controls="ai-panel-caption">자막</button>
+            <button type="button" class="ai-tab" role="tab" aria-selected="false" aria-controls="ai-panel-translate">번역</button>
+            <button type="button" class="ai-tab" role="tab" aria-selected="false" aria-controls="ai-panel-tutor">튜터</button>
+        </div>
+
+        <div class="ai-panel is-on" id="ai-panel-caption" role="tabpanel">
+            <div class="ai-hero-visual">
+                <img src="../../images/brand02-02-con00-bg.png" alt="AI 자막 관리 화면">
+                <div class="ai-cap">
+                    <p class="ai-cap__title">자막생성</p>
+                    <div class="ai-cap__body">
+                        <div class="ai-cap__wave" aria-hidden="true">
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                        </div>
+
+                        <div class="ai-cap__progress">
+                            <span class="ai-cap__label">변환율</span>
+                            <span class="ai-cap__track"><span class="ai-cap__fill"></span></span>
+                            <span class="ai-cap__pct">
+                                <span class="ai-cap__pct-list">
+                                    <span>10<b>%</b></span>
+                                    <span>24<b>%</b></span>
+                                    <span>38<b>%</b></span>
+                                    <span>47<b>%</b></span>
+                                    <span>58<b>%</b></span>
+                                </span>
+                            </span>
+                        </div>
+
+                        <div class="ai-cap__lines">
+                            <p class="ai-cap__line ai-cap__line--a">
+                                <span class="ai-cap__time">00:12 - 00:15</span>
+                                <span class="ai-cap__text">오늘은 채널 성장의 핵심 지표를 살펴보겠습니다.</span>
+                            </p>
+                            <p class="ai-cap__line ai-cap__line--b ai-cap__line--wait">
+                                <span class="ai-cap__time">00:16 - …</span>
+                                <span class="ai-cap__wait">변환 중…</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ai-panel" id="ai-panel-translate" role="tabpanel">
+            <div class="ai-hero-visual">
+                <img src="../../images/brand02-02-con00-bg2.png" alt="AI 번역 관리 화면">
+                <div class="ai-lang">
+                    <p class="ai-lang__title">언어선택</p>
+                    <div class="ai-lang__body">
+                        <div class="ai-lang__search">번역할 언어 검색
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <ul class="ai-lang__list">
+                            <li class="ai-lang__row ai-lang__row--r1">그리스어
+                                <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                            </li>
+                            <li class="ai-lang__row ai-lang__row--r2">독일어
+                                <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                            </li>
+                            <li class="ai-lang__row ai-lang__row--r3">영어
+                                <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                            </li>
+                            <li class="ai-lang__row ai-lang__row--r4">중국어
+                                <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                            </li>
+                        </ul>
+                        <p class="ai-lang__btn">
+                            선택 언어 번역
+                        </p>
+                    </div>
+                    <img class="ai-lang__cursor" src="../../images/cursor.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="ai-panel" id="ai-panel-tutor" role="tabpanel">
+            <div class="ai-hero-visual">
+                <img src="../../images/brand02-02-con00-bg.png" alt="AI 튜터 관리 화면">
+                <div class="ai-chat">
+                    <p class="ai-chat__title">AI 튜터</p>
+                    <div class="ai-chat__log">
+                        <div class="ai-chat__row ai-chat__row--bot ai-chat__row--s1">
+                            <span class="ai-chat__avatar"><img src="../../images/brand02-02-ai-tutor.png" alt=""></span>
+                            <span class="ai-chat__bubble">
+                                <span class="ai-chat__line">3강 자료를 모두 읽었어요.</span>
+                                <span class="ai-chat__line">무엇이 궁금하신가요?</span>
+                            </span>
+                        </div>
+                        <div class="ai-chat__row ai-chat__row--me ai-chat__row--s2">
+                            <span class="ai-chat__bubble">
+                                <span class="ai-chat__line">3강 요약하고 퀴즈 만들어 줘</span>
+                            </span>
+                        </div>
+                        <div class="ai-chat__row ai-chat__row--bot ai-chat__row--grow ai-chat__row--s3">
+                            <span class="ai-chat__avatar"><img src="../../images/brand02-02-ai-tutor.png" alt=""></span>
+                            <span class="ai-chat__bubble">
+                                <span class="ai-chat__line">핵심 3줄 요약과 5문항 퀴즈를 만들고</span>
+                                <span class="ai-chat__line">있어요</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ai-chat__input">
+                        <span class="ai-chat__field">튜터에게 궁금한 내용을 물어보세요</span>
+                        <span class="ai-chat__send">전송</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01. AI TUTOR -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row">
+            <div class="feat-row__media">
+                <div class="ai-chat-card">
+                    <div class="ai-chat">
+                        <p class="ai-chat__title">AI 튜터</p>
+                        <div class="ai-chat__log">
+                            <div class="ai-chat__row ai-chat__row--bot ai-chat__row--s1">
+                                <span class="ai-chat__avatar"><img src="../../images/brand02-02-ai-tutor.png" alt=""></span>
+                                <span class="ai-chat__bubble">
+                                    <span class="ai-chat__line">3강 자료를 모두 읽었어요.</span>
+                                    <span class="ai-chat__line">무엇이 궁금하신가요?</span>
+                                </span>
+                            </div>
+                            <div class="ai-chat__row ai-chat__row--me ai-chat__row--s2">
+                                <span class="ai-chat__bubble">
+                                    <span class="ai-chat__line">3강 요약하고 퀴즈 만들어 줘</span>
+                                </span>
+                            </div>
+                            <div class="ai-chat__row ai-chat__row--bot ai-chat__row--grow ai-chat__row--s3">
+                                <span class="ai-chat__avatar"><img src="../../images/brand02-02-ai-tutor.png" alt=""></span>
+                                <span class="ai-chat__bubble">
+                                    <span class="ai-chat__line">핵심 3줄 요약과 5문항 퀴즈를 만들고</span>
+                                    <span class="ai-chat__line">있어요</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ai-chat__input">
+                            <span class="ai-chat__field">튜터에게 궁금한 내용을 물어보세요</span>
+                            <span class="ai-chat__send">전송</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">01</span><span class="feat-label__text">AI TUTOR</span></div>
+                <h2 class="feat-h2">AI 튜터</h2>
+                <p class="feat-body">강의 자료를 업로드하면 AI가 핵심 요약부터 퀵즈 생성까지 자동 완성합니다. 학습자는 AI와 대화하며 궁금한 내용을 바로 해결할 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. AI TRANSLATE -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row feat-row--reverse">
+            <div class="feat-row__media ai-trans">
+                <img class="ai-trans__flags" src="../../images/national-flag.png" alt="">
+                    <div class="ai-lang">
+                        <p class="ai-lang__title">언어선택</p>
+                        <div class="ai-lang__body">
+                            <div class="ai-lang__search">번역할 언어 검색
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <ul class="ai-lang__list">
+                                <li class="ai-lang__row ai-lang__row--r1">그리스어
+                                    <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                                </li>
+                                <li class="ai-lang__row ai-lang__row--r2">독일어
+                                    <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                                </li>
+                                <li class="ai-lang__row ai-lang__row--r3">영어
+                                    <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                                </li>
+                                <li class="ai-lang__row ai-lang__row--r4">중국어
+                                    <span class="ai-lang__add"><span class="ai-lang__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5L10 17.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>추가</span>
+                                </li>
+                            </ul>
+                            <p class="ai-lang__btn">
+                                선택 언어 번역
+                            </p>
+                        </div>
+                        <img class="ai-lang__cursor" src="../../images/cursor.png" alt="">
+                    </div>
+            </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">02</span><span class="feat-label__text">AI TRANSLATE</span></div>
+                <h2 class="feat-h2">AI 번역</h2>
+                <p class="feat-body">클릭 한 번으로 다국어 자막 번역이 완료됩니다. 해외 구독자에게도 언어 장벽 없이 콘텐츠를 전달할 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. AI CAPTION -->
+    <section class="feat-section">
+        <div class="feat-inner feat-row">
+            <div class="feat-row__media ai-cap-card">
+                <div class="ai-cap">
+                    <p class="ai-cap__title">자막생성</p>
+                    <div class="ai-cap__body">
+                        <div class="ai-cap__wave" aria-hidden="true">
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                            <span class="ai-cap__bar"></span>
+                        </div>
+
+                        <div class="ai-cap__progress">
+                            <span class="ai-cap__label">변환율</span>
+                            <span class="ai-cap__track"><span class="ai-cap__fill"></span></span>
+                            <span class="ai-cap__pct">
+                                <span class="ai-cap__pct-list">
+                                    <span>10<b>%</b></span>
+                                    <span>24<b>%</b></span>
+                                    <span>38<b>%</b></span>
+                                    <span>47<b>%</b></span>
+                                    <span>58<b>%</b></span>
+                                </span>
+                            </span>
+                        </div>
+
+                        <div class="ai-cap__lines">
+                            <p class="ai-cap__line ai-cap__line--a">
+                                <span class="ai-cap__time">00:12 - 00:15</span>
+                                <span class="ai-cap__text">오늘은 채널 성장의 핵심 지표를 살펴보겠습니다.</span>
+                            </p>
+                            <p class="ai-cap__line ai-cap__line--b ai-cap__line--wait">
+                                <span class="ai-cap__time">00:16 - …</span>
+                                <span class="ai-cap__wait">변환 중…</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="feat-row__body">
+                <div class="feat-label"><span class="feat-label__no">03</span><span class="feat-label__text">AI CAPTION</span></div>
+                <h2 class="feat-h2">AI 자동자막</h2>
+                <p class="feat-body">영상만 올리면 음성을 분석해 자막이 자동으로 생성됩니다. 자막 작업에 쓰던 시간을 콘텐츠 제작에 다시 쓸 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. GROWTH SCENARIO -->
+    <section class="feat-section feat-section--gray feat-section--flush">
+        <div class="feat-inner">
+            <div class="feat-head">
+                <div class="feat-label"><span class="feat-label__no">04</span><span class="feat-label__text">GROWTH SCENARIO</span></div>
+                <h2 class="feat-h2">영상 하나로 완성하는 글로벌 강의</h2>
+            </div>
+
+            <ol class="cert-flow">
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-02-con04-icon01.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 1</p>
+                    <p class="cert-flow__title">영상 업로드</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-02-con04-icon02.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 2</p>
+                    <p class="cert-flow__title">AI 자막 생성</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-02-con04-icon03.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 3</p>
+                    <p class="cert-flow__title">AI 번역 생성</p>
+                </li>
+                <li class="cert-flow__step">
+                    <span class="cert-flow__icon"><img src="../../images/brand02-02-con04-icon04.svg" alt=""></span>
+                    <p class="cert-flow__no">STEP 4</p>
+                    <p class="cert-flow__title">AI 튜터 학습 지원</p>
+                </li>
+            </ol>
+
+            <div class="ai-result">
+                <span class="ai-result__arrow" aria-hidden="true"></span>
+                <span class="ai-result__pill"><img src="../../images/brand02-02-con04-icon-global.svg" alt="">해외 구독자 유입 · 이탈 없는 학습</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 하단 CTA -->
+    <section class="feat-cta">
+        <h2 class="feat-cta__title">크리에이터의 상상이 쏠쏠한 비즈니스로 <span class="feat-cta__hl">완성</span>되는 순간</h2>
+        <p class="feat-cta__sub">AI 자동화부터 판매, 운영, 구독 비즈니스까지 성장을 위한 모든 과정을 쏠쏠이 함께합니다</p>
+        <div class="feat-cta__btns">
+            <a class="btn btn--fill" href="#">무료로 시작하기 <img src="../../images/arrow-right.svg" alt=""></a>
+            <a class="btn btn--ghost" href="../inquiry/inquiry.html">상담 문의하기</a>
+        </div>
+    </section>
+
+    <!-- Mobile Footer (≤768 전용) -->
+    <footer class="mfooter">
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">서비스 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">주요기능 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="teacher-mode.html">강사모드</a><a href="ai.html">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">지원 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="#">운영가이드</a><a href="#">업데이트 소식</a></div>
+        </div>
+        <div class="mfooter__group">
+            <button class="mfooter__head" onclick="this.parentElement.classList.toggle('is-open')">정보 <img class="mfooter__chev" src="../../images/arrows-down.svg" alt=""></button>
+            <div class="mfooter__sub"><a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a></div>
+        </div>
+        <div class="mfooter__social">
+            <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+            <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+        </div>
+        <div class="mfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="mfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- Footer -->
+    <footer class="gfooter">
+        <div class="gfooter__top">
+            <div class="gfooter__cols">
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">서비스</p>
+                    <a href="#">플랫폼 소개</a><a href="#">프로덕트</a><a href="#">데모보기</a><a href="#">가격</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">주요기능</p>
+                    <a href="teacher-mode.html">강사모드</a><a href="ai.html">AI 기능</a><a href="certificate.html">맞춤형 수료증</a><a href="product-types.html">상품유형 소개</a><a href="partial-open.html">상품 일부공개 기능</a><a href="site-design.html">사이트 디자인</a><a href="marketing.html">마케팅 지원</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">지원</p>
+                    <a href="#">운영가이드</a><a href="#">업데이트 소식</a>
+                </div>
+                <div class="gfooter__col">
+                    <p class="gfooter__col-title">정보</p>
+                    <a href="../footer/terms.html">이용약관</a><a href="../footer/terms-free.html">무료약정상품 이용약관</a><a href="../footer/terms-paid.html">유료약정상품 이용약관</a><a href="../footer/privacy.html">개인정보처리방침</a><a href="../footer/marketing-consent.html">마케팅 정보 수신 동의</a>
+                </div>
+            </div>
+            <div class="gfooter__social">
+                <a href="#"><img src="../../images/ico-44px-youtube.svg" alt="YouTube"></a>
+                <a href="#"><img src="../../images/ico-44px-facebook.svg" alt="Facebook"></a>
+                <a href="#"><img src="../../images/ico-44px-insta.svg" alt="Instagram"></a>
+                <a href="#"><img src="../../images/ico-44px-x.svg" alt="X"></a>
+            </div>
+        </div>
+        <hr class="gfooter__divider">
+        <div class="gfooter__brand"><img src="../../images/logo-white.svg" alt="쏠쏠"></div>
+        <p class="gfooter__tagline">YOUTUBE 크리에이터를 위한 올인원 AI 학습관리 플랫폼, AI 기술로 콘텐츠 제작부터 학습관리까지 모든 것을 자동화합니다.</p>
+    </footer>
+
+    <!-- GNB 스크롤 다크/라이트 전환 -->
+    <script>
+    (function () {
+        var gnb = document.querySelector('.gnb');
+        if (!gnb) return;
+        function syncGnb() {
+            var scrolled = window.scrollY > 10;
+            gnb.classList.toggle('gnb--light', scrolled);
+            gnb.classList.toggle('gnb--dark', !scrolled);
+        }
+        syncGnb();
+        window.addEventListener('scroll', syncGnb, { passive: true });
+    })();
+    </script>
+
+    <!-- 히어로 탭 전환 -->
+    <script>
+    (function () {
+        var tabs = document.querySelectorAll('.ai-tab');
+        if (!tabs.length) return;
+        Array.prototype.forEach.call(tabs, function (tab) {
+            tab.addEventListener('click', function () {
+                var panel = document.getElementById(tab.getAttribute('aria-controls'));
+                if (!panel) return;
+                Array.prototype.forEach.call(tabs, function (t) {
+                    t.classList.remove('is-on');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                Array.prototype.forEach.call(document.querySelectorAll('.ai-panel'), function (p) {
+                    p.classList.remove('is-on');
+                });
+                tab.classList.add('is-on');
+                tab.setAttribute('aria-selected', 'true');
+                panel.classList.add('is-on');
+            });
+        });
+    })();
+    </script>
+
+    <!-- 스크롤 진입 애니메이션 (헤더/푸터 제외 콘텐츠 아래→위) -->
+    <script>
+    (function () {
+        var SELECTORS = [
+            '.feat-hero__badge', '.feat-hero__title', '.feat-hero__desc', '.feat-hero__visual',
+            '.feat-head', '.feat-row__media', '.feat-row__body',
+            '.cert-flow__step', '.ai-result',
+            '.feat-cta__title', '.feat-cta__sub', '.feat-cta__btns'
+        ];
+        var els = document.querySelectorAll(SELECTORS.join(','));
+        if (!els.length) return;
+
+        // 같은 부모끼리 순차 지연(stagger)
+        var byParent = new Map();
+        els.forEach(function (el) {
+            el.classList.add('reveal-up');
+            var arr = byParent.get(el.parentElement) || [];
+            arr.push(el);
+            byParent.set(el.parentElement, arr);
+        });
+        byParent.forEach(function (arr) {
+            arr.forEach(function (el, i) { el.dataset.revDelay = Math.min(i, 6) * 70; });
+        });
+
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('is-in'); });
+            return;
+        }
+        function reveal(el) {
+            if (el.classList.contains('is-in')) return;
+            el.style.transitionDelay = (el.dataset.revDelay || 0) + 'ms';
+            el.classList.add('is-in');
+            io.unobserve(el);
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) reveal(e.target); });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+        els.forEach(function (el) { io.observe(el); });
+
+        // 이미지 로딩 등으로 레이아웃이 뒤늦게 잡히는 경우를 위한 보조 검사
+        var left = els.length;
+        function sweep() {
+            if (!left) return;
+            var h = window.innerHeight;
+            els.forEach(function (el) {
+                if (el.classList.contains('is-in')) return;
+                var r = el.getBoundingClientRect();
+                if (r.top < h * 0.9 && r.bottom > 0) { reveal(el); left--; }
+            });
+        }
+        window.addEventListener('scroll', sweep, { passive: true });
+        window.addEventListener('resize', sweep);
+        window.addEventListener('load', sweep);
+        sweep();
+    })();
+    </script>
+
+</body>
+</html>
