@@ -2137,9 +2137,6 @@ a { color: inherit; text-decoration: none; }
 .feat-section { padding: 100px 40px; }
 /* 배경 밴드 위아래로 흰 여백 100씩 → 앞뒤 섹션 패딩(100)과 합쳐 간격 200 */
 .feat-section--gray { margin: 100px 0; background: #F9F9F9; padding: 160px 40px; }
-/* 다음 섹션(CTA)과 여백 없이 붙이기 */
-.feat-section--flush { margin-bottom: 0; }
-.feat-section--flush + .feat-cta { margin-top: 0; }
 
 /* 섹션 라벨 (01 PROBLEM) */
 .feat-label { display: flex; align-items: center; gap: 14px; }
@@ -2829,6 +2826,10 @@ a { color: inherit; text-decoration: none; }
    주요기능 소개 — AI 기능 (ai)
    ========================================================= */
 
+/* 텔스트 : 이미지 = 50 : 50 행 */
+.ai-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+@media (max-width: 768px) { .ai-row { grid-template-columns: 1fr; } }
+
 /* 히어로 탭 */
 .ai-tabs { display: flex; justify-content: center; gap: 30px; margin: 46px 0 0; }
 .ai-tab { padding: 12px 34px; border: none; border-radius: 999px; background: none; font-family: inherit; font-size: 18px; font-weight: 600; letter-spacing: -0.3px; color: var(--text-light); cursor: pointer; transition: color .2s ease, background-color .2s ease, box-shadow .2s ease; }
@@ -3046,6 +3047,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 1024px) {
     .ai-trans .ai-lang { min-height: 0; }
+    .ai-trans img.ai-trans__flags { width: 25%; top: 30%; }
 }
 
 @media (max-width: 768px) {
@@ -3062,7 +3064,7 @@ a { color: inherit; text-decoration: none; }
 .ai-cap-card .ai-cap { position: absolute; left: 8.3%; top: 6.8%; width: 83.1%; }
 .ai-hero-visual .ai-cap { position: absolute; z-index: 1; left: 55.9%; top: 14.2%; width: 37.8%; }
 .ai-cap__title { margin: 0; padding: 0 30px 11px; border-bottom: 1px solid #EFEFEF; font-size: 17px; font-weight: 700; letter-spacing: -0.3px; color: var(--text-dark); }
-.ai-cap__body { padding: 23px 43px 0; }
+.ai-cap__body { padding: 23px 43px 43px; }
 
 /* 음성 파형 */
 .ai-cap__wave { display: flex; align-items: center; justify-content: center; gap: 2px; height: 53px; opacity: 0; animation: ai-cap-wave-in .4s ease forwards; animation-delay: 1.2s; }
@@ -3151,7 +3153,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 1024px) {
     .ai-cap { min-height: 0; padding-top: 14px; }
     .ai-cap__title { padding: 0 18px 8px; font-size: 13px; }
-    .ai-cap__body { padding: 14px 20px 0; }
+    .ai-cap__body { padding: 14px 20px 20px; }
     .ai-cap__wave { height: 34px; }
     .ai-cap__progress { margin-top: 18px; }
     .ai-cap__pct { height: 22px; font-size: 18px; }
@@ -3166,4 +3168,29 @@ a { color: inherit; text-decoration: none; }
     .ai-cap__line, .ai-cap__text, .ai-cap__wait { animation: none; opacity: 1; transform: none; clip-path: none; }
     .ai-cap__fill { width: 58%; }
     .ai-cap__pct-list { transform: translateY(-80%); }
+}
+
+/* =========================================================
+   다음 섹션(CTA)과 여백 없이 붙이기
+   — 반응형 여백 규칙보다 뒤에 와야 모든 폭에서 적용됨
+   ========================================================= */
+.feat-section--flush { margin-bottom: 0; }
+.feat-section--flush + .feat-cta { margin-top: 0; }
+
+/* 768 이하 — 탭 애니메이션 창을 화면 가운데로, 폭은 1024 수준으로 유지 */
+@media (max-width: 768px) {
+    .ai-hero-visual { display: flex; align-items: center; justify-content: center; padding: 24px 12px; overflow: hidden; }
+    .ai-hero-visual > img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ai-hero-visual .ai-chat,
+    .ai-hero-visual .ai-lang,
+    .ai-hero-visual .ai-cap { position: relative; left: auto; top: auto; width: min(372px, 100%); }
+
+    /* 튜터 · 번역 · 자막 섹션 — 타이틀이 위, 애니메이션이 아래 */
+    .ai-row .feat-row__media,
+    .ai-row.feat-row--reverse .feat-row__media { order: 1; }
+    .ai-row .feat-row__body { order: -1; }
+
+    /* 자막창이 배경박스를 벗어나지 않게 — 고정 비율 해제 + 균일 패딩 */
+    .ai-cap-card { aspect-ratio: auto; display: flex; padding: 24px; }
+    .ai-cap-card .ai-cap { position: static; width: 100%; }
 }
